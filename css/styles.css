@@ -121,7 +121,7 @@ canvas {
 }
 .content {
     position: relative;
-    z-index: 10; /* Ensure content appears above canvas */
+    z-index: 1; /* Ensure content appears above canvas */
 }
 
   /* Headline Styles */
