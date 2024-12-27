@@ -8,28 +8,12 @@ body, html {
     scroll-behavior: smooth; /* Smooth scrolling for better UX */
 }
 
-/* Fix for mobile viewport height */
-:root {
-    --vh: 100%; /* Default value */
-}
-
-@media (max-width: 768px) {
-    :root {
-        --vh: 100vh; /* Use actual viewport height for mobile */
-    }
-}
-
-body, html {
-    height: calc(var(--vh, 1vh) * 100); /* Dynamically calculate height */
-}
-
-/* Section Layout */
 section {
     height: 100vh; /* Full-screen height for each section */
-    display: block; /* Use block layout */
+    display: block; /* Use block layout to prevent flexbox issues */
+    overflow-y: auto; /* Allow vertical scrolling for overflowing content */
     position: relative; /* Ensure proper stacking context */
     background: transparent; /* Allow canvas to show through */
-    z-index: 10; /* Ensure sections stack above canvas */
 }
 
 #intro {
@@ -43,7 +27,6 @@ section {
     justify-content: center;
     text-align: center;
 }
-
 /* Logo Styling */
 .kojib-logo {
     max-width: 15%; /* Reduced size to make the logo smaller */
@@ -57,22 +40,72 @@ section {
 
 /* Shimmer & Glow Animation */
 @keyframes shimmerGlow {
-    0% { filter: brightness(1) contrast(1); }
-    50% { filter: brightness(1.05) contrast(1.02); }
-    100% { filter: brightness(1) contrast(1); }
+    0% {
+        filter: brightness(1) contrast(1);
+    }
+    50% {
+        filter: brightness(1.05) contrast(1.02); /* Subtle shimmer */
+    }
+    100% {
+        filter: brightness(1) contrast(1);
+    }
 }
 
-/* Glowing Pulse Animation */
+/* Glowing Pulse Animation - Subtle and Continuous */
 @keyframes glowPulse {
-    0% { filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.5)) drop-shadow(0 0 20px rgba(0, 255, 153, 0.3)); }
-    50% { filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.7)) drop-shadow(0 0 30px rgba(0, 255, 153, 0.5)); }
-    100% { filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.5)) drop-shadow(0 0 20px rgba(0, 255, 153, 0.3)); }
+    0% {
+        filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.5)) drop-shadow(0 0 20px rgba(0, 255, 153, 0.3));
+    }
+    25% {
+        filter: drop-shadow(0 0 12px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 25px rgba(0, 255, 153, 0.4));
+    }
+    50% {
+        filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.7)) drop-shadow(0 0 30px rgba(0, 255, 153, 0.5));
+    }
+    75% {
+        filter: drop-shadow(0 0 12px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 25px rgba(0, 255, 153, 0.4));
+    }
+    100% {
+        filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.5)) drop-shadow(0 0 20px rgba(0, 255, 153, 0.3));
+    }
 }
 
-/* Fade-In Animation */
+/* Fade-In Animation for Logo */
 @keyframes fadeInLogo {
-    0% { opacity: 0; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
+    0% {
+        opacity: 0;
+        transform: scale(0.8); /* Start smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End at full size */
+    }
+}
+
+/* Logo Resizing for Smaller Screens */
+@media (max-width: 768px) {
+    .kojib-logo {
+        max-width: 25%; /* Slightly bigger on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .kojib-logo {
+        max-width: 30%; /* Even larger on smaller mobile screens */
+    }
+}
+
+/* Subtle glow effect around the image */
+.kojib-logo {
+    position: relative;
+    z-index: 1; /* Ensure the glow stays behind the image */
+    animation: glowPulse 3s infinite alternate; /* Apply the more subtle pulse animation */
+}
+
+/* Adding a continuous, soft glow effect */
+.kojib-logo {
+    position: relative;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 153, 0.4)) drop-shadow(0 0 12px rgba(0, 255, 153, 0.3)); /* Softer, continuous glow */
 }
 
 canvas {
@@ -84,29 +117,10 @@ canvas {
     z-index: 0; /* Ensure canvas stays behind content */
     pointer-events: none; /* Prevent canvas from blocking interaction */
 }
-
 .content {
     position: relative;
     z-index: 10; /* Ensure content appears above canvas */
 }
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    section {
-        z-index: 10; /* Ensure sections stay above canvas */
-    }
-    .content {
-        z-index: 20; /* Higher stacking order for content */
-    }
-}
-
-@media (max-width: 480px) {
-    section {
-        opacity: 1 !important; /* Ensure sections are visible */
-        transform: none !important; /* Reset any transforms */
-    }
-}
-
 
   /* Headline Styles */
   h1.headline {
