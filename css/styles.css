@@ -40,6 +40,8 @@ body, html {
     margin-bottom: 20px; /* Reduced space between the logo and the text */
     transition: all 0.3s ease-in-out; /* Smooth transition for resizing */
     animation: shimmerGlow 3s infinite, glowPulse 2s infinite alternate, fadeInLogo 1.5s ease-out forwards; /* Apply shimmer, glow, and fade-in animations */
+    display: inline-block; /* Allow box-shadow to behave better around the image */
+    position: relative; /* To control glow effect positioning */
   }
   
   /* Shimmer & Glow Animation */
@@ -91,7 +93,23 @@ body, html {
     .kojib-logo {
       max-width: 30%; /* Even larger on smaller mobile screens */
     }
-  }  
+  }
+  
+  /* Adding the glow effect around the image */
+  .kojib-logo::before {
+    content: ''; /* Empty content for pseudo-element */
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(0, 255, 153, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0, 255, 153, 0.9);
+    z-index: -1; /* Place glow behind the image */
+    animation: glowPulse 2s infinite alternate;
+  }
+  
   
   /* Headline Styles */
   h1.headline {
