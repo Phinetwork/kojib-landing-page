@@ -1,6 +1,9 @@
 // Initialize GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+// Detect mobile devices
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
 // Smooth Scroll Animations for Each Section
 gsap.utils.toArray("section").forEach((section) => {
     gsap.fromTo(
