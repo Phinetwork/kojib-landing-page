@@ -33,13 +33,13 @@ body, html {
     z-index: 1;
   }
 
-  /* Logo Styling */
+ /* Logo Styling */
 .kojib-logo {
     max-width: 20%; /* Reduced size to make the logo smaller */
     height: auto;
     margin-bottom: 20px; /* Reduced space between the logo and the text */
     transition: all 0.3s ease-in-out; /* Smooth transition for resizing */
-    animation: shimmerGlow 3s infinite, glowPulse 2s infinite alternate, fadeInLogo 1.5s ease-out forwards; /* Apply shimmer, glow, and fade-in animations */
+    animation: shimmerGlow 3s infinite, glowPulse 3s infinite alternate, fadeInLogo 1.5s ease-out forwards; /* Apply shimmer, glow, and fade-in animations */
     display: inline-block; /* Allow box-shadow to behave better around the image */
     position: relative; /* To control glow effect positioning */
 }
@@ -49,24 +49,33 @@ body, html {
     0% {
         filter: brightness(1) contrast(1);
     }
-    50% {
-        filter: brightness(1.2) contrast(1.1); /* Slightly brighten and enhance contrast */
+    40% {
+        filter: brightness(1.1) contrast(1.05); /* Slightly brighten and contrast */
+    }
+    60% {
+        filter: brightness(1.05) contrast(1.02);
     }
     100% {
         filter: brightness(1) contrast(1);
     }
 }
 
-/* Glowing Pulse Animation */
+/* Glowing Pulse Animation - Subtle */
 @keyframes glowPulse {
     0% {
-        filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.8));
+        filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.4));
+    }
+    25% {
+        filter: drop-shadow(0 0 20px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 30px rgba(0, 255, 153, 0.5));
     }
     50% {
-        filter: drop-shadow(0 0 25px rgba(0, 255, 153, 1)) drop-shadow(0 0 40px rgba(0, 255, 153, 0.8));
+        filter: drop-shadow(0 0 25px rgba(0, 255, 153, 0.8)) drop-shadow(0 0 40px rgba(0, 255, 153, 0.7));
+    }
+    75% {
+        filter: drop-shadow(0 0 20px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 30px rgba(0, 255, 153, 0.5));
     }
     100% {
-        filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.8));
+        filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.4));
     }
 }
 
@@ -99,13 +108,13 @@ body, html {
 .kojib-logo {
     position: relative; /* Enable position-relative to apply glow */
     z-index: 1; /* Ensure the glow stays behind the image */
-    filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.8)); /* Apply the outer glow effect */
+    animation: glowPulse 3s infinite alternate; /* Apply the pulse animation */
 }
 
-/* Add glowing pulse around the image */
+/* Add subtle glow effect around the image */
 .kojib-logo {
     position: relative;
-    animation: glowPulse 2s infinite alternate; /* Apply the pulse animation */
+    filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.4)); /* Apply a softer glow */
 }
 
   
