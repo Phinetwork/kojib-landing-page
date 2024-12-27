@@ -9,9 +9,10 @@ body, html {
 }
 
 section {
-    height: 100vh; /* Full-screen height for each section */
+    min-height: calc(100vh - 60px); /* Subtract UI height for better fit */
+    height: auto; /* Allow content to dictate height */
     display: block; /* Use block layout to prevent flexbox issues */
-    overflow-y: auto; /* Allow vertical scrolling for overflowing content */
+    overflow: visible; /* Let content flow naturally */
     position: relative; /* Ensure proper stacking context */
     background: transparent; /* Allow canvas to show through */
 }
@@ -29,7 +30,8 @@ section {
 }
 /* Logo Styling */
 .kojib-logo {
-    max-width: 15%; /* Reduced size to make the logo smaller */
+    width: 20vw; /* Scale logo relative to viewport width */
+    max-width: 120px; /* Limit maximum size */
     height: auto;
     margin-bottom: 20px; /* Reduced space between the logo and the text */
     transition: all 0.3s ease-in-out; /* Smooth transition for resizing */
@@ -83,9 +85,9 @@ section {
 }
 
 /* Logo Resizing for Smaller Screens */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .kojib-logo {
-        max-width: 25%; /* Slightly bigger on smaller screens */
+        width: 30vw; /* Larger scaling on small screens */
     }
 }
 
