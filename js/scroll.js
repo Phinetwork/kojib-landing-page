@@ -4,6 +4,9 @@ gsap.registerPlugin(ScrollTrigger);
 // Detect mobile devices
 const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
+// Utility function to set start point dynamically
+const getStartPoint = () => (isMobile ? "top 95%" : "top 85%");
+
 // Smooth Scroll Animations for Each Section
 gsap.utils.toArray("section").forEach((section) => {
     gsap.fromTo(
@@ -12,12 +15,13 @@ gsap.utils.toArray("section").forEach((section) => {
         {
             opacity: 1,
             y: 0,
-            duration: 1, // Smooth animation duration
+            duration: isMobile ? 0.8 : 1, // Shorter duration for mobile
             ease: "power2.out",
             scrollTrigger: {
                 trigger: section,
-                start: "top 85%", // Start animation earlier on mobile
+                start: getStartPoint(), // Adjust start dynamically
                 toggleActions: "play none none none", // Trigger animation only on scroll down
+                markers: false, // Set to true for debugging
             },
         }
     );
@@ -30,7 +34,7 @@ gsap.fromTo(
     {
         opacity: 1,
         y: 0,
-        duration: 1.5,
+        duration: isMobile ? 1 : 1.5, // Adjust duration for mobile
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".headline",
@@ -46,7 +50,7 @@ gsap.fromTo(
     {
         opacity: 1,
         y: 0,
-        duration: 1.5,
+        duration: isMobile ? 1 : 1.5,
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".subtext",
@@ -67,7 +71,7 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#story",
-            start: "top 85%",
+            start: getStartPoint(),
             toggleActions: "play none none none",
         },
     }
@@ -83,7 +87,7 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#story",
-            start: "top 80%",
+            start: getStartPoint(),
             toggleActions: "play none none none",
         },
     }
@@ -100,7 +104,7 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#showcase",
-            start: "top 85%",
+            start: getStartPoint(),
             toggleActions: "play none none none",
         },
     }
@@ -116,7 +120,7 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#showcase",
-            start: "top 80%",
+            start: getStartPoint(),
             toggleActions: "play none none none",
         },
     }
@@ -150,7 +154,7 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#contact",
-            start: "top 85%",
+            start: getStartPoint(),
             toggleActions: "play none none none",
         },
     }
@@ -166,7 +170,7 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#contact",
-            start: "top 80%",
+            start: getStartPoint(),
             toggleActions: "play none none none",
         },
     }
