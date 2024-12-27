@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PHI = 1.618; // Approximation of the golden ratio
 const BASE_DURATION = 1.5; // Base animation duration
 
-// Animate the tagline on scroll (divine proportion timing)
+// Animate the tagline on scroll with divine proportional timing
 gsap.fromTo(
   ".headline",
   { opacity: 0, y: 50 }, // Start: Hidden and moved down
@@ -76,17 +76,15 @@ setInterval(() => {
     linear-gradient(${shimmerAngle}deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))
   `;
 }, BASE_DURATION * PHI * 200); // Divine ratio timing for subtle shimmer updates
-// Initialize GSAP and ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
 
 // Story Section Scroll Animations
 gsap.fromTo(
   "#story .story-title",
-  { opacity: 0, y: 50 },
+  { opacity: 0, y: 50 }, // Start: Hidden and moved down
   {
     opacity: 1,
     y: 0,
-    duration: 2,
+    duration: 2, // Smooth entry timing
     ease: "power2.out",
     scrollTrigger: {
       trigger: "#story",
@@ -97,11 +95,11 @@ gsap.fromTo(
 
 gsap.fromTo(
   "#story .story-text",
-  { opacity: 0, y: 50 },
+  { opacity: 0, y: 50 }, // Start: Hidden and moved down
   {
     opacity: 1,
     y: 0,
-    duration: 2.5,
+    duration: 2.5, // Slightly slower for a staggered effect
     ease: "power2.out",
     scrollTrigger: {
       trigger: "#story",
@@ -109,3 +107,21 @@ gsap.fromTo(
     },
   }
 );
+
+// Dynamic Section Transitions
+gsap.utils.toArray("section").forEach((section, index) => {
+  gsap.fromTo(
+    section,
+    { opacity: 0, y: 100 }, // Start: Section hidden and slightly below viewport
+    {
+      opacity: 1,
+      y: 0,
+      duration: BASE_DURATION * PHI,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 85%", // Animates when section is 85% in view
+      },
+    }
+  );
+});
