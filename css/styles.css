@@ -35,11 +35,11 @@ body, html {
 
   /* Logo Styling */
 .kojib-logo {
-    max-width: 60%; /* Resize logo based on screen width */
+    max-width: 20%; /* Reduced size to make the logo smaller */
     height: auto;
-    margin-bottom: 30px; /* Space between the logo and the text */
-    transition: all 0.5s ease-in-out; /* Smooth transition for resizing */
-    animation: shimmerGlow 3s infinite, glowPulse 2s infinite alternate; /* Apply shimmer and glow animations */
+    margin-bottom: 20px; /* Reduced space between the logo and the text */
+    transition: all 0.3s ease-in-out; /* Smooth transition for resizing */
+    animation: shimmerGlow 3s infinite, glowPulse 2s infinite alternate, fadeInLogo 1.5s ease-out forwards; /* Apply shimmer, glow, and fade-in animations */
   }
   
   /* Shimmer & Glow Animation */
@@ -48,7 +48,7 @@ body, html {
       filter: brightness(1) contrast(1);
     }
     50% {
-      filter: brightness(1.5) contrast(1.2); /* Brighten and enhance contrast */
+      filter: brightness(1.2) contrast(1.1); /* Slightly brighten and enhance contrast */
     }
     100% {
       filter: brightness(1) contrast(1);
@@ -58,26 +58,38 @@ body, html {
   /* Glowing Pulse Animation */
   @keyframes glowPulse {
     0% {
-      text-shadow: 0 0 15px rgba(0, 255, 153, 0.8), 0 0 30px rgba(0, 255, 153, 0.6);
+      box-shadow: 0 0 15px rgba(0, 255, 153, 0.8), 0 0 25px rgba(0, 255, 153, 0.5);
     }
     50% {
-      text-shadow: 0 0 25px rgba(0, 255, 153, 1), 0 0 40px rgba(0, 255, 153, 0.8);
+      box-shadow: 0 0 25px rgba(0, 255, 153, 1), 0 0 40px rgba(0, 255, 153, 0.8);
     }
     100% {
-      text-shadow: 0 0 15px rgba(0, 255, 153, 0.8), 0 0 30px rgba(0, 255, 153, 0.6);
+      box-shadow: 0 0 15px rgba(0, 255, 153, 0.8), 0 0 25px rgba(0, 255, 153, 0.5);
+    }
+  }
+  
+  /* Fade-In Animation for Logo */
+  @keyframes fadeInLogo {
+    0% {
+      opacity: 0;
+      transform: scale(0.8); /* Start smaller */
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1); /* End at full size */
     }
   }
   
   /* Logo Resizing for Smaller Screens */
   @media (max-width: 768px) {
     .kojib-logo {
-      max-width: 80%; /* Make logo slightly bigger on smaller screens */
+      max-width: 25%; /* Slightly bigger on smaller screens */
     }
   }
   
   @media (max-width: 480px) {
     .kojib-logo {
-      max-width: 90%; /* Even larger on smaller mobile screens */
+      max-width: 30%; /* Even larger on smaller mobile screens */
     }
   }  
   
