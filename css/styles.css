@@ -8,12 +8,28 @@ body, html {
     scroll-behavior: smooth; /* Smooth scrolling for better UX */
 }
 
+/* Fix for mobile viewport height */
+:root {
+    --vh: 100%; /* Default value */
+}
+
+@media (max-width: 768px) {
+    :root {
+        --vh: 100vh; /* Use actual viewport height for mobile */
+    }
+}
+
+body, html {
+    height: calc(var(--vh, 1vh) * 100); /* Dynamically calculate height */
+}
+
+/* Section Layout */
 section {
     height: 100vh; /* Full-screen height for each section */
     display: block; /* Use block layout */
     position: relative; /* Ensure proper stacking context */
     background: transparent; /* Allow canvas to show through */
-    z-index: 10; /* Ensure sections stack above the canvas */
+    z-index: 10; /* Ensure sections stack above canvas */
 }
 
 #intro {
