@@ -2,7 +2,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // Smooth Scroll Animations for Each Section
-gsap.utils.toArray("section").forEach((section, index) => {
+gsap.utils.toArray("section").forEach((section) => {
     gsap.fromTo(
         section,
         { opacity: 0, y: 50 }, // Start hidden and slightly below
@@ -13,7 +13,7 @@ gsap.utils.toArray("section").forEach((section, index) => {
             ease: "power2.out",
             scrollTrigger: {
                 trigger: section,
-                start: "top 80%", // Start animation when section is 80% in view
+                start: "top 85%", // Start animation earlier on mobile
                 toggleActions: "play none none none", // Trigger animation only on scroll down
             },
         }
@@ -31,7 +31,8 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".headline",
-            start: "top 90%",
+            start: "top 90%", // Start when headline enters the viewport
+            toggleActions: "play none none none",
         },
     }
 );
@@ -47,6 +48,7 @@ gsap.fromTo(
         scrollTrigger: {
             trigger: ".subtext",
             start: "top 90%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -58,11 +60,12 @@ gsap.fromTo(
     {
         opacity: 1,
         y: 0,
-        duration: 1.5,
+        duration: 1.2,
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#story",
-            start: "top 80%",
+            start: "top 85%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -73,11 +76,12 @@ gsap.fromTo(
     {
         opacity: 1,
         y: 0,
-        duration: 1.5,
+        duration: 1.2,
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#story",
-            start: "top 75%",
+            start: "top 80%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -93,7 +97,8 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#showcase",
-            start: "top 80%",
+            start: "top 85%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -108,7 +113,8 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#showcase",
-            start: "top 75%",
+            start: "top 80%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -120,11 +126,12 @@ gsap.fromTo(
         opacity: 1,
         y: 0,
         duration: 1,
-        stagger: 0.3, // Stagger each feature card
+        stagger: 0.3, // Stagger animations for each feature card
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#showcase",
-            start: "top 70%",
+            start: "top 75%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -140,7 +147,8 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#contact",
-            start: "top 80%",
+            start: "top 85%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -155,7 +163,8 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#contact",
-            start: "top 75%",
+            start: "top 80%",
+            toggleActions: "play none none none",
         },
     }
 );
@@ -170,7 +179,25 @@ gsap.fromTo(
         ease: "power2.out",
         scrollTrigger: {
             trigger: "#contact",
-            start: "top 70%",
+            start: "top 75%",
+            toggleActions: "play none none none",
+        },
+    }
+);
+
+// Footer Section Animations (Optional)
+gsap.fromTo(
+    "footer",
+    { opacity: 0, y: 50 },
+    {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "footer",
+            start: "top 90%",
+            toggleActions: "play none none none",
         },
     }
 );
