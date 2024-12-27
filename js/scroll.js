@@ -1,71 +1,45 @@
-// scroll.js
-
 // Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Smoothly fade in the headline on scroll
+// Intro Section Animation
 gsap.fromTo(
   ".headline",
-  { opacity: 0, y: 50 }, // Start: Hidden and moved down
+  { opacity: 0, y: 50 },
   {
     opacity: 1,
     y: 0,
-    duration: 1.5, // Smooth fade duration
-    ease: "power2.out", // Smooth easing
-    scrollTrigger: {
-      trigger: ".headline",
-      start: "top 80%", // Starts when the headline is near the viewport
-    },
-  }
-);
-
-// Animate each word in the headline
-gsap.fromTo(
-  ".headline span",
-  { opacity: 0, y: 20 },
-  {
-    opacity: 1,
-    y: 0,
-    duration: 0.8, // Duration for individual words
-    stagger: 0.2, // Stagger each word
+    duration: 1.5,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".headline",
-      start: "top 80%", // Animation begins as the headline scrolls into view
+      trigger: "#intro",
+      start: "top 50%",
+      end: "top 10%",
+      scrub: true, // Smoothly animates during scroll
     },
   }
 );
 
-// Fade in the subtext
 gsap.fromTo(
   ".subtext",
   { opacity: 0, y: 50 },
   {
     opacity: 1,
     y: 0,
-    duration: 1,
+    duration: 1.5,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".subtext",
-      start: "top 75%", // Animates as the subtext scrolls into view
+      trigger: "#intro",
+      start: "top 40%",
+      end: "top 10%",
+      scrub: true,
     },
   }
 );
 
-// Subtle animation for the scroll prompt
-gsap.to(".scroll-prompt", {
-  y: 10, // Move up slightly
-  opacity: 1,
-  repeat: -1, // Repeat animation indefinitely
-  yoyo: true, // Animate back and forth
-  ease: "power1.inOut", // Smooth easing
-  duration: 1.5, // Animation duration
-});
-
-// Animate story section on scroll
+// Story Section Animation
 gsap.fromTo(
   "#story .story-title",
-  { opacity: 0, y: 50 }, // Start: Hidden and moved down
+  { opacity: 0, y: 50 },
   {
     opacity: 1,
     y: 0,
@@ -73,55 +47,114 @@ gsap.fromTo(
     ease: "power2.out",
     scrollTrigger: {
       trigger: "#story",
-      start: "top 80%", // Starts when the story section enters the viewport
+      start: "top 75%", // Animation starts as the section enters the viewport
+      end: "top 30%",
+      scrub: true,
     },
   }
 );
 
 gsap.fromTo(
   "#story .story-text",
-  { opacity: 0, y: 50 }, // Start: Hidden and moved down
+  { opacity: 0, y: 50 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 1.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#story",
+      start: "top 70%",
+      end: "top 20%",
+      scrub: true,
+    },
+  }
+);
+
+// Showcase Section Animation
+gsap.fromTo(
+  "#showcase .showcase-title",
+  { opacity: 0, y: 50 },
   {
     opacity: 1,
     y: 0,
     duration: 1.5,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: "#story",
-      start: "top 75%", // Animates as the story text scrolls into view
+      trigger: "#showcase",
+      start: "top 80%",
+      end: "top 30%",
+      scrub: true,
     },
   }
 );
 
-// Transition between sections
-gsap.utils.toArray("section").forEach((section) => {
-  gsap.fromTo(
-    section,
-    { opacity: 0, y: 100 }, // Start: Hidden and moved down
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1.5,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: section,
-        start: "top 85%", // Animation starts when section is near the viewport
-        end: "bottom top", // Ends as section leaves the viewport
-        scrub: true, // Smooth transition linked to scroll
-      },
-    }
-  );
-});
+gsap.fromTo(
+  "#showcase .feature-card",
+  { opacity: 0, y: 50 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 1.2,
+    stagger: 0.3, // Stagger animations for each feature card
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#showcase",
+      start: "top 70%",
+      end: "top 20%",
+      scrub: true,
+    },
+  }
+);
 
-// Handle smooth scrolling behavior
-document.querySelectorAll("a[href^='#']").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  });
-});
+// Contact Section Animation
+gsap.fromTo(
+  "#contact .contact-title",
+  { opacity: 0, y: 50 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top 80%",
+      end: "top 40%",
+      scrub: true,
+    },
+  }
+);
+
+gsap.fromTo(
+  "#contact .contact-text",
+  { opacity: 0, y: 50 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top 75%",
+      end: "top 30%",
+      scrub: true,
+    },
+  }
+);
+
+gsap.fromTo(
+  "#contact .contact-button",
+  { opacity: 0, scale: 0.8 },
+  {
+    opacity: 1,
+    scale: 1,
+    duration: 1.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top 70%",
+      end: "top 30%",
+      scrub: true,
+    },
+  }
+);
