@@ -121,7 +121,6 @@ canvas {
     z-index: 10; /* Ensure content appears above canvas */
 }
 
- 
 .scroll-prompt {
     position: absolute;
     bottom: 20px;
@@ -161,7 +160,7 @@ canvas {
         opacity: 0.8;
     }
 }
-  
+
   /* Headline Styles */
   h1.headline {
     font-size: 3.5rem;
@@ -199,7 +198,13 @@ canvas {
     animation: fadeUp 1.8s ease-out;
   }
   
-  
+  /* Scroll Prompt Styles */
+  .scroll-prompt {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: seamlessPulse 3s infinite ease-in-out;
+  }
   
   /* Keyframes for Text Glow */
   @keyframes fadeInGlow {
