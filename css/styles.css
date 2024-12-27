@@ -3,8 +3,9 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
     font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth; /* Smooth scrolling for better UX */
   }
   
   #intro {
@@ -182,11 +183,12 @@ body, html {
       opacity: 0.8;
     }
   }
+  
   /* Introductory Story Section */
-#story {
+  #story {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 100vh; /* Fullscreen height for story section */
     background: linear-gradient(to top, #00203f, #004e92); /* Dark gradient evolving into light */
     color: white;
     display: flex;
