@@ -3,11 +3,10 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden; /* Prevent scrolling overflow */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
     font-family: 'Inter', sans-serif;
-    scroll-snap-type: y mandatory; /* Enable vertical snapping */
     scroll-behavior: smooth; /* Smooth scrolling for better UX */
-}
+  }
   
   #intro {
     position: relative;
@@ -196,12 +195,9 @@ body, html {
     align-items: center;
     justify-content: center;
     text-align: center;
-    scroll-snap-align: start; /* Snap to start of this section */
-    scroll-snap-stop: always; /* Force snapping */
     overflow: hidden;
-    transition: background-color 1.5s ease, transform 1.5s ease; /* Smooth transitions */
-}
-
+  }
+  
   .story-content {
     position: relative;
     z-index: 1;
@@ -255,20 +251,3 @@ body, html {
     }
   }
   
-  section {
-    scroll-snap-align: start; /* Snap sections to viewport */
-    height: 100vh; /* Fullscreen height for each section */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: transform 1.5s ease; /* Smooth section animations */
-}
-
-section:nth-child(odd) {
-    background-color: #004e92; /* Alternate background color */
-}
-
-section:nth-child(even) {
-    background-color: #00203f; /* Alternate background color */
-}
