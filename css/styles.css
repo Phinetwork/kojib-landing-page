@@ -19,14 +19,16 @@ section {
 
 #intro {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background: linear-gradient(to bottom, #000428, #000000);
-    color: white;
     display: flex;
+    flex-direction: column; /* Stack content vertically */
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px; /* Add padding to prevent content cutoff */
+    box-sizing: border-box; /* Ensure padding doesn’t affect layout */
+    overflow: hidden; /* Prevent content from spilling outside */
 }
 /* Logo Styling */
 .kojib-logo {
@@ -253,7 +255,39 @@ canvas {
       transform: translateY(0);
     }
   }
-  
+  @media (max-width: 768px) {
+    h1.headline {
+        font-size: calc(2rem + 1vw); /* Scale down headline font size */
+        max-width: 90%; /* Prevent overflow */
+    }
+
+    p.subtext {
+        font-size: 1rem; /* Scale down subtext */
+    }
+
+    .scroll-prompt {
+        font-size: 0.9rem; /* Scale down scroll prompt */
+    }
+}
+
+@media (max-width: 480px) {
+    #intro {
+        padding: 10px; /* Adjust padding for very small screens */
+    }
+
+    h1.headline {
+        font-size: calc(1.8rem + 1vw); /* Further scale down font size */
+        max-width: 85%; /* Tighten max-width */
+    }
+
+    p.subtext {
+        font-size: 0.9rem; /* Adjust subtext font size */
+    }
+
+    .scroll-prompt {
+        font-size: 0.8rem; /* Adjust scroll prompt font size */
+    }
+}
   /* Keyframes for Seamless Pulse Animation */
   @keyframes seamlessPulse {
     0% {
