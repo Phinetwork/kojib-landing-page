@@ -1,94 +1,79 @@
 // scroll.js
 
-// Initialize GSAP ScrollTrigger
+// Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Divine Ratio Constants
-const PHI = 1.618; // Approximation of the golden ratio
-const BASE_DURATION = 1.5; // Base animation duration
-
-// Animate the tagline on scroll with divine proportional timing
+// Smoothly fade in the headline on scroll
 gsap.fromTo(
   ".headline",
   { opacity: 0, y: 50 }, // Start: Hidden and moved down
   {
     opacity: 1,
     y: 0,
-    duration: BASE_DURATION, // Base duration
-    ease: "power2.out",
+    duration: 1.5, // Smooth fade duration
+    ease: "power2.out", // Smooth easing
     scrollTrigger: {
       trigger: ".headline",
-      start: "top 80%", // Start animation when 80% of the viewport is reached
+      start: "top 80%", // Starts when the headline is near the viewport
     },
   }
 );
 
-// Animate each word in the headline with staggered timing
+// Animate each word in the headline
 gsap.fromTo(
   ".headline span",
   { opacity: 0, y: 20 },
   {
     opacity: 1,
     y: 0,
-    duration: BASE_DURATION / PHI, // Divine ratio timing
-    stagger: BASE_DURATION / PHI / 5, // Stagger each word for fluidity
+    duration: 0.8, // Duration for individual words
+    stagger: 0.2, // Stagger each word
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".headline",
-      start: "top 80%",
+      start: "top 80%", // Animation begins as the headline scrolls into view
     },
   }
 );
 
-// Animate the supporting text with divine timing
+// Fade in the subtext
 gsap.fromTo(
   ".subtext",
   { opacity: 0, y: 50 },
   {
     opacity: 1,
     y: 0,
-    duration: BASE_DURATION * PHI, // Longer duration for smoothness
+    duration: 1,
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".subtext",
-      start: "top 75%",
+      start: "top 75%", // Animates as the subtext scrolls into view
     },
   }
 );
 
-// Smooth scrolling animation for the scroll prompt
+// Subtle animation for the scroll prompt
 gsap.to(".scroll-prompt", {
+  y: 10, // Move up slightly
   opacity: 1,
-  y: 10,
-  repeat: -1,
-  yoyoEase: "power1.inOut", // Smooth harmonic ease
-  duration: BASE_DURATION / PHI, // Divine ratio timing for subtle rhythmic motion
-  repeatDelay: 0.2, // Small pause to create a seamless loop
+  repeat: -1, // Repeat animation indefinitely
+  yoyo: true, // Animate back and forth
+  ease: "power1.inOut", // Smooth easing
+  duration: 1.5, // Animation duration
 });
 
-// Add shimmer effect to the headline
-const shimmerEffect = document.querySelector(".headline");
-let shimmerAngle = 0;
-
-setInterval(() => {
-  shimmerAngle += 0.5; // Gradual angle change for smooth shimmer
-  shimmerEffect.style.backgroundImage = `
-    linear-gradient(${shimmerAngle}deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))
-  `;
-}, BASE_DURATION * PHI * 200); // Divine ratio timing for subtle shimmer updates
-
-// Story Section Scroll Animations
+// Animate story section on scroll
 gsap.fromTo(
   "#story .story-title",
   { opacity: 0, y: 50 }, // Start: Hidden and moved down
   {
     opacity: 1,
     y: 0,
-    duration: 2, // Smooth entry timing
+    duration: 1.5,
     ease: "power2.out",
     scrollTrigger: {
       trigger: "#story",
-      start: "top 80%", // Animates when 80% of the section is in view
+      start: "top 80%", // Starts when the story section enters the viewport
     },
   }
 );
@@ -99,29 +84,44 @@ gsap.fromTo(
   {
     opacity: 1,
     y: 0,
-    duration: 2.5, // Slightly slower for a staggered effect
+    duration: 1.5,
     ease: "power2.out",
     scrollTrigger: {
       trigger: "#story",
-      start: "top 75%", // Animates when 75% of the section is in view
+      start: "top 75%", // Animates as the story text scrolls into view
     },
   }
 );
 
-// Dynamic Section Transitions
-gsap.utils.toArray("section").forEach((section, index) => {
+// Transition between sections
+gsap.utils.toArray("section").forEach((section) => {
   gsap.fromTo(
     section,
-    { opacity: 0, y: 100 }, // Start: Section hidden and slightly below viewport
+    { opacity: 0, y: 100 }, // Start: Hidden and moved down
     {
       opacity: 1,
       y: 0,
-      duration: BASE_DURATION * PHI,
+      duration: 1.5,
       ease: "power2.out",
       scrollTrigger: {
         trigger: section,
-        start: "top 85%", // Animates when section is 85% in view
+        start: "top 85%", // Animation starts when section is near the viewport
+        end: "bottom top", // Ends as section leaves the viewport
+        scrub: true, // Smooth transition linked to scroll
       },
     }
   );
+});
+
+// Handle smooth scrolling behavior
+document.querySelectorAll("a[href^='#']").forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  });
 });
