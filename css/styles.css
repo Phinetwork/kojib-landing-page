@@ -42,73 +42,72 @@ body, html {
     animation: shimmerGlow 3s infinite, glowPulse 2s infinite alternate, fadeInLogo 1.5s ease-out forwards; /* Apply shimmer, glow, and fade-in animations */
     display: inline-block; /* Allow box-shadow to behave better around the image */
     position: relative; /* To control glow effect positioning */
-  }
-  
-  /* Shimmer & Glow Animation */
-  @keyframes shimmerGlow {
+}
+
+/* Shimmer & Glow Animation */
+@keyframes shimmerGlow {
     0% {
-      filter: brightness(1) contrast(1);
+        filter: brightness(1) contrast(1);
     }
     50% {
-      filter: brightness(1.2) contrast(1.1); /* Slightly brighten and enhance contrast */
+        filter: brightness(1.2) contrast(1.1); /* Slightly brighten and enhance contrast */
     }
     100% {
-      filter: brightness(1) contrast(1);
+        filter: brightness(1) contrast(1);
     }
-  }
-  
-  /* Glowing Pulse Animation */
-  @keyframes glowPulse {
+}
+
+/* Glowing Pulse Animation */
+@keyframes glowPulse {
     0% {
-      box-shadow: 0 0 15px rgba(0, 255, 153, 0.8), 0 0 25px rgba(0, 255, 153, 0.5);
+        filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.8));
     }
     50% {
-      box-shadow: 0 0 25px rgba(0, 255, 153, 1), 0 0 40px rgba(0, 255, 153, 0.8);
+        filter: drop-shadow(0 0 25px rgba(0, 255, 153, 1)) drop-shadow(0 0 40px rgba(0, 255, 153, 0.8));
     }
     100% {
-      box-shadow: 0 0 15px rgba(0, 255, 153, 0.8), 0 0 25px rgba(0, 255, 153, 0.5);
+        filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.8));
     }
-  }
-  
-  /* Fade-In Animation for Logo */
-  @keyframes fadeInLogo {
+}
+
+/* Fade-In Animation for Logo */
+@keyframes fadeInLogo {
     0% {
-      opacity: 0;
-      transform: scale(0.8); /* Start smaller */
+        opacity: 0;
+        transform: scale(0.8); /* Start smaller */
     }
     100% {
-      opacity: 1;
-      transform: scale(1); /* End at full size */
+        opacity: 1;
+        transform: scale(1); /* End at full size */
     }
-  }
-  
-  /* Logo Resizing for Smaller Screens */
-  @media (max-width: 768px) {
+}
+
+/* Logo Resizing for Smaller Screens */
+@media (max-width: 768px) {
     .kojib-logo {
-      max-width: 25%; /* Slightly bigger on smaller screens */
+        max-width: 25%; /* Slightly bigger on smaller screens */
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .kojib-logo {
-      max-width: 30%; /* Even larger on smaller mobile screens */
+        max-width: 30%; /* Even larger on smaller mobile screens */
     }
-  }
-  
-  /* Adding the glow effect around the image */
-  .kojib-logo::before {
-    content: ''; /* Empty content for pseudo-element */
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: rgba(0, 255, 153, 0.6);
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(0, 255, 153, 0.9);
-    z-index: -1; /* Place glow behind the image */
-    animation: glowPulse 2s infinite alternate;
-  }
+}
+
+/* Adding the glow effect around the image (using drop-shadow for better contour fit) */
+.kojib-logo {
+    position: relative; /* Enable position-relative to apply glow */
+    z-index: 1; /* Ensure the glow stays behind the image */
+    filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.8)); /* Apply the outer glow effect */
+}
+
+/* Add glowing pulse around the image */
+.kojib-logo {
+    position: relative;
+    animation: glowPulse 2s infinite alternate; /* Apply the pulse animation */
+}
+
   
   
   /* Headline Styles */
