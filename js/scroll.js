@@ -1,9 +1,9 @@
 // Register GSAP Plugin
 gsap.registerPlugin(ScrollTrigger);
 
-// Ensure proper setup for all sections
+// Function to setup ScrollTrigger animations
 function setupScrollAnimations() {
-  // Select all sections
+  // Select all <section> elements
   const sections = document.querySelectorAll("section");
 
   sections.forEach((section, index) => {
@@ -12,24 +12,33 @@ function setupScrollAnimations() {
       { opacity: 0, y: 50 }, // Initial state: hidden and slightly below
       {
         opacity: 1,
-        y: 0, // Animate to: fully visible and in position
+        y: 0, // Final state: fully visible and in position
         duration: 1,
         ease: "power2.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 80%", // When the top of the section is 80% down the viewport
-          end: "top 20%", // Optionally trigger end behavior
-          toggleActions: "play none none none", // Play animation on scroll
-          markers: false, // Set to true if debugging is needed
-          onEnter: () => console.log(`Entered section ${index + 1}`), // Log for debugging
+          start: "top 85%", // Adjust when the animation starts
+          end: "top 20%", // Optional: Trigger end behavior
+          toggleActions: "play none none none", // Trigger animation on scroll
+          markers: false, // Set to true to debug animation points
+          onEnter: () => console.log(`Entered section ${index + 1}`), // Debugging: Log on section enter
+          onLeaveBack: () => console.log(`Left section ${index + 1} (going up)`), // Debugging: Log on section leave upward
         },
       }
     );
   });
 }
 
-// Ensure ScrollTrigger refreshes properly on page load
+// Re-initialize ScrollTrigger on window resize (handles layout changes on mobile)
+function handleResize() {
+  ScrollTrigger.refresh(); // Refresh ScrollTrigger dimensions
+  console.log("ScrollTrigger refreshed on resize."); // Debugging
+}
+
+// Event listeners for load and resize
 window.addEventListener("load", () => {
   setupScrollAnimations();
-  ScrollTrigger.refresh(); // Ensure ScrollTrigger recognizes all dimensions
+  ScrollTrigger.refresh(); // Refresh dimensions after all assets are loaded
 });
+
+window.addEventListener("resize", handleResize); // Recalculate trigger points on resize
