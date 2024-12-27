@@ -5,11 +5,10 @@ gsap.registerPlugin(ScrollTrigger);
 const PHI = 1.618; // Approximation of the golden ratio
 const BASE_DURATION = 1.5; // Base animation duration for divine timing
 
-// Snap to Sections with ScrollTrigger
+// Global Snap Behavior
 ScrollTrigger.defaults({
-  markers: false, // Enable for debugging if needed
   snap: {
-    snapTo: "center", // Snap to the center of each section
+    snapTo: 1 / PHI, // Snap to sections based on divine proportion
     duration: BASE_DURATION / PHI, // Divine ratio-based snapping duration
     ease: "power1.inOut", // Smooth ease for snapping
   },
@@ -84,7 +83,6 @@ gsap.fromTo(
     scrollTrigger: {
       trigger: "#story",
       start: "top 80%",
-      end: "bottom center", // Animates through the entire section
       scrub: true, // Smooth progress-based animation
     },
   }
@@ -110,12 +108,13 @@ gsap.fromTo(
 gsap.utils.toArray("section").forEach((section, index) => {
   const nextSection = section.nextElementSibling;
 
-  // Entering Animation
+  // Enter Animation
   gsap.fromTo(
     section,
-    { opacity: 0, y: 100 },
+    { opacity: 0, scale: 0.95, y: 50 },
     {
       opacity: 1,
+      scale: 1,
       y: 0,
       duration: BASE_DURATION,
       ease: "power2.out",
@@ -128,11 +127,11 @@ gsap.utils.toArray("section").forEach((section, index) => {
     }
   );
 
-  // Exiting Animation for the current section
+  // Exit Animation for Next Section
   if (nextSection) {
     gsap.fromTo(
       nextSection,
-      { opacity: 0, y: -100 },
+      { opacity: 0, y: -50 },
       {
         opacity: 1,
         y: 0,
@@ -149,7 +148,7 @@ gsap.utils.toArray("section").forEach((section, index) => {
   }
 });
 
-// Add Subtle Shimmer to Headline
+// Subtle Shimmer Effect on Headline
 const shimmerEffect = document.querySelector(".headline");
 let shimmerAngle = 0;
 
