@@ -57,16 +57,22 @@ body, html {
     }
 }
 
-/* Glowing Pulse Animation - Subtle */
+/* Glowing Pulse Animation - Subtle and Continuous */
 @keyframes glowPulse {
     0% {
-        filter: drop-shadow(0 0 8px rgba(0, 255, 153, 0.3));
+        filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.5)) drop-shadow(0 0 20px rgba(0, 255, 153, 0.3));
+    }
+    25% {
+        filter: drop-shadow(0 0 12px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 25px rgba(0, 255, 153, 0.4));
     }
     50% {
-        filter: drop-shadow(0 0 12px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 18px rgba(0, 255, 153, 0.4));
+        filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.7)) drop-shadow(0 0 30px rgba(0, 255, 153, 0.5));
+    }
+    75% {
+        filter: drop-shadow(0 0 12px rgba(0, 255, 153, 0.6)) drop-shadow(0 0 25px rgba(0, 255, 153, 0.4));
     }
     100% {
-        filter: drop-shadow(0 0 8px rgba(0, 255, 153, 0.3));
+        filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.5)) drop-shadow(0 0 20px rgba(0, 255, 153, 0.3));
     }
 }
 
@@ -99,14 +105,15 @@ body, html {
 .kojib-logo {
     position: relative;
     z-index: 1; /* Ensure the glow stays behind the image */
-    animation: glowPulse 5s infinite alternate; /* Apply the more subtle pulse animation */
+    animation: glowPulse 3s infinite alternate; /* Apply the more subtle pulse animation */
 }
 
-/* Adding a slight glow effect to give a natural feel */
+/* Adding a continuous, soft glow effect */
 .kojib-logo {
     position: relative;
-    filter: drop-shadow(0 0 6px rgba(0, 255, 153, 0.3)); /* Softer glow */
+    filter: drop-shadow(0 0 8px rgba(0, 255, 153, 0.4)) drop-shadow(0 0 12px rgba(0, 255, 153, 0.3)); /* Softer, continuous glow */
 }
+
 
   
   
