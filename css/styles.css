@@ -284,6 +284,7 @@ canvas {
     justify-content: center;
     text-align: center;
     overflow: hidden;
+    z-index: 10; /* Ensure the section appears above the canvas */
   }
   
   .story-content {
@@ -341,84 +342,260 @@ canvas {
   
   /* Showcase Section */
 #showcase {
-    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
-    color: white;
+    position: relative; /* Ensures proper stacking context */
+    width: 100vw; /* Full width of the viewport */
+    height: auto; /* Adjust height based on content */
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364); /* Smooth gradient background */
+    color: white; /* White text color for contrast */
+    display: flex; /* Flex layout for alignment */
+    flex-direction: column; /* Arrange children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically if needed */
+    padding: 40px 20px; /* Add spacing inside the section */
+    z-index: 1; /* Ensure section stacks correctly above other elements */
 }
 
+/* Container for Showcase Content */
 .showcase-content {
-    max-width: 900px;
-    padding: 20px;
+    max-width: 900px; /* Restrict content width */
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add padding around the content */
+    z-index: 10; /* Ensure it appears above any background layers */
+    position: relative; /* For proper stacking order */
 }
 
+/* Title for Showcase Section */
 .showcase-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Large font for prominence */
+    margin-bottom: 1rem; /* Space below the title */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+    animation: fadeIn 2s ease-out; /* Add a fade-in animation */
 }
 
+/* Text Description for Showcase Section */
 .showcase-text {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem; /* Slightly smaller font size */
+    margin-bottom: 20px; /* Space below the text */
+    line-height: 1.6; /* Improve text readability */
+    color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for softness */
+    animation: fadeUp 2.5s ease-out; /* Add fade-up animation */
 }
 
+/* Feature Cards */
 .feature-card {
-    display: inline-block;
-    margin: 10px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    width: 250px;
-    text-align: center;
+    display: inline-block; /* Inline-block layout for alignment */
+    margin: 10px; /* Space between cards */
+    padding: 20px; /* Internal spacing */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    width: 250px; /* Fixed card width */
+    text-align: center; /* Center-align text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effects */
 }
+
+/* Hover Effect for Feature Cards */
+.feature-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+/* Responsive Adjustments for Showcase Section */
+@media (max-width: 768px) {
+    .showcase-content {
+        max-width: 100%; /* Allow content to span full width */
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .feature-card {
+        width: 200px; /* Reduce card width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-title {
+        font-size: 2rem; /* Reduce title size for small screens */
+    }
+
+    .showcase-text {
+        font-size: 1rem; /* Reduce text size for readability */
+    }
+
+    .feature-card {
+        width: 150px; /* Further reduce card width */
+        padding: 15px; /* Adjust padding */
+    }
+}
+
 
 /* Contact Section */
 #contact {
-    background: linear-gradient(to top, #1c1c1c, #383838);
-    color: white;
+    position: relative; /* Establish stacking context */
+    width: 100vw; /* Full width of the viewport */
+    background: linear-gradient(to top, #1c1c1c, #383838); /* Dark gradient background */
+    color: white; /* White text for contrast */
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Arrange children vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    padding: 40px 20px; /* Internal spacing */
+    z-index: 1; /* Ensure it stacks correctly above background layers */
 }
 
+/* Container for Contact Content */
 .contact-content {
-    max-width: 800px;
-    padding: 20px;
+    max-width: 800px; /* Restrict content width */
+    text-align: center; /* Center-align text */
+    padding: 20px; /* Add padding around the content */
+    z-index: 10; /* Ensure it appears above other layers */
+    position: relative; /* For proper stacking order */
 }
 
+/* Title for Contact Section */
 .contact-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Large font for prominence */
+    margin-bottom: 1rem; /* Space below the title */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+    animation: fadeIn 2s ease-out; /* Add a fade-in animation */
 }
 
+/* Text Description for Contact Section */
 .contact-text {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem; /* Slightly smaller font size */
+    margin-bottom: 20px; /* Space below the text */
+    line-height: 1.6; /* Improve text readability */
+    color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for softness */
+    animation: fadeUp 2.5s ease-out; /* Add fade-up animation */
 }
 
+/* Contact Button */
 .contact-button {
-    text-decoration: none;
-    color: white;
-    background: #00ff99;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* White text for contrast */
+    background: #00ff99; /* Bright green background */
+    padding: 10px 20px; /* Add spacing inside the button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth hover effects */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
+/* Hover Effect for Contact Button */
 .contact-button:hover {
-    background: #00cc80;
+    background: #00cc80; /* Slightly darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
 }
 
-/* Footer */
+/* Responsive Adjustments for Contact Section */
+@media (max-width: 768px) {
+    .contact-content {
+        max-width: 100%; /* Allow content to span full width */
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .contact-title {
+        font-size: 2rem; /* Reduce title size for smaller screens */
+    }
+
+    .contact-text {
+        font-size: 1rem; /* Reduce text size for readability */
+    }
+
+    .contact-button {
+        padding: 8px 16px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-title {
+        font-size: 1.8rem; /* Further reduce title size */
+    }
+
+    .contact-text {
+        font-size: 0.9rem; /* Reduce text size for very small screens */
+    }
+
+    .contact-button {
+        padding: 6px 12px; /* Further adjust button padding */
+    }
+}
+/* Footer Section */
 footer {
-    background: #1c1c1c;
-    color: rgba(255, 255, 255, 0.7);
-    text-align: center;
-    padding: 10px;
+    position: relative; /* Establish stacking context */
+    width: 100%; /* Full width of the viewport */
+    background: #1c1c1c; /* Dark background for contrast */
+    color: rgba(255, 255, 255, 0.7); /* Slightly transparent white for text */
+    text-align: center; /* Center-align content */
+    padding: 20px; /* Add padding around the footer */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    z-index: 1; /* Ensure it stacks properly above background elements */
 }
 
+/* Footer Content Styling */
+footer .footer-content {
+    max-width: 1200px; /* Restrict content width */
+    margin: 0 auto; /* Center content horizontally */
+    padding: 10px 20px; /* Internal spacing for content */
+    text-align: center; /* Center-align text */
+    position: relative; /* Proper stacking order */
+}
+
+/* Social Links Container */
+footer .social-links {
+    margin-top: 10px; /* Space above the links */
+}
+
+/* Social Links Styling */
 footer .social-links a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for text */
+    margin: 0 10px; /* Space between links */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 1.2rem; /* Increase font size for better visibility */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth hover effects */
 }
 
+/* Hover Effect for Social Links */
 footer .social-links a:hover {
-    color: #00ff99;
+    color: #00ff99; /* Bright green highlight on hover */
+    transform: scale(1.1); /* Slight enlargement for emphasis */
+}
+
+/* Footer Text Styling */
+footer p {
+    margin: 10px 0; /* Add spacing above and below text */
+    font-size: 0.9rem; /* Slightly smaller font for secondary text */
+    color: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
+    line-height: 1.5; /* Improve text readability */
+}
+
+/* Divider Line Above Footer */
+footer::before {
+    content: ""; /* Empty content for the divider */
+    display: block; /* Block-level element */
+    width: 80%; /* Limit the width of the divider */
+    height: 1px; /* Divider height */
+    background: rgba(255, 255, 255, 0.2); /* Subtle white divider */
+    margin: 0 auto 20px; /* Center and space it from footer content */
+}
+
+/* Responsive Adjustments for Footer */
+@media (max-width: 768px) {
+    footer .social-links a {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        margin: 0 8px; /* Reduce spacing between links */
+    }
+
+    footer p {
+        font-size: 0.8rem; /* Adjust font size for readability */
+    }
+}
+
+@media (max-width: 480px) {
+    footer .social-links a {
+        font-size: 0.9rem; /* Further reduce font size */
+    }
+
+    footer p {
+        font-size: 0.75rem; /* Smaller font for very small screens */
+    }
 }
