@@ -134,7 +134,7 @@ canvas {
     word-wrap: break-word;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.2rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
     text-align: center;
     animation: fadeInGlow 2.5s ease-out, subtlePulse 3s infinite alternate ease-in-out;
