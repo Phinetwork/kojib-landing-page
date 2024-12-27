@@ -1,21 +1,13 @@
-// Initialize GSAP and ScrollTrigger
+// scroll.js
+
+// Initialize GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 // Divine Ratio Constants
 const PHI = 1.618; // Approximation of the golden ratio
-const BASE_DURATION = 1.5; // Base animation duration for divine timing
+const BASE_DURATION = 1.5; // Base animation duration
 
-// Snap to Sections with ScrollTrigger
-ScrollTrigger.defaults({
-  markers: false, // Enable for debugging if needed
-  snap: {
-    snapTo: "center", // Snap to the center of each section
-    duration: BASE_DURATION / PHI, // Divine ratio-based snapping duration
-    ease: "power1.inOut", // Smooth ease for snapping
-  },
-});
-
-// Intro Section Animations
+// Animate the tagline on scroll (divine proportion timing)
 gsap.fromTo(
   ".headline",
   { opacity: 0, y: 50 }, // Start: Hidden and moved down
@@ -26,19 +18,20 @@ gsap.fromTo(
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".headline",
-      start: "top 80%", // Animates when 80% of the viewport is in view
+      start: "top 80%", // Start animation when 80% of the viewport is reached
     },
   }
 );
 
+// Animate each word in the headline with staggered timing
 gsap.fromTo(
   ".headline span",
-  { opacity: 0, y: 20 }, // Individual words animating with divine stagger
+  { opacity: 0, y: 20 },
   {
     opacity: 1,
     y: 0,
     duration: BASE_DURATION / PHI, // Divine ratio timing
-    stagger: BASE_DURATION / PHI / 5, // Staggering for fluidity
+    stagger: BASE_DURATION / PHI / 5, // Stagger each word for fluidity
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".headline",
@@ -47,13 +40,14 @@ gsap.fromTo(
   }
 );
 
+// Animate the supporting text with divine timing
 gsap.fromTo(
   ".subtext",
   { opacity: 0, y: 50 },
   {
     opacity: 1,
     y: 0,
-    duration: BASE_DURATION * PHI, // Longer duration for smooth divine timing
+    duration: BASE_DURATION * PHI, // Longer duration for smoothness
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".subtext",
@@ -62,30 +56,41 @@ gsap.fromTo(
   }
 );
 
-// Smooth Pulsing Animation for Scroll Prompt
+// Smooth scrolling animation for the scroll prompt
 gsap.to(".scroll-prompt", {
   opacity: 1,
   y: 10,
   repeat: -1,
-  yoyo: true,
-  duration: BASE_DURATION / PHI, // Divine ratio timing
-  ease: "power1.inOut", // Seamless harmonic ease
+  yoyoEase: "power1.inOut", // Smooth harmonic ease
+  duration: BASE_DURATION / PHI, // Divine ratio timing for subtle rhythmic motion
+  repeatDelay: 0.2, // Small pause to create a seamless loop
 });
 
-// Story Section Animations
+// Add shimmer effect to the headline
+const shimmerEffect = document.querySelector(".headline");
+let shimmerAngle = 0;
+
+setInterval(() => {
+  shimmerAngle += 0.5; // Gradual angle change for smooth shimmer
+  shimmerEffect.style.backgroundImage = `
+    linear-gradient(${shimmerAngle}deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))
+  `;
+}, BASE_DURATION * PHI * 200); // Divine ratio timing for subtle shimmer updates
+// Initialize GSAP and ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Story Section Scroll Animations
 gsap.fromTo(
   "#story .story-title",
   { opacity: 0, y: 50 },
   {
     opacity: 1,
     y: 0,
-    duration: BASE_DURATION * PHI, // Divine duration for elegance
+    duration: 2,
     ease: "power2.out",
     scrollTrigger: {
       trigger: "#story",
-      start: "top 80%",
-      end: "bottom center", // Animates through the entire section
-      scrub: true, // Smooth progress-based animation
+      start: "top 80%", // Animates when 80% of the section is in view
     },
   }
 );
@@ -96,66 +101,11 @@ gsap.fromTo(
   {
     opacity: 1,
     y: 0,
-    duration: BASE_DURATION * PHI,
+    duration: 2.5,
     ease: "power2.out",
     scrollTrigger: {
       trigger: "#story",
-      start: "top 75%",
-      scrub: true,
+      start: "top 75%", // Animates when 75% of the section is in view
     },
   }
 );
-
-// Dynamic Section Transitions
-gsap.utils.toArray("section").forEach((section, index) => {
-  const nextSection = section.nextElementSibling;
-
-  // Entering Animation
-  gsap.fromTo(
-    section,
-    { opacity: 0, y: 100 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: BASE_DURATION,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: section,
-        start: "top center",
-        end: "bottom center",
-        scrub: true,
-      },
-    }
-  );
-
-  // Exiting Animation for the current section
-  if (nextSection) {
-    gsap.fromTo(
-      nextSection,
-      { opacity: 0, y: -100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: BASE_DURATION,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: nextSection,
-          start: "top bottom",
-          end: "top center",
-          scrub: true,
-        },
-      }
-    );
-  }
-});
-
-// Add Subtle Shimmer to Headline
-const shimmerEffect = document.querySelector(".headline");
-let shimmerAngle = 0;
-
-setInterval(() => {
-  shimmerAngle += 0.5;
-  shimmerEffect.style.backgroundImage = `
-    linear-gradient(${shimmerAngle}deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))
-  `;
-}, BASE_DURATION * PHI * 200); // Divine timing for shimmer updates
