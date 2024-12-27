@@ -316,7 +316,7 @@ canvas {
 #story {
     position: relative;
     width: 100vw;
-    height: 100vh; /* Fullscreen height for story section */
+    min-height: 100vh; /* Ensure proper height for all screen sizes */
     background: transparent; /* Make background fully transparent */
     color: white; /* White text for contrast */
     display: flex; /* Flex layout for centering */
@@ -325,13 +325,17 @@ canvas {
     text-align: center; /* Center text */
     overflow: hidden; /* Prevent overflowing content */
     z-index: 10; /* Ensure the section appears above the canvas */
+    padding: 20px; /* Add padding for smaller devices */
+    box-sizing: border-box; /* Ensure padding is included in dimensions */
 }
 
 .story-content {
     position: relative;
     z-index: 1; /* Ensure content stays above the transparent section */
     max-width: 800px; /* Restrict content width */
+    width: 100%; /* Ensure it spans full width on smaller devices */
     padding: 20px; /* Add spacing around the content */
+    box-sizing: border-box; /* Include padding in width/height */
 }
 
 .story-title {
@@ -339,6 +343,7 @@ canvas {
     margin-bottom: 1rem; /* Add space below the title */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2); /* Subtle text glow */
     animation: fadeIn 2s ease-out, subtlePulse 3s infinite alternate; /* Add fade-in and pulsing effects */
+    word-wrap: break-word; /* Prevent text from overflowing */
 }
 
 .story-text {
@@ -346,6 +351,33 @@ canvas {
     line-height: 1.8; /* Improve readability */
     color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
     animation: fadeUp 2.5s ease-out; /* Add fade-up animation */
+    word-wrap: break-word; /* Prevent text from overflowing */
+}
+
+/* Responsive Adjustments for Story Section */
+@media (max-width: 768px) {
+    #story {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .story-title {
+        font-size: 2rem; /* Reduce title size for smaller screens */
+    }
+
+    .story-text {
+        font-size: 1rem; /* Reduce text size for readability */
+        line-height: 1.5; /* Adjust line spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .story-title {
+        font-size: 1.8rem; /* Further reduce title size */
+    }
+
+    .story-text {
+        font-size: 0.9rem; /* Adjust text size for very small screens */
+    }
 }
 
 /* Keyframes for animations */
@@ -379,12 +411,12 @@ canvas {
         text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.4);
     }
 }
-  
+
   /* Showcase Section */
 #showcase {
     position: relative; /* Ensures proper stacking context */
     width: 100vw; /* Full width of the viewport */
-    height: auto; /* Adjust height based on content */
+    min-height: 100vh; /* Ensure proper height for all screen sizes */
     background: transparent; /* Transparent background to show particles */
     color: white; /* White text color for contrast */
     display: flex; /* Flex layout for alignment */
@@ -393,6 +425,7 @@ canvas {
     justify-content: center; /* Center children vertically if needed */
     padding: 40px 20px; /* Add spacing inside the section */
     z-index: 10; /* Ensure section stacks correctly above other elements */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
 /* Container for Showcase Content */
@@ -402,6 +435,8 @@ canvas {
     padding: 20px; /* Add padding around the content */
     z-index: 10; /* Ensure it appears above any background layers */
     position: relative; /* For proper stacking order */
+    width: 100%; /* Ensure it spans full width on smaller devices */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
 /* Title for Showcase Section */
@@ -410,6 +445,7 @@ canvas {
     margin-bottom: 1rem; /* Space below the title */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
     animation: fadeIn 2s ease-out; /* Add a fade-in animation */
+    word-wrap: break-word; /* Prevent text from overflowing */
 }
 
 /* Text Description for Showcase Section */
@@ -419,6 +455,7 @@ canvas {
     line-height: 1.6; /* Improve text readability */
     color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for softness */
     animation: fadeUp 2.5s ease-out; /* Add fade-up animation */
+    word-wrap: break-word; /* Prevent text from overflowing */
 }
 
 /* Feature Cards */
@@ -429,9 +466,11 @@ canvas {
     background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
     border-radius: 10px; /* Rounded corners */
     width: 250px; /* Fixed card width */
+    max-width: 100%; /* Ensure it fits on smaller screens */
     text-align: center; /* Center-align text */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effects */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
 /* Hover Effect for Feature Cards */
@@ -442,28 +481,64 @@ canvas {
 
 /* Responsive Adjustments for Showcase Section */
 @media (max-width: 768px) {
+    #showcase {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
     .showcase-content {
-        max-width: 100%; /* Allow content to span full width */
         padding: 10px; /* Reduce padding on smaller screens */
     }
 
+    .showcase-title {
+        font-size: 2rem; /* Reduce title size for smaller screens */
+    }
+
+    .showcase-text {
+        font-size: 1rem; /* Reduce text size for readability */
+        line-height: 1.5; /* Adjust line height for smaller screens */
+    }
+
     .feature-card {
-        width: 200px; /* Reduce card width on smaller screens */
+        width: 200px; /* Reduce card width for smaller screens */
+        padding: 15px; /* Adjust padding */
     }
 }
 
 @media (max-width: 480px) {
     .showcase-title {
-        font-size: 2rem; /* Reduce title size for small screens */
+        font-size: 1.8rem; /* Further reduce title size for very small screens */
     }
 
     .showcase-text {
-        font-size: 1rem; /* Reduce text size for readability */
+        font-size: 0.9rem; /* Adjust text size for readability */
     }
 
     .feature-card {
-        width: 150px; /* Further reduce card width */
-        padding: 15px; /* Adjust padding */
+        width: 150px; /* Further reduce card width for very small screens */
+        padding: 10px; /* Adjust padding */
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End in place */
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End in place */
     }
 }
 
@@ -472,6 +547,7 @@ canvas {
 #contact {
     position: relative; /* Establish stacking context */
     width: 100vw; /* Full width of the viewport */
+    min-height: 100vh; /* Ensure full height on all screen sizes */
     background: transparent; /* Transparent background to show particles */
     color: white; /* White text for contrast */
     display: flex; /* Flexbox for alignment */
@@ -480,6 +556,7 @@ canvas {
     justify-content: center; /* Center content vertically */
     padding: 40px 20px; /* Internal spacing */
     z-index: 10; /* Ensure it stacks above background layers */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
 /* Container for Contact Content */
@@ -489,6 +566,8 @@ canvas {
     padding: 20px; /* Add padding around the content */
     z-index: 10; /* Ensure it appears above other layers */
     position: relative; /* For proper stacking order */
+    width: 100%; /* Ensure full width on smaller screens */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
 /* Title for Contact Section */
@@ -497,6 +576,7 @@ canvas {
     margin-bottom: 1rem; /* Space below the title */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
     animation: fadeIn 2s ease-out; /* Add a fade-in animation */
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
 /* Text Description for Contact Section */
@@ -506,6 +586,7 @@ canvas {
     line-height: 1.6; /* Improve text readability */
     color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for softness */
     animation: fadeUp 2.5s ease-out; /* Add fade-up animation */
+    word-wrap: break-word; /* Prevent text overflow */
 }
 
 /* Contact Button */
@@ -517,6 +598,9 @@ canvas {
     border-radius: 5px; /* Rounded corners */
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth hover effects */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    width: auto; /* Ensure the button fits its content */
+    max-width: 100%; /* Prevent button from overflowing */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
 /* Hover Effect for Contact Button */
@@ -528,9 +612,12 @@ canvas {
 
 /* Responsive Adjustments for Contact Section */
 @media (max-width: 768px) {
+    #contact {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
     .contact-content {
-        max-width: 100%; /* Allow content to span full width */
-        padding: 10px; /* Reduce padding on smaller screens */
+        padding: 15px; /* Adjust padding for better spacing */
     }
 
     .contact-title {
@@ -538,7 +625,8 @@ canvas {
     }
 
     .contact-text {
-        font-size: 1rem; /* Reduce text size for readability */
+        font-size: 1rem; /* Adjust text size for readability */
+        line-height: 1.5; /* Adjust line height for smaller screens */
     }
 
     .contact-button {
@@ -552,13 +640,39 @@ canvas {
     }
 
     .contact-text {
-        font-size: 0.9rem; /* Reduce text size for very small screens */
+        font-size: 0.9rem; /* Adjust text size for readability */
+        line-height: 1.4; /* Adjust line height for better readability */
     }
 
     .contact-button {
         padding: 6px 12px; /* Further adjust button padding */
+        font-size: 0.9rem; /* Adjust font size for smaller buttons */
     }
 }
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End in place */
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End in place */
+    }
+}
+
 /* Footer Section */
 footer {
     position: relative; /* Establish stacking context */
