@@ -30,17 +30,6 @@ section {
     box-sizing: border-box; /* Ensure padding doesn’t affect layout */
     overflow: hidden; /* Prevent content from spilling outside */
 }
-/* Logo Styling */
-.kojib-logo {
-    width: 20vw; /* Scale logo relative to viewport width */
-    max-width: 120px; /* Limit maximum size */
-    height: auto;
-    margin-bottom: 20px; /* Reduced space between the logo and the text */
-    transition: all 0.3s ease-in-out; /* Smooth transition for resizing */
-    animation: shimmerGlow 3s infinite, fadeInLogo 1.5s ease-out forwards; /* Apply shimmer and fade-in animations */
-    display: inline-block; /* Allow box-shadow to behave better around the image */
-    position: relative; /* To control glow effect positioning */
-}
 
 /* Shimmer & Glow Animation */
 @keyframes shimmerGlow {
@@ -84,6 +73,17 @@ section {
         opacity: 1;
         transform: scale(1); /* End at full size */
     }
+}
+/* Logo Styling */
+.kojib-logo {
+    width: 20vw; /* Scale logo relative to viewport width */
+    max-width: 120px; /* Limit maximum size */
+    height: auto;
+    margin-bottom: 20px; /* Reduced space between the logo and the text */
+    transition: all 0.3s ease-in-out; /* Smooth transition for resizing */
+    animation: shimmerGlow 3s infinite, fadeInLogo 1.5s ease-out forwards; /* Apply shimmer and fade-in animations */
+    display: inline-block; /* Allow box-shadow to behave better around the image */
+    position: relative; /* To control glow effect positioning */
 }
 
 /* Logo Resizing for Smaller Screens */
