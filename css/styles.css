@@ -182,4 +182,70 @@ body, html {
       opacity: 0.8;
     }
   }
+  /* Introductory Story Section */
+#story {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to top, #00203f, #004e92); /* Dark gradient evolving into light */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .story-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .story-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 2s ease-out, subtlePulse 3s infinite alternate;
+  }
+  
+  .story-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    animation: fadeUp 2.5s ease-out;
+  }
+  
+  /* Keyframes for animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes subtlePulse {
+    0% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.4);
+    }
+  }
   

@@ -76,3 +76,36 @@ setInterval(() => {
     linear-gradient(${shimmerAngle}deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2))
   `;
 }, BASE_DURATION * PHI * 200); // Divine ratio timing for subtle shimmer updates
+// Initialize GSAP and ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Story Section Scroll Animations
+gsap.fromTo(
+  "#story .story-title",
+  { opacity: 0, y: 50 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#story",
+      start: "top 80%", // Animates when 80% of the section is in view
+    },
+  }
+);
+
+gsap.fromTo(
+  "#story .story-text",
+  { opacity: 0, y: 50 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 2.5,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: "#story",
+      start: "top 75%", // Animates when 75% of the section is in view
+    },
+  }
+);
