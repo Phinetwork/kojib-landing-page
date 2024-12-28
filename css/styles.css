@@ -8,8 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background: transparent; /* Fully transparent background */
+    box-shadow: none; /* Remove shadow for complete transparency */
     transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
