@@ -30,8 +30,7 @@ const sendRoomMessage = document.getElementById("send-room-message");
 
 // Backend API URLs
 const CHATBOT_API_URL = "https://chatbot-backend-ntxt.onrender.com/api/chat";
-const GUEST_LOGIN_API = "https://your-backend/api/guest-login";
-const REGISTER_API = "https://your-backend/api/register";
+const SOCIAL_BACKEND_URL = "https://social-backend-tsg5.onrender.com";
 
 // Conversation history to maintain AI Assistant context
 let conversationHistory = [];
@@ -74,10 +73,41 @@ userChatTab.addEventListener("click", () => {
     aiChat.classList.remove("active");
 });
 
-// Guest Login
+// Registration Logic
+createAccountButton.addEventListener("click", async () => {
+    const username = registerUsername.value.trim();
+    const email = registerEmail.value.trim();
+    const password = registerPassword.value.trim();
+
+    if (!username || !email || !password) {
+        alert("All fields are required.");
+        return;
+    }
+
+    try {
+        const response = await fetch(`${SOCIAL_BACKEND_URL}/api/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Account created successfully! Please log in.");
+            backToLogin.click();
+        } else {
+            alert(data.error || "Failed to create account.");
+        }
+    } catch (error) {
+        console.error("Registration Error:", error);
+    }
+});
+
+// Guest Login Logic
 guestLogin.addEventListener("click", async () => {
     try {
-        const response = await fetch(GUEST_LOGIN_API, { method: "POST" });
+        const response = await fetch(`${SOCIAL_BACKEND_URL}/api/guest-login`, { method: "POST" });
         const data = await response.json();
 
         if (data.username) {
@@ -91,50 +121,13 @@ guestLogin.addEventListener("click", async () => {
     }
 });
 
-// Show Registration Form
-registerButton.addEventListener("click", () => {
-    loginSection.style.display = "none";
-    registerSection.style.display = "flex";
-});
-
-// Back to Login
+// Back to Login Screen
 backToLogin.addEventListener("click", () => {
     registerSection.style.display = "none";
     loginSection.style.display = "flex";
 });
 
-// Create Account
-createAccountButton.addEventListener("click", async () => {
-    const username = registerUsername.value.trim();
-    const email = registerEmail.value.trim();
-    const password = registerPassword.value.trim();
-
-    if (!username || !email || !password) {
-        alert("All fields are required.");
-        return;
-    }
-
-    try {
-        const response = await fetch(REGISTER_API, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, email, password }),
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            alert("Account created successfully! Please log in.");
-            backToLogin.click();
-        } else {
-            alert(data.error || "Failed to create account.");
-        }
-    } catch (error) {
-        console.error("Registration Error:", error);
-    }
-});
-
-// Handle AI Assistant Message Sending
+// AI Assistant Message Handling
 sendMessage.addEventListener("click", async () => {
     const message = userInput.value.trim();
     if (!message) return;
@@ -199,14 +192,6 @@ async function getBotReply(message) {
         return "Sorry, I encountered a network error. Please try again.";
     }
 }
-
-// Optional: Handle 'Enter' Key for Sending AI Assistant Messages
-userInput.addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-        event.preventDefault(); // Prevent newline in textarea
-        sendMessage.click();
-    }
-});
 
 // Optional: Handle Room Messages (Placeholder)
 sendRoomMessage.addEventListener("click", () => {
