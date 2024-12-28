@@ -1249,36 +1249,6 @@ canvas {
     }
 }
 
-/* Chatbot Messages */
-#chatbot-messages {
-    flex: 1; /* Allow it to expand within its container */
-    overflow-y: auto; /* Enable scrolling for overflow content */
-    padding: 15px;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-height: 300px; /* Prevent the messages container from growing indefinitely */
-    scrollbar-width: thin; /* For modern browsers */
-    scrollbar-color: #00ff99 transparent; /* Custom scrollbar colors */
-    background: linear-gradient(135deg, #222 60%, #333); /* Subtle gradient */
-    color: #f4f4f4; /* Light text for readability */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-    border-radius: 10px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-#chatbot-messages::-webkit-scrollbar {
-    width: 8px;
-}
-
-#chatbot-messages::-webkit-scrollbar-thumb {
-    background: #00ff99;
-    border-radius: 4px;
-}
-
-#chatbot-messages::-webkit-scrollbar-track {
-    background: transparent;
-}
 
 /* Chatbot Content */
 #chatbot-content {
@@ -1293,23 +1263,7 @@ canvas {
     backdrop-filter: blur(6px); /* Frosted glass effect */
 }
 
-/* Chatbot Container */
-#chatbot {
-    position: fixed; /* Keeps it in place on the screen */
-    bottom: 10px; /* Adjust to position above other content */
-    right: 10px; /* Aligns to the right edge */
-    width: 400px; /* Adjust width to suit your design */
-    max-height: 600px; /* Ensures the entire chatbot remains visible */
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(145deg, #2b2b2b, #383838); /* Subtle modern gradient */
-    border: 2px solid #00ff99; /* Neon-style border */
-    border-radius: 15px; /* Smooth corners */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 153, 0.2); /* Dual shadow for depth */
-    z-index: 1000; /* Ensures it stays on top of other elements */
-    overflow-y: auto; /* Allow scrolling for the whole chatbot if content overflows */
-    animation: fadeIn 0.5s ease; /* Smooth entry animation */
-}
+
 
 @keyframes fadeIn {
     from {
@@ -1393,32 +1347,6 @@ canvas {
     box-shadow: 0 4px 6px rgba(0, 255, 153, 0.2);
 }
 
-/* Chatbot Floating Button */
-#chatbot-button {
-    position: fixed;
-    bottom: 20px; /* Adjust for spacing */
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #00ff99, #00cc80);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 255, 153, 0.2); /* Neon effect */
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-#chatbot-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 255, 153, 0.4);
-}
-
-#chatbot-button img {
-    width: 35px; /* Adjust size of the chat icon */
-}
 
 
 
