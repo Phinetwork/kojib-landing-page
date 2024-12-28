@@ -9,6 +9,9 @@ const chatbotMessages = document.getElementById("chatbot-messages");
 // Backend API URL
 const CHATBOT_API_URL = "https://chatbot-backend-ntxt.onrender.com/api/chat";
 
+// Conversation history to maintain context
+let conversationHistory = [];
+
 // Toggle Chatbot Visibility
 chatbotButton.addEventListener("click", () => {
     chatbot.style.display = "flex";
@@ -29,9 +32,15 @@ sendMessage.addEventListener("click", async () => {
     addMessage(message, "user");
     userInput.value = "";
 
+    // Add user message to conversation history
+    conversationHistory.push({ role: "user", content: message });
+
     // Call the Backend API
     const botReply = await getBotReply(message);
     addMessage(botReply, "bot");
+
+    // Add bot reply to conversation history
+    conversationHistory.push({ role: "assistant", content: botReply });
 });
 
 // Add Message to Chat Window
@@ -53,7 +62,10 @@ async function getBotReply(message) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ message }),
+            body: JSON.stringify({
+                message,
+                history: conversationHistory, // Send conversation history for context
+            }),
         });
 
         if (!response.ok) {
