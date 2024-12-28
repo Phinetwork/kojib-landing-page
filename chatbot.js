@@ -5,12 +5,25 @@ const closeChatbot = document.getElementById("close-chatbot");
 const sendMessage = document.getElementById("send-message");
 const userInput = document.getElementById("user-input");
 const chatbotMessages = document.getElementById("chatbot-messages");
+const loadingIndicator = document.createElement("div");
 
 // Backend API URL
 const CHATBOT_API_URL = "https://chatbot-backend-ntxt.onrender.com/api/chat";
 
 // Conversation history to maintain context
 let conversationHistory = [];
+
+// Initialize loading indicator
+loadingIndicator.id = "loading-indicator";
+loadingIndicator.innerHTML = `
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+`;
+chatbotMessages.appendChild(loadingIndicator);
+
+// Hide loading indicator initially
+loadingIndicator.style.display = "none";
 
 // Toggle Chatbot Visibility
 chatbotButton.addEventListener("click", () => {
@@ -35,8 +48,16 @@ sendMessage.addEventListener("click", async () => {
     // Add user message to conversation history
     conversationHistory.push({ role: "user", content: message });
 
+    // Show loading indicator
+    loadingIndicator.style.display = "block";
+
     // Call the Backend API
     const botReply = await getBotReply(message);
+
+    // Hide loading indicator
+    loadingIndicator.style.display = "none";
+
+    // Display Bot Reply
     addMessage(botReply, "bot");
 
     // Add bot reply to conversation history
