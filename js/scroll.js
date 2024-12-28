@@ -2,11 +2,12 @@
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
-// Toggle Menu Visibility
+// Toggle menu open/close
 hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
+    hamburger.classList.toggle("open");
+    navLinks.classList.toggle("open");
 });
+
 
 // Smooth Scroll to Sections
 document.querySelectorAll('.nav-links a').forEach(link => {
