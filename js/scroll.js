@@ -2,11 +2,19 @@
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
-// Toggle Menu Visibility
+// Toggle Menu Visibility and Hamburger Transformation
 hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    hamburger.classList.toggle("active");
+    const isActive = navLinks.classList.contains("active");
+
+    if (isActive) {
+        navLinks.classList.remove("active"); // Hide menu
+        hamburger.classList.remove("open"); // Reset hamburger to default state
+    } else {
+        navLinks.classList.add("active"); // Show menu
+        hamburger.classList.add("open"); // Transform hamburger to 'X'
+    }
 });
+
 
 // Smooth Scroll to Sections
 document.querySelectorAll('.nav-links a').forEach(link => {
