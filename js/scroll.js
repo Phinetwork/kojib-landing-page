@@ -1,6 +1,8 @@
 // JavaScript code for menu functionality
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
+const menuLinks = document.querySelectorAll("#nav-links li a"); // Select all menu links
+const navbar = document.getElementById("navbar");
 
 // Toggle Menu Visibility and Hamburger Transformation
 hamburger.addEventListener("click", () => {
@@ -14,6 +16,25 @@ hamburger.addEventListener("click", () => {
         hamburger.classList.add("open"); // Transform hamburger to 'X'
     }
 });
+
+// Close Menu When a Menu Link is Clicked
+menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active"); // Hide menu
+        hamburger.classList.remove("open"); // Reset hamburger to default state
+    });
+});
+
+// Add Scroll Listener for Navbar and Logo Effects
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled"); // Apply 'scrolled' class when scrolling past 50px
+    } else {
+        navbar.classList.remove("scrolled"); // Remove 'scrolled' class when at the top
+    }
+});
+
+
 
 
 // Smooth Scroll to Sections
