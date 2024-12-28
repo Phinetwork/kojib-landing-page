@@ -43,20 +43,21 @@ section {
 }
 
 /* Shimmer & Glow Animation */
-@keyframes shimmerGlow {
+/* @keyframes shimmerGlow {
     0% {
         filter: brightness(1) contrast(1);
     }
     50% {
-        filter: brightness(1.05) contrast(1.02); /* Subtle shimmer */
+        filter: brightness(1.05) contrast(1.02);
     }
     100% {
         filter: brightness(1) contrast(1);
     }
 }
 
+
 /* Glowing Pulse Animation - Subtle and Continuous */
-@keyframes glowPulse {
+/* @keyframes glowPulse {
     0% {
         filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.5)) drop-shadow(0 0 20px rgba(0, 255, 153, 0.3));
     }
@@ -75,27 +76,27 @@ section {
 }
 
 /* Fade-In Animation for Logo */
-@keyframes fadeInLogo {
+/* @keyframes fadeInLogo {
     0% {
         opacity: 0;
-        transform: scale(0.8); /* Start smaller */
+        transform: scale(0.8);
     }
     100% {
         opacity: 1;
-        transform: scale(1); /* End at full size */
+        transform: scale(1);
     }
 }
 
 /* Logo Resizing for Smaller Screens */
 @media (max-width: 480px) {
     .kojib-logo {
-        width: 30vw; /* Larger scaling on small screens */
+        width: 30vw;
     }
 }
 
 @media (max-width: 480px) {
     .kojib-logo {
-        max-width: 30%; /* Even larger on smaller mobile screens */
+        max-width: 30%; 
     }
 }
 
@@ -175,7 +176,7 @@ canvas {
   }
   
   /* Keyframes for Text Glow */
-  @keyframes fadeInGlow {
+  /*@keyframes fadeInGlow {
     0% {
       opacity: 0;
       text-shadow: 0 0 0 rgba(255, 255, 255, 0);
@@ -187,7 +188,7 @@ canvas {
   }
   
   /* Keyframes for Subtle Pulsing Glow */
-  @keyframes subtlePulse {
+  /*@keyframes subtlePulse {
     0% {
       text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
     }
@@ -197,7 +198,7 @@ canvas {
   }
   
   /* Keyframes for Organic Sparkling Animation on "Imagination" */
-  @keyframes organicSparkle {
+  /*@keyframes organicSparkle {
     0% {
       text-shadow: 0 0 15px rgba(0, 255, 153, 0.6), 0 0 25px rgba(0, 255, 153, 0.4);
       transform: translateX(0) translateY(0) scale(1);
@@ -221,7 +222,7 @@ canvas {
   }
   
   /* Keyframes for Organic Flow Animation on "Intelligence" */
-  @keyframes organicFlow {
+  /*@keyframes organicFlow {
     0% {
       transform: translateX(0) translateY(0) rotate(0deg);
       text-shadow: 0 0 20px rgba(255, 204, 0, 0.6), 0 0 30px rgba(255, 204, 0, 0.5);
@@ -245,7 +246,7 @@ canvas {
   }
   
   /* Keyframes for Fade-Up Animation */
-  @keyframes fadeUp {
+  /*@keyframes fadeUp {
     from {
       opacity: 0;
       transform: translateY(20px);
@@ -254,42 +255,44 @@ canvas {
       opacity: 1;
       transform: translateY(0);
     }
-  }
+  } */
+
+
   @media (max-width: 768px) {
     h1.headline {
         font-size: calc(2rem + 1vw); /* Scale down headline font size */
-        max-width: 90%; /* Prevent overflow */
+        max-width: 90%; 
     }
 
     p.subtext {
-        font-size: 1rem; /* Scale down subtext */
+        font-size: 1rem; 
     }
 
     .scroll-prompt {
-        font-size: 0.9rem; /* Scale down scroll prompt */
+        font-size: 0.9rem; 
     }
 }
 
 @media (max-width: 480px) {
     #intro {
-        padding: 10px; /* Adjust padding for very small screens */
+        padding: 10px; 
     }
 
     h1.headline {
-        font-size: calc(1.8rem + 1vw); /* Further scale down font size */
-        max-width: 85%; /* Tighten max-width */
+        font-size: calc(1.8rem + 1vw); 
+        max-width: 85%; 
     }
 
     p.subtext {
-        font-size: 0.9rem; /* Adjust subtext font size */
+        font-size: 0.9rem; 
     }
 
     .scroll-prompt {
-        font-size: 0.8rem; /* Adjust scroll prompt font size */
+        font-size: 0.8rem; 
     }
 }
   /* Keyframes for Seamless Pulse Animation */
-  @keyframes seamlessPulse {
+  /*@keyframes seamlessPulse {
     0% {
       transform: translateY(0);
       opacity: 0.8;
@@ -381,25 +384,25 @@ canvas {
 }
 
 /* Keyframes for animations */
-@keyframes fadeIn {
+/*@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px); 
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* End in place */
+        transform: translateY(0); 
     }
 }
 
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px); 
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* End in place */
+        transform: translateY(0); 
     }
 }
 
@@ -520,25 +523,25 @@ canvas {
 }
 
 /* Keyframes for animations */
-@keyframes fadeIn {
+/*@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px); 
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* End in place */
+        transform: translateY(0); /
     }
 }
 
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px); 
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* End in place */
+        transform: translateY(0); 
     }
 }
 
@@ -651,25 +654,25 @@ canvas {
 }
 
 /* Keyframes for animations */
-@keyframes fadeIn {
+/*@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px); 
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* End in place */
+        transform: translateY(0); 
     }
 }
 
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px); 
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* End in place */
+        transform: translateY(0); 
     }
 }
 
