@@ -589,46 +589,11 @@ canvas {
     }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    #skyriz .skyriz-title {
-        font-size: 2.5rem;
-    }
-
-    #skyriz .skyriz-text {
-        font-size: 1.2rem;
-    }
-
-    #skyriz .feature-card {
-        width: 100%;
-    }
-
-    #skyriz .cta-button {
-        font-size: 1.2rem;
-        padding: 10px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    #skyriz .skyriz-title {
-        font-size: 2rem;
-    }
-
-    #skyriz .skyriz-text {
-        font-size: 1rem;
-    }
-
-    #skyriz .cta-button {
-        font-size: 1rem;
-        padding: 8px 16px;
-    }
-}
-
 /* Skyriz Section Styling */
 #skyriz {
     position: relative;
     width: 100vw;
-    min-height: 100vh; /* Ensure consistency with other sections */
+    min-height: 100vh; /* Consistent with other sections */
     padding: 60px 20px;
     background: linear-gradient(135deg, #020202, #1c1c1c);
     color: white;
@@ -727,46 +692,83 @@ canvas {
     transform: translateY(-3px);
   }
   
-  /* Keyframes for Animations */
-  @keyframes fadeInGlow {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    #skyriz {
+      padding: 40px 10px; /* Reduce padding */
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  
+    #skyriz .skyriz-title {
+      font-size: 2.5rem; /* Smaller title size */
+    }
+  
+    #skyriz .skyriz-text {
+      font-size: 1.2rem; /* Reduce text size */
+      margin-bottom: 30px;
+    }
+  
+    #skyriz .feature-card {
+      width: 250px; /* Smaller feature cards */
+      padding: 15px;
+    }
+  
+    #skyriz .feature-card img {
+      width: 60px;
+      height: 60px; /* Smaller icons */
+    }
+  
+    #skyriz .feature-card h3 {
+      font-size: 1.4rem; /* Adjust heading size */
+    }
+  
+    #skyriz .feature-card p {
+      font-size: 1rem; /* Adjust paragraph size */
+    }
+  
+    #skyriz .cta-button {
+      padding: 12px 20px; /* Adjust button size */
+      font-size: 1.2rem;
     }
   }
   
-  @keyframes pulseHighlight {
-    0% {
-      text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
+  @media (max-width: 480px) {
+    #skyriz {
+      padding: 30px 10px;
     }
-    100% {
-      text-shadow: 0 0 30px #00ff99, 0 0 60px rgba(0, 255, 153, 1);
+  
+    #skyriz .skyriz-title {
+      font-size: 2rem;
+    }
+  
+    #skyriz .skyriz-text {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+  
+    #skyriz .feature-card {
+      width: 200px; /* Even smaller feature cards for mobile */
+      padding: 10px;
+    }
+  
+    #skyriz .feature-card img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    #skyriz .feature-card h3 {
+      font-size: 1.2rem;
+    }
+  
+    #skyriz .feature-card p {
+      font-size: 0.9rem;
+    }
+  
+    #skyriz .cta-button {
+      padding: 10px 16px;
+      font-size: 1rem;
     }
   }
   
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes rotateHover {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
   
 /* Contact Section */
 #contact {
