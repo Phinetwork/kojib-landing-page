@@ -161,6 +161,17 @@ function addMessage(text, sender) {
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 }
 
+function addMessage(text, sender) {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message", sender);
+    messageDiv.innerText = text;
+    chatbotMessages.appendChild(messageDiv);
+
+    // Scroll to the bottom of the container
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+
 // Show Thinking Bubbles
 function showThinkingBubbles() {
     const thinkingDiv = document.createElement("div");
@@ -220,6 +231,8 @@ userInput.addEventListener("keypress", (event) => {
         sendMessage.click(); // Trigger the Send button programmatically
     }
 });
+
+
 
 
 // Optional: Handle Room Messages
