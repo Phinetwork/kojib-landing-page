@@ -352,33 +352,34 @@
     const userInput = document.getElementById("user-input");
     const chatbotMessages = document.getElementById("chatbot-messages");
     
-    const OPENAI_API_KEY = "ysk-proj-tTUhWB-oUrKRWq0tvLDOZKq8kLOxMRekuHmjKBQ3UqjoAJ1ENAOovU88svSRF5D39XQHN7gMCfT3BlbkFJw9ehEC8UrE5C06r43wx1xSDwSiiTTEk9RnPT1Do9suVoR7UPFLrCwtIn3jp2NcHPFRUVXQkI4A"; // Secure this key using a proxy in production
-    
+    // Backend URL
+    const CHATBOT_API_URL = "https://chatbot-backend-ntxt.onrender.com/api/chat";
+
     // Toggle Chatbot Visibility
     chatbotButton.addEventListener("click", () => {
         chatbot.style.display = "flex";
         chatbotButton.style.display = "none";
     });
-    
+
     closeChatbot.addEventListener("click", () => {
         chatbot.style.display = "none";
         chatbotButton.style.display = "flex";
     });
-    
+
     // Handle Sending Messages
     sendMessage.addEventListener("click", async () => {
         const message = userInput.value.trim();
         if (!message) return;
-    
+
         // Display User Message
         addMessage(message, "user");
         userInput.value = "";
-    
-        // Call OpenAI API
+
+        // Call the Backend API
         const botReply = await getBotReply(message);
         addMessage(botReply, "bot");
     });
-    
+
     // Add Message to Chat
     function addMessage(text, sender) {
         const messageDiv = document.createElement("div");
@@ -387,30 +388,32 @@
         chatbotMessages.appendChild(messageDiv);
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll to latest message
     }
-    
-    // Fetch Bot Reply from OpenAI
+
+    // Fetch Bot Reply from Backend
     async function getBotReply(message) {
-        const endpoint = "https://api.openai.com/v1/chat/completions";
-        const headers = {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${OPENAI_API_KEY}`,
-        };
-    
-        const body = JSON.stringify({
-            model: "gpt-4",
-            messages: [{ role: "user", content: message }],
-        });
-    
         try {
-            const response = await fetch(endpoint, { method: "POST", headers, body });
+            const response = await fetch(CHATBOT_API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ message }),
+            });
+
+            if (!response.ok) {
+                console.error("Backend error:", response.statusText);
+                return "Sorry, there was an issue connecting to the chatbot.";
+            }
+
             const data = await response.json();
-            return data.choices[0].message.content;
+            return data.reply || "No response received.";
         } catch (error) {
-            console.error("Error:", error);
-            return "Sorry, I encountered an error. Please try again.";
+            console.error("Error:", error.message);
+            return "Sorry, I encountered a network error. Please try again.";
         }
     }
-    </script>
+</script>
+
     
 </body>
 </html>
