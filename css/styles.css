@@ -35,15 +35,15 @@
 #navbar.scrolled .logo img {
     transform: scale(1.1);
     filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
-    animation: twinkle 2s infinite ease-in-out;
+    animation: subtleTwinkle 3s infinite alternate ease-in-out;
 }
 
-@keyframes twinkle {
+@keyframes subtleTwinkle {
     0%, 100% {
         filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
     }
     50% {
-        filter: brightness(1.6) drop-shadow(0 0 15px #00ff99);
+        filter: brightness(1.5) drop-shadow(0 0 12px #00ff99);
     }
 }
 
@@ -117,31 +117,22 @@
         box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
-        transition: right 0.3s ease-in-out, background 0.5s ease-in-out;
+        transition: right 0.3s ease-in-out, background 1s ease-in-out;
     }
 
     .nav-links.active {
         right: 0;
         background: linear-gradient(135deg, #004d26, #00ff99);
-        box-shadow: 0 0 20px rgba(0, 255, 153, 0.9), 0 0 40px rgba(0, 255, 153, 0.7);
-        animation: organicShimmer 3s infinite ease-in-out;
+        box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
+        animation: subtleMenuTwinkle 5s infinite alternate ease-in-out;
     }
 
-    @keyframes organicShimmer {
-        0% {
+    @keyframes subtleMenuTwinkle {
+        0%, 100% {
             background: linear-gradient(135deg, #004d26, #00ff99);
-        }
-        25% {
-            background: linear-gradient(145deg, #005c2e, #008a4b);
         }
         50% {
-            background: linear-gradient(135deg, #007d5b, #00ff99);
-        }
-        75% {
-            background: linear-gradient(125deg, #005c2e, #00d966);
-        }
-        100% {
-            background: linear-gradient(135deg, #004d26, #00ff99);
+            background: linear-gradient(135deg, #005c2e, #00d966);
         }
     }
 
