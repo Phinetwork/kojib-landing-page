@@ -593,181 +593,184 @@ canvas {
 #skyriz {
     position: relative;
     width: 100vw;
-    min-height: 100vh; /* Consistent with other sections */
-    padding: 60px 20px;
+    min-height: 100vh; /* Ensure consistent height with Contact section */
+    padding: 40px 20px; /* Match Contact section padding */
     background: linear-gradient(135deg, #020202, #1c1c1c);
     color: white;
     text-align: center;
+    box-sizing: border-box; /* Ensure padding doesn't affect layout dimensions */
     overflow: hidden; /* Ensure no content spills out */
-  }
-  
-  #skyriz .skyriz-content {
-    max-width: 1200px;
+}
+
+#skyriz .skyriz-content {
+    max-width: 800px; /* Match Contact section's content width */
     margin: 0 auto;
     padding: 20px;
     position: relative;
     z-index: 10;
-  }
-  
-  #skyriz .skyriz-title {
-    font-size: 3rem;
+    box-sizing: border-box; /* Consistent sizing */
+}
+
+#skyriz .skyriz-title {
+    font-size: 2.5rem; /* Match Contact title size */
     margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
     animation: fadeInGlow 2s ease-out;
-  }
-  
-  #skyriz .skyriz-title span {
+}
+
+#skyriz .skyriz-title span {
     color: #00ff99;
     text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
     animation: pulseHighlight 2s infinite alternate;
-  }
-  
-  #skyriz .skyriz-text {
-    font-size: 1.4rem;
-    line-height: 1.8;
+}
+
+#skyriz .skyriz-text {
+    font-size: 1.2rem; /* Match Contact text size */
+    line-height: 1.6; /* Match Contact line height */
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     animation: fadeUp 1.8s ease-out;
-  }
-  
-  #skyriz .skyriz-features {
+}
+
+#skyriz .skyriz-features {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 40px;
-  }
-  
-  #skyriz .feature-card {
+    margin-bottom: 20px;
+}
+
+#skyriz .feature-card {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-    padding: 20px;
-    width: 300px;
+    padding: 15px; /* Adjust padding to match Contact section's compact style */
+    width: 250px; /* Match responsive adjustments */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  #skyriz .feature-card:hover {
+}
+
+#skyriz .feature-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
-  }
-  
-  #skyriz .feature-card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15px;
+}
+
+#skyriz .feature-card img {
+    width: 60px; /* Consistent icon size with Contact button */
+    height: 60px;
+    margin-bottom: 10px;
     animation: rotateHover 5s linear infinite;
-  }
-  
-  #skyriz .feature-card h3 {
-    font-size: 1.6rem;
+}
+
+#skyriz .feature-card h3 {
+    font-size: 1.4rem; /* Match Contact text headings */
     margin-bottom: 10px;
     color: #00ff99;
-  }
-  
-  #skyriz .feature-card p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+}
+
+#skyriz .feature-card p {
+    font-size: 1rem; /* Match Contact text size */
+    line-height: 1.5; /* Align line height with Contact text */
     color: rgba(255, 255, 255, 0.75);
-  }
-  
-  #skyriz .cta-button {
+}
+
+#skyriz .cta-button {
     display: inline-block;
     background: #00ff99;
     color: #020202;
-    padding: 15px 30px;
-    font-size: 1.4rem;
+    padding: 10px 20px; /* Match Contact button padding */
+    font-size: 1.2rem; /* Match Contact button text size */
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 5px; /* Match Contact button style */
     transition: background 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 255, 153, 0.4);
-  }
-  
-  #skyriz .cta-button:hover {
+}
+
+#skyriz .cta-button:hover {
     background: #00cc80;
     transform: translateY(-3px);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     #skyriz {
-      padding: 40px 10px; /* Reduce padding */
+        padding: 20px; /* Match Contact section padding for smaller screens */
     }
-  
+
     #skyriz .skyriz-title {
-      font-size: 2.5rem; /* Smaller title size */
+        font-size: 2rem; /* Match Contact title size */
     }
-  
+
     #skyriz .skyriz-text {
-      font-size: 1.2rem; /* Reduce text size */
-      margin-bottom: 30px;
+        font-size: 1rem; /* Match Contact text size */
+        margin-bottom: 20px;
     }
-  
+
     #skyriz .feature-card {
-      width: 250px; /* Smaller feature cards */
-      padding: 15px;
+        width: 200px; /* Match Contact responsiveness */
+        padding: 10px;
     }
-  
+
     #skyriz .feature-card img {
-      width: 60px;
-      height: 60px; /* Smaller icons */
+        width: 50px;
+        height: 50px;
     }
-  
+
     #skyriz .feature-card h3 {
-      font-size: 1.4rem; /* Adjust heading size */
+        font-size: 1.2rem;
     }
-  
+
     #skyriz .feature-card p {
-      font-size: 1rem; /* Adjust paragraph size */
+        font-size: 0.9rem;
     }
-  
+
     #skyriz .cta-button {
-      padding: 12px 20px; /* Adjust button size */
-      font-size: 1.2rem;
+        padding: 8px 16px; /* Match Contact button size for smaller screens */
+        font-size: 1rem;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     #skyriz {
-      padding: 30px 10px;
+        padding: 20px; /* Ensure tight padding for mobile */
     }
-  
+
     #skyriz .skyriz-title {
-      font-size: 2rem;
+        font-size: 1.8rem;
     }
-  
+
     #skyriz .skyriz-text {
-      font-size: 1rem;
-      margin-bottom: 20px;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
     }
-  
+
     #skyriz .feature-card {
-      width: 200px; /* Even smaller feature cards for mobile */
-      padding: 10px;
+        width: 180px; /* Smaller cards for compact screens */
+        padding: 10px;
     }
-  
+
     #skyriz .feature-card img {
-      width: 50px;
-      height: 50px;
+        width: 40px;
+        height: 40px;
     }
-  
+
     #skyriz .feature-card h3 {
-      font-size: 1.2rem;
+        font-size: 1rem;
     }
-  
+
     #skyriz .feature-card p {
-      font-size: 0.9rem;
+        font-size: 0.8rem;
     }
-  
+
     #skyriz .cta-button {
-      padding: 10px 16px;
-      font-size: 1rem;
+        padding: 6px 12px;
+        font-size: 0.9rem;
     }
-  }
+}
+
   
   
 /* Contact Section */
