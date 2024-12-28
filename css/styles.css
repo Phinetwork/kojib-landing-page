@@ -968,7 +968,7 @@ canvas {
 
     .contact-button {
         padding: 6px 12px; /* Further adjust button padding */
-        font-size: 0.9rem; /* Adjust font size for smaller buttons */
+        font-size: 1rem; /* Adjust font size for smaller buttons */
     }
 }
 
@@ -1058,7 +1058,7 @@ footer::before {
 /* Responsive Adjustments for Footer */
 @media (max-width: 768px) {
     footer .social-links a {
-        font-size: 1rem; /* Adjust font size for smaller screens */
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
         margin: 0 8px; /* Reduce spacing between links */
     }
 
