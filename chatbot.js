@@ -171,6 +171,25 @@ function addMessage(text, sender) {
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 }
 
+// Handle Enter Key for Sending Messages
+userInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // Prevent default behavior (new line in textarea)
+        sendMessage.click(); // Trigger Send button click
+    }
+});
+
+// Send Message Logic (if not already implemented)
+sendMessage.addEventListener("click", () => {
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    // Add logic to send the message (e.g., display or send to backend)
+    console.log("Message sent:", message); // Debugging; replace with actual logic
+
+    // Clear input after sending
+    userInput.value = "";
+});
 
 // Show Thinking Bubbles
 function showThinkingBubbles() {
