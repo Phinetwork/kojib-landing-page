@@ -137,8 +137,14 @@ sendMessage.addEventListener("click", async () => {
     // Add user message to conversation history
     conversationHistory.push({ role: "user", content: message });
 
+    // Show thinking bubbles
+    showThinkingBubbles();
+
     // Call the Backend API
     const botReply = await getBotReply(message);
+
+    // Remove thinking bubbles
+    removeThinkingBubbles();
 
     // Display Bot Reply
     addMessage(botReply, "bot");
@@ -153,6 +159,30 @@ function addMessage(text, sender) {
 
     // Auto-scroll to the latest message
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+// Show Thinking Bubbles
+function showThinkingBubbles() {
+    const thinkingDiv = document.createElement("div");
+    thinkingDiv.id = "thinking-bubbles";
+    thinkingDiv.classList.add("message", "bot"); // Style it as a bot message
+    thinkingDiv.innerHTML = `
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    `;
+    chatbotMessages.appendChild(thinkingDiv);
+
+    // Auto-scroll to the latest message
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+// Remove Thinking Bubbles
+function removeThinkingBubbles() {
+    const thinkingDiv = document.getElementById("thinking-bubbles");
+    if (thinkingDiv) {
+        chatbotMessages.removeChild(thinkingDiv);
+    }
 }
 
 // Fetch Bot Reply from Backend
@@ -182,6 +212,15 @@ async function getBotReply(message) {
         return "Sorry, I encountered a network error. Please try again.";
     }
 }
+
+// Handle Enter Key for Sending Messages
+userInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // Prevent adding a newline
+        sendMessage.click(); // Trigger the Send button programmatically
+    }
+});
+
 
 // Optional: Handle Room Messages
 sendRoomMessage.addEventListener("click", () => {

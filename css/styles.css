@@ -1210,12 +1210,38 @@ canvas {
     color: white;
 }
 
-/* Loading Bubbles */
-#loading-indicator {
-    display: none; /* Hidden by default */
-    text-align: center;
+#thinking-bubbles {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
     margin: 10px 0;
 }
+
+#thinking-bubbles .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00ff99;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+
+#thinking-bubbles .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#thinking-bubbles .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
 
 #loading-indicator .dot {
     width: 8px;
