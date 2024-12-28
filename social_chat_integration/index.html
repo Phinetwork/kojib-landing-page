@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta tags for manifest and PWA settings -->
+        <link rel="manifest" href="./manifest.json">
+        <meta name="theme-color" content="#000000"> <!-- Theme color for browsers -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- iOS status bar style -->
+        <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Enable PWA features for iOS -->
+        <meta name="apple-mobile-web-app-title" content="Kojib"> <!-- PWA title for iOS -->
+      
+        <!-- General meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Kojib - The frontier of AI innovation. Explore the boundaries of imagination and intelligence.">
+      
+        <!-- Page title -->
+        <title>Kojib - Where Imagination Meets Intelligence</title>
+      
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+      </head>      
+<body>
+    <!-- Navigation Menu -->
+<nav id="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <img src="image/logo.svg" alt="Kojib Logo">
+        </a>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Menu Items -->
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#story">About</a></li>
+            <li><a href="#showcase">Capabilities</a></li>
+            <li><a href="#skyriz">Skyriz</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+  <!-- Intro Section -->
+  <div id="intro">
+    <!-- Canvas for the Three.js Particle System -->
+    <canvas id="particleCanvas"></canvas>
+    <!-- Content Overlay -->
+    <div class="content">
+      <!-- Logo -->
+      <img src="image/logo.svg" alt="Kojib Logo" class="kojib-logo">
+      <h1 class="headline">
+        Where <span class="highlight">Imagination</span> Meets <span class="intelligence">Intelligence</span>
+      </h1>
+      <p class="subtext">
+        At Kojib, we pioneer the boundaries of AI to create intelligent, human-centric solutions.
+      </p>
+      <div class="scroll-prompt">Scroll to Discover ↓</div>
+    </div>
+  </div>
+
+  <!-- Story Section -->
+<section id="story">
+    <div class="story-content">
+      <h2 class="story-title">Inspired by Nature, Built with Love</h2>
+      <p class="story-text">
+        Kojib is where creative genius harmonizes with cutting-edge AI to solve humanity’s most profound challenges.
+        We take imagination and turn it into intelligent solutions that feel alive.
+      </p>
+    </div>
+  </section>
+
+  <!-- Showcase Section -->
+<section id="showcase">
+    <div class="showcase-content">
+      <h2 class="showcase-title">Our Capabilities</h2>
+      <p class="showcase-text">
+        Discover how Kojib merges creativity and AI to unlock limitless possibilities.
+      </p>
+      <div class="showcase-features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon">
+          </div>
+          <h3>Predictive Modeling</h3>
+          <p>Accurate and scalable insights for tomorrow’s challenges.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="image/neural-network-icon.svg" alt="Neural Network Design Icon">
+          </div>
+          <h3>Neural Network Design</h3>
+          <p>Cutting-edge architectures for intelligent solutions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="image/human-centric-icon.svg" alt="Human-Centric AI Icon">
+          </div>
+          <h3>Human-Centric AI</h3>
+          <p>Building AI that feels alive and connects with your vision.</p>
+        </div>
+
+    </div>
+  </section>
+
+
+<!-- Advanced Skyriz Section -->
+<section id="skyriz">
+    <div class="skyriz-content">
+      <h2 class="skyriz-title">Meet <span class="highlight">Skyriz</span></h2>
+      <p class="skyriz-text">
+        Unlock the power of personalized AI learning with Skyriz. Transforming education with innovative, intuitive, and intelligent solutions tailored for every learner.
+      </p>
+      <div class="skyriz-features">
+        <div class="feature-card">
+          <img src="image/adaptive-learning-icon.svg" alt="Adaptive Learning Icon" class="feature-icon">
+          <h3>Adaptive Learning</h3>
+          <p>Skyriz personalizes the learning experience with real-time AI adjustments to your progress.</p>
+        </div>
+        <div class="feature-card">
+          <img src="image/ai-powered-insights-icon.svg" alt="AI Insights Icon" class="feature-icon">
+          <h3>AI Insights</h3>
+          <p>Gain deep, actionable insights that empower students and educators alike.</p>
+        </div>
+        <div class="feature-card">
+          <img src="image/collaborative-tools-icon.svg" alt="Collaborative Tools Icon" class="feature-icon">
+          <h3>Collaborative Tools</h3>
+          <p>Seamlessly connect with peers and educators for collaborative growth.</p>
+        </div>
+      </div>
+      <a href="https://skyriz.app" target="_blank" class="cta-button">Explore Skyriz</a>
+    </div>
+  </section>
+  
+  
+  <!-- Updated CSS -->
+  <style>
+    /* Skyriz Section Styling */
+    #skyriz {
+      position: relative;
+      width: 100vw;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #020202, #1c1c1c);
+      color: white;
+      text-align: center;
+      overflow: hidden; /* Ensure no content spills out */
+    }
+  
+    #skyriz .skyriz-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 10;
+    }
+  
+    #skyriz .skyriz-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+      animation: fadeInGlow 2s ease-out;
+    }
+  
+    #skyriz .skyriz-title span {
+      color: #00ff99;
+      text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
+      animation: pulseHighlight 2s infinite alternate;
+    }
+  
+    #skyriz .skyriz-text {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      animation: fadeUp 1.8s ease-out;
+    }
+  
+    #skyriz .skyriz-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+  
+    #skyriz .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    #skyriz .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
+    }
+  
+    #skyriz .feature-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      animation: rotateHover 5s linear infinite;
+    }
+  
+    #skyriz .feature-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #00ff99;
+    }
+  
+    #skyriz .feature-card p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+    }
+  
+    #skyriz .cta-button {
+      display: inline-block;
+      background: #00ff99;
+      color: #020202;
+      padding: 15px 30px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 255, 153, 0.4);
+    }
+  
+    #skyriz .cta-button:hover {
+      background: #00cc80;
+      transform: translateY(-3px);
+    }
+  
+    /* Keyframes for Animations */
+    @keyframes fadeInGlow {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes pulseHighlight {
+      0% {
+        text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
+      }
+      100% {
+        text-shadow: 0 0 30px #00ff99, 0 0 60px rgba(0, 255, 153, 1);
+      }
+    }
+  
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes rotateHover {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  
+  <!-- Contact Section -->
+<section id="contact">
+    <div class="contact-content">
+        <h2 class="contact-title">Get in Touch</h2>
+        <p class="contact-text">
+            Ready to transform your vision into reality? Reach out to Kojib today and let’s build the future together.
+        </p>
+        <a href="mailto:contact@kojib.com" class="contact-button">Contact Us</a>
+    </div>
+</section>
+
+<div id="scroll-menu">
+  <div id="scroll-toggle">↑</div>
+  <div id="scroll-sections">
+      <a href="#intro">Home</a>
+      <a href="#showcase">Capabilities</a>
+      <a href="#skyriz">Skyriz</a>
+      <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<!-- Chatbot Tabs -->
+<div id="chatbot">
+  <div id="chatbot-header">
+      <span>Chat</span>
+      <button id="close-chatbot">&times;</button>
+  </div>
+  <div id="chatbot-tabs">
+      <button id="ai-tab" class="active">AI Assistant</button>
+      <button id="user-chat-tab">User Chats</button>
+  </div>
+  <div id="chatbot-content">
+      <!-- AI Assistant Chat -->
+      <div id="ai-chat" class="chat-tab active">
+          <div id="chatbot-messages"></div>
+          <div id="chatbot-input">
+              <textarea id="user-input" placeholder="Hello! I’m Kojib, your super-smart AI buddy. Ask away—I'm ready to assist!..."></textarea>
+              <button id="send-message">Send</button>
+          </div>
+      </div>
+
+      <!-- Login Section -->
+<div id="user-chat-login" class="active"> <!-- Add "active" class initially -->
+  <h3>Welcome to User Chats</h3>
+  <button id="guest-login">Continue as Guest</button>
+  <button id="register-button">Create an Account</button>
+</div>
+
+<!-- Registration Section -->
+<div id="user-chat-register">
+  <h3>Create an Account</h3>
+  <input id="register-username" type="text" placeholder="Username" />
+  <input id="register-email" type="email" placeholder="Email" />
+  <input id="register-password" type="password" placeholder="Password" />
+  <button id="create-account">Register</button>
+  <button id="back-to-login">Back</button>
+</div>
+
+
+          <!-- Chat Rooms Section -->
+          <div id="user-chat-rooms" style="display: none;">
+              <h3>Chat Rooms</h3>
+              <button id="create-room">Create Room</button>
+              <button id="join-room">Join Room</button>
+              <div id="room-list"></div>
+          </div>
+
+          <!-- Chat Room Input -->
+          <div id="user-chat-input" style="display: none;">
+              <div id="room-messages"></div>
+              <textarea id="room-input" placeholder="Message the room..."></textarea>
+              <button id="send-room-message">Send</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Chatbot Floating Button -->
+<div id="chatbot-button">
+  <img src="image/chat-icon.svg" alt="Chat" />
+</div>
+
+
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Kojib. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://twitter.com/kojib_com" target="_blank">Twitter</a>
+        <a href="https://instagram.com/kojib_com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/company/kojib" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="lib/three.min.js"></script>
+  <script src="lib/gsap.min.js"></script>
+  <script src="lib/ScrollTrigger.min.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/main.js"></script>
+ 
+     <!-- Include other scripts or libraries -->
+     <script src="chatbot.js"></script>
+
+    
+</body>
+</html>

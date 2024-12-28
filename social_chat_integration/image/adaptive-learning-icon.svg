@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Outer Glow -->
+  <defs>
+    <radialGradient id="outerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#outerGlow)" />
+  
+  <!-- Brain Shape -->
+  <path
+    d="M100,50c-20,0-30,15-30,30s10,25,30,25s30-15,30-30S120,50,100,50zM100,120c-20,0-40,15-40,30s20,15,40,15s40-15,40-30S120,120,100,120z"
+    fill="#00ff99"
+    stroke="#ffffff"
+    stroke-width="3"
+    filter="url(#glow)"
+  />
+
+  <!-- Nodes -->
+  <circle cx="60" cy="80" r="6" fill="#ffcc00" stroke="#ffffff" stroke-width="2">
+    <animate attributeName="r" from="6" to="8" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0.5" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="140" cy="80" r="6" fill="#ffcc00" stroke="#ffffff" stroke-width="2">
+    <animate attributeName="r" from="6" to="8" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0.5" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="80" cy="140" r="6" fill="#ffcc00" stroke="#ffffff" stroke-width="2">
+    <animate attributeName="r" from="6" to="8" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0.5" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="120" cy="140" r="6" fill="#ffcc00" stroke="#ffffff" stroke-width="2">
+    <animate attributeName="r" from="6" to="8" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0.5" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Connections -->
+  <line x1="60" y1="80" x2="100" y2="80" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.6" />
+  <line x1="140" y1="80" x2="100" y2="80" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.6" />
+  <line x1="80" y1="140" x2="100" y2="120" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.6" />
+  <line x1="120" y1="140" x2="100" y2="120" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.6" />
+
+  <!-- Glowing Effect -->
+  <filter id="glow">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+    <feMerge>
+      <feMergeNode in="blur" />
+      <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
+
+  <!-- Central Pulse -->
+  <circle cx="100" cy="100" r="10" fill="#00ff99" filter="url(#glow)">
+    <animate attributeName="r" from="10" to="15" dur="1s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0" dur="1s" repeatCount="indefinite" />
+  </circle>
+</svg>

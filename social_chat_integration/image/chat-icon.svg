@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+  <defs>
+    <!-- Gradient for the glowing effect -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#00cc80" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#00ff99" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Animation for pulsating glow -->
+    <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer Glow Circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#glowGradient)" filter="url(#glowFilter)">
+    <animate attributeName="r" values="90;95;90" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="70" fill="#000" />
+
+  <!-- Chat Bubble -->
+  <path d="M100 40c-30 0-55 20-55 45s25 45 55 45c7 0 14-1 20-3l25 15-8-23c11-9 18-21 18-34 0-25-25-45-55-45z" 
+        fill="#00ff99" filter="url(#glowFilter)">
+    <animateTransform attributeName="transform" attributeType="XML" type="scale" values="1;1.05;1" dur="1.5s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Dots in the Chat Bubble -->
+  <circle cx="85" cy="100" r="6" fill="#000">
+    <animate attributeName="r" values="6;7;6" dur="1.2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="100" cy="100" r="6" fill="#000">
+    <animate attributeName="r" values="6;7;6" begin="0.4s" dur="1.2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="115" cy="100" r="6" fill="#000">
+    <animate attributeName="r" values="6;7;6" begin="0.8s" dur="1.2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Outer Glow Ring -->
+  <circle cx="100" cy="100" r="95" stroke="#00ff99" stroke-width="3" fill="none" opacity="0.5">
+    <animate attributeName="r" values="95;100;95" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" repeatCount="indefinite" />
+  </circle>
+</svg>
