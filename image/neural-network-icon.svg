@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" fill="none">
+  <!-- Outer Glow Circle -->
+  <circle cx="150" cy="150" r="140" stroke="#00FFC6" stroke-width="2" fill="none">
+    <animate attributeName="stroke-width" values="2;4;2" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.8;0.5;0.8" dur="3s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Neural Network Nodes -->
+  <circle cx="100" cy="80" r="10" fill="#00FFC6">
+    <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="80" r="10" fill="#FFCC00">
+    <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="150" cy="150" r="12" fill="#FFFFFF">
+    <animate attributeName="r" values="12;15;12" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="100" cy="220" r="10" fill="#00FFC6">
+    <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="220" r="10" fill="#FFCC00">
+    <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Connections Between Nodes -->
+  <line x1="100" y1="80" x2="150" y2="150" stroke="#FFFFFF" stroke-width="2">
+    <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+  </line>
+  <line x1="200" y1="80" x2="150" y2="150" stroke="#FFFFFF" stroke-width="2">
+    <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+  </line>
+  <line x1="100" y1="220" x2="150" y2="150" stroke="#FFFFFF" stroke-width="2">
+    <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+  </line>
+  <line x1="200" y1="220" x2="150" y2="150" stroke="#FFFFFF" stroke-width="2">
+    <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+  </line>
+
+  <!-- Dynamic Energy Pulses Along Connections -->
+  <circle cx="125" cy="115" r="3" fill="#00FFC6">
+    <animate attributeName="cx" values="100;150" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;150" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="175" cy="115" r="3" fill="#FFCC00">
+    <animate attributeName="cx" values="200;150" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;150" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="125" cy="185" r="3" fill="#00FFC6">
+    <animate attributeName="cx" values="100;150" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="220;150" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="175" cy="185" r="3" fill="#FFCC00">
+    <animate attributeName="cx" values="200;150" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="220;150" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Glowing Central Node Animation -->
+  <circle cx="150" cy="150" r="40" fill="none" stroke="#FFFFFF" stroke-width="1">
+    <animate attributeName="r" values="40;50;40" dur="2.5s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.5;0.8;0.5" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+</svg>

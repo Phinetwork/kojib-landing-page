@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Central Human Figure -->
+  <g>
+    <circle cx="100" cy="100" r="20" fill="#FFD700" filter="url(#glow)" />
+    <line x1="100" y1="80" x2="100" y2="50" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+    <line x1="85" y1="110" x2="65" y2="130" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+    <line x1="115" y1="110" x2="135" y2="130" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+    <line x1="85" y1="130" x2="115" y2="130" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Dynamic Pulsating Rings -->
+  <g>
+    <circle cx="100" cy="100" r="40" fill="none" stroke="#00FF99" stroke-width="3" opacity="0.8">
+      <animate attributeName="r" from="40" to="60" dur="2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.8" to="0" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#FF6F61" stroke-width="3" opacity="0.6">
+      <animate attributeName="r" from="70" to="90" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.6" to="0" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Rotating Halo -->
+  <g>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#00A1E0" stroke-width="1" stroke-dasharray="10 10" stroke-opacity="0.7">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Glow Effect -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
