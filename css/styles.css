@@ -117,23 +117,14 @@
         box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
-        transition: right 0.3s ease-in-out, background 1s ease-in-out;
+        transition: right 0.3s ease-in-out;
+        animation: phiShimmer 5s infinite ease-in-out; /* Apply the shimmering effect */
     }
 
     .nav-links.active {
         right: 0;
         background: linear-gradient(135deg, #004d26, #00ff99);
         box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
-        animation: subtleMenuTwinkle 5s infinite alternate ease-in-out;
-    }
-
-    @keyframes subtleMenuTwinkle {
-        0%, 100% {
-            background: linear-gradient(135deg, #004d26, #00ff99);
-        }
-        50% {
-            background: linear-gradient(135deg, #005c2e, #00d966);
-        }
     }
 
     .nav-links li {
@@ -154,6 +145,23 @@
         padding: 5px 10px;
     }
 }
+
+/* Phi-Based Shimmering Animation */
+@keyframes phiShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    38.2% { /* Using the golden ratio for natural movement */
+        background-position: 50% 100%;
+    }
+    61.8% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 /* Smooth Animation for Nav Links */
 .nav-links li {
