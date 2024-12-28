@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Glow -->
+  <defs>
+    <radialGradient id="backgroundGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4a90e2" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <filter id="glowEffect">
+      <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#backgroundGlow)" />
+
+  <!-- Central Eye -->
+  <circle cx="100" cy="100" r="20" fill="#ffffff" filter="url(#glowEffect)">
+    <animate attributeName="r" from="18" to="20" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0.8" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="100" cy="100" r="12" fill="#4a90e2">
+    <animate attributeName="r" from="10" to="12" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="100" cy="100" r="5" fill="#ffffff" />
+
+  <!-- Neural Mesh -->
+  <path
+    d="M50,100c20-40,80-40,100,0s-80,40-100,0z"
+    fill="none"
+    stroke="#4a90e2"
+    stroke-width="2"
+    stroke-linecap="round"
+    filter="url(#glowEffect)"
+  />
+  <path
+    d="M60,80c10,10,80,10,90,0s-80-10-90,0z"
+    fill="none"
+    stroke="#4a90e2"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-dasharray="5,5"
+  />
+  <path
+    d="M60,120c10-10,80-10,90,0s-80,10-90,0z"
+    fill="none"
+    stroke="#4a90e2"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-dasharray="5,5"
+  />
+
+  <!-- Connecting Nodes -->
+  <circle cx="50" cy="100" r="5" fill="#4a90e2">
+    <animate attributeName="r" from="4" to="6" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="150" cy="100" r="5" fill="#4a90e2">
+    <animate attributeName="r" from="4" to="6" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="60" cy="80" r="4" fill="#ffffff">
+    <animate attributeName="r" from="3" to="5" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="140" cy="80" r="4" fill="#ffffff">
+    <animate attributeName="r" from="3" to="5" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="60" cy="120" r="4" fill="#ffffff">
+    <animate attributeName="r" from="3" to="5" dur="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="140" cy="120" r="4" fill="#ffffff">
+    <animate attributeName="r" from="3" to="5" dur="1s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Pulsating Outer Ring -->
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#4a90e2" stroke-width="1.5" opacity="0.8">
+    <animate attributeName="r" from="65" to="70" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="0.8" to="0.3" dur="2s" repeatCount="indefinite" />
+  </circle>
+</svg>
