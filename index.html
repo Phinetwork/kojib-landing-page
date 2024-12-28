@@ -307,68 +307,23 @@
   </div>
 </div>
 
-<!-- Chatbot Tabs -->
-<div id="chatbot">
+<!-- AI Chatbot -->
+<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
   <div id="chatbot-header">
-      <span>Chat</span>
-      <button id="close-chatbot">&times;</button>
+      <span>AI Assistant</span>
+      <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
   </div>
-  <div id="chatbot-tabs">
-      <button id="ai-tab" class="active">AI Assistant</button>
-      <button id="user-chat-tab">User Chats</button>
+  <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
+      <!-- Chat messages will be dynamically injected here -->
   </div>
-  <div id="chatbot-content">
-      <!-- AI Assistant Chat -->
-      <div id="ai-chat" class="chat-tab active">
-          <div id="chatbot-messages"></div>
-          <div id="chatbot-input">
-              <textarea id="user-input" placeholder="Hello! I’m Kojib, your super-smart AI buddy. Ask away—I'm ready to assist!..."></textarea>
-              <button id="send-message">Send</button>
-          </div>
-      </div>
-
-      <!-- Login Section -->
-<div id="user-chat-login" class="active"> <!-- Add "active" class initially -->
-  <h3>Welcome to User Chats</h3>
-  <button id="guest-login">Continue as Guest</button>
-  <button id="register-button">Create an Account</button>
-</div>
-
-<!-- Registration Section -->
-<div id="user-chat-register">
-  <h3>Create an Account</h3>
-  <input id="register-username" type="text" placeholder="Username" />
-  <input id="register-email" type="email" placeholder="Email" />
-  <input id="register-password" type="password" placeholder="Password" />
-  <button id="create-account">Register</button>
-  <button id="back-to-login">Back</button>
-</div>
-
-
-          <!-- Chat Rooms Section -->
-          <div id="user-chat-rooms" style="display: none;">
-              <h3>Chat Rooms</h3>
-              <button id="create-room">Create Room</button>
-              <button id="join-room">Join Room</button>
-              <div id="room-list"></div>
-          </div>
-
-          <!-- Chat Room Input -->
-          <div id="user-chat-input" style="display: none;">
-              <div id="room-messages"></div>
-              <textarea id="room-input" placeholder="Message the room..."></textarea>
-              <button id="send-room-message">Send</button>
-          </div>
-      </div>
+  <div id="chatbot-input" role="form" aria-label="Chat Input">
+      <textarea id="user-input" placeholder="Hello! I’m Kojib, your super-smart AI buddy. Ask away—I'm ready to assist!..." aria-label="Type your message" aria-required="true"></textarea>
+      <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
   </div>
 </div>
-
-<!-- Chatbot Floating Button -->
-<div id="chatbot-button">
-  <img src="image/chat-icon.svg" alt="Chat" />
+<div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
+  <img src="image/chat-icon.svg" alt="Chat Icon" />
 </div>
-
-
 
 
   <!-- Footer -->
