@@ -327,24 +327,23 @@
           </div>
       </div>
 
-      <!-- User Chat -->
-      <div id="user-chat" class="chat-tab">
-          <!-- Login/Register Section -->
-          <div id="user-chat-login">
-              <h3>Welcome to User Chats</h3>
-              <button id="guest-login">Continue as Guest</button>
-              <button id="register-button">Create an Account</button>
-          </div>
+      <!-- Login Section -->
+<div id="user-chat-login" class="active"> <!-- Add "active" class initially -->
+  <h3>Welcome to User Chats</h3>
+  <button id="guest-login">Continue as Guest</button>
+  <button id="register-button">Create an Account</button>
+</div>
 
-          <!-- Registration Form -->
-          <div id="user-chat-register" style="display: none;">
-              <h3>Create an Account</h3>
-              <input id="register-username" type="text" placeholder="Username" />
-              <input id="register-email" type="email" placeholder="Email" />
-              <input id="register-password" type="password" placeholder="Password" />
-              <button id="create-account">Register</button>
-              <button id="back-to-login">Back</button>
-          </div>
+<!-- Registration Section -->
+<div id="user-chat-register">
+  <h3>Create an Account</h3>
+  <input id="register-username" type="text" placeholder="Username" />
+  <input id="register-email" type="email" placeholder="Email" />
+  <input id="register-password" type="password" placeholder="Password" />
+  <button id="create-account">Register</button>
+  <button id="back-to-login">Back</button>
+</div>
+
 
           <!-- Chat Rooms Section -->
           <div id="user-chat-rooms" style="display: none;">

@@ -1,4 +1,6 @@
 // JavaScript code for chatbot functionality
+
+// Elements
 const chatbotButton = document.getElementById("chatbot-button");
 const chatbot = document.getElementById("chatbot");
 const closeChatbot = document.getElementById("close-chatbot");
@@ -11,7 +13,6 @@ const userChat = document.getElementById("user-chat");
 const sendMessage = document.getElementById("send-message");
 const userInput = document.getElementById("user-input");
 const chatbotMessages = document.getElementById("chatbot-messages");
-const loadingIndicator = document.createElement("div");
 
 // User chat elements
 const guestLogin = document.getElementById("guest-login");
@@ -34,18 +35,6 @@ const SOCIAL_BACKEND_URL = "https://social-backend-tsg5.onrender.com";
 
 // Conversation history to maintain AI Assistant context
 let conversationHistory = [];
-
-// Initialize loading indicator
-loadingIndicator.id = "loading-indicator";
-loadingIndicator.innerHTML = `
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-`;
-chatbotMessages.appendChild(loadingIndicator);
-
-// Hide loading indicator initially
-loadingIndicator.style.display = "none";
 
 // Toggle Chatbot Visibility
 chatbotButton.addEventListener("click", () => {
@@ -73,6 +62,18 @@ userChatTab.addEventListener("click", () => {
     aiChat.classList.remove("active");
 });
 
+// Show Registration Form
+registerButton.addEventListener("click", () => {
+    loginSection.style.display = "none";
+    registerSection.style.display = "flex";
+});
+
+// Back to Login Form
+backToLogin.addEventListener("click", () => {
+    registerSection.style.display = "none";
+    loginSection.style.display = "flex";
+});
+
 // Registration Logic
 createAccountButton.addEventListener("click", async () => {
     const username = registerUsername.value.trim();
@@ -91,16 +92,16 @@ createAccountButton.addEventListener("click", async () => {
             body: JSON.stringify({ username, email, password }),
         });
 
-        const data = await response.json();
-
         if (response.ok) {
             alert("Account created successfully! Please log in.");
             backToLogin.click();
         } else {
-            alert(data.error || "Failed to create account.");
+            const error = await response.json();
+            alert(error.error || "Failed to create account.");
         }
     } catch (error) {
         console.error("Registration Error:", error);
+        alert("An error occurred during registration. Please try again.");
     }
 });
 
@@ -110,21 +111,18 @@ guestLogin.addEventListener("click", async () => {
         const response = await fetch(`${SOCIAL_BACKEND_URL}/api/guest-login`, { method: "POST" });
         const data = await response.json();
 
-        if (data.username) {
+        if (response.ok && data.username) {
             alert(`Welcome, ${data.username}!`);
             loginSection.style.display = "none";
             chatRooms.style.display = "block";
             chatInputSection.style.display = "block";
+        } else {
+            alert(data.error || "Guest login failed.");
         }
     } catch (error) {
         console.error("Guest Login Error:", error);
+        alert("An error occurred. Please try again.");
     }
-});
-
-// Back to Login Screen
-backToLogin.addEventListener("click", () => {
-    registerSection.style.display = "none";
-    loginSection.style.display = "flex";
 });
 
 // AI Assistant Message Handling
@@ -139,20 +137,11 @@ sendMessage.addEventListener("click", async () => {
     // Add user message to conversation history
     conversationHistory.push({ role: "user", content: message });
 
-    // Show loading indicator
-    loadingIndicator.style.display = "block";
-
     // Call the Backend API
     const botReply = await getBotReply(message);
 
-    // Hide loading indicator
-    loadingIndicator.style.display = "none";
-
     // Display Bot Reply
     addMessage(botReply, "bot");
-
-    // Add bot reply to conversation history
-    conversationHistory.push({ role: "assistant", content: botReply });
 });
 
 // Add Message to Chat Window
@@ -181,7 +170,8 @@ async function getBotReply(message) {
         });
 
         if (!response.ok) {
-            console.error("Backend error:", response.statusText);
+            const error = await response.text();
+            console.error("Backend error:", error);
             return "Sorry, there was an issue connecting to the chatbot.";
         }
 
@@ -193,11 +183,11 @@ async function getBotReply(message) {
     }
 }
 
-// Optional: Handle Room Messages (Placeholder)
+// Optional: Handle Room Messages
 sendRoomMessage.addEventListener("click", () => {
     const roomMessage = roomInput.value.trim();
     if (roomMessage) {
-        console.log("Message sent to the room:", roomMessage); // Replace with backend integration
+        console.log("Message sent to the room:", roomMessage); // Placeholder for backend integration
         roomInput.value = "";
     }
 });
