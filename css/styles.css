@@ -822,7 +822,7 @@ canvas {
 /* Contact Button */
 .contact-button {
     text-decoration: none; /* Remove underline from links */
-    color: white; /* White text for contrast */
+    color: black; /* White text for contrast */
     background: #00ff99; /* Bright green background */
     padding: 10px 20px; /* Add spacing inside the button */
     border-radius: 5px; /* Rounded corners */
