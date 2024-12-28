@@ -995,6 +995,70 @@ canvas {
     }
 }
 
+#scroll-menu {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#scroll-menu:hover {
+    background: #00cc80;
+    transform: scale(1.1);
+}
+
+#scroll-toggle {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Dropdown Menu for Sections */
+#scroll-sections {
+    position: absolute;
+    bottom: 60px; /* Offset from the main button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 10px;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#scroll-sections a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+#scroll-sections a:hover {
+    background: #00cc80;
+}
+
+/* Active Dropdown */
+#scroll-menu.open #scroll-sections {
+    display: flex;
+}
+
+
 /* Footer Section */
 footer {
     position: relative; /* Establish stacking context */

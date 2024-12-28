@@ -22,3 +22,25 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         hamburger.classList.remove("active");
     });
 });
+
+const scrollMenu = document.getElementById("scroll-menu");
+const scrollToggle = document.getElementById("scroll-toggle");
+
+// Toggle Dropdown Menu
+scrollToggle.addEventListener("click", () => {
+    scrollMenu.classList.toggle("open");
+});
+
+// Smooth Scroll for Section Links
+document.querySelectorAll("#scroll-sections a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").slice(1);
+        const targetSection = document.getElementById(targetId);
+
+        targetSection.scrollIntoView({ behavior: "smooth" });
+
+        // Close the menu after click
+        scrollMenu.classList.remove("open");
+    });
+});
