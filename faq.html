@@ -109,60 +109,308 @@
     .contact-section a:hover {
       text-decoration: underline;
     }
-  </style>
-</head>
-<body>
+ /* Header Styles */
+ .header {
+    background: #1c1c1c;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-  <!-- Header -->
-  <header class="header">
+  .header .logo {
+    color: #00cc80;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+    /* Menu Styles */
+  .menu {
+    display: flex;
+    gap: 15px;
+  }
+
+  .menu a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .menu a:hover {
+    background-color: #00cc80;
+    color: #121212;
+    border-radius: 5px;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .menu {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+      cursor: pointer;
+    }
+
+    .mobile-menu-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #1c1c1c;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 10px 20px;
+      color: #f4f4f4;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .mobile-menu-links a:hover {
+      background-color: #00cc80;
+      color: #121212;
+    }
+  }
+</style>
+<header class="header">
     <a href="index.html" class="logo">Kojib</a>
+  
+    <!-- Desktop Menu -->
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="services.html">Services</a>
+      <a href="developers.html">Developers</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" onclick="toggleMobileMenu()">
+      <span style="font-size: 1.5rem; cursor: pointer;">&#9776;</span>
+    </div>
+    <div class="mobile-menu-links" id="mobileMenuLinks">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="services.html">Services</a>
+      <a href="developers.html">Developers</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </header>
+  
+  <style>
+    /* General Styles */
+    .menu {
+      display: flex; /* Show desktop menu */
+      gap: 15px;
+    }
+  
+    .menu a {
+      color: #f4f4f4;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    .menu a:hover {
+      background-color: #00cc80;
+      color: #121212;
+      border-radius: 5px;
+    }
+  
+    /* Mobile Menu Styles */
+    .mobile-menu {
+      display: none; /* Hide mobile menu toggle on desktop */
+    }
+  
+    .mobile-menu-links {
+      display: none; /* Hide mobile menu links by default */
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #1c1c1c;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 1000;
+    }
+  
+    .mobile-menu-links a {
+      display: block;
+      padding: 10px 20px;
+      color: #f4f4f4;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    .mobile-menu-links a:hover {
+      background-color: #00cc80;
+      color: #121212;
+    }
+  
+    /* Mobile View */
+    @media (max-width: 768px) {
+      .menu {
+        display: none; /* Hide desktop menu */
+      }
+  
+      .mobile-menu {
+        display: block; /* Show mobile menu toggle */
+      }
+    }
+  </style>
+  
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobileMenuLinks");
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    }
+  
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("mobileMenuLinks");
+      const mobileMenuButton = document.querySelector(".mobile-menu");
+  
+      if (
+        menu.style.display === "block" &&
+        !menu.contains(event.target) &&
+        !mobileMenuButton.contains(event.target)
+      ) {
+        menu.style.display = "none";
+      }
+    });
+  </script>
+  
+  
 
   <!-- FAQ Section -->
-  <div class="faq-container">
+<div class="faq-container">
     <h1>Frequently Asked Questions</h1>
-
-    <!-- General Category -->
+  
+    <!-- General Questions -->
     <div class="faq-category">
       <h2>General Questions</h2>
+      
       <button class="accordion">What is Kojib?</button>
       <div class="panel">
-        <p>Kojib is a technology company focused on developing innovative AI solutions that empower individuals and businesses worldwide.</p>
+        <p>Kojib is a pioneering technology company dedicated to developing innovative AI-driven solutions. Our mission is to bridge the gap between human potential and advanced technology, empowering individuals and organizations to achieve transformative results.</p>
       </div>
-
+      
+      <button class="accordion">What industries does Kojib serve?</button>
+      <div class="panel">
+        <p>Kojib serves a wide range of industries, including education, healthcare, finance, creative arts, manufacturing, and more. Our solutions are designed to be versatile, scalable, and impactful across diverse sectors.</p>
+      </div>
+      
+      <button class="accordion">Where is Kojib located?</button>
+      <div class="panel">
+        <p>Kojib's headquarters is located in San Francisco, California, with a global presence through remote teams and partnerships. For specific inquiries, please visit our <a href="contact.html">Contact</a> page.</p>
+      </div>
+      
       <button class="accordion">How can I learn more about Kojib's services?</button>
       <div class="panel">
-        <p>You can explore our <a href="services.html">Services</a> page or contact us directly for detailed information.</p>
+        <p>To learn more about our offerings, visit our <a href="services.html">Services</a> page. If you have specific questions, feel free to reach out through our <a href="contact.html">Contact</a> page.</p>
       </div>
     </div>
-
+  
     <!-- Technical Questions -->
     <div class="faq-category">
       <h2>Technical Questions</h2>
+      
       <button class="accordion">What platforms do your solutions support?</button>
       <div class="panel">
-        <p>Our solutions are platform-agnostic and can integrate seamlessly with major operating systems, including Windows, macOS, Linux, and mobile platforms.</p>
+        <p>Our solutions are designed to be platform-agnostic, ensuring seamless integration with major operating systems, including Windows, macOS, Linux, iOS, and Android. We also offer cloud-based solutions for greater flexibility and accessibility.</p>
       </div>
-
+      
       <button class="accordion">Do you offer API access for developers?</button>
       <div class="panel">
-        <p>Yes, we offer API access for developers. Visit our <a href="developers.html">Developers</a> page for more details and documentation.</p>
+        <p>Yes, Kojib provides API access for developers to integrate our technologies into their applications. Visit our <a href="developers.html">Developers</a> page for comprehensive API documentation and resources.</p>
+      </div>
+      
+      <button class="accordion">Is Kojib's AI customizable for specific business needs?</button>
+      <div class="panel">
+        <p>Absolutely. Kojib’s AI solutions are fully customizable, allowing businesses to tailor the functionality and user experience to meet their unique requirements. Contact us for a consultation to explore tailored solutions.</p>
+      </div>
+      
+      <button class="accordion">How does Kojib ensure data privacy and security?</button>
+      <div class="panel">
+        <p>Data privacy and security are paramount at Kojib. We employ state-of-the-art encryption, secure cloud architecture, and strict compliance with international data protection regulations, including GDPR and CCPA, to ensure your data remains safe and private.</p>
       </div>
     </div>
-
+  
     <!-- Support Questions -->
     <div class="faq-category">
       <h2>Support Questions</h2>
+      
       <button class="accordion">How can I contact customer support?</button>
       <div class="panel">
-        <p>You can reach our customer support team via email at <a href="mailto:support@kojib.com">support@kojib.com</a> or through our <a href="contact.html">Contact</a> page.</p>
+        <p>You can reach our customer support team via email at <a href="mailto:support@kojib.com">support@kojib.com</a> or through the <a href="contact.html">Contact</a> page on our website.</p>
       </div>
-
+      
       <button class="accordion">What are your support hours?</button>
       <div class="panel">
-        <p>Our support team is available 24/7 to assist you with any queries or issues.</p>
+        <p>Our customer support team is available 24/7 to assist you with any questions or concerns you may have.</p>
+      </div>
+      
+      <button class="accordion">Do you offer technical support for developers?</button>
+      <div class="panel">
+        <p>Yes, we provide comprehensive technical support for developers using Kojib’s APIs and tools. Visit our <a href="developers.html">Developers</a> page for support resources, or contact us directly for assistance.</p>
+      </div>
+      
+      <button class="accordion">What if I have a question that isn’t answered here?</button>
+      <div class="panel">
+        <p>If you have additional questions, feel free to contact us at <a href="mailto:support@kojib.com">support@kojib.com</a>. We’re always happy to assist you.</p>
       </div>
     </div>
+  
+    <!-- Product Questions -->
+    <div class="faq-category">
+      <h2>Product Questions</h2>
+      
+      <button class="accordion">What is Skyriz, and how does it work?</button>
+      <div class="panel">
+        <p>Skyriz is Kojib’s revolutionary AI-driven learning platform designed to personalize education for every learner. It uses real-time AI adjustments to adapt to user progress, providing an optimized and engaging learning experience. Visit the <a href="skyriz.html">Skyriz</a> page to learn more.</p>
+      </div>
+      
+      <button class="accordion">Can I request a demo of Kojib’s solutions?</button>
+      <div class="panel">
+        <p>Yes, Kojib offers live demonstrations of our products and solutions. Contact us through our <a href="contact.html">Contact</a> page to schedule a demo tailored to your interests and needs.</p>
+      </div>
+      
+      <button class="accordion">What industries are best suited for Kojib’s Creative AI?</button>
+      <div class="panel">
+        <p>Kojib’s Creative AI is ideal for industries such as marketing, design, film, music, and content creation. Its tools empower creators to push the boundaries of innovation and produce extraordinary results.</p>
+      </div>
+      
+      <button class="accordion">Are Kojib’s solutions scalable?</button>
+      <div class="panel">
+        <p>All Kojib solutions are designed with scalability in mind, ensuring they grow alongside your business and adapt to changing demands and technologies.</p>
+      </div>
+    </div>
+  
+  
 
     <!-- Contact Section -->
     <div class="contact-section">
@@ -170,9 +418,238 @@
       <p>We’re here to help!</p>
     </div>
   </div>
+  <style>
+    /* Chatbot Button */
+    #chatbot-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: #00ff99;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+    
+    #chatbot-button:hover {
+        transform: scale(1.1);
+        background: #00cc80;
+    }
+    
+    #chatbot-button img {
+        width: 30px;
+        height: 30px;
+        pointer-events: none; /* Ensure clicks don't affect the image */
+    }
+    
+    /* Chatbot Window */
+    #chatbot {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 350px;
+        max-width: 90%; /* Ensure responsiveness for smaller screens */
+        height: 500px;
+        max-height: 70%; /* Adjust height for smaller screens */
+        background: #1c1c1c;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: none;
+        flex-direction: column;
+        z-index: 1001;
+        overflow: hidden;
+    }
+    
+    /* Chatbot Header */
+    #chatbot-header {
+        background: #00ff99;
+        color: black;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        position: relative;
+    }
+    
+    #chatbot-header button {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: black;
+        transition: transform 0.2s ease;
+    }
+    
+    #chatbot-header button:hover {
+        transform: scale(1.2);
+    }
+    
+    /* Chatbot Messages */
+    #chatbot-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        scrollbar-width: thin; /* For modern browsers */
+        scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+    }
+    
+    #chatbot-messages::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    #chatbot-messages::-webkit-scrollbar-track {
+        background: #222;
+    }
+    
+    #chatbot-messages::-webkit-scrollbar-thumb {
+        background: #00ff99;
+        border-radius: 5px;
+    }
+    
+    #chatbot-messages .message {
+        margin-bottom: 10px;
+        word-wrap: break-word; /* Ensure long messages don't overflow */
+    }
+    
+    #chatbot-messages .user {
+        text-align: right;
+        color: #00ff99;
+    }
+    
+    #chatbot-messages .bot {
+        text-align: left;
+        color: white;
+    }
+    
+    /* Loading Bubbles */
+    #loading-indicator {
+        display: none; /* Hidden by default */
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    #loading-indicator .dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 5px;
+        background-color: #00ff99;
+        border-radius: 50%;
+        display: inline-block;
+        animation: bounce 1.2s infinite;
+    }
+    
+    #loading-indicator .dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    #loading-indicator .dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    
+    @keyframes bounce {
+        0%, 80%, 100% {
+            transform: scale(0);
+        }
+        40% {
+            transform: scale(1);
+        }
+    }
+    
+    /* Chatbot Input Section */
+    #chatbot-input {
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        background: #333;
+        align-items: center;
+    }
+    
+    #chatbot-input textarea {
+        flex: 1;
+        resize: none;
+        padding: 10px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        background: #222;
+        color: white;
+        font-family: inherit;
+        font-size: 0.9rem;
+    }
+    
+    #chatbot-input button {
+        background: #00ff99;
+        border: none;
+        padding: 10px 15px;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    #chatbot-input button:hover {
+        background: #00cc80;
+        transform: scale(1.05);
+    }
+    
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+        #chatbot {
+            bottom: 80px;
+            right: 10px;
+            width: 90%; /* Use most of the screen width */
+            height: auto; /* Let height adjust dynamically */
+            max-height: 80%; /* Limit max height */
+        }
+    
+        #chatbot-header {
+            font-size: 1rem; /* Adjust header font size */
+        }
+    
+        #chatbot-input textarea {
+            font-size: 0.8rem;
+        }
+    
+        #chatbot-input button {
+            padding: 8px 12px; /* Smaller padding for smaller screens */
+            font-size: 0.9rem;
+        }
+    }
+    </style>
 
-  <script>
-    // Accordion Functionality
+<!-- AI Chatbot -->
+<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
+    <div id="chatbot-header">
+        <span>AI Assistant</span>
+        <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+    </div>
+    <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
+        <!-- Chat messages will be dynamically injected here -->
+    </div>
+    <div id="chatbot-input" role="form" aria-label="Chat Input">
+        <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+        <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+    </div>
+  </div>
+  <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
+    <img src="image/chat-icon.svg" alt="Chat Icon" />
+  </div>   
+</div> <!-- Closing div for previous content -->
+
+<script>
+  // Accordion Functionality
+  document.addEventListener("DOMContentLoaded", () => {
     const accordions = document.querySelectorAll(".accordion");
 
     accordions.forEach((accordion) => {
@@ -186,7 +663,38 @@
         }
       });
     });
-  </script>
+  });
+</script>
+
+<!-- Footer -->
+<footer class="footer" style="text-align: center; padding: 20px; background-color: #1c1c1c; color: #f4f4f4; font-family: 'Arial', sans-serif;">
+  <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+  <nav class="footer-nav" style="margin-top: 10px;">
+    <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 8px;">Privacy Policy</a> | 
+    <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 8px;">Terms of Service</a> | 
+    <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 8px;">Cookie Policy</a>
+  </nav>
+</footer>
+
+<script>
+  // JavaScript to set the current year
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  });
+</script>
+
+<!-- External Libraries -->
+<script src="lib/three.min.js"></script>
+<script src="lib/gsap.min.js"></script>
+<script src="lib/ScrollTrigger.min.js"></script>
+
+<!-- Custom Scripts -->
+<script src="js/particles.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Additional Scripts -->
+<script src="chatbot.js"></script>
 
 </body>
 </html>
