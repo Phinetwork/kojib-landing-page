@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Kojib</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    h1, h2 {
+      font-family: 'Georgia', serif;
+      color: #00cc80;
+      text-align: center;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 10px auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
+
+    .header {
+      background-color: #1e1e1e;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .header .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00cc80;
+      text-decoration: none;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: #f4f4f4;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00cc80;
+    }
+
+    .about-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .about-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
+    .about-sections {
+      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+      padding: 40px 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      max-width: 1000px;
+    }
+
+    .about-sections h2 {
+      margin-bottom: 20px;
+    }
+
+    .about-sections ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .about-sections ul li {
+      padding: 10px;
+      margin: 10px auto;
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta a {
+      background-color: #00cc80;
+      color: #121212;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta a:hover {
+      background-color: #00995e;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #00cc80;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">Kojib</a>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <main class="about-container">
+    <h1>About Kojib</h1>
+    <p>
+      Kojib is more than a company; it's a movement. We are a collective of dreamers, innovators, and creators
+      committed to pushing the boundaries of what technology can achieve for humanity.
+    </p>
+
+    <img src="image/about-hero.svg" alt="About Kojib" class="about-image">
+
+    <!-- Our Vision -->
+    <section class="about-sections">
+      <h2>Our Vision</h2>
+      <p>
+        To bridge the gap between humanity and artificial intelligence, creating tools that inspire, empower, and
+        transform lives globally. Kojib envisions a future where technology seamlessly integrates with creativity and
+        human potential to craft groundbreaking solutions.
+      </p>
+    </section>
+
+    <!-- Our Journey -->
+    <section class="about-sections">
+      <h2>Our Journey</h2>
+      <p>
+        Founded with the bold belief that technology should enhance lives rather than complicate them, Kojib began as a
+        small idea with massive ambition. Today, our journey is a testament to the power of collaboration, innovation,
+        and resilience.
+      </p>
+    </section>
+
+    <!-- What Sets Us Apart -->
+    <section class="about-sections">
+      <h2>What Sets Us Apart</h2>
+      <ul>
+        <li><strong>Innovation:</strong> Constantly pushing the boundaries of what technology can do.</li>
+        <li><strong>Empathy:</strong> Designing solutions that prioritize human needs and experiences.</li>
+        <li><strong>Community:</strong> Building a global network of thinkers and doers united by a shared vision.</li>
+      </ul>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="cta">
+      <a href="careers.html">Join Our Mission</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+
+<script>
+  // JavaScript to set the current year
+  document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+    <nav>
+      <a href="privacy-policy.html">Privacy Policy</a> | 
+      <a href="terms-of-service.html">Terms of Service</a> | 
+      <a href="cookie-policy.html">Cookie Policy</a>
+    </nav>
+  </footer>
+</body>
+</html>

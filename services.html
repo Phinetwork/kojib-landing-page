@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Kojib</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #121212, #1c1c1c);
+      color: #f4f4f4;
+    }
+
+    .header {
+      background: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .header .logo {
+      color: #00cc80;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .header nav {
+      margin-top: 10px;
+    }
+
+    .header .nav-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .header .nav-links a {
+      text-decoration: none;
+      color: #f4f4f4;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .header .nav-links a:hover {
+      color: #00cc80;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #121212, #1a1a1a);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #00cc80;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    .services-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .services-container h2 {
+      text-align: center;
+      color: #00cc80;
+      margin-bottom: 20px;
+    }
+
+    .service-card {
+      background: #1a1a1a;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .service-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #00cc80;
+      padding: 10px;
+    }
+
+    .service-info {
+      flex: 1;
+    }
+
+    .service-info h3 {
+      color: #00cc80;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .service-info p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #d4d4d4;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin: 40px 0;
+      padding: 40px 20px;
+      background: #1c1c1c;
+      border-radius: 10px;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section a {
+      text-decoration: none;
+      background: #00cc80;
+      color: #121212;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-section a:hover {
+      background: #00995e;
+    }
+
+    .footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+      color: #f4f4f4;
+    }
+
+    .footer a {
+      color: #00cc80;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">Kojib</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Our Services</h1>
+    <p>Empowering businesses and individuals with cutting-edge technology and innovative solutions.</p>
+  </section>
+
+  <!-- Services Section -->
+  <div class="services-container">
+    <h2>What We Offer</h2>
+
+    <!-- Service 1 -->
+    <div class="service-card">
+      <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling">
+      <div class="service-info">
+        <h3>Predictive Modeling</h3>
+        <p>
+          Transforming data into actionable insights to help businesses anticipate challenges and seize opportunities.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-card">
+      <img src="image/creative-ai-icon.svg" alt="Creative AI Solutions">
+      <div class="service-info">
+        <h3>Creative AI Solutions</h3>
+        <p>
+          Enabling groundbreaking ideas with AI-driven tools that inspire innovation and creativity.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+      <img src="image/human-centric-icon.svg" alt="Human-Centric Design">
+      <div class="service-info">
+        <h3>Human-Centric Design</h3>
+        <p>
+          Delivering intuitive and impactful solutions that align with the needs and aspirations of real people.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta-section">
+    <h2>Ready to Partner with Us?</h2>
+    <p>Contact us today to discover how Kojib can transform your vision into reality.</p>
+    <a href="contact.html">Get in Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+
+<script>
+  // JavaScript to set the current year
+  document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+    <nav>
+      <a href="privacy-policy.html">Privacy Policy</a> |
+      <a href="terms-of-service.html">Terms of Service</a> |
+      <a href="cookie-policy.html">Cookie Policy</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" id="imagination-svg">
+  <defs>
+    <!-- Glow Filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Central Organic Shape -->
+  <path
+    d="M150,100 C190,60 260,130 150,240 C40,130 110,60 150,100 Z"
+    fill="rgba(255, 255, 255, 0.8)"
+    stroke="rgba(0, 255, 153, 0.8)"
+    stroke-width="3"
+    filter="url(#glow)"
+  >
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;1.08;1"
+      dur="6.18s"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="stroke-width"
+      values="3;5;3"
+      dur="6.18s"
+      repeatCount="indefinite"
+    />
+  </path>
+
+  <!-- Floating Particles -->
+  <circle cx="100" cy="120" r="4" fill="rgba(0, 255, 153, 0.8)" filter="url(#glow)">
+    <animate attributeName="cy" values="120;112;120" dur="3.82s" repeatCount="indefinite" />
+    <animate attributeName="r" values="4;6;4" dur="3.82s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="220" r="3" fill="rgba(0, 153, 255, 0.8)" filter="url(#glow)">
+    <animate attributeName="cy" values="220;226;220" dur="2.36s" repeatCount="indefinite" />
+    <animate attributeName="r" values="3;5;3" dur="2.36s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="120" cy="260" r="5" fill="rgba(255, 255, 255, 0.6)" filter="url(#glow)">
+    <animate attributeName="cy" values="260;270;260" dur="3.82s" repeatCount="indefinite" />
+    <animate attributeName="r" values="5;8;5" dur="3.82s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="240" cy="90" r="3" fill="rgba(0, 255, 153, 0.8)" filter="url(#glow)">
+    <animate attributeName="cy" values="90;105;90" dur="2.36s" repeatCount="indefinite" />
+    <animate attributeName="r" values="3;5;3" dur="2.36s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Dynamic Pulses -->
+  <circle cx="150" cy="200" r="2.5" fill="rgba(255, 255, 255, 0.7)">
+    <animate attributeName="cx" values="150;175;150" dur="1.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="200;250;200" dur="1.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="180" cy="150" r="2.5" fill="rgba(0, 153, 255, 0.8)">
+    <animate attributeName="cx" values="180;205;180" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="150;175;150" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Dynamic Lines -->
+  <line x1="150" y1="90" x2="200" y2="220" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1">
+    <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="3.82s" repeatCount="indefinite" />
+  </line>
+  <line x1="240" y1="90" x2="120" y2="260" stroke="rgba(0, 255, 153, 0.6)" stroke-width="1">
+    <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="2.36s" repeatCount="indefinite" />
+  </line>
+</svg>

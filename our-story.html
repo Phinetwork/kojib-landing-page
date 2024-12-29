@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story - Kojib</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #121212, #1c1c1c);
+      color: #f4f4f4;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00cc80;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    /* Header */
+    .header {
+      background: #1c1c1c;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header .logo {
+      color: #00cc80;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .header .nav-links a {
+      text-decoration: none;
+      color: #f4f4f4;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .header .nav-links a:hover {
+      color: #00cc80;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: url('about-hero.svg') no-repeat center;
+      background-size: cover;
+      color: #f4f4f4;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(18, 18, 18, 0.7), rgba(26, 26, 26, 0.9));
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      color: #00cc80;
+      z-index: 2;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      line-height: 1.8;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Story Section */
+    .story-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .story-section h2 {
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .story-section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .quote {
+      background: #1c1c1c;
+      border-left: 5px solid #00cc80;
+      padding: 20px;
+      margin: 20px 0;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #d4d4d4;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Vision Section */
+    .vision {
+      background: #1a1a1a;
+      padding: 40px 20px;
+      margin: 40px 0;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .vision h3 {
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+    }
+
+    .vision p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer a {
+      color: #00cc80;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav>
+      <a href="index.html" class="logo">Kojib</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="our-story.html" class="active">Our Story</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Our Story</h1>
+    <p>The tale of innovation, creativity, and a relentless drive to shape the future.</p>
+  </section>
+
+  <!-- Story Section -->
+  <section class="story-section">
+    <h2>How It All Began</h2>
+    <p>
+      Kojib’s story starts not in a boardroom but in a small, sunlit room cluttered with notebooks, circuit boards,
+      and an ambitious dream. The founders, visionaries with a shared passion for technology and human connection,
+      believed that artificial intelligence could be more than cold, calculated algorithms.
+    </p>
+
+    <div class="quote">
+      "Kojib isn’t just a company—it’s a belief that technology can make the world more empathetic, creative, and united."
+    </div>
+
+    <p>
+      Growth is never linear, and neither was Kojib’s journey. The early years were marked by long nights and
+      countless setbacks. But with every failure came invaluable lessons.
+    </p>
+  </section>
+
+  <!-- Vision Section -->
+  <section class="vision">
+    <h3>Our Vision</h3>
+    <p>
+      To build a future where technology and humanity coexist harmoniously, inspiring creativity, connection, and growth
+      in every corner of the world.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Kojib. All rights reserved.</p>
+    <nav>
+      <a href="privacy-policy.html">Privacy Policy</a> |
+      <a href="terms-of-service.html">Terms of Service</a> |
+      <a href="cookie-policy.html">Cookie Policy</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

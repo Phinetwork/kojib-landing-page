@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="creative-ai-icon">
+  <defs>
+    <!-- Glow Effects -->
+    <filter id="iconGlow">
+      <feGaussianBlur stdDeviation="5" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradient for Core -->
+    <radialGradient id="creativeCoreGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="rgba(255, 153, 0, 1)" />
+      <stop offset="100%" stop-color="rgba(255, 94, 0, 0.3)" />
+    </radialGradient>
+
+    <!-- Gradient for Spiral Lines -->
+    <linearGradient id="spiralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0, 153, 255, 1)" />
+      <stop offset="100%" stop-color="rgba(153, 255, 153, 1)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Creative Core -->
+  <circle cx="250" cy="250" r="60" fill="url(#creativeCoreGradient)" filter="url(#iconGlow)">
+    <animateTransform 
+      attributeName="transform" 
+      type="scale" 
+      values="1;1.2;1" 
+      dur="4s" 
+      repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.9;1" dur="4s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Radiating Spiral Lines -->
+  <path d="M250,250 Q300,150 350,250 T250,400" fill="none" stroke="url(#spiralGradient)" stroke-width="4">
+    <animateTransform 
+      attributeName="transform" 
+      type="rotate" 
+      values="0 250 250;360 250 250" 
+      dur="8s" 
+      repeatCount="indefinite" />
+  </path>
+
+  <path d="M250,250 Q200,150 150,250 T250,400" fill="none" stroke="url(#spiralGradient)" stroke-width="4">
+    <animateTransform 
+      attributeName="transform" 
+      type="rotate" 
+      values="0 250 250;-360 250 250" 
+      dur="8s" 
+      repeatCount="indefinite" />
+  </path>
+
+  <!-- Floating Particles -->
+  <circle cx="200" cy="200" r="6" fill="rgba(255, 255, 255, 0.8)" filter="url(#iconGlow)">
+    <animate attributeName="cx" values="200;300;200" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="200;300;200" dur="3s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="300" cy="300" r="5" fill="rgba(0, 153, 255, 0.8)" filter="url(#iconGlow)">
+    <animate attributeName="cx" values="300;200;300" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="300;200;300" dur="4s" repeatCount="indefinite" />
+  </circle>
+
+  <circle cx="250" cy="150" r="4" fill="rgba(153, 255, 153, 0.8)" filter="url(#iconGlow)">
+    <animate attributeName="cy" values="150;350;150" dur="5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Dynamic Sparkle -->
+  <g>
+    <circle cx="250" cy="250" r="3" fill="rgba(255, 255, 255, 0.9)" filter="url(#iconGlow)">
+      <animate attributeName="r" values="3;8;3" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>

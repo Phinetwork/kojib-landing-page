@@ -78,38 +78,447 @@
     </div>
   </section>
 
-  <!-- Showcase Section -->
-<section id="showcase">
-    <div class="showcase-content">
-      <h2 class="showcase-title">Our Capabilities</h2>
-      <p class="showcase-text">
-        Discover how Kojib merges creativity and AI to unlock limitless possibilities.
-      </p>
-      <div class="showcase-features">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon">
-          </div>
-          <h3>Predictive Modeling</h3>
-          <p>Accurate and scalable insights for tomorrow’s challenges.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="image/neural-network-icon.svg" alt="Neural Network Design Icon">
-          </div>
-          <h3>Neural Network Design</h3>
-          <p>Cutting-edge architectures for intelligent solutions.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="image/human-centric-icon.svg" alt="Human-Centric AI Icon">
-          </div>
-          <h3>Human-Centric AI</h3>
-          <p>Building AI that feels alive and connects with your vision.</p>
-        </div>
-
+  <section id="story" class="story-section">
+    <div class="story-hero">
+      <div class="hero-content">
+        <h1 class="story-title">Redefining Technology: The Kojib Story</h1>
+        <p class="story-subtitle">
+          Bridging imagination and intelligence to create AI that feels alive and inspires change.
+        </p>
+        <a href="#contact" class="cta-button">Let’s Build Your Vision</a>
+      </div>
     </div>
-  </section>
+</section>
+
+<!-- Mission Section -->
+<section id="story" class="story-section">
+  <div class="story-mission">
+    <h2 class="mission-title">Our Mission</h2>
+    <p class="mission-text">
+      We believe technology should spark creativity, enhance life, and empower growth. Kojib transforms bold ideas into groundbreaking realities.
+    </p>
+    <div class="values">
+      <div class="value">
+        <div class="value-icon">
+          <object data="/image/imagination.svg" type="image/svg+xml" class="svg-icon"></object>
+        </div>
+        <h3>Imagination</h3>
+        <p>Creativity is the foundation of every innovation we build, inspiring limitless possibilities.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon">
+          <object data="/image/intelligence.svg" type="image/svg+xml" class="svg-icon"></object>
+        </div>
+        <h3>Intelligence</h3>
+        <p>Advanced AI solutions designed to transform industries and unlock human potential.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon">
+          <object data="/image/connection.svg" type="image/svg+xml" class="svg-icon"></object>
+        </div>
+        <h3>Connection</h3>
+        <p>Technology that bridges gaps, fosters collaboration, and empowers communities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="story" class="story-section">
+  <!-- Origin Section -->
+  <div class="story-origin">
+    <div class="content-wrapper">
+      <h2 class="origin-title">How Kojib Began</h2>
+      <div class="origin-content">
+        <object data="image/kojib-origin.svg" type="image/svg+xml" class="svg-icon origin-image"></object>
+        <p class="origin-text">
+          Born from the idea that technology should feel human, Kojib blends bold creativity with cutting-edge AI to empower businesses and individuals. What started as a vision to bridge the gap between technology and human connection has evolved into a movement that transforms ideas into groundbreaking solutions.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Differentiators Section -->
+  <div class="story-differentiators">
+    <div class="content-wrapper">
+      <h2 class="differentiators-title">What Sets Us Apart</h2>
+      <div class="differentiators-content">
+        <object data="image/kojib-differentiators.svg" type="image/svg+xml" class="svg-icon differentiators-image"></object>
+        <ul class="differentiators-list">
+          <li><strong>Human-Centric Design:</strong> Intuitive and empowering AI that adapts to the needs of individuals and businesses.</li>
+          <li><strong>Custom Solutions:</strong> Tailored strategies and tools designed to match your unique vision and goals.</li>
+          <li><strong>Future-Proof Innovation:</strong> Scalable and adaptive technologies, ensuring Kojib’s solutions evolve alongside your growth.</li>
+          <li><strong>Seamless Integration:</strong> Technology that effortlessly fits into your life and business workflow.</li>
+          <li><strong>Empowering People:</strong> At Kojib, innovation serves to amplify human creativity and potential, not replace it.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <title>Our Story Modal</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f4f4f4;
+    }
+
+    .cta-button {
+      background-color: #00cc80;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #00995e;
+      transform: scale(1.05);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9); /* Darker background for better contrast */
+      z-index: 9999; /* Ensure modal is on top of all content */
+      overflow: hidden; /* Prevent background scroll */
+    }
+
+    .modal-content {
+      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+      margin: 5% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s ease-in-out;
+      color: #f4f4f4;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 2rem;
+      color: #f4f4f4;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .close-button:hover {
+      color: #00cc80;
+      transform: scale(1.2);
+    }
+
+    .modal-body {
+      max-height: 70vh; /* Ensure scrollable modal content */
+      overflow-y: auto; /* Allow scrolling within the modal */
+    }
+
+    .modal-body p {
+      margin-bottom: 15px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Scrollbar Styling */
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background-color: #00cc80;
+      border-radius: 4px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background-color: #2a2a2a;
+    }
+
+    /* Disable body scroll when modal is open */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Blur background content when modal is active */
+    .blur-content {
+      filter: blur(8px); /* Blur effect */
+      pointer-events: none; /* Disable interaction with background */
+    }
+
+    /* Next sections */
+    .capabilities-section {
+      padding: 20px;
+      background-color: #1c1c1c;
+      color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Story Call-to-Action -->
+  <div class="story-cta">
+    <p>Want to know more about our journey?</p>
+    <button id="open-story-modal" class="cta-button">Read Our Full Story</button>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="story-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-story-modal" class="close-button">&times;</span>
+      <h2>Our Story</h2>
+      <div class="modal-body">
+        <p> Kojib’s story began with a question: what if technology could transcend being a mere tool? What if it could become an extension of humanity—an enabler of creativity, a partner in problem-solving, and a source of unending inspiration? Fueled by this bold vision, Kojib was born to bridge the gap between humanity and artificial intelligence, not to replace but to empower the human spirit. Our name became a beacon of possibility, and our journey, a testament to the power of imagination. </p> <p> In the early days, Kojib was more of an idea than a company—a spark ignited by a belief in the transformative potential of AI. Starting small, we dared to think big. Armed with curiosity and driven by purpose, our team explored uncharted territories of artificial intelligence. We envisioned AI systems that could adapt and learn, not just from data but from the nuances of human intention and emotion. The world didn’t need another machine; it needed a collaborator, and we set out to create it. </p> <p> With relentless creativity and unshakable determination, Kojib began to flourish. Each milestone became a chapter in our story of innovation. From predictive modeling that revealed insights previously hidden in complexity, to human-centric AI solutions that felt intuitive and alive, we pushed boundaries and redefined possibilities. Along the way, we earned the trust of dreamers, creators, and innovators who saw in Kojib the potential to turn their visions into reality. </p> <p> But it wasn’t just about the technology—it was about the people. At Kojib, we believe that AI is most powerful when it serves humanity. This belief has shaped every step of our journey. From artists crafting groundbreaking works with the help of our creative AI, to businesses revolutionizing their processes through automation, Kojib has empowered individuals to do more, dream bigger, and achieve the extraordinary. </p> <p> As we grew, so did our ambitions. What started as a mission to create impactful AI has evolved into a vision of a connected world where technology bridges divides, fuels growth, and inspires collaboration. Today, Kojib stands at the intersection of humanity and innovation. Our projects are diverse—ranging from predictive analytics that anticipate challenges to dynamic AI solutions that spark creativity and solve global problems. Yet, our purpose remains singular: to make technology a partner in achieving the extraordinary. </p> <p> The journey hasn’t been without its challenges, but every obstacle has strengthened our resolve. Whether navigating the complexities of emerging technology or meeting the diverse needs of our clients, Kojib has thrived because we’ve remained true to our core values—innovation, collaboration, and a deep respect for the human experience. These principles guide us as we chart new paths, ensuring that every solution we create has a meaningful impact. </p> <p> Today, Kojib is more than a company—it’s a movement. A movement fueled by the belief that technology should elevate humanity, not overshadow it. As we look to the future, we are more committed than ever to building tools and systems that not only meet the needs of today but inspire the dreams of tomorrow. With every solution we craft and every partnership we forge, Kojib continues to tell a story of boundless creativity, relentless innovation, and a world of possibilities waiting to be realized. </p> <p> Join us on this journey. Be part of a story that’s still being written—a story where technology and humanity thrive together, where ideas transform into reality, and where Kojib continues to bridge the gap between what is and what could be. Together, let’s redefine what’s possible. </p>
+      </div>
+    </div>
+  </div>
+
+  <title>Our Journey in Action</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f4f4f4;
+    }
+
+    /* Section Container */
+    .journey-section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(145deg, #1c1c1c50, #2a2a2a2a);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px #00cc80;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Section Title */
+    .journey-section h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #00cc80;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Section Description */
+    .journey-section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #d4d4d4;
+    }
+
+    /* List Styles */
+    .journey-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .journey-section li {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      color: #ffffff;
+      border-left: 4px solid #00cc80;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      text-align: left;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Bolded Key Points */
+    .journey-section li strong {
+      color: #00cc80;
+      font-weight: bold;
+    }
+
+    /* Hover Effect */
+    .journey-section li:hover {
+      background: rgba(0, 204, 128, 0.1);
+      border-left-color: #00cc80;
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0, 204, 128, 0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .journey-section {
+        padding: 15px;
+      }
+
+      .journey-section h2 {
+        font-size: 2rem;
+      }
+
+      .journey-section p {
+        font-size: 1rem;
+      }
+
+      .journey-section li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Our Journey in Action Section -->
+  <div class="journey-section">
+    <h2>The Pillars of Our Journey</h2>
+    <p>Our story is built on a foundation of innovation, collaboration, and purpose. These are the core capabilities that have shaped our path.</p>
+    <ul>
+      <li><strong>Visionary Technology</strong>: Driving the future with solutions that reflect bold creativity and forward-thinking design.</li>
+      <li><strong>Human-Centered Design</strong>: Keeping people at the heart of our innovations, ensuring every solution feels intuitive and impactful.</li>
+      <li><strong>Empowering Possibilities</strong>: Building tools and systems that inspire growth, creativity, and transformation.</li>
+    </ul>
+  </div>
+
+
+
+  <script>
+    // Modal Interaction
+    document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById("story-modal");
+      const openModalBtn = document.getElementById("open-story-modal");
+      const closeModalBtn = document.getElementById("close-story-modal");
+      const body = document.body;
+
+      // Open modal
+      openModalBtn.addEventListener("click", function () {
+        modal.style.display = "block";
+        body.classList.add("modal-open");
+        document.querySelector(".capabilities-section").classList.add("blur-content");
+      });
+
+      // Close modal
+      closeModalBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+        body.classList.remove("modal-open");
+        document.querySelector(".capabilities-section").classList.remove("blur-content");
+      });
+
+      // Close modal when clicking outside the content
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+          body.classList.remove("modal-open");
+          document.querySelector(".capabilities-section").classList.remove("blur-content");
+        }
+      });
+    });
+  </script>
+
+</section>
+
+
+
+
+  <!-- Showcase Section -->
+<section id="showcase" class="showcase-section">
+  <div class="showcase-content">
+    <h2 class="showcase-title">Our Capabilities</h2>
+    <p class="showcase-text">
+      At Kojib, we redefine the boundaries of innovation by merging imagination and artificial intelligence to craft solutions that transform industries and empower people. Step into a world where technology becomes art, and every challenge unlocks limitless potential.
+    </p>
+    <div class="showcase-features">
+      <!-- Predictive Modeling Feature -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon">
+        </div>
+        <h3>Predictive Modeling</h3>
+        <p>Harness the power of advanced algorithms to gain actionable insights. From market trends to customer behavior, Kojib’s predictive modeling turns data into foresight, empowering you to make informed decisions with precision.</p>
+      </div>
+
+      <!-- Neural Network Design Feature -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="image/neural-network-icon.svg" alt="Neural Network Design Icon">
+        </div>
+        <h3>Neural Network Design</h3>
+        <p>Our cutting-edge neural network architectures emulate human intelligence, delivering unparalleled performance in everything from language understanding to image recognition. Kojib creates intelligent systems designed to learn and evolve.</p>
+      </div>
+
+      <!-- Human-Centric AI Feature -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="image/human-centric-icon.svg" alt="Human-Centric AI Icon">
+        </div>
+        <h3>Human-Centric AI</h3>
+        <p>We believe AI should enhance humanity, not replace it. Kojib’s human-centric AI creates intuitive interactions that connect seamlessly with your vision, making technology feel alive, personal, and purposeful.</p>
+      </div>
+
+      <!-- Data Visualization Feature -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="image/data-visualization-icon.svg" alt="Data Visualization Icon">
+        </div>
+        <h3>Data Visualization</h3>
+        <p>Transform complex datasets into vivid, interactive visual stories. Kojib brings your data to life, making it accessible, impactful, and easy to understand for smarter decision-making.</p>
+      </div>
+
+      <!-- Scalable Automation Feature -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="image/automation-icon.svg" alt="Scalable Automation Icon">
+        </div>
+        <h3>Scalable Automation</h3>
+        <p>Streamline your processes with intelligent automation that grows with you. From simple tasks to complex workflows, Kojib enables scalable, adaptable solutions that evolve with your needs.</p>
+      </div>
+
+      <!-- Creative AI Feature -->
+      <div class="feature-card">
+        <div class="feature-icon">
+          <img src="image/creative-ai-icon.svg" alt="Creative AI Icon">
+        </div>
+        <h3>Creative AI</h3>
+        <p>Empower your imagination with AI tools designed for creators. Whether it’s generating content, designing visuals, or composing music, Kojib’s creative AI sparks innovation at every level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <!-- Advanced Skyriz Section -->
@@ -192,7 +601,7 @@
     }
   
     #skyriz .feature-card {
-      background: rgba(255, 255, 255, 0.1);
+      background: #1e1e2f4d;
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
       padding: 20px;
@@ -288,20 +697,129 @@
   </style>
   
   <!-- Contact Section -->
-<section id="contact">
-    <div class="contact-content">
-        <h2 class="contact-title">Get in Touch</h2>
-        <p class="contact-text">
-            Ready to transform your vision into reality? Reach out to Kojib today and let’s build the future together.
-        </p>
-        <a href="mailto:contact@kojib.com" class="contact-button">Contact Us</a>
-    </div>
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+      <!-- Contact Header -->
+      <div class="contact-header">
+          <h2 class="contact-title">Get in Touch</h2>
+          <p class="contact-text">
+              Ready to transform your vision into reality? Whether you have a groundbreaking idea, a complex challenge, or a goal to innovate, Kojib is here to help. Reach out today, and let’s shape the future together.
+          </p>
+      </div>
+
+      <!-- Contact Methods -->
+      <div class="contact-methods">
+          <!-- Email -->
+          <div class="contact-card">
+              <div class="contact-icon">
+                <img src="image/email.svg" alt="Email">
+              </div>
+              <h3>Email Us</h3>
+              <p>Drop us a line at <a href="mailto:contact@kojib.com">contact@kojib.com</a></p>
+          </div>
+
+          <!-- Phone -->
+<div class="contact-card">
+  <div class="contact-icon">
+    <img src="image/phone.svg" alt="Phone">
+  </div>
+  <h3>Call Us</h3>
+  <p>
+      <a href="tel:+12139132275" class="contact-link">+1 (213) 913-2275</a>
+  </p>
+</div>
+
+<!-- Location -->
+<div class="contact-card">
+  <div class="contact-icon">
+    <img src="image/location.svg" alt="Location">
+  </div>
+  <h3>HQ</h3>
+  <p>
+      <a href="https://www.google.com/maps?q=500+Mission+Street,+Suite+400,+San+Francisco,+CA+94105,+United+States" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="contact-link">
+         500 Mission Street, Suite 400<br>San Francisco, CA 94105<br>United States
+      </a>
+  </p>
+</div>
+
+      </div>
+
 </section>
+
+<section id="contact" class="contact-section">
+  <!-- Contact Form -->
+  <div class="contact-form-container">
+    <h3 class="form-title">Send Us an Inquiry</h3>
+    <form id="contact-form">
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+      </div>
+
+      <!-- Subject Field -->
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Enter the subject of your inquiry" required />
+      </div>
+
+      <!-- Message Field -->
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" class="submit-button">Submit Inquiry</button>
+      </div>
+    </form>
+
+    <!-- Success Notification -->
+    <div id="success-notification" class="success-notification" style="display: none;">
+      <p>Thank you for your inquiry! We will get back to you shortly.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contact-form");
+    const successNotification = document.getElementById("success-notification");
+
+    // Intercept the form submission
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Simulate form submission success
+      successNotification.style.display = "block"; // Show the success message
+
+      // Clear the form fields
+      contactForm.reset();
+
+      // Optional: Automatically hide success message after a delay
+      setTimeout(() => {
+        successNotification.style.display = "none";
+      }, 5000); // Hide after 5 seconds
+    });
+  });
+</script>
+
 
 <div id="scroll-menu">
   <div id="scroll-toggle">↑</div>
   <div id="scroll-sections">
       <a href="#intro">Home</a>
+      <a href="#about">About</a>
       <a href="#showcase">Capabilities</a>
       <a href="#skyriz">Skyriz</a>
       <a href="#contact">Contact</a>
@@ -327,17 +845,72 @@
 </div>
 
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2024 Kojib. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://twitter.com/kojib_com" target="_blank">Twitter</a>
-        <a href="https://instagram.com/kojib_com" target="_blank">Instagram</a>
-        <a href="https://linkedin.com/company/kojib" target="_blank">LinkedIn</a>
-      </div>
+<footer>
+  <div class="footer-content" style="text-align: center; padding: 20px; background: #1c1c1c4a; color: #f4f4f4; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    
+    <!-- Company Logo -->
+    <div class="footer-logo" style="flex: 1 1 100px; text-align: center;">
+      <img src="image/logo.svg" alt="Kojib Logo" style="max-width: 120px; margin: 0 auto;">
     </div>
-  </footer>
+
+    <!-- About Section -->
+    <div class="footer-about" style="flex: 1 1 300px; max-width: 400px;">
+      <p>
+        At Kojib, we are passionate about merging innovation, creativity, and technology to create solutions that inspire and transform. Join us as we redefine the future, one idea at a time.
+      </p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="footer-links" style="flex: 1 1 200px; text-align: center;">
+      <h3></h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="index.html" style="color: #00cc80; text-decoration: none;">Home</a></li>
+        <li><a href="our-story.html" style="color: #00cc80; text-decoration: none;">Our Story</a></li>
+        <li><a href="contact.html" style="color: #00cc80; text-decoration: none;">Contact</a></li>
+        <li><a href="careers.html" style="color: #00cc80; text-decoration: none;">Careers</a></li>
+        <li><a href="services.html" style="color: #00cc80; text-decoration: none;">Services</a></li>
+        <li><a href="faq.html" style="color: #00cc80; text-decoration: none;">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-links" style="flex: 1 1 200px; text-align: center;">
+      <h3></h3>
+      <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+        <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 10px;">
+      </a>
+      <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+        <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 10px;">
+      </a>
+      <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+        <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 10px;">
+      </a>
+      <a href="https://facebook.com/kojib_com" target="_blank" aria-label="Facebook">
+        <img src="image/facebook-icon.svg" alt="Facebook" style="width: 24px; margin: 0 10px;">
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom" style="background: #12121234; color: #f4f4f4; padding: 20px; text-align: center; width: 100%; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);">
+    <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+    <p>Designed with ♥ by Kojib Team.</p>
+    <p>
+      <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none;">Terms of Service</a> | 
+      <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none;">Cookie Policy</a> | 
+      <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none;">Privacy Policy</a>
+    </p>
+    <script>
+      // JavaScript to set the current year
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+  </div>
+</footer>
+
+
+ 
+
+
 
   <!-- Scripts -->
   <script src="lib/three.min.js"></script>

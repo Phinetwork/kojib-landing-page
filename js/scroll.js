@@ -73,3 +73,5 @@ document.querySelectorAll("#scroll-sections a").forEach((link) => {
         scrollMenu.classList.remove("open");
     });
 });
+
+

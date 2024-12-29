@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Kojib</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #121212, #1c1c1c);
+      color: #f4f4f4;
+    }
+
+    .header {
+      background: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .header .logo {
+      color: #00cc80;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .faq-container h1 {
+      text-align: center;
+      color: #00cc80;
+      margin-bottom: 20px;
+    }
+
+    .faq-category {
+      margin-bottom: 30px;
+    }
+
+    .faq-category h2 {
+      color: #00cc80;
+      margin-bottom: 10px;
+    }
+
+    .accordion {
+      margin: 10px 0;
+      background: #252525;
+      color: #f4f4f4;
+      border: none;
+      border-radius: 5px;
+      padding: 15px;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion:hover {
+      background: #2a2a2a;
+    }
+
+    .accordion.active {
+      background: #00cc80;
+      color: #121212;
+    }
+
+    .accordion:focus {
+      outline: none;
+    }
+
+    .panel {
+      padding: 0 15px;
+      display: none;
+      background: #1c1c1c;
+      color: #d4d4d4;
+      overflow: hidden;
+      border-radius: 0 0 5px 5px;
+      margin-top: -10px;
+      font-size: 0.95rem;
+    }
+
+    .panel p {
+      margin: 15px 0;
+    }
+
+    .contact-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .contact-section p {
+      margin: 10px 0;
+    }
+
+    .contact-section a {
+      color: #00cc80;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-section a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">Kojib</a>
+  </header>
+
+  <!-- FAQ Section -->
+  <div class="faq-container">
+    <h1>Frequently Asked Questions</h1>
+
+    <!-- General Category -->
+    <div class="faq-category">
+      <h2>General Questions</h2>
+      <button class="accordion">What is Kojib?</button>
+      <div class="panel">
+        <p>Kojib is a technology company focused on developing innovative AI solutions that empower individuals and businesses worldwide.</p>
+      </div>
+
+      <button class="accordion">How can I learn more about Kojib's services?</button>
+      <div class="panel">
+        <p>You can explore our <a href="services.html">Services</a> page or contact us directly for detailed information.</p>
+      </div>
+    </div>
+
+    <!-- Technical Questions -->
+    <div class="faq-category">
+      <h2>Technical Questions</h2>
+      <button class="accordion">What platforms do your solutions support?</button>
+      <div class="panel">
+        <p>Our solutions are platform-agnostic and can integrate seamlessly with major operating systems, including Windows, macOS, Linux, and mobile platforms.</p>
+      </div>
+
+      <button class="accordion">Do you offer API access for developers?</button>
+      <div class="panel">
+        <p>Yes, we offer API access for developers. Visit our <a href="developers.html">Developers</a> page for more details and documentation.</p>
+      </div>
+    </div>
+
+    <!-- Support Questions -->
+    <div class="faq-category">
+      <h2>Support Questions</h2>
+      <button class="accordion">How can I contact customer support?</button>
+      <div class="panel">
+        <p>You can reach our customer support team via email at <a href="mailto:support@kojib.com">support@kojib.com</a> or through our <a href="contact.html">Contact</a> page.</p>
+      </div>
+
+      <button class="accordion">What are your support hours?</button>
+      <div class="panel">
+        <p>Our support team is available 24/7 to assist you with any queries or issues.</p>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <p>Have more questions? Contact us at <a href="mailto:support@kojib.com">support@kojib.com</a>.</p>
+      <p>We’re here to help!</p>
+    </div>
+  </div>
+
+  <script>
+    // Accordion Functionality
+    const accordions = document.querySelectorAll(".accordion");
+
+    accordions.forEach((accordion) => {
+      accordion.addEventListener("click", () => {
+        accordion.classList.toggle("active");
+        const panel = accordion.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

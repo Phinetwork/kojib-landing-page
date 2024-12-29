@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Kojib</title>
+  <link rel="stylesheet" href="terms-of-service.css">
+  <style>
+    .success-message {
+      display: none;
+      color: #00cc80;
+      background-color: #f4f4f4;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #00cc80;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">Kojib</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <main class="terms-container">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Please use the form below to get in touch.</p>
+
+    <!-- Contact Form -->
+    <section id="contact" class="contact-section">
+      <div class="contact-form-container">
+        <form id="contact-form" action="#" method="POST">
+          <!-- Name Field -->
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+          </div>
+
+          <!-- Email Field -->
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+          </div>
+
+          <!-- Subject Field -->
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Enter the subject of your inquiry" required />
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-group">
+            <button type="submit" class="submit-button">Submit Inquiry</button>
+          </div>
+        </form>
+        <div class="success-message" id="success-message">
+          Thank you! Your inquiry has been successfully submitted.
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Contact Info -->
+    <section class="contact-info">
+      <h2>Other Ways to Reach Us</h2>
+      <p>
+        You can also contact us via email at <a href="mailto:support@kojib.com">support@kojib.com</a>.
+        Follow us on our social channels for updates:
+      </p>
+      <ul class="social-links">
+        <li><a href="https://twitter.com/kojib_com" target="_blank">Twitter</a></li>
+        <li><a href="https://instagram.com/kojib_com" target="_blank">Instagram</a></li>
+        <li><a href="https://linkedin.com/company/kojib" target="_blank">LinkedIn</a></li>
+        <li><a href="https://facebook.com/kojib_com" target="_blank">Facebook</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Kojib. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="privacy-policy.html">Privacy Policy</a> | 
+      <a href="terms-of-service.html">Terms of Service</a> | 
+      <a href="cookie-policy.html">Cookie Policy</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Intercept form submission
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent actual form submission
+      document.getElementById("success-message").style.display = "block"; // Show success message
+      this.reset(); // Reset form fields
+    });
+  </script>
+</body>
+</html>

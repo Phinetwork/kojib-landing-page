@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100" height="100" id="location-icon-svg">
+  <defs>
+    <!-- Glow Effect -->
+    <filter id="locationGlow">
+      <feGaussianBlur stdDeviation="6" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradient for Pin -->
+    <radialGradient id="pinGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="rgba(0, 255, 153, 0.9)" />
+      <stop offset="100%" stop-color="rgba(0, 153, 255, 0.6)" />
+    </radialGradient>
+
+    <!-- Gradient for Inner Circle -->
+    <radialGradient id="innerGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 1)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.5)" />
+    </radialGradient>
+  </defs>
+
+  <!-- Pin Shape -->
+  <path d="M250,50 C310,50 350,110 350,170 C350,230 250,430 250,430 C250,430 150,230 150,170 C150,110 190,50 250,50 Z" 
+        fill="url(#pinGradient)" 
+        filter="url(#locationGlow)">
+    <animateTransform 
+      attributeName="transform" 
+      type="scale" 
+      values="1;1.05;1" 
+      dur="4s" 
+      repeatCount="indefinite" />
+  </path>
+
+  <!-- Inner Circle -->
+  <circle cx="250" cy="170" r="40" fill="url(#innerGradient)" filter="url(#locationGlow)">
+    <animateTransform 
+      attributeName="transform" 
+      type="scale" 
+      values="1;1.2;1" 
+      dur="2.5s" 
+      repeatCount="indefinite" />
+  </circle>
+
+  <!-- Radiating Pulses -->
+  <circle cx="250" cy="170" r="60" fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2">
+    <animate attributeName="r" values="60;100;60" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;1" dur="5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="170" r="90" fill="none" stroke="rgba(0, 255, 153, 0.4)" stroke-width="2">
+    <animate attributeName="r" values="90;130;90" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;1" dur="6s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Floating Particles -->
+  <circle cx="220" cy="120" r="5" fill="rgba(0, 255, 153, 0.8)">
+    <animate attributeName="cy" values="120;110;120" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="280" cy="120" r="4" fill="rgba(0, 153, 255, 0.8)">
+    <animate attributeName="cy" values="120;130;120" dur="3.5s" repeatCount="indefinite" />
+    <animate attributeName="r" values="4;6;4" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="220" r="6" fill="rgba(255, 255, 255, 0.7)">
+    <animate attributeName="cy" values="220;230;220" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="r" values="6;8;6" dur="4s" repeatCount="indefinite" />
+  </circle>
+</svg>

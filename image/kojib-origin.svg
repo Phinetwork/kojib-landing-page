@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="kojib-origin-svg">
+  <defs>
+    <!-- Glow Filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gradient Definitions -->
+    <radialGradient id="coreGradient" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="rgba(0, 255, 153, 1)" />
+      <stop offset="100%" stop-color="rgba(0, 153, 255, 0.1)" />
+    </radialGradient>
+
+    <linearGradient id="raysGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.7)" />
+      <stop offset="100%" stop-color="rgba(0, 153, 255, 0.4)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Central Glowing Core -->
+  <circle cx="250" cy="250" r="50" fill="url(#coreGradient)" filter="url(#glow)">
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;1.1;1"
+      dur="4s"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="4s"
+      repeatCount="indefinite"
+    />
+  </circle>
+
+  <!-- Dynamic Radiating Rays -->
+  <g id="rays">
+    <line x1="250" y1="250" x2="350" y2="150" stroke="url(#raysGradient)" stroke-width="2">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 250 250;360 250 250"
+        dur="8s"
+        repeatCount="indefinite"
+      />
+    </line>
+    <line x1="250" y1="250" x2="350" y2="350" stroke="url(#raysGradient)" stroke-width="2">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 250 250;360 250 250"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+    </line>
+    <line x1="250" y1="250" x2="150" y2="350" stroke="url(#raysGradient)" stroke-width="2">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 250 250;360 250 250"
+        dur="6s"
+        repeatCount="indefinite"
+      />
+    </line>
+    <line x1="250" y1="250" x2="150" y2="150" stroke="url(#raysGradient)" stroke-width="2">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="0 250 250;360 250 250"
+        dur="9s"
+        repeatCount="indefinite"
+      />
+    </line>
+  </g>
+
+  <!-- Floating Particles -->
+  <g id="particles">
+    <circle cx="200" cy="150" r="5" fill="rgba(0, 255, 153, 0.8)" filter="url(#glow)">
+      <animate attributeName="cy" values="150;140;150" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="r" values="5;7;5" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="300" cy="150" r="4" fill="rgba(0, 153, 255, 0.8)" filter="url(#glow)">
+      <animate attributeName="cy" values="150;160;150" dur="3.5s" repeatCount="indefinite" />
+      <animate attributeName="r" values="4;6;4" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="350" r="6" fill="rgba(255, 255, 255, 0.7)" filter="url(#glow)">
+      <animate attributeName="cy" values="350;360;350" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="r" values="6;8;6" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="300" cy="350" r="5" fill="rgba(0, 255, 153, 0.8)" filter="url(#glow)">
+      <animate attributeName="cy" values="350;340;350" dur="4.5s" repeatCount="indefinite" />
+      <animate attributeName="r" values="5;7;5" dur="4.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Radiating Pulses -->
+  <circle cx="250" cy="250" r="80" fill="none" stroke="rgba(255, 255, 255, 0.5)" stroke-width="1.5" filter="url(#glow)">
+    <animate attributeName="r" values="80;160;80" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;1" dur="6s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="250" r="120" fill="none" stroke="rgba(0, 153, 255, 0.4)" stroke-width="1.5" filter="url(#glow)">
+    <animate attributeName="r" values="120;200;120" dur="8s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;1" dur="8s" repeatCount="indefinite" />
+  </circle>
+</svg>

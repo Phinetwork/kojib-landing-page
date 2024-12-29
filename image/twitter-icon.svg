@@ -1,0 +1,59 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width="100"
+  height="100"
+  id="twitter-icon-svg"
+>
+  <defs>
+    <!-- Glow Effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <!-- Gradient for Color Animation -->
+    <linearGradient id="twitterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1DA1F2" />
+      <stop offset="100%" stop-color="#00c4ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Twitter Icon -->
+  <g filter="url(#glow)">
+    <path
+      d="M22.46 6.11a8.44 8.44 0 01-2.42.66 4.21 4.21 0 001.85-2.31 8.31 8.31 0 01-2.67 1.02 4.18 4.18 0 00-7.13 3.81A11.87 11.87 0 013.15 4.28a4.18 4.18 0 001.29 5.57 4.11 4.11 0 01-1.9-.53v.05a4.18 4.18 0 003.35 4.1 4.21 4.21 0 01-1.89.07 4.18 4.18 0 003.91 2.91A8.38 8.38 0 012 19.54 11.79 11.79 0 008.29 21c7.54 0 11.67-6.25 11.67-11.67 0-.18 0-.35-.01-.53a8.32 8.32 0 002.05-2.11z"
+      fill="url(#twitterGradient)"
+    >
+      <animate
+        attributeName="fill"
+        values="#1DA1F2; #00c4ff; #1DA1F2"
+        dur="3s"
+        repeatCount="indefinite"
+      />
+    </path>
+  </g>
+
+  <!-- Glow Animation -->
+  <circle
+    cx="12"
+    cy="12"
+    r="10"
+    fill="none"
+    stroke="url(#twitterGradient)"
+    stroke-width="2"
+    opacity="0.6"
+  >
+    <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Hover Pulse -->
+  <style>
+    #twitter-icon-svg:hover path {
+      filter: drop-shadow(0 0 15px #1DA1F2);
+    }
+  </style>
+</svg>

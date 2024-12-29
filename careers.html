@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - Kojib</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #121212, #1e1e1e);
+      color: #f4f4f4;
+    }
+
+    a {
+      color: #00cc80;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #00995e;
+    }
+
+    /* Header */
+    .header {
+      background: #1c1c1c;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #00cc80;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      display: inline;
+    }
+
+    .nav-links .active {
+      font-weight: bold;
+      color: #00cc80;
+    }
+
+    /* Main Content */
+    .careers-container {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h1, h2 {
+      color: #00cc80;
+      text-align: center;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 10px 0;
+    }
+
+    /* Job Listings */
+    .job-listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .job-card {
+      background: linear-gradient(145deg, #232323, #292929);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .apply-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #00cc80;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .apply-button:hover {
+      background-color: #00995e;
+    }
+
+    /* Life at Kojib */
+    .life-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .life-section li {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer-nav a {
+      margin: 0 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeIn 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">Kojib</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="careers.html" class="active">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Careers Section -->
+  <main class="careers-container">
+    <section class="intro-section">
+      <h1>Join Our Team</h1>
+      <p>
+        At Kojib, we believe that great companies are built by extraordinary people. If you’re driven by innovation,
+        inspired by challenges, and ready to make an impact, we want to hear from you. Join us on our journey to shape
+        the future of technology.
+      </p>
+    </section>
+
+    <!-- Current Openings -->
+    <section class="openings-section">
+      <h2>Current Opportunities</h2>
+      <div class="job-listings">
+        <div class="job-card">
+          <h3>Software Engineer</h3>
+          <p>Location: Remote</p>
+          <p>
+            As a Software Engineer at Kojib, you’ll work on cutting-edge projects, build scalable systems, and
+            collaborate with a world-class team of engineers.
+          </p>
+          <button class="apply-button" onclick="showSuccess('Software Engineer')">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+          <h3>Data Scientist</h3>
+          <p>Location: Remote</p>
+          <p>
+            Join our data science team to analyze complex datasets, develop predictive models, and deliver
+            data-driven solutions.
+          </p>
+          <button class="apply-button" onclick="showSuccess('Data Scientist')">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+          <h3>Product Designer</h3>
+          <p>Location: Remote</p>
+          <p>
+            Be part of the design team shaping Kojib’s user experience. Create intuitive, aesthetically pleasing
+            designs that delight our users.
+          </p>
+          <button class="apply-button" onclick="showSuccess('Product Designer')">Apply Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Life at Kojib -->
+    <section class="life-section">
+      <h2>Life at Kojib</h2>
+      <p>
+        At Kojib, we’re more than a workplace—we’re a community. Our culture thrives on collaboration, creativity, and
+        innovation. We believe in empowering our employees, fostering growth, and celebrating diversity.
+      </p>
+      <ul>
+        <li>Flexible work environment</li>
+        <li>Comprehensive benefits package</li>
+        <li>Opportunities for career advancement</li>
+        <li>A supportive and inclusive culture</li>
+      </ul>
+    </section>
+
+    <!-- How to Apply -->
+    <section class="apply-section">
+      <h2>How to Apply</h2>
+      <p>
+        To apply for any of our open positions, please send your resume and a cover letter to
+        <a href="mailto:careers@kojib.com">careers@kojib.com</a>. Make sure to include the job title in the subject line.
+      </p>
+      <p>We can’t wait to learn more about you!</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Kojib. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="privacy-policy.html">Privacy Policy</a> |
+      <a href="terms-of-service.html">Terms of Service</a> |
+      <a href="cookie-policy.html">Cookie Policy</a>
+    </nav>
+  </footer>
+
+  <script>
+    function showSuccess(jobTitle) {
+      alert(`Thank you for your interest in the ${jobTitle} position! Your application has been received.`);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100" height="100" id="instagram-icon-svg">
+  <defs>
+    <!-- Glow Effect -->
+    <filter id="instagramGlow">
+      <feGaussianBlur stdDeviation="6" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <!-- Gradient Definitions -->
+    <radialGradient id="gradientBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F58529" />
+      <stop offset="30%" stop-color="#DD2A7B" />
+      <stop offset="70%" stop-color="#8134AF" />
+      <stop offset="100%" stop-color="#515BD4" />
+    </radialGradient>
+    <radialGradient id="circleGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFDC80" />
+      <stop offset="50%" stop-color="#F58529" />
+      <stop offset="100%" stop-color="#DD2A7B" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#gradientBg)" filter="url(#instagramGlow)">
+    <animateTransform 
+      attributeName="transform" 
+      type="scale" 
+      values="1;1.05;1" 
+      dur="6s" 
+      repeatCount="indefinite" />
+  </circle>
+
+  <!-- Inner Camera Outline -->
+  <rect x="176" y="176" width="160" height="160" rx="40" fill="none" stroke="white" stroke-width="12">
+    <animate attributeName="stroke-width" values="10;15;10" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="stroke" values="white;#FFDC80;white" dur="3s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Camera Lens -->
+  <circle cx="256" cy="256" r="50" fill="url(#circleGradient)">
+    <animateTransform 
+      attributeName="transform" 
+      type="scale" 
+      values="1;1.1;1" 
+      dur="2s" 
+      repeatCount="indefinite" />
+  </circle>
+
+  <!-- Small Circle (Flash Indicator) -->
+  <circle cx="346" cy="166" r="10" fill="white">
+    <animate attributeName="r" values="10;12;10" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.8;1" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Decorative Particles -->
+  <circle cx="200" cy="100" r="5" fill="#FFDC80">
+    <animate attributeName="cy" values="100;90;100" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="r" values="5;8;5" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="400" r="6" fill="#DD2A7B">
+    <animate attributeName="cy" values="400;390;400" dur="2.5s" repeatCount="indefinite" />
+    <animate attributeName="r" values="6;9;6" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="256" r="4" fill="#8134AF">
+    <animate attributeName="cy" values="256;250;256" dur="3.5s" repeatCount="indefinite" />
+    <animate attributeName="r" values="4;6;4" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="intelligence-advanced-svg">
+  <defs>
+    <!-- Glow Filter for Nodes -->
+    <filter id="nodeGlow">
+      <feGaussianBlur stdDeviation="4" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Glow Filter for Connections -->
+    <filter id="connectionGlow">
+      <feGaussianBlur stdDeviation="2" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Neural Network Connections -->
+  <line x1="200" y1="150" x2="300" y2="250" stroke="rgba(255, 255, 255, 0.7)" stroke-width="2" filter="url(#connectionGlow)">
+    <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="1.618s" repeatCount="indefinite" />
+  </line>
+  <line x1="300" y1="250" x2="200" y2="350" stroke="rgba(0, 255, 153, 0.7)" stroke-width="2" filter="url(#connectionGlow)">
+    <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="2.618s" repeatCount="indefinite" />
+  </line>
+  <line x1="200" y1="150" x2="150" y2="300" stroke="rgba(0, 153, 255, 0.7)" stroke-width="2" filter="url(#connectionGlow)">
+    <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="3.618s" repeatCount="indefinite" />
+  </line>
+  <line x1="150" y1="300" x2="300" y2="250" stroke="rgba(255, 255, 255, 0.7)" stroke-width="2" filter="url(#connectionGlow)">
+    <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="2.236s" repeatCount="indefinite" />
+  </line>
+
+  <!-- Nodes with Phi Ratio Placement -->
+  <circle cx="200" cy="150" r="8" fill="rgba(0, 255, 153, 0.9)" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="8;12;8" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="250" r="8" fill="rgba(255, 255, 255, 0.8)" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="8;12;8" dur="3.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="350" r="8" fill="rgba(0, 153, 255, 0.9)" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="8;12;8" dur="1.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="150" cy="300" r="8" fill="rgba(255, 255, 255, 0.8)" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="8;12;8" dur="2.236s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="250" r="12" fill="rgba(255, 255, 255, 1)" filter="url(#nodeGlow)">
+    <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="3.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Dynamic Pulses with Phi Timing -->
+  <circle cx="250" cy="250" r="2.5" fill="rgba(255, 255, 255, 0.7)">
+    <animate attributeName="cx" values="250;300;250" dur="1.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="250;200;250" dur="1.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="200" r="2.5" fill="rgba(0, 255, 153, 0.8)">
+    <animate attributeName="cx" values="300;200;300" dur="2.236s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="200;300;200" dur="2.236s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="300" r="2.5" fill="rgba(0, 153, 255, 0.8)">
+    <animate attributeName="cx" values="200;250;200" dur="3.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="300;350;300" dur="3.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Neural Network Glow Path -->
+  <path d="M200,150 Q250,100 300,250 T200,350 T150,300 Z" fill="none" stroke="rgba(255, 255, 255, 0.5)" stroke-width="3" filter="url(#connectionGlow)">
+    <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite" />
+  </path>
+</svg>

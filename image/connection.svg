@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id="living-web-advanced-svg">
+  <defs>
+    <!-- Glow Effects -->
+    <filter id="nodeGlow">
+      <feGaussianBlur stdDeviation="4" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="pulseGlow">
+      <feGaussianBlur stdDeviation="12" result="blurred" />
+      <feMerge>
+        <feMergeNode in="blurred" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Core Circle -->
+  <circle cx="250" cy="250" r="40" fill="rgba(255, 255, 255, 0.9)" filter="url(#nodeGlow)">
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      values="1;1.15;1"
+      dur="4.236s"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="opacity"
+      values="0.8;1;0.8"
+      dur="4.236s"
+      repeatCount="indefinite"
+    />
+  </circle>
+
+  <!-- Radiating Pulses -->
+  <circle cx="250" cy="250" r="70" fill="none" stroke="rgba(0, 255, 153, 0.5)" stroke-width="2" filter="url(#pulseGlow)">
+    <animate attributeName="r" values="70;180;70" dur="6.854s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;1" dur="6.854s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="250" r="100" fill="none" stroke="rgba(0, 153, 255, 0.4)" stroke-width="2" filter="url(#pulseGlow)">
+    <animate attributeName="r" values="100;220;100" dur="8.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;1" dur="8.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Dynamic Connections -->
+  <g id="web-lines">
+    <line x1="250" y1="250" x2="180" y2="100" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="3.618s" repeatCount="indefinite" />
+    </line>
+    <line x1="250" y1="250" x2="320" y2="100" stroke="rgba(0, 255, 153, 0.6)" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="3.236s" repeatCount="indefinite" />
+    </line>
+    <line x1="250" y1="250" x2="180" y2="400" stroke="rgba(0, 153, 255, 0.6)" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="4.236s" repeatCount="indefinite" />
+    </line>
+    <line x1="250" y1="250" x2="320" y2="400" stroke="rgba(255, 255, 255, 0.7)" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="4.854s" repeatCount="indefinite" />
+    </line>
+  </g>
+
+  <!-- Floating Nodes -->
+  <g id="nodes">
+    <circle cx="180" cy="100" r="10" fill="rgba(0, 255, 153, 0.9)" filter="url(#nodeGlow)">
+      <animate attributeName="r" values="10;12;10" dur="3.236s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="320" cy="100" r="10" fill="rgba(0, 153, 255, 0.9)" filter="url(#nodeGlow)">
+      <animate attributeName="r" values="10;12;10" dur="2.618s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="180" cy="400" r="10" fill="rgba(255, 255, 255, 0.8)" filter="url(#nodeGlow)">
+      <animate attributeName="r" values="10;12;10" dur="3.854s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="320" cy="400" r="10" fill="rgba(0, 255, 153, 0.9)" filter="url(#nodeGlow)">
+      <animate attributeName="r" values="10;12;10" dur="2.854s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Pulsating Energy -->
+  <g id="energy-pulses">
+    <circle cx="250" cy="250" r="3" fill="rgba(255, 255, 255, 0.7)">
+      <animate attributeName="cx" values="250;220;250" dur="2.236s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="250;180;250" dur="2.236s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="250" cy="250" r="3" fill="rgba(0, 255, 153, 0.8)">
+      <animate attributeName="cx" values="250;280;250" dur="3.618s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="250;320;250" dur="3.618s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>
