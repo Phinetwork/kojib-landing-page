@@ -17,26 +17,6 @@ hamburger.addEventListener("click", () => {
     }
 });
 
-// Handle Clicks for Links
-menuLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const href = link.getAttribute("href");
-  
-      if (href.startsWith("#")) {
-        // Internal link logic (smooth scroll)
-        event.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      } else {
-        // External link logic (default behavior)
-        navLinks.classList.remove("active"); // Close menu if open
-        hamburger.classList.remove("open"); // Reset hamburger state
-      }
-    });
-  });
-
 // Close Menu When a Menu Link is Clicked
 menuLinks.forEach(link => {
     link.addEventListener("click", () => {
@@ -53,7 +33,6 @@ window.addEventListener("scroll", () => {
         navbar.classList.remove("scrolled"); // Remove 'scrolled' class when at the top
     }
 });
-
 
 
 // Smooth Scroll to Sections
