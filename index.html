@@ -505,17 +505,17 @@
 </section>
 
 <!-- ============================================
-     Noosphere Comprehensive Introductory Section
+     Skyriz Comprehensive Introductory Section
 ============================================= -->
-<section id="noosphere">
-  <!-- Noosphere CSS -->
+<section id="skyriz">
+  <!-- Skyriz CSS -->
   <style>
     /* ============================================
        General Styling
     ============================================= */
-    #noosphere {
+    #skyriz {
       position: relative;
-      width: 100vw;
+      width: 100%;
       padding: 80px 20px;
       background: linear-gradient(135deg, #020202, #1c1c1c);
       color: white;
@@ -526,7 +526,7 @@
     }
 
     /* Overlay for Depth */
-    #noosphere::before {
+    #skyriz::before {
       content: '';
       position: absolute;
       top: 0;
@@ -538,7 +538,7 @@
     }
 
     /* Content Container */
-    #noosphere .noosphere-content {
+    #skyriz .skyriz-content {
       position: relative;
       z-index: 2;
       max-width: 1200px;
@@ -548,22 +548,22 @@
     }
 
     /* Title Styling */
-    #noosphere .noosphere-title {
+    #skyriz .skyriz-title {
       font-size: 3rem;
       margin-bottom: 1rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 
                    0 0 20px rgba(255, 255, 255, 0.2);
       animation: fadeInGlow 2s ease-out;
     }
 
-    #noosphere .noosphere-title span {
+    #skyriz .skyriz-title span {
       color: #00ff99;
       text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
       animation: pulseHighlight 2s infinite alternate;
     }
 
     /* Subtitle Styling */
-    #noosphere .noosphere-text {
+    #skyriz .skyriz-text {
       font-size: 1.4rem;
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.85);
@@ -572,7 +572,7 @@
     }
 
     /* Features Grid */
-    #noosphere .noosphere-features {
+    #skyriz .skyriz-features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -581,7 +581,7 @@
     }
 
     /* Individual Feature Card */
-    #noosphere .feature-card {
+    #skyriz .feature-card {
       background: rgba(30, 30, 47, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
@@ -592,13 +592,13 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    #noosphere .feature-card:hover {
+    #skyriz .feature-card:hover {
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
     }
 
     /* Feature Icon */
-    #noosphere .feature-card img {
+    #skyriz .feature-card img {
       width: 80px;
       height: 80px;
       margin-bottom: 15px;
@@ -606,61 +606,83 @@
     }
 
     /* Feature Title */
-    #noosphere .feature-card h3 {
+    #skyriz .feature-card h3 {
       font-size: 1.6rem;
       margin-bottom: 10px;
       color: #00ff99;
     }
 
     /* Feature Description */
-    #noosphere .feature-card p {
+    #skyriz .feature-card p {
       font-size: 1.2rem;
       line-height: 1.6;
       color: rgba(255, 255, 255, 0.75);
     }
 
     /* Call-to-Action Button */
-    #noosphere .cta-button {
+    #skyriz .cta-button {
       display: inline-block;
-      background: #00ff99;
-      color: #020202;
-      padding: 15px 30px;
-      font-size: 1.4rem;
+      background: linear-gradient(135deg, #00ff99, #0099ff);
+      color: #ffffff;
+      padding: 15px 40px;
+      font-size: 1.2rem;
       font-weight: bold;
       text-transform: uppercase;
       text-decoration: none;
       border-radius: 30px;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
       box-shadow: 0 4px 15px rgba(0, 255, 153, 0.5);
       position: relative;
       overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    #noosphere .cta-button:hover {
-      background: #00cc80;
-      transform: translateY(-3px);
+    #skyriz .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 255, 153, 0.7);
+      background: linear-gradient(135deg, #1e1e30, #00cc80);
     }
 
-    /* CTA Button Content */
-    #noosphere .cta-button span {
+    /* CTA Button Text */
+    #skyriz .cta-button span {
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
+
+    /* CTA Button Arrow Icon */
+    #skyriz .cta-button svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+      transition: fill 0.3s ease, transform 0.3s ease;
       position: relative;
       z-index: 2;
     }
 
-    /* CTA Button Arrow Icon */
-    #noosphere .cta-button svg {
-      width: 24px;
-      height: 24px;
-      fill: #ffffff;
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: fill 0.3s ease;
+    #skyriz .cta-button:hover svg {
+      fill: #00ff99;
+      transform: translateX(5px);
     }
 
-    #noosphere .cta-button:hover svg {
-      fill: #00ff99;
+    /* Glowing Overlay Effect */
+    #skyriz .cta-button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    #skyriz .cta-button:hover::before {
+      opacity: 1;
     }
 
     /* Keyframes for Animations */
@@ -705,7 +727,7 @@
     }
 
     /* Decorative Shapes */
-    #noosphere .decorative-shape {
+    #skyriz .decorative-shape {
       position: absolute;
       border-radius: 50%;
       opacity: 0.05;
@@ -713,7 +735,7 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    #noosphere .shape1 {
+    #skyriz .shape1 {
       width: 300px;
       height: 300px;
       background: #00ff99;
@@ -722,7 +744,7 @@
       animation-duration: 10.472s; /* 6s * φ ≈ 10.472s */
     }
 
-    #noosphere .shape2 {
+    #skyriz .shape2 {
       width: 250px;
       height: 250px;
       background: #0099ff;
@@ -745,93 +767,87 @@
 
     /* Responsive Design */
     @media (max-width: 1024px) {
-      #noosphere .noosphere-title {
+      #skyriz .skyriz-title {
         font-size: 2.5rem;
       }
 
-      #noosphere .noosphere-text {
+      #skyriz .skyriz-text {
         font-size: 1.2rem;
       }
 
-      #noosphere .feature-card {
+      #skyriz .feature-card {
         width: 220px;
       }
     }
 
     @media (max-width: 768px) {
-      #noosphere .noosphere-title {
+      #skyriz .skyriz-title {
         font-size: 2.2rem;
       }
 
-      #noosphere .noosphere-text {
+      #skyriz .skyriz-text {
         font-size: 1rem;
       }
 
-      #noosphere .feature-card {
+      #skyriz .feature-card {
         width: 100%;
         max-width: 300px;
       }
 
-      #noosphere .decorative-shape.shape1,
-      #noosphere .decorative-shape.shape2 {
+      #skyriz .decorative-shape.shape1,
+      #skyriz .decorative-shape.shape2 {
         display: none;
       }
     }
 
     @media (max-width: 480px) {
-      #noosphere .noosphere-title {
+      #skyriz .skyriz-title {
         font-size: 1.8rem;
       }
 
-      #noosphere .noosphere-text {
+      #skyriz .skyriz-text {
         font-size: 0.95rem;
       }
 
-      #noosphere .cta-button {
+      #skyriz .cta-button {
         padding: 12px 25px;
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
-      #noosphere .cta-button svg {
+      #skyriz .cta-button svg {
         width: 20px;
         height: 20px;
       }
     }
   </style>
-  
-  <!-- Noosphere Section Content -->
-  <div class="noosphere-content">
-    <h2 class="noosphere-title">Meet <span class="highlight">Noosphere</span></h2>
-    <p class="noosphere-text">
-      Unlock the power of personalized AI learning with Noosphere. Transforming education with innovative, intuitive, and intelligent solutions tailored for every learner.
+
+  <!-- Skyriz Section Content -->
+  <div class="skyriz-content">
+    <h2 class="skyriz-title">Meet <span class="highlight">Skyriz</span></h2>
+    <p class="skyriz-text">
+      Unlock the power of personalized AI learning with Skyriz. Transforming education with innovative, intuitive, and intelligent solutions tailored for every learner.
     </p>
-    <div class="noosphere-features">
+    <div class="skyriz-features">
       <div class="feature-card">
         <img src="image/adaptive-learning-icon.svg" alt="Adaptive Learning Icon" class="feature-icon">
-        <h3 class="feature-title">Adaptive Learning</h3>
-        <p class="feature-description">
-          Noosphere personalizes the learning experience with real-time AI adjustments to your progress.
-        </p>
+        <h3>Adaptive Learning</h3>
+        <p>Skyriz personalizes the learning experience with real-time AI adjustments to your progress.</p>
       </div>
       <div class="feature-card">
         <img src="image/ai-powered-insights-icon.svg" alt="AI Insights Icon" class="feature-icon">
-        <h3 class="feature-title">AI Insights</h3>
-        <p class="feature-description">
-          Gain deep, actionable insights that empower students and educators alike.
-        </p>
+        <h3>AI Insights</h3>
+        <p>Gain deep, actionable insights that empower students and educators alike.</p>
       </div>
       <div class="feature-card">
         <img src="image/collaborative-tools-icon.svg" alt="Collaborative Tools Icon" class="feature-icon">
-        <h3 class="feature-title">Collaborative Tools</h3>
-        <p class="feature-description">
-          Seamlessly connect with peers and educators for collaborative growth.
-        </p>
+        <h3>Collaborative Tools</h3>
+        <p>Seamlessly connect with peers and educators for collaborative growth.</p>
       </div>
     </div>
 
     <!-- Call-to-Action Button -->
     <a href="https://skyriz.app" class="cta-button">
-      <span>Explore Noosphere</span>
+      <span>Explore Skyriz</span>
       <!-- Arrow SVG Icon -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
         <defs>
@@ -861,12 +877,12 @@
   <div class="decorative-shape shape1"></div>
   <div class="decorative-shape shape2"></div>
 
-  <!-- Embedded JavaScript for the Noosphere Section -->
+  <!-- Embedded JavaScript for the Skyriz Section -->
   <script>
     // Minimal JavaScript: Assign animation delays based on the golden ratio
     document.addEventListener('DOMContentLoaded', () => {
       const phi = 1.618;
-      const shapes = document.querySelectorAll('#noosphere .decorative-shape');
+      const shapes = document.querySelectorAll('#skyriz .decorative-shape');
 
       shapes.forEach((shape, index) => {
         // Assign animation delays based on phi ratio to create non-repetitive patterns
