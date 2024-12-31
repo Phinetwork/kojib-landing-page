@@ -2,34 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Developers - Kojib</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ============================================
-       General Styling
-    ============================================= */
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Arial', sans-serif;
       background: linear-gradient(to bottom, #121212, #1c1c1c);
       color: #f4f4f4;
-      scroll-behavior: smooth;
     }
 
-    a {
-      color: inherit;
-    }
-
-    /* Header Styling */
     .header {
       background: #1c1c1c;
-      padding: 20px 40px;
+      padding: 20px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
 
     .header .logo {
@@ -37,11 +24,6 @@
       font-size: 2rem;
       font-weight: bold;
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .header .logo:hover {
-      color: #00995e;
     }
 
     .header nav {
@@ -54,21 +36,19 @@
       display: flex;
       justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
     }
 
-    .header .nav-links li a {
+    .header .nav-links a {
       text-decoration: none;
       color: #f4f4f4;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
 
-    .header .nav-links li a:hover {
+    .header .nav-links a:hover {
       color: #00cc80;
     }
 
-    /* Hero Section Styling */
     .hero {
       text-align: center;
       padding: 100px 20px;
@@ -78,21 +58,14 @@
     .hero h1 {
       font-size: 3rem;
       color: #00cc80;
-      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
-      animation: fadeInDown 1s ease-out forwards;
-      opacity: 0;
     }
 
     .hero p {
       font-size: 1.5rem;
       margin-top: 20px;
       line-height: 1.8;
-      animation: fadeInUp 1.5s ease-out forwards;
-      opacity: 0;
-      animation-delay: 0.5s;
     }
 
-    /* Developers Container Styling */
     .developers-container {
       max-width: 1200px;
       margin: 40px auto;
@@ -102,143 +75,59 @@
     .developers-container h2 {
       text-align: center;
       color: #00cc80;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
-      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
-      animation: fadeInUp 1.5s ease-out forwards;
-      opacity: 0;
+      margin-bottom: 20px;
     }
 
-    /* Developer Section Styling */
     .developer-section {
       background: #1a1a1a;
       padding: 40px;
       border-radius: 10px;
       margin-bottom: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 1.5s ease-out forwards;
-      opacity: 0;
-    }
-
-    .developer-section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
     }
 
     .developer-section h3 {
       color: #00cc80;
       margin-bottom: 20px;
-      font-size: 1.8rem;
     }
 
     .developer-section p {
       font-size: 1.2rem;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.9);
     }
 
-    .developer-section ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 15px;
-    }
-
-    .developer-section ul li {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-      color: #f4f4f4;
-      position: relative;
-      padding-left: 20px;
-    }
-
-    .developer-section ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #00cc80;
-    }
-
-    /* Resources Section Styling */
     .resources {
       background: #1c1c1c;
-      padding: 40px 20px;
+      padding: 20px;
       border-radius: 10px;
-      margin-top: 40px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      animation: fadeInUp 1.5s ease-out forwards;
-      opacity: 0;
-    }
-
-    .resources h3 {
-      color: #00cc80;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      text-align: center;
+      margin-top: 20px;
     }
 
     .resources ul {
       list-style: none;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
+    }
+
+    .resources ul li {
+      margin: 10px 0;
     }
 
     .resources ul li a {
       text-decoration: none;
       color: #00cc80;
       font-size: 1.2rem;
-      padding: 10px 20px;
-      border: 1px solid #00cc80;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      width: 100%;
-      max-width: 300px;
-      text-align: center;
     }
 
     .resources ul li a:hover {
-      background-color: #00cc80;
-      color: #121212;
+      text-decoration: underline;
     }
 
-    /* New Sections */
-    .goals-aims, .accomplishments, .vision {
-      background: #1a1a1a;
-      padding: 40px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      animation: fadeInUp 1.5s ease-out forwards;
-      opacity: 0;
-    }
-
-    .goals-aims h3, .accomplishments h3, .vision h3 {
-      color: #00cc80;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      text-align: center;
-    }
-
-    .goals-aims p, .accomplishments p, .vision p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: rgba(255, 255, 255, 0.9);
-      text-align: center;
-    }
-
-    /* Call-to-Action Section Styling */
     .cta-section {
       text-align: center;
       margin: 40px 0;
       padding: 40px 20px;
       background: #1c1c1c;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      animation: fadeInUp 1.5s ease-out forwards;
-      opacity: 0;
     }
 
     .cta-section h2 {
@@ -251,169 +140,31 @@
       text-decoration: none;
       background: #00cc80;
       color: #121212;
-      padding: 15px 30px;
+      padding: 10px 20px;
       border-radius: 5px;
       font-size: 1rem;
       transition: background-color 0.3s ease;
-      display: inline-block;
     }
 
     .cta-section a:hover {
       background: #00995e;
     }
 
-    /* Footer Styling */
     .footer {
       background: #1c1c1c;
       text-align: center;
       padding: 20px;
       color: #f4f4f4;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .footer a {
       color: #00cc80;
       text-decoration: none;
       margin: 0 10px;
-      transition: color 0.3s ease;
     }
 
     .footer a:hover {
       text-decoration: underline;
-      color: #00995e;
-    }
-
-    /* Chatbot Button Styling */
-    #chatbot-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #00ff99;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      z-index: 1000;
-      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-    }
-
-    #chatbot-button:hover {
-      transform: scale(1.1);
-      background: #00cc80;
-    }
-
-    #chatbot-button img {
-      width: 30px;
-      height: 30px;
-      pointer-events: none; /* Ensure clicks don't affect the image */
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .header .nav-links {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .developer-section, .resources, .goals-aims, .accomplishments, .vision {
-        padding: 30px;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-      }
-
-      .developers-container h2 {
-        font-size: 2rem;
-      }
-
-      .developer-section h3, .resources h3, .goals-aims h3, .accomplishments h3, .vision h3 {
-        font-size: 1.5rem;
-      }
-
-      .cta-section h2 {
-        font-size: 1.8rem;
-      }
-
-      .cta-section a {
-        padding: 12px 25px;
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header {
-        padding: 15px 20px;
-      }
-
-      .header .logo {
-        font-size: 1.5rem;
-      }
-
-      .header .nav-links {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .developer-section, .resources, .goals-aims, .accomplishments, .vision {
-        padding: 20px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .developers-container h2 {
-        font-size: 1.8rem;
-      }
-
-      .developer-section h3, .resources h3, .goals-aims h3, .accomplishments h3, .vision h3 {
-        font-size: 1.2rem;
-      }
-
-      .cta-section h2 {
-        font-size: 1.5rem;
-      }
-
-      .cta-section a {
-        padding: 10px 20px;
-        font-size: 0.8rem;
-      }
     }
   </style>
 </head>
@@ -434,8 +185,8 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+   <!-- Hero Section -->
+   <section class="hero">
     <h1>Developers</h1>
     <p>Your portal to innovation, collaboration, and cutting-edge tools.</p>
   </section>
@@ -538,50 +289,257 @@
     <h2>Ready to Build with Us?</h2>
     <a href="contact.html">Get Started</a>
   </section>
+  <style>
+    /* Chatbot Button */
+    #chatbot-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: #00ff99;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+    
+    #chatbot-button:hover {
+        transform: scale(1.1);
+        background: #00cc80;
+    }
+    
+    #chatbot-button img {
+        width: 30px;
+        height: 30px;
+        pointer-events: none; /* Ensure clicks don't affect the image */
+    }
+    
+    /* Chatbot Window */
+    #chatbot {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 350px;
+        max-width: 90%; /* Ensure responsiveness for smaller screens */
+        height: 500px;
+        max-height: 70%; /* Adjust height for smaller screens */
+        background: #1c1c1c;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: none;
+        flex-direction: column;
+        z-index: 1001;
+        overflow: hidden;
+    }
+    
+    /* Chatbot Header */
+    #chatbot-header {
+        background: #00ff99;
+        color: black;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        position: relative;
+    }
+    
+    #chatbot-header button {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: black;
+        transition: transform 0.2s ease;
+    }
+    
+    #chatbot-header button:hover {
+        transform: scale(1.2);
+    }
+    
+    /* Chatbot Messages */
+    #chatbot-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        scrollbar-width: thin; /* For modern browsers */
+        scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+    }
+    
+    #chatbot-messages::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    #chatbot-messages::-webkit-scrollbar-track {
+        background: #222;
+    }
+    
+    #chatbot-messages::-webkit-scrollbar-thumb {
+        background: #00ff99;
+        border-radius: 5px;
+    }
+    
+    #chatbot-messages .message {
+        margin-bottom: 10px;
+        word-wrap: break-word; /* Ensure long messages don't overflow */
+    }
+    
+    #chatbot-messages .user {
+        text-align: right;
+        color: #00ff99;
+    }
+    
+    #chatbot-messages .bot {
+        text-align: left;
+        color: white;
+    }
+    
+    /* Loading Bubbles */
+    #loading-indicator {
+        display: none; /* Hidden by default */
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    #loading-indicator .dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 5px;
+        background-color: #00ff99;
+        border-radius: 50%;
+        display: inline-block;
+        animation: bounce 1.2s infinite;
+    }
+    
+    #loading-indicator .dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    #loading-indicator .dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+    
+    @keyframes bounce {
+        0%, 80%, 100% {
+            transform: scale(0);
+        }
+        40% {
+            transform: scale(1);
+        }
+    }
+    
+    /* Chatbot Input Section */
+    #chatbot-input {
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        background: #333;
+        align-items: center;
+    }
+    
+    #chatbot-input textarea {
+        flex: 1;
+        resize: none;
+        padding: 10px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        background: #222;
+        color: white;
+        font-family: inherit;
+        font-size: 0.9rem;
+    }
+    
+    #chatbot-input button {
+        background: #00ff99;
+        border: none;
+        padding: 10px 15px;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    #chatbot-input button:hover {
+        background: #00cc80;
+        transform: scale(1.05);
+    }
+    
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+        #chatbot {
+            bottom: 80px;
+            right: 10px;
+            width: 90%; /* Use most of the screen width */
+            height: auto; /* Let height adjust dynamically */
+            max-height: 80%; /* Limit max height */
+        }
+    
+        #chatbot-header {
+            font-size: 1rem; /* Adjust header font size */
+        }
+    
+        #chatbot-input textarea {
+            font-size: 0.8rem;
+        }
+    
+        #chatbot-input button {
+            padding: 8px 12px; /* Smaller padding for smaller screens */
+            font-size: 0.9rem;
+        }
+    }
+    </style>
+<!-- AI Chatbot -->
+<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
+    <div id="chatbot-header">
+        <span>Kojib</span>
+        <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+    </div>
+    <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
+        <!-- Chat messages will be dynamically injected here -->
+    </div>
+    <div id="chatbot-input" role="form" aria-label="Chat Input">
+        <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+        <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+    </div>
+  </div>
+  <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
+    <img src="image/chat-icon.svg" alt="Chat Icon" />
+  </div> 
 
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+
+<script>
+  // JavaScript to set the current year
+  document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
     <nav>
       <a href="index.html">Home</a> |
       <a href="privacy-policy.html">Privacy Policy</a> |
       <a href="terms-of-service.html">Terms of Service</a>
     </nav>
   </footer>
-
-  <!-- Chatbot Button -->
-  <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
-    <img src="image/chat-icon.svg" alt="Chat Icon" />
-  </div> 
-
-  <!-- AI Chatbot -->
-  <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
-    <div id="chatbot-header">
-      <span>Kojib</span>
-      <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
-    </div>
-    <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
-      <!-- Chat messages will be dynamically injected here -->
-    </div>
-    <div id="chatbot-input" role="form" aria-label="Chat Input">
-      <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
-      <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
-    </div>
-  </div>
-
-  <!-- Footer Scripts -->
-  <script>
-    // JavaScript to set the current year
-    document.getElementById("current-year").textContent = new Date().getFullYear();
-  </script>
-
-  <!-- Include other scripts or libraries -->
+  <!-- Scripts -->
   <script src="lib/three.min.js"></script>
   <script src="lib/gsap.min.js"></script>
   <script src="lib/ScrollTrigger.min.js"></script>
   <script src="js/particles.js"></script>
   <script src="js/scroll.js"></script>
   <script src="js/main.js"></script>
-  <script src="chatbot.js"></script>
+ 
+     <!-- Include other scripts or libraries -->
+     <script src="chatbot.js"></script>
+
 </body>
 </html>
