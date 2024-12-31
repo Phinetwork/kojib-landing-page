@@ -8,48 +8,46 @@
 
     <!-- Glow Effect -->
     <radialGradient id="heartGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ff8080" stop-opacity="0.5" />
+      <stop offset="0%" stop-color="#ff8080" stop-opacity="0.6" />
       <stop offset="100%" stop-color="#ff0000" stop-opacity="0" />
     </radialGradient>
   </defs>
 
   <!-- Background Glow -->
   <circle cx="100" cy="100" r="90" fill="url(#heartGlow)">
-    <animate attributeName="r" from="90" to="95" dur="1.618s" repeatCount="indefinite" />
-    <animate attributeName="opacity" from="0.5" to="0.2" dur="1.618s" repeatCount="indefinite" />
+    <animate attributeName="r" values="90; 92; 95; 90" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6; 0.4; 0.2; 0.6" dur="2.618s" repeatCount="indefinite" />
   </circle>
 
   <!-- Heart Shape -->
-  <path d="M100 30 
-           C 70 15, 20 50, 50 100 
-           A 30 30, 0, 1, 1, 100 140 
-           A 30 30, 0, 1, 1, 150 100 
-           C 180 50, 130 15, 100 30Z"
-        fill="url(#heartGradient)" stroke="#800000" stroke-width="2">
-    <!-- Beating Animation -->
+  <path d="M100 40 
+           C 70 10, 10 70, 100 160 
+           C 190 70, 130 10, 100 40Z"
+        fill="url(#heartGradient)" stroke="#800000" stroke-width="3">
     <animateTransform attributeName="transform" type="scale"
-                      values="1 1; 1.05 1.05; 1 1" dur="1.618s" repeatCount="indefinite" />
+                      values="1 1; 1.03 1.05; 1 1" 
+                      dur="3.236s" repeatCount="indefinite" additive="sum"/>
   </path>
 
-  <!-- Inner Pulsating Glow -->
-  <circle cx="100" cy="100" r="10" fill="#ff4d4d" opacity="0.8">
-    <animate attributeName="r" from="10" to="15" dur="1.618s" repeatCount="indefinite" />
-    <animate attributeName="opacity" from="0.8" to="0.4" dur="1.618s" repeatCount="indefinite" />
+  <!-- Inner Pulsating Core -->
+  <circle cx="100" cy="100" r="8" fill="#ff4d4d" opacity="0.8">
+    <animate attributeName="r" values="8; 12; 10; 8" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.8; 0.5; 0.4; 0.8" dur="2.618s" repeatCount="indefinite" />
   </circle>
 
   <!-- Vein-like Effect -->
-  <path d="M75 70 C 90 50, 110 50, 125 70" stroke="#ff8080" stroke-width="2" fill="none">
+  <path d="M80 60 C 100 40, 120 40, 140 60" stroke="#ff8080" stroke-width="2" fill="none">
     <animateTransform attributeName="transform" type="translate"
-                      values="0 0; 0 -2; 0 0" dur="1.618s" repeatCount="indefinite" />
+                      values="0 0; 0 -3; 0 3; 0 0" dur="2.618s" repeatCount="indefinite" />
   </path>
-  <path d="M75 130 C 90 150, 110 150, 125 130" stroke="#ff8080" stroke-width="2" fill="none">
+  <path d="M60 130 C 90 150, 110 150, 140 130" stroke="#ff8080" stroke-width="2" fill="none">
     <animateTransform attributeName="transform" type="translate"
-                      values="0 0; 0 2; 0 0" dur="1.618s" repeatCount="indefinite" />
+                      values="0 0; 0 3; 0 -3; 0 0" dur="2.618s" repeatCount="indefinite" />
   </path>
 
-  <!-- Pulse Effect on Entire Heart -->
-  <circle cx="100" cy="100" r="80" fill="none" stroke="#ff4d4d" stroke-width="1" opacity="0.4">
-    <animate attributeName="r" from="80" to="85" dur="1.618s" repeatCount="indefinite" />
-    <animate attributeName="opacity" from="0.4" to="0.2" dur="1.618s" repeatCount="indefinite" />
+  <!-- Outer Pulse Effect -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#ff4d4d" stroke-width="2" opacity="0.4">
+    <animate attributeName="r" values="85; 88; 90; 85" dur="3.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.4; 0.3; 0.2; 0.4" dur="3.618s" repeatCount="indefinite" />
   </circle>
 </svg>
