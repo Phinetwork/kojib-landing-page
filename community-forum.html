@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Developer Blog - Kojib</title>
+  <title>Community Forum - Kojib</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================
@@ -75,6 +75,7 @@
       flex-direction: column;
       cursor: pointer;
       gap: 5px;
+      z-index: 1100;
     }
 
     .menu-toggle span {
@@ -82,6 +83,7 @@
       height: 3px;
       background-color: #f4f4f4;
       transition: all 0.3s ease;
+      position: relative;
     }
 
     /* Mobile Navigation */
@@ -94,6 +96,16 @@
       width: 200px;
       border-radius: 0 0 10px 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .mobile-nav ul {
@@ -110,11 +122,29 @@
       color: #f4f4f4;
       font-size: 1rem;
       transition: background 0.3s ease, color 0.3s ease;
+      display: block;
     }
 
     .mobile-nav ul li a:hover {
       background: #00cc80;
       color: #121212;
+    }
+
+    /* Transformations for Menu Toggle Animation */
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      background-color: #00cc80;
+      box-shadow: 0 0 10px #00cc80;
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      background-color: #00cc80;
+      box-shadow: 0 0 10px #00cc80;
     }
 
     /* Hero Section Styling */
@@ -127,6 +157,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      overflow: hidden;
     }
 
     .hero::before {
@@ -137,7 +168,7 @@
       transform: translateX(-50%);
       width: 100%;
       height: 100%;
-      background: url('image/blog-background.jpg') center center/cover no-repeat;
+      background: url('image/forum-background.jpg') center center/cover no-repeat;
       opacity: 0.3;
       z-index: -1;
     }
@@ -193,8 +224,8 @@
       background: #00995e;
     }
 
-    /* Blog Posts Section Styling */
-    .blog-posts {
+    /* Forum Threads Section Styling */
+    .forum-threads {
       max-width: 1200px;
       margin: 40px auto;
       padding: 20px;
@@ -205,7 +236,7 @@
       opacity: 0;
     }
 
-    .blog-post {
+    .thread {
       background: #1a1a1a;
       padding: 20px;
       border-radius: 10px;
@@ -216,12 +247,12 @@
       height: 100%;
     }
 
-    .blog-post:hover {
+    .thread:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
     }
 
-    .blog-post img {
+    .thread img {
       width: 100%;
       height: 180px;
       object-fit: cover;
@@ -229,20 +260,20 @@
       margin-bottom: 15px;
     }
 
-    .blog-post h3 {
+    .thread h3 {
       color: #00cc80;
       margin-bottom: 10px;
       font-size: 1.5rem;
     }
 
-    .blog-post p {
+    .thread p {
       flex: 1;
       font-size: 1rem;
       line-height: 1.6;
       color: rgba(244, 244, 244, 0.9);
     }
 
-    .blog-post a {
+    .thread a {
       margin-top: 15px;
       align-self: flex-start;
       background: #00cc80;
@@ -253,7 +284,7 @@
       transition: background 0.3s ease;
     }
 
-    .blog-post a:hover {
+    .thread a:hover {
       background: #00995e;
     }
 
@@ -275,7 +306,7 @@
       padding: 15px 25px;
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
       font-size: 1rem;
       cursor: pointer;
       color: #f4f4f4;
@@ -447,6 +478,12 @@
         transform: translateY(0);
       }
     }
+
+    /* Smooth Scrolling for In-Page Links */
+    html {
+      scroll-behavior: smooth;
+    }
+
   </style>
 </head>
 <body>
@@ -455,7 +492,7 @@
   <header class="header">
     <a href="index.html" class="logo">Kojib</a>
     <nav>
-      <div class="menu-toggle" id="mobile-menu">
+      <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -471,7 +508,7 @@
         <li><a href="developer-blog.html">Developer Blog</a></li>
       </ul>
       <!-- Mobile Navigation -->
-      <div class="mobile-nav" id="mobile-nav">
+      <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -488,100 +525,102 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Welcome to the Kojib Developer Blog</h1>
-    <p>Explore the latest insights, tutorials, and trends in AI and software development. Stay updated and elevate your skills with our expert articles.</p>
+    <h1>Welcome to the Kojib Community Forum</h1>
+    <p>Connect with fellow developers, share knowledge, and collaborate on exciting projects. Engage in discussions, ask questions, and grow your skills together.</p>
   </section>
 
   <!-- Search Bar -->
   <div class="search-bar">
-    <input type="text" placeholder="Search blog posts..." aria-label="Search blog posts">
+    <input type="text" placeholder="Search forum topics..." aria-label="Search forum topics">
     <button type="button">Search</button>
   </div>
 
-  <!-- Blog Posts Section -->
-  <section class="blog-posts">
-    <!-- Featured Post -->
-    <article class="blog-post">
-      <img src="image/featured-post.jpg" alt="Featured Post Image">
-      <h3>Unlocking the Power of AI: A Comprehensive Guide</h3>
-      <p>Delve into the fundamentals of artificial intelligence and discover how to harness its capabilities to build intelligent applications.</p>
-      <a href="#">Read More</a>
+  <!-- Forum Threads Section -->
+  <section class="forum-threads">
+    <!-- Featured Thread -->
+    <article class="thread">
+      <img src="image/featured-thread.jpg" alt="Featured Thread Image">
+      <h3>Best Practices for Collaborative Development</h3>
+      <p>Sharing insights and strategies for effective collaboration in development teams. What are your go-to practices?</p>
+      <a href="#">Join the Discussion</a>
     </article>
 
-    <!-- Latest Posts -->
-    <article class="blog-post">
-      <img src="image/post1.jpg" alt="Post 1 Image">
-      <h3>Top 10 Open-Source Libraries for Data Science</h3>
-      <p>Enhance your data science projects with these powerful and versatile open-source libraries. Boost your productivity and efficiency.</p>
-      <a href="#">Read More</a>
+    <!-- Latest Threads -->
+    <article class="thread">
+      <img src="image/thread1.jpg" alt="Thread 1 Image">
+      <h3>Optimizing React Applications for Performance</h3>
+      <p>Discuss techniques and tools to enhance the performance of React-based applications. Share your experiences and tips.</p>
+      <a href="#">Join the Discussion</a>
     </article>
 
-    <article class="blog-post">
-      <img src="image/post2.jpg" alt="Post 2 Image">
-      <h3>Building Scalable Web Applications with Microservices</h3>
-      <p>Learn how to design and implement scalable web applications using the microservices architecture. Best practices and real-world examples.</p>
-      <a href="#">Read More</a>
+    <article class="thread">
+      <img src="image/thread2.jpg" alt="Thread 2 Image">
+      <h3>Implementing Secure Authentication in Web Apps</h3>
+      <p>Explore methods for securing user authentication in web applications. What frameworks and practices do you recommend?</p>
+      <a href="#">Join the Discussion</a>
     </article>
 
-    <article class="blog-post">
-      <img src="image/post3.jpg" alt="Post 3 Image">
-      <h3>Introduction to Machine Learning Algorithms</h3>
-      <p>Understand the core machine learning algorithms that are shaping the future of technology. From supervised to unsupervised learning.</p>
-      <a href="#">Read More</a>
+    <article class="thread">
+      <img src="image/thread3.jpg" alt="Thread 3 Image">
+      <h3>Deploying Scalable Microservices with Kubernetes</h3>
+      <p>Share your experiences and challenges in deploying microservices using Kubernetes. Best practices and resources are welcome.</p>
+      <a href="#">Join the Discussion</a>
     </article>
 
-    <article class="blog-post">
-      <img src="image/post4.jpg" alt="Post 4 Image">
-      <h3>Optimizing Your Code for Performance and Efficiency</h3>
-      <p>Discover techniques to optimize your code, improve performance, and make your applications more efficient and responsive.</p>
-      <a href="#">Read More</a>
+    <article class="thread">
+      <img src="image/thread4.jpg" alt="Thread 4 Image">
+      <h3>Introduction to GraphQL: Benefits and Use Cases</h3>
+      <p>Discuss the advantages of using GraphQL over REST APIs. Share use cases where GraphQL has significantly improved your projects.</p>
+      <a href="#">Join the Discussion</a>
     </article>
 
-    <article class="blog-post">
-      <img src="image/post5.jpg" alt="Post 5 Image">
-      <h3>DevOps Best Practices for Continuous Integration and Deployment</h3>
-      <p>Implement DevOps best practices to streamline your development workflow, enhance collaboration, and ensure continuous integration and deployment.</p>
-      <a href="#">Read More</a>
+    <article class="thread">
+      <img src="image/thread5.jpg" alt="Thread 5 Image">
+      <h3>Effective Debugging Techniques for JavaScript</h3>
+      <p>Share your go-to debugging tools and techniques for JavaScript development. How do you efficiently identify and fix issues?</p>
+      <a href="#">Join the Discussion</a>
     </article>
   </section>
 
   <!-- Categories Section -->
   <section class="categories">
-    <div class="category">Artificial Intelligence</div>
-    <div class="category">Machine Learning</div>
-    <div class="category">Data Science</div>
-    <div class="category">Web Development</div>
+    <div class="category">General Discussion</div>
+    <div class="category">Frontend Development</div>
+    <div class="category">Backend Development</div>
     <div class="category">DevOps</div>
-    <div class="category">Open-Source</div>
+    <div class="category">AI & Machine Learning</div>
+    <div class="category">Open-Source Projects</div>
+    <div class="category">Career Advice</div>
+    <div class="category">Tutorials & Resources</div>
   </section>
 
   <!-- Latest Discussions Section -->
   <section class="latest-discussions">
-    <h2>Join the Conversation</h2>
+    <h2>Recent Topics</h2>
     <div class="discussion-list">
       <div class="discussion-item">
-        <h3>How to Implement AI Ethics in Your Projects?</h3>
-        <p>As AI becomes more integrated into our daily lives, it's crucial to consider ethical implications. What are some best practices?</p>
-        <a href="#">Read More</a>
+        <h3>How to Integrate CI/CD in Your Workflow?</h3>
+        <p>Continuous Integration and Continuous Deployment can streamline your development process. What tools and practices do you use?</p>
+        <a href="#">Join the Discussion</a>
       </div>
       <div class="discussion-item">
-        <h3>Best Tools for Data Visualization in 2024</h3>
-        <p>Data visualization is key to understanding complex datasets. What tools are you using this year, and why?</p>
-        <a href="#">Read More</a>
+        <h3>Best Practices for Writing Clean Code</h3>
+        <p>Clean code is essential for maintainability and scalability. What are your strategies for ensuring code quality?</p>
+        <a href="#">Join the Discussion</a>
       </div>
       <div class="discussion-item">
-        <h3>Strategies for Effective Remote Collaboration</h3>
-        <p>With the rise of remote work, how can teams collaborate more effectively to maintain productivity and innovation?</p>
-        <a href="#">Read More</a>
+        <h3>Exploring Serverless Architecture: Pros and Cons</h3>
+        <p>Serverless architecture offers flexibility but comes with its own set of challenges. Share your experiences and insights.</p>
+        <a href="#">Join the Discussion</a>
       </div>
     </div>
   </section>
 
   <!-- Join the Community Section -->
   <section class="join-community">
-    <h2>Stay Updated with Our Latest Posts</h2>
-    <p>Subscribe to our newsletter to receive the latest articles, tutorials, and insights directly to your inbox. Join thousands of developers who are enhancing their skills and staying ahead in the tech industry.</p>
-    <a href="signup.html">Subscribe Now</a>
+    <h2>Become a Part of Our Community</h2>
+    <p>Join the Kojib Community Forum to connect with developers worldwide. Share your knowledge, ask questions, and collaborate on innovative projects.</p>
+    <a href="signup.html">Join Now</a>
   </section>
 
   <!-- Footer -->
@@ -599,9 +638,13 @@
     const menuToggle = document.getElementById('mobile-menu');
     const mobileNav = document.getElementById('mobile-nav');
 
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event from bubbling up to window
       mobileNav.classList.toggle('active');
       menuToggle.classList.toggle('open');
+      const isExpanded = menuToggle.classList.contains('open');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
+      mobileNav.setAttribute('aria-hidden', !isExpanded);
     });
 
     // Close mobile menu when clicking outside
@@ -609,8 +652,24 @@
       if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
         mobileNav.classList.remove('active');
         menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
       }
     });
+
+    // Accessibility: Close mobile menu with Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // JavaScript to set the current year
+    document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
