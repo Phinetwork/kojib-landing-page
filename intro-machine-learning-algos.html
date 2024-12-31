@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Machine Learning Algorithms</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/kTc9TShk4vZIFqfGNYX+bWjFRo2aI/mj0R/GJRr6rAHeVb9qfGRdBnXvhM2bN0hWv3jXb3x3p7Iew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Inter', sans-serif;
+            color: #c9d1d9;
+        }
+
+        /* Navbar Styling */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 1000; /* Ensure it stays on top */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent; /* Fully transparent background */
+            box-shadow: none; /* Remove shadow for complete transparency */
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo img {
+            height: 40px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Logo Glow and Twinkle Effect */
+        #navbar.scrolled .logo img {
+            transform: scale(1.1);
+            filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
+            animation: subtleTwinkle 3s infinite alternate ease-in-out;
+        }
+
+        @keyframes subtleTwinkle {
+            0%,
+            100% {
+                filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
+            }
+
+            50% {
+                filter: brightness(1.5) drop-shadow(0 0 12px #00ff99);
+            }
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #00ff99;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1100; /* Ensure it's on top of the nav */
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hamburger Open State */
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: #00ff99;
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: #00ff99;
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                height: 100%;
+                width: 250px;
+                background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 255, 153, 0.9));
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px 20px;
+                box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                transition: right 0.3s ease-in-out;
+                animation: phiShimmer 5s infinite ease-in-out; /* Apply the shimmering effect */
+            }
+
+            .nav-links.active {
+                right: 0;
+                background: linear-gradient(135deg, #004d26, #00ff99);
+                box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
+            }
+
+            .nav-links li {
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .nav-links li a {
+                color: white;
+                font-weight: bold;
+                transition: color 0.3s ease-in-out;
+            }
+
+            .nav-links li a:hover {
+                color: #000;
+                background: #00ff99;
+                border-radius: 5px;
+                padding: 10px 15px;
+            }
+        }
+
+        /* Phi-Based Shimmering Animation */
+        @keyframes phiShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            38.2% {
+                background-position: 50% 100%;
+            }
+
+            61.8% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Smooth Animation for Nav Links */
+        .nav-links li {
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .nav-links li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .nav-links li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .nav-links li:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .nav-links li:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .nav-links li:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .nav-links li:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .nav-links li:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .nav-links li:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .nav-links li:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .nav-links li:nth-child(10) {
+            animation-delay: 1s;
+        }
+
+        .nav-links li:nth-child(11) {
+            animation-delay: 1.1s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Hover Effects for Hamburger Menu */
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        /* General Reset */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for better UX */
+        }
+
+        /* Featured Image Styling */
+        .featured-image {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            background: url('https://source.unsplash.com/1600x900/?machine-learning,algorithms') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px; /* To offset the fixed navbar */
+        }
+
+        .featured-image .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .featured-image h2 {
+            position: relative;
+            color: #00ff99;
+            font-size: 2.5rem;
+            text-align: center;
+            z-index: 1;
+            text-shadow: 0 0 10px #00ff99, 0 0 20px rgba(0, 255, 153, 0.8);
+            max-width: 80%;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+        }
+
+        /* Table of Contents Styling */
+        .toc {
+            flex: 1;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 100px; /* Adjust based on navbar height */
+            height: fit-content;
+        }
+
+        .toc h3 {
+            margin-bottom: 15px;
+            color: #00ff99;
+            text-align: center;
+            text-shadow: 0 0 5px #00ff99;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc ul li {
+            margin-bottom: 10px;
+        }
+
+        .toc ul li a {
+            text-decoration: none;
+            color: #c9d1d9;
+            transition: color 0.3s ease;
+        }
+
+        .toc ul li a:hover {
+            color: #00ff99;
+        }
+
+        /* Sections Styling */
+        section {
+            flex: 3;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
+        }
+
+        section h2 {
+            color: #00ff99;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #00ff99;
+        }
+
+        section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        section img:hover {
+            transform: scale(1.02);
+        }
+
+        section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        section ul {
+            list-style: disc inside;
+            margin-bottom: 15px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+        section h3 {
+            color: #00b37e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Read More Button Styling */
+        .read-more {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(145deg, #004d26, #00ff99);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .read-more:hover {
+            background: linear-gradient(145deg, #00b37e, #006b41);
+            box-shadow: 0 8px 15px rgba(0, 255, 153, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #161b22;
+            color: #c9d1d9;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #00ff99;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        footer a:hover {
+            color: #28a745;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .toc {
+                position: static;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .featured-image {
+                height: 40vh;
+            }
+
+            .featured-image h2 {
+                font-size: 1.8rem;
+                max-width: 90%;
+            }
+
+            .toc ul li a {
+                font-size: 1rem;
+            }
+
+            .read-more {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .nav-links {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .featured-image {
+                height: 30vh;
+            }
+
+            .featured-image h2 {
+                font-size: 1.5rem;
+                max-width: 95%;
+            }
+
+            .toc h3 {
+                font-size: 1.1rem;
+            }
+
+            .toc ul li a {
+                font-size: 0.95rem;
+            }
+
+            .nav-links {
+                width: 200px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="image/logo.svg" alt="Site Logo">
+            </div>
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#developer-blog">Back To Blog</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#types-of-algorithms">Types of Algorithms</a></li>
+                <li><a href="#supervised-learning">Supervised Learning</a></li>
+                <li><a href="#unsupervised-learning">Unsupervised Learning</a></li>
+                <li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+                <li><a href="#popular-algorithms">Popular Algorithms</a></li>
+                <li><a href="#evaluation-metrics">Evaluation Metrics</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Image -->
+    <div class="featured-image">
+        <div class="overlay"></div>
+        <h2>Introduction to Machine Learning Algorithms</h2>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#types-of-algorithms">2. Types of Machine Learning Algorithms</a></li>
+                <li><a href="#supervised-learning">3. Supervised Learning</a></li>
+                <li><a href="#unsupervised-learning">4. Unsupervised Learning</a></li>
+                <li><a href="#reinforcement-learning">5. Reinforcement Learning</a></li>
+                <li><a href="#popular-algorithms">6. Popular Machine Learning Algorithms</a></li>
+                <li><a href="#evaluation-metrics">7. Evaluation Metrics</a></li>
+                <li><a href="#conclusion">8. Conclusion</a></li>
+            </ul>
+        </div>
+
+        <!-- Sections -->
+        <section id="introduction">
+            <h2>1. Introduction</h2>
+            <img src="https://source.unsplash.com/800x400/?machine-learning,algorithms" alt="Introduction to Machine Learning Algorithms">
+            <p>Machine Learning (ML) is a subset of artificial intelligence that focuses on building systems that can learn from and make decisions based on data. As the volume of data generated continues to grow exponentially, ML algorithms have become essential tools for extracting meaningful insights, automating processes, and driving innovation across various industries.</p>
+            <p>This article delves into the core machine learning algorithms that are shaping the future of technology. From supervised to unsupervised learning, we will explore the fundamental concepts, popular algorithms, their applications, and the metrics used to evaluate their performance.</p>
+        </section>
+
+        <section id="types-of-algorithms">
+            <h2>2. Types of Machine Learning Algorithms</h2>
+            <img src="https://source.unsplash.com/800x400/?types,algorithms" alt="Types of Machine Learning Algorithms">
+            <p>Machine learning algorithms are broadly categorized into three primary types: Supervised Learning, Unsupervised Learning, and Reinforcement Learning. Each type serves distinct purposes and is suited to different kinds of problems.</p>
+
+            <h3>Supervised Learning</h3>
+            <p>Supervised learning involves training a model on labeled data. The algorithm learns to map input data to the correct output based on the provided examples. This approach is commonly used for classification and regression tasks.</p>
+
+            <h3>Unsupervised Learning</h3>
+            <p>Unsupervised learning deals with unlabeled data. The algorithm attempts to identify hidden patterns, group similar data points, or reduce the dimensionality of the data. This type is primarily used for clustering and association tasks.</p>
+
+            <h3>Reinforcement Learning</h3>
+            <p>Reinforcement learning is inspired by behavioral psychology. An agent interacts with an environment, performing actions to maximize cumulative rewards. This type is widely used in robotics, gaming, and navigation tasks.</p>
+        </section>
+
+        <section id="supervised-learning">
+            <h2>3. Supervised Learning</h2>
+            <img src="https://source.unsplash.com/800x400/?supervised-learning,ml" alt="Supervised Learning">
+            <p>Supervised learning algorithms are trained using labeled datasets. The goal is to learn a mapping from inputs to outputs, enabling the model to make accurate predictions on new, unseen data. Supervised learning is divided into two main categories: Classification and Regression.</p>
+
+            <h3>Classification</h3>
+            <p>Classification algorithms predict categorical labels. For example, determining whether an email is spam or not spam, or recognizing handwritten digits.</p>
+
+            <h3>Regression</h3>
+            <p>Regression algorithms predict continuous values. Examples include forecasting stock prices, estimating real estate values, or predicting a person's weight based on height and age.</p>
+        </section>
+
+        <section id="unsupervised-learning">
+            <h2>4. Unsupervised Learning</h2>
+            <img src="https://source.unsplash.com/800x400/?unsupervised-learning,ml" alt="Unsupervised Learning">
+            <p>Unsupervised learning algorithms operate on unlabeled data. They strive to identify inherent structures within the data, such as grouping similar data points or reducing data complexity.</p>
+
+            <h3>Clustering</h3>
+            <p>Clustering algorithms group similar data points into clusters based on predefined similarity metrics. Common applications include customer segmentation, image compression, and anomaly detection.</p>
+
+            <h3>Dimensionality Reduction</h3>
+            <p>Dimensionality reduction techniques reduce the number of random variables under consideration, simplifying models without sacrificing significant information. This is useful for visualization, noise reduction, and improving computational efficiency.</p>
+        </section>
+
+        <section id="reinforcement-learning">
+            <h2>5. Reinforcement Learning</h2>
+            <img src="https://source.unsplash.com/800x400/?reinforcement-learning,ai" alt="Reinforcement Learning">
+            <p>Reinforcement learning (RL) focuses on training agents to make sequences of decisions by interacting with an environment. The agent learns to achieve a goal by maximizing cumulative rewards through trial and error.</p>
+
+            <h3>Key Concepts</h3>
+            <ul>
+                <li><strong>Agent:</strong> The learner or decision-maker.</li>
+                <li><strong>Environment:</strong> The external system with which the agent interacts.</li>
+                <li><strong>Action:</strong> Choices made by the agent.</li>
+                <li><strong>Reward:</strong> Feedback from the environment based on the agent's actions.</li>
+                <li><strong>Policy:</strong> The strategy that the agent employs to determine actions based on states.</li>
+            </ul>
+
+            <h3>Applications</h3>
+            <ul>
+                <li>Game playing (e.g., AlphaGo)</li>
+                <li>Robotics and autonomous systems</li>
+                <li>Recommendation systems</li>
+                <li>Resource management and scheduling</li>
+            </ul>
+        </section>
+
+        <section id="popular-algorithms">
+            <h2>6. Popular Machine Learning Algorithms</h2>
+            <img src="https://source.unsplash.com/800x400/?algorithms,ml" alt="Popular Machine Learning Algorithms">
+            <p>Several machine learning algorithms have proven to be highly effective across various applications. Below are some of the most widely used algorithms:</p>
+
+            <h3>Linear Regression</h3>
+            <p>Linear Regression models the relationship between a dependent variable and one or more independent variables by fitting a linear equation to observed data. It is primarily used for predictive modeling and forecasting.</p>
+
+            <h3>Logistic Regression</h3>
+            <p>Despite its name, Logistic Regression is used for classification tasks. It estimates the probability that a given input belongs to a particular category.</p>
+
+            <h3>Decision Trees</h3>
+            <p>Decision Trees partition the data into subsets based on feature values, creating a tree-like model of decisions. They are easy to interpret and can handle both classification and regression tasks.</p>
+
+            <h3>Random Forests</h3>
+            <p>Random Forests are ensemble learning methods that construct multiple decision trees during training and output the mode of the classes (classification) or mean prediction (regression) of the individual trees. They improve accuracy and control overfitting.</p>
+
+            <h3>Support Vector Machines (SVM)</h3>
+            <p>SVMs find the hyperplane that best separates different classes in the feature space. They are effective in high-dimensional spaces and are used for both classification and regression tasks.</p>
+
+            <h3>k-Nearest Neighbors (k-NN)</h3>
+            <p>k-NN is a simple, instance-based learning algorithm that classifies a data point based on the majority class among its k nearest neighbors. It is intuitive and easy to implement but can be computationally intensive for large datasets.</p>
+
+            <h3>Naive Bayes</h3>
+            <p>Naive Bayes classifiers apply Bayes' theorem with the assumption of feature independence. They are particularly effective for text classification and spam detection.</p>
+        </section>
+
+        <section id="evaluation-metrics">
+            <h2>7. Evaluation Metrics</h2>
+            <img src="https://source.unsplash.com/800x400/?metrics,analytics" alt="Evaluation Metrics in Machine Learning">
+            <p>Evaluating the performance of machine learning models is crucial for ensuring their effectiveness and reliability. The choice of evaluation metrics depends on the type of problem (classification, regression, etc.) and the specific goals of the application.</p>
+
+            <h3>Classification Metrics</h3>
+            <ul>
+                <li><strong>Accuracy:</strong> The proportion of correct predictions out of all predictions made.</li>
+                <li><strong>Precision:</strong> The proportion of true positive predictions out of all positive predictions.</li>
+                <li><strong>Recall (Sensitivity):</strong> The proportion of true positive predictions out of all actual positives.</li>
+                <li><strong>F1-Score:</strong> The harmonic mean of precision and recall, providing a balance between the two.</li>
+                <li><strong>Confusion Matrix:</strong> A table that summarizes the performance of a classification algorithm by displaying true positives, false positives, true negatives, and false negatives.</li>
+            </ul>
+
+            <h3>Regression Metrics</h3>
+            <ul>
+                <li><strong>Mean Absolute Error (MAE):</strong> The average of the absolute differences between predicted and actual values.</li>
+                <li><strong>Mean Squared Error (MSE):</strong> The average of the squared differences between predicted and actual values.</li>
+                <li><strong>Root Mean Squared Error (RMSE):</strong> The square root of the MSE, providing error magnitude in the same units as the target variable.</li>
+                <li><strong>R-squared (Coefficient of Determination):</strong> Indicates the proportion of variance in the dependent variable that is predictable from the independent variables.</li>
+            </ul>
+
+            <h3>Clustering Metrics</h3>
+            <ul>
+                <li><strong>Silhouette Score:</strong> Measures how similar an object is to its own cluster compared to other clusters.</li>
+                <li><strong>Davies-Bouldin Index:</strong> The average similarity ratio of each cluster with its most similar one.</li>
+                <li><strong>Calinski-Harabasz Index:</strong> The ratio of between-cluster variance to within-cluster variance.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>8. Conclusion</h2>
+            <img src="https://source.unsplash.com/800x400/?conclusion,technology" alt="Conclusion of Machine Learning Algorithms">
+            <p>Machine Learning algorithms are the backbone of modern data-driven applications, enabling systems to learn from data and make informed decisions. Understanding the core algorithms, their types, and evaluation metrics is essential for developing effective and reliable ML models.</p>
+            <p>Supervised learning algorithms like Linear Regression and Decision Trees are fundamental for predictive modeling, while Unsupervised Learning techniques such as Clustering and Dimensionality Reduction help uncover hidden patterns in data. Reinforcement Learning opens avenues for training agents to make sequential decisions, powering advancements in robotics and autonomous systems.</p>
+            <p>As the field of Machine Learning continues to evolve, staying abreast of the latest algorithms and best practices will be crucial for leveraging its full potential. By mastering these algorithms and understanding their applications, data scientists and machine learning engineers can drive innovation and solve complex real-world problems effectively.</p>
+            <a href="intro-machine-learning-algos.html" class="read-more">Read More</a>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AI Insights. All rights reserved.</p>
+        <div>
+            <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navbar Scroll Effect and Hamburger Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                    navbar.style.background = '#161b22'; // Solid background on scroll
+                    navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.5)'; // Add shadow
+                } else {
+                    navbar.classList.remove('scrolled');
+                    navbar.style.background = 'transparent'; // Transparent background
+                    navbar.style.boxShadow = 'none'; // Remove shadow
+                }
+            });
+
+            // Hamburger Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('active');
+
+                // Toggle aria-expanded attribute for accessibility
+                const isExpanded = hamburger.classList.contains('open');
+                hamburger.setAttribute('aria-expanded', isExpanded);
+            });
+
+            // Close mobile menu when a link is clicked
+            const navLinkItems = document.querySelectorAll('.nav-links li a');
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('open');
+
+                        // Update aria-expanded attribute
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Smooth scrolling for internal links
+            const internalLinks = document.querySelectorAll('a[href^="#"]');
+            internalLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

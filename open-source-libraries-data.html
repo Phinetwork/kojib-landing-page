@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Open-Source Libraries for Data Science</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/kTc9TShk4vZIFqfGNYX+bWjFRo2aI/mj0R/GJRr6rAHeVb9qfGRdBnXvhM2bN0hWv3jXb3x3p7Iew=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Inter', sans-serif;
+            color: #c9d1d9;
+        }
+
+        /* Navbar Styling */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 1000; /* Ensure it stays on top */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent; /* Fully transparent background */
+            box-shadow: none; /* Remove shadow for complete transparency */
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo img {
+            height: 40px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Logo Glow and Twinkle Effect */
+        #navbar.scrolled .logo img {
+            transform: scale(1.1);
+            filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
+            animation: subtleTwinkle 3s infinite alternate ease-in-out;
+        }
+
+        @keyframes subtleTwinkle {
+            0%,
+            100% {
+                filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
+            }
+
+            50% {
+                filter: brightness(1.5) drop-shadow(0 0 12px #00ff99);
+            }
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #00ff99;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1100; /* Ensure it's on top of the nav */
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hamburger Open State */
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: #00ff99;
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: #00ff99;
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                height: 100%;
+                width: 250px;
+                background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 255, 153, 0.9));
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px 20px;
+                box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                transition: right 0.3s ease-in-out;
+                animation: phiShimmer 5s infinite ease-in-out; /* Apply the shimmering effect */
+            }
+
+            .nav-links.active {
+                right: 0;
+                background: linear-gradient(135deg, #004d26, #00ff99);
+                box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
+            }
+
+            .nav-links li {
+                text-align: center;
+                font-size: 1.2rem;
+            }
+
+            .nav-links li a {
+                color: white;
+                font-weight: bold;
+                transition: color 0.3s ease-in-out;
+            }
+
+            .nav-links li a:hover {
+                color: #000;
+                background: #00ff99;
+                border-radius: 5px;
+                padding: 10px 15px;
+            }
+        }
+
+        /* Phi-Based Shimmering Animation */
+        @keyframes phiShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            38.2% {
+                background-position: 50% 100%;
+            }
+
+            61.8% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Smooth Animation for Nav Links */
+        .nav-links li {
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        .nav-links li:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .nav-links li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .nav-links li:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .nav-links li:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .nav-links li:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .nav-links li:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .nav-links li:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .nav-links li:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .nav-links li:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .nav-links li:nth-child(10) {
+            animation-delay: 1s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Hover Effects for Hamburger Menu */
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        /* General Reset */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling for better UX */
+        }
+
+        /* Featured Image Styling */
+        .featured-image {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            background: url('https://source.unsplash.com/1600x900/?data-science,technology') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px; /* To offset the fixed navbar */
+        }
+
+        .featured-image .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .featured-image h2 {
+            position: relative;
+            color: #00ff99;
+            font-size: 2.5rem;
+            text-align: center;
+            z-index: 1;
+            text-shadow: 0 0 10px #00ff99, 0 0 20px rgba(0, 255, 153, 0.8);
+            max-width: 80%;
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+        }
+
+        /* Table of Contents Styling */
+        .toc {
+            flex: 1;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 100px; /* Adjust based on navbar height */
+            height: fit-content;
+        }
+
+        .toc h3 {
+            margin-bottom: 15px;
+            color: #00ff99;
+            text-align: center;
+            text-shadow: 0 0 5px #00ff99;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc ul li {
+            margin-bottom: 10px;
+        }
+
+        .toc ul li a {
+            text-decoration: none;
+            color: #c9d1d9;
+            transition: color 0.3s ease;
+        }
+
+        .toc ul li a:hover {
+            color: #00ff99;
+        }
+
+        /* Sections Styling */
+        section {
+            flex: 3;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
+        }
+
+        section h2 {
+            color: #00ff99;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #00ff99;
+        }
+
+        section img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        section img:hover {
+            transform: scale(1.02);
+        }
+
+        section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        section ul {
+            list-style: disc inside;
+            margin-bottom: 15px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+        }
+
+        section h3 {
+            color: #00b37e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Read More Button Styling */
+        .read-more {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(145deg, #004d26, #00ff99);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .read-more:hover {
+            background: linear-gradient(145deg, #00b37e, #006b41);
+            box-shadow: 0 8px 15px rgba(0, 255, 153, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #161b22;
+            color: #c9d1d9;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #00ff99;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        footer a:hover {
+            color: #28a745;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .toc {
+                position: static;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .featured-image {
+                height: 40vh;
+            }
+
+            .featured-image h2 {
+                font-size: 1.8rem;
+                max-width: 90%;
+            }
+
+            .toc ul li a {
+                font-size: 1rem;
+            }
+
+            .read-more {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .nav-links {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .featured-image {
+                height: 30vh;
+            }
+
+            .featured-image h2 {
+                font-size: 1.5rem;
+                max-width: 95%;
+            }
+
+            .toc h3 {
+                font-size: 1.1rem;
+            }
+
+            .toc ul li a {
+                font-size: 0.95rem;
+            }
+
+            .nav-links {
+                width: 200px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="image/logo.svg" alt="Site Logo">
+            </div>
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="developer-blog.html">Back To Blog</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#what-are-microservices">What Are Microservices?</a></li>
+                <li><a href="#benefits">Benefits of Microservices</a></li>
+                <li><a href="#design-principles">Design Principles</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+                <li><a href="#tools">Tools and Frameworks</a></li>
+                <li><a href="#real-world-examples">Real-World Examples</a></li>
+                <li><a href="#challenges">Challenges and Solutions</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+            <!-- Hamburger Menu -->
+            <div class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Featured Image -->
+    <div class="featured-image">
+        <div class="overlay"></div>
+        <h2>Top 10 Open-Source Libraries for Data Science</h2>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#numpy">2. NumPy</a></li>
+                <li><a href="#pandas">3. pandas</a></li>
+                <li><a href="#matplotlib">4. Matplotlib</a></li>
+                <li><a href="#seaborn">5. Seaborn</a></li>
+                <li><a href="#scikit-learn">6. scikit-learn</a></li>
+                <li><a href="#tensorflow">7. TensorFlow</a></li>
+                <li><a href="#keras">8. Keras</a></li>
+                <li><a href="#plotly">9. Plotly</a></li>
+                <li><a href="#jupyter-notebooks">10. Jupyter Notebooks</a></li>
+                <li><a href="#conclusion">11. Conclusion</a></li>
+            </ul>
+        </div>
+
+        <!-- Sections -->
+        <section id="introduction">
+            <h2>1. Introduction</h2>
+            <img src="https://source.unsplash.com/800x400/?data-science,library" alt="Introduction to Data Science Libraries">
+            <p>Data Science has emerged as a pivotal field in the modern technological landscape, enabling organizations to extract meaningful insights from vast amounts of data. At the heart of data science lies a robust ecosystem of open-source libraries that empower professionals to perform complex analyses, build predictive models, and visualize data with ease. This article explores the top 10 open-source libraries that are indispensable for data science projects, enhancing productivity and efficiency.</p>
+        </section>
+
+        <section id="numpy">
+            <h2>2. NumPy</h2>
+            <img src="https://source.unsplash.com/800x400/?numpy,code" alt="NumPy Library">
+            <p>NumPy, short for Numerical Python, is the foundational library for numerical computations in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently. NumPy's ndarray object is central to its performance, offering fast and memory-efficient operations, which are crucial for data manipulation and analysis.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>Multi-Dimensional Arrays:</strong> Efficient storage and manipulation of large datasets.</li>
+                <li><strong>Mathematical Functions:</strong> Comprehensive mathematical operations for data analysis.</li>
+                <li><strong>Broadcasting:</strong> Automatic expansion of arrays to perform element-wise operations.</li>
+                <li><strong>Integration:</strong> Seamless integration with other Python libraries like pandas, Matplotlib, and scikit-learn.</li>
+            </ul>
+        </section>
+
+        <section id="pandas">
+            <h2>3. pandas</h2>
+            <img src="https://source.unsplash.com/800x400/?pandas,code" alt="pandas Library">
+            <p>pandas is an open-source data manipulation and analysis library built on top of NumPy. It introduces two primary data structures—Series and DataFrame—that simplify handling structured data. pandas provides tools for reading and writing data between different formats, handling missing data, filtering, grouping, and aggregating data, making it indispensable for data preprocessing and exploration.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>DataFrame Object:</strong> A versatile structure for storing and manipulating tabular data.</li>
+                <li><strong>Data Cleaning:</strong> Functions for handling missing values, duplicates, and inconsistent data.</li>
+                <li><strong>Data Transformation:</strong> Tools for merging, joining, and reshaping datasets.</li>
+                <li><strong>Time Series Support:</strong> Advanced functionalities for working with time-stamped data.</li>
+            </ul>
+        </section>
+
+        <section id="matplotlib">
+            <h2>4. Matplotlib</h2>
+            <img src="https://source.unsplash.com/800x400/?matplotlib,graph" alt="Matplotlib Library">
+            <p>Matplotlib is the cornerstone of data visualization in Python. It offers a wide range of plotting capabilities, from basic charts like line plots and histograms to complex visualizations like 3D plots and heatmaps. Matplotlib's versatility and customization options make it a go-to choice for creating publication-quality figures and interactive visualizations.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>Versatile Plotting:</strong> Support for various types of plots and charts.</li>
+                <li><strong>Customization:</strong> Extensive options to customize plots, including colors, labels, and styles.</li>
+                <li><strong>Integration:</strong> Works seamlessly with pandas and NumPy for data visualization.</li>
+                <li><strong>Interactive Plots:</strong> Ability to create interactive plots for data exploration.</li>
+            </ul>
+        </section>
+
+        <section id="seaborn">
+            <h2>5. Seaborn</h2>
+            <img src="https://source.unsplash.com/800x400/?seaborn,chart" alt="Seaborn Library">
+            <p>Seaborn is a high-level data visualization library built on top of Matplotlib. It simplifies the creation of attractive and informative statistical graphics by providing a more straightforward API and integrated support for pandas DataFrames. Seaborn is particularly effective for visualizing complex datasets and exploring relationships between variables.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>Statistical Plots:</strong> Built-in support for advanced statistical visualizations like violin plots, box plots, and pair plots.</li>
+                <li><strong>Theme Support:</strong> Predefined themes and color palettes for aesthetically pleasing plots.</li>
+                <li><strong>Data Aggregation:</strong> Automatic aggregation of data for summary statistics.</li>
+                <li><strong>Integration:</strong> Seamless integration with pandas for easy data handling.</li>
+            </ul>
+        </section>
+
+        <section id="scikit-learn">
+            <h2>6. scikit-learn</h2>
+            <img src="https://source.unsplash.com/800x400/?scikitlearn,ml" alt="scikit-learn Library">
+            <p>scikit-learn is one of the most popular machine learning libraries in Python. It provides simple and efficient tools for data mining and data analysis, built on top of NumPy, SciPy, and Matplotlib. scikit-learn offers a range of supervised and unsupervised learning algorithms, along with tools for model selection, evaluation, and preprocessing.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>Machine Learning Algorithms:</strong> Implements a wide variety of algorithms for classification, regression, clustering, and dimensionality reduction.</li>
+                <li><strong>Model Evaluation:</strong> Tools for cross-validation, hyperparameter tuning, and performance metrics.</li>
+                <li><strong>Data Preprocessing:</strong> Functions for scaling, encoding, and transforming data.</li>
+                <li><strong>Pipeline Support:</strong> Facilitates the creation of machine learning pipelines for streamlined workflows.</li>
+            </ul>
+        </section>
+
+        <section id="tensorflow">
+            <h2>7. TensorFlow</h2>
+            <img src="https://source.unsplash.com/800x400/?tensorflow,deep-learning" alt="TensorFlow Library">
+            <p>TensorFlow is an open-source platform developed by Google for machine learning and deep learning. It provides a comprehensive ecosystem for building and deploying machine learning models, from research prototypes to production-scale applications. TensorFlow's flexibility and scalability make it a preferred choice for both beginners and experts in the field.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>Flexible Architecture:</strong> Supports various platforms and languages, enabling deployment on desktops, servers, mobile devices, and browsers.</li>
+                <li><strong>Keras Integration:</strong> Offers a high-level API through Keras for building and training models with ease.</li>
+                <li><strong>TensorBoard:</strong> A visualization tool for monitoring and debugging TensorFlow models.</li>
+                <li><strong>Extensive Community:</strong> A large and active community contributes to a wealth of tutorials, models, and extensions.</li>
+            </ul>
+        </section>
+
+        <section id="keras">
+            <h2>8. Keras</h2>
+            <img src="https://source.unsplash.com/800x400/?keras,neural-networks" alt="Keras Library">
+            <p>Keras is a high-level neural networks API written in Python, running on top of TensorFlow, Theano, or CNTK. It is designed to enable fast experimentation with deep neural networks, providing a user-friendly and modular approach to building complex models. Keras simplifies the process of creating and training deep learning models, making it accessible to both beginners and experienced practitioners.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>User-Friendly API:</strong> Intuitive and consistent interface for building and training models.</li>
+                <li><strong>Modularity:</strong> Easy to create custom layers, loss functions, and metrics.</li>
+                <li><strong>Pretrained Models:</strong> Access to a variety of pretrained models for transfer learning and fine-tuning.</li>
+                <li><strong>Integration:</strong> Seamless integration with TensorFlow, enabling the use of TensorFlow's advanced features.</li>
+            </ul>
+        </section>
+
+        <section id="plotly">
+            <h2>9. Plotly</h2>
+            <img src="https://source.unsplash.com/800x400/?plotly,visualization" alt="Plotly Library">
+            <p>Plotly is an interactive graphing library that makes it easy to create stunning visualizations. It supports a wide range of chart types, including scatter plots, bar charts, line charts, histograms, heatmaps, and 3D graphs. Plotly's interactivity features, such as zooming, panning, and tooltips, enhance data exploration and presentation.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>Interactive Visualizations:</strong> Create dynamic and interactive plots that engage users.</li>
+                <li><strong>Wide Range of Chart Types:</strong> Supports diverse visualization needs, from simple charts to complex 3D models.</li>
+                <li><strong>Dash Integration:</strong> Integrates seamlessly with Dash, a framework for building analytical web applications.</li>
+                <li><strong>Cross-Language Support:</strong> Available for Python, R, JavaScript, and other programming languages.</li>
+            </ul>
+        </section>
+
+        <section id="jupyter-notebooks">
+            <h2>10. Jupyter Notebooks</h2>
+            <img src="https://source.unsplash.com/800x400/?jupyter,notebook" alt="Jupyter Notebooks">
+            <p>Jupyter Notebooks are an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. They are widely used in data science for exploratory data analysis, prototyping machine learning models, and documenting workflows. Jupyter Notebooks support multiple programming languages, including Python, R, and Julia.</p>
+            <p>Key Features:</p>
+            <ul>
+                <li><strong>Interactive Coding:</strong> Write and execute code in real-time, facilitating experimentation and debugging.</li>
+                <li><strong>Rich Media Support:</strong> Embed images, videos, and interactive visualizations directly into the notebook.</li>
+                <li><strong>Collaboration:</strong> Share notebooks with others, enabling collaborative data analysis and reporting.</li>
+                <li><strong>Extensibility:</strong> Support for numerous extensions and integrations to enhance functionality.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>11. Conclusion</h2>
+            <img src="https://source.unsplash.com/800x400/?conclusion,data-science" alt="Conclusion of Data Science Libraries">
+            <p>The field of data science is continually evolving, and the availability of powerful open-source libraries plays a crucial role in this advancement. The top 10 libraries discussed in this article—NumPy, pandas, Matplotlib, Seaborn, scikit-learn, TensorFlow, Keras, Plotly, and Jupyter Notebooks—are indispensable tools that empower data scientists to perform complex analyses, build predictive models, and create insightful visualizations with ease.</p>
+            <p>By leveraging these libraries, data science professionals can enhance their productivity, streamline their workflows, and tackle a wide array of data challenges effectively. As the data landscape grows, staying updated with these tools and integrating them into your projects will be key to unlocking the full potential of your data science endeavors.</p>
+            <a href="open-source-libraries-data.html" class="read-more">Read More</a>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 AI Insights. All rights reserved.</p>
+        <div>
+            <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Navbar Scroll Effect and Hamburger Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                    navbar.style.background = '#161b22'; // Solid background on scroll
+                    navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.5)'; // Add shadow
+                } else {
+                    navbar.classList.remove('scrolled');
+                    navbar.style.background = 'transparent'; // Transparent background
+                    navbar.style.boxShadow = 'none'; // Remove shadow
+                }
+            });
+
+            // Hamburger Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('active');
+
+                // Toggle aria-expanded attribute for accessibility
+                const isExpanded = hamburger.classList.contains('open');
+                hamburger.setAttribute('aria-expanded', isExpanded);
+            });
+
+            // Close mobile menu when a link is clicked
+            const navLinkItems = document.querySelectorAll('.nav-links li a');
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('open');
+
+                        // Update aria-expanded attribute
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Smooth scrolling for internal links
+            const internalLinks = document.querySelectorAll('a[href^="#"]');
+            internalLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
