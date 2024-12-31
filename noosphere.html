@@ -4,7 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noosphere - A Revolutionary Middleware Framework</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
     <style>
+        /* ============================================
+           CSS Variables for Consistent Theming
+        ============================================= */
+        :root {
+            --primary-color: #00cc80;
+            --secondary-color: #00ff99;
+            --dark-bg: #1e1e30;
+            --navbar-bg: rgba(30, 30, 47, 0.9);
+            --light-text: #f4f4f4;
+            --hover-color: #0099ff;
+            --cta-gradient: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            --cta-hover-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            --footer-bg: linear-gradient(135deg, rgba(30, 30, 47, 0.75), rgba(46, 46, 80, 0.75));
+            --transition-speed: 0.3s;
+        }
+
         /* ============================================
            General Reset and Typography
         ============================================= */
@@ -18,18 +37,18 @@
             height: 100%;
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            background: #1e1e30; /* Dark background for contrast */
-            color: white;
+            background: var(--dark-bg);
+            color: var(--light-text);
         }
 
         a {
-            color: #00ff99;
+            color: var(--secondary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed) ease;
         }
 
         a:hover {
-            color: #0099ff;
+            color: var(--hover-color);
         }
 
         /* ============================================
@@ -44,9 +63,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(30, 30, 47, 0.9); /* Semi-transparent background */
+            background: var(--navbar-bg);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transition: background var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
         }
 
         .nav-container {
@@ -60,52 +79,77 @@
         /* Logo */
         .logo img {
             height: 40px;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
         }
 
         .logo img:hover {
             transform: scale(1.1);
+            filter: drop-shadow(0 0 10px var(--secondary-color));
         }
 
         /* Nav Links */
         .nav-links {
+            list-style: none;
             display: flex;
             gap: 20px;
-            list-style: none;
         }
 
         .nav-links li a {
-            color: white;
+            color: var(--light-text);
             font-size: 1rem;
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed) ease;
         }
 
         .nav-links li a:hover {
-            color: #00ff99;
+            color: var(--secondary-color);
         }
 
-        /* Hamburger Menu (Hidden on Desktop) */
+        /* GitHub Link */
+        .nav-links li.github-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--light-text);
+        }
+
+        .nav-links li.github-link a:hover {
+            color: var(--hover-color);
+        }
+
+        .nav-links li.github-link img {
+            width: 20px;
+            height: 20px;
+            transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
+        }
+
+        .nav-links li.github-link a:hover img {
+            transform: rotate(360deg);
+            filter: drop-shadow(0 0 10px var(--secondary-color));
+        }
+
+        /* Hamburger Menu */
         .hamburger {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
             z-index: 1100;
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-speed) ease;
         }
 
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: white;
+            background: var(--light-text);
             border-radius: 3px;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: all var(--transition-speed) ease;
         }
 
         /* Hamburger Open State */
         .hamburger.open span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-            background-color: #00ff99;
+            transform: rotate(45deg) translate(5px, 5px);
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 10px var(--secondary-color);
         }
 
         .hamburger.open span:nth-child(2) {
@@ -113,8 +157,9 @@
         }
 
         .hamburger.open span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-            background-color: #00ff99;
+            transform: rotate(-45deg) translate(5px, -5px);
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 10px var(--secondary-color);
         }
 
         /* Mobile Menu Styles */
@@ -136,12 +181,12 @@
                 box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
                 border-top-left-radius: 10px;
                 border-bottom-left-radius: 10px;
-                transition: right 0.3s ease-in-out;
+                transition: right var(--transition-speed) ease-in-out;
             }
 
             .nav-links.active {
                 right: 0;
-                background: linear-gradient(135deg, #004d26, #00ff99);
+                background: linear-gradient(135deg, #004d26, var(--secondary-color));
                 box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
             }
 
@@ -152,19 +197,25 @@
 
             .nav-links li a:hover {
                 color: #000;
-                background: #00ff99;
+                background: var(--secondary-color);
                 border-radius: 5px;
                 padding: 5px 10px;
+            }
+
+            /* GitHub Link in Mobile Menu */
+            .nav-links li.github-link a img {
+                width: 18px;
+                height: 18px;
             }
         }
 
         /* ============================================
-           Noosphere Section Styling
+           Hero Section Styling
         ============================================= */
         #noosphere-section {
             padding: 100px 20px 60px 20px; /* Top padding accounts for fixed navbar */
             background: linear-gradient(135deg, rgba(30, 30, 47, 0.8), rgba(46, 46, 80, 0.8));
-            color: white;
+            color: var(--light-text);
             text-align: center;
             overflow: hidden;
             box-sizing: border-box;
@@ -184,7 +235,7 @@
         .noosphere-title {
             font-size: 2.5rem;
             margin-bottom: 40px;
-            color: #00ff99;
+            color: var(--secondary-color);
             text-shadow: 0 0 15px rgba(0, 255, 153, 0.6), 0 0 25px rgba(0, 255, 153, 0.4);
             animation: subtlePulse 3s infinite alternate ease-in-out;
         }
@@ -198,7 +249,7 @@
             font-size: 1.8rem;
             margin-top: 30px;
             margin-bottom: 15px;
-            color: #00ff99;
+            color: var(--secondary-color);
             text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
         }
 
@@ -206,7 +257,7 @@
             font-size: 1.5rem;
             margin-top: 20px;
             margin-bottom: 10px;
-            color: #00ff99;
+            color: var(--secondary-color);
             text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
         }
 
@@ -226,15 +277,15 @@
         }
 
         .cta-button {
-            background: linear-gradient(90deg, #00ff99, #0099ff);
-            color: white;
+            background: var(--cta-gradient);
+            color: var(--dark-bg);
             padding: 15px 30px;
             font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 6px 15px #00ff99;
-            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 15px var(--secondary-color);
+            transition: background var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             display: inline-flex;
             align-items: center;
             gap: 10px; /* Space between icon and text */
@@ -242,8 +293,8 @@
         }
 
         .cta-button:hover {
-            background: linear-gradient(90deg, #0099ff, #00ff99);
-            box-shadow: 0 8px 20px #00ff99;
+            background: var(--cta-hover-gradient);
+            box-shadow: 0 8px 20px var(--secondary-color);
             transform: scale(1.05);
         }
 
@@ -251,34 +302,255 @@
         .animated-github-icon {
             width: 24px;
             height: 24px;
-            fill: white;
-            transition: transform 0.3s ease, fill 0.3s ease;
+            fill: var(--light-text);
+            transition: transform var(--transition-speed) ease, fill var(--transition-speed) ease;
         }
 
         .animated-github-icon:hover {
-            transform: scale(1.2);
-            fill: #00ff99;
+            transform: rotate(360deg);
+            fill: var(--secondary-color);
         }
 
-        /* Placeholder for Feature Icons */
-        .feature-icon {
+        /* ============================================
+           Features Section Styling
+        ============================================= */
+        #key-features {
+            padding: 100px 20px;
+            background: #2e2e50;
+            text-align: center;
+        }
+
+        #key-features .noosphere-container {
+            background: none;
+            box-shadow: none;
+        }
+
+        #key-features .noosphere-title {
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 255, 153, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background var(--transition-speed) ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 255, 153, 0.3);
+            background: rgba(0, 255, 153, 0.1);
+        }
+
+        .feature-item img {
             width: 60px;
             height: 60px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             filter: drop-shadow(0px 5px 10px rgba(0, 255, 153, 0.5));
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
         }
 
-        .feature-icon:hover {
+        .feature-item img:hover {
             transform: scale(1.1);
-            filter: drop-shadow(0px 8px 15px #00ffc6cc);
+            filter: drop-shadow(0px 8px 15px var(--secondary-color));
+        }
+
+        .feature-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ============================================
+           Applications Section Styling
+        ============================================= */
+        #applications {
+            padding: 100px 20px;
+            background: #1e1e30;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        #applications .noosphere-container {
+            background: none;
+            box-shadow: none;
+        }
+
+        #applications .noosphere-title {
+            margin-bottom: 40px;
+        }
+
+        .applications-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .application-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 255, 153, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background var(--transition-speed) ease;
+        }
+
+        .application-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 255, 153, 0.3);
+            background: rgba(0, 255, 153, 0.1);
+        }
+
+        .application-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0px 5px 10px rgba(0, 255, 153, 0.5));
+            transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
+        }
+
+        .application-item img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0px 8px 15px var(--secondary-color));
+        }
+
+        .application-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+        }
+
+        .application-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ============================================
+           Contact Section Styling
+        ============================================= */
+        #contact {
+            padding: 100px 20px;
+            background: #2e2e50;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        #contact .noosphere-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 255, 153, 0.1);
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            text-shadow: 0 0 15px rgba(0, 255, 153, 0.6), 0 0 25px rgba(0, 255, 153, 0.4);
+        }
+
+        #contact p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            background: #2e2e50;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: border var(--transition-speed) ease, background var(--transition-speed) ease;
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            border: 1px solid var(--secondary-color);
+            background: #3e3e60;
+            outline: none;
+        }
+
+        #contact-form button {
+            background: var(--secondary-color);
+            color: var(--dark-bg);
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #contact-form button:hover {
+            background: var(--hover-color);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px var(--secondary-color);
+        }
+
+        /* Success Message */
+        #success-message {
+            display: none;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Additional Contact Information */
+        #contact .additional-info {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        #contact .additional-info a {
+            color: var(--secondary-color);
+            text-decoration: underline;
         }
 
         /* ============================================
            Footer Styling
         ============================================= */
         footer {
-            background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027);
+            background: var(--footer-bg);
             color: rgba(255, 255, 255, 0.8);
             padding: 40px 20px;
             text-align: center;
@@ -301,7 +573,7 @@
             height: auto;
             margin: 0 auto;
             filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-speed) ease;
         }
 
         .footer-logo img:hover {
@@ -330,11 +602,11 @@
             text-decoration: none;
             color: rgba(255, 255, 255, 0.8);
             font-weight: bold;
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed) ease;
         }
 
         .footer-links ul li a:hover {
-            color: #00ff99;
+            color: var(--secondary-color);
         }
 
         /* Social Media Links */
@@ -348,12 +620,12 @@
             width: 40px;
             height: 40px;
             filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
-            transition: transform 0.3s ease, filter 0.3s ease;
+            transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
         }
 
         .social-links a:hover img {
             transform: scale(1.2);
-            filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
+            filter: drop-shadow(0 6px 15px var(--secondary-color));
         }
 
         /* Footer Bottom */
@@ -369,11 +641,11 @@
         .footer-bottom a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.8);
-            transition: color 0.3s ease;
+            transition: color var(--transition-speed) ease;
         }
 
         .footer-bottom a:hover {
-            color: #00ff99;
+            color: var(--secondary-color);
         }
 
         /* ============================================
@@ -446,6 +718,12 @@
             #navbar {
                 height: 60px;
             }
+
+            /* Features and Applications Grid */
+            .features-grid, .applications-grid {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -512,54 +790,25 @@
             </div>
             <ul class="nav-links">
                 <li><a href="/index.html">Home</a></li>
+                <li><a href="#noosphere-section">Noosphere</a></li>
                 <li><a href="#key-features">Features</a></li>
                 <li><a href="#applications">Applications</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <!-- GitHub Repo Link -->
-                <li>
-                    <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub Repository" style="display: inline-flex; align-items: center;">
-                        <img src="image/github-logo.svg" alt="GitHub Logo" style="width: 20px; height: 20px; margin-right: 5px; animation: rotate 4s infinite linear;">Github Repository
+                <li class="github-link">
+                    <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub Repository">
+                        <img src="image/github-logo.svg" alt="GitHub Logo">
+                        GitHub
                     </a>
                 </li>
             </ul>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
     </nav>
-    
-    <style>
-        /* Pulsation and Glow Animation */
-        @keyframes pulsePhi {
-            0%, 100% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 0px rgba(0, 255, 153, 0.6));
-            }
-            61.8% { /* Based on the golden ratio */
-                transform: scale(1.2);
-                filter: drop-shadow(0 0 10px rgba(0, 255, 153, 1));
-            }
-        }
-    
-        /* GitHub Logo Styling */
-        .nav-links li a img {
-            animation: rotate 4.236s linear infinite, pulsePhi 2.618s ease-in-out infinite; /* Durations based on phi */
-            transition: transform 0.3s ease, filter 0.3s ease;
-            width: 24px; /* Slightly larger for better visibility */
-            height: 24px;
-        }
-    
-        /* Add hover effect for interactive glow */
-        .nav-links li a:hover img {
-            animation: pulsePhi 2.618s ease-in-out infinite, rotate 2.618s linear infinite;
-            filter: drop-shadow(0 0 15px rgba(0, 255, 153, 1));
-        }
-    </style>
-    
-    
-    
 
     <!-- ============================================
          Noosphere Section
@@ -733,25 +982,35 @@
     <!-- ============================================
          Features Section
     ============================================= -->
-    <section id="key-features" style="padding: 100px 20px; background: #2e2e50; text-align: center;">
+    <section id="key-features">
         <div class="noosphere-container">
             <h2 class="noosphere-title">Key Features</h2>
             <div class="noosphere-content">
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-                    <div>
-                        <img src="/assets/ai-decisions.svg" alt="Feature 1" class="feature-icon">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <img src="assets/ai-decisions.svg" alt="Dynamic Routing">
                         <h4>Dynamic Routing</h4>
                         <p>AI-driven request routing based on user intent and system performance.</p>
                     </div>
-                    <div>
-                        <img src="/assets/scalability.svg" alt="Feature 2" class="feature-icon">
+                    <div class="feature-item">
+                        <img src="assets/scalability.svg" alt="Scalability">
                         <h4>Scalability</h4>
                         <p>Seamlessly scale horizontally to handle increasing workloads.</p>
                     </div>
-                    <div>
-                        <img src="/assets/modular.svg" alt="Feature 3" class="feature-icon">
+                    <div class="feature-item">
+                        <img src="assets/modular.svg" alt="Modular Integration">
                         <h4>Modular Integration</h4>
                         <p>Easily add or remove backend services without modifying core logic.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="assets/performance.svg" alt="Performance Optimization">
+                        <h4>Performance Optimization</h4>
+                        <p>Real-time monitoring ensures optimal performance and immediate issue detection.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="assets/developer-tools.svg" alt="Developer Tooling">
+                        <h4>Developer Tooling</h4>
+                        <p>Comprehensive CLI tools and detailed documentation streamline development processes.</p>
                     </div>
                 </div>
             </div>
@@ -761,25 +1020,30 @@
     <!-- ============================================
          Applications Section
     ============================================= -->
-    <section id="applications" style="padding: 100px 20px; background: #1e1e30; text-align: center;">
+    <section id="applications">
         <div class="noosphere-container">
             <h2 class="noosphere-title">Real-World Applications</h2>
             <div class="noosphere-content">
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
-                    <div>
-                        <img src="/assets/ecom.svg" alt="Application 1" class="feature-icon">
+                <div class="applications-grid">
+                    <div class="application-item">
+                        <img src="assets/ecom.svg" alt="E-commerce Platforms">
                         <h4>E-commerce Platforms</h4>
                         <p>Dynamically route requests to inventory, payment, or recommendation backends based on user actions.</p>
                     </div>
-                    <div>
-                        <img src="/assets/ai-chatbots.svg" alt="Application 2" class="feature-icon">
+                    <div class="application-item">
+                        <img src="assets/ai-chatbots.svg" alt="AI Chatbots">
                         <h4>AI Chatbots</h4>
                         <p>Route chat requests intelligently to customer service, analytics, or knowledge-base backends.</p>
                     </div>
-                    <div>
-                        <img src="assets/data-analytics.svg" alt="Application 3" class="feature-icon">
+                    <div class="application-item">
+                        <img src="assets/data-analytics.svg" alt="Data Analytics">
                         <h4>Data Analytics</h4>
                         <p>Direct requests to specialized analytics services based on query type or data structure.</p>
+                    </div>
+                    <div class="application-item">
+                        <img src="assets/saas-apps.svg" alt="SaaS Applications">
+                        <h4>SaaS Applications</h4>
+                        <p>Integrate Noosphere as a middleware layer for managing multi-tenant backend requests.</p>
                     </div>
                 </div>
             </div>
@@ -789,78 +1053,59 @@
     <!-- ============================================
          Contact Section
     ============================================= -->
-    <section id="contact" style="padding: 100px 20px; background: #2e2e50; text-align: center; color: #ffffff;">
+    <section id="contact">
         <div class="noosphere-container">
-          <h2 class="noosphere-title" style="font-size: 2.5rem; color: #00ff99; margin-bottom: 20px;">Contact Us</h2>
-          <div class="noosphere-content" style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px;">
+            <h2 class="noosphere-title">Contact Us</h2>
             <p>
-              Have questions, ideas, or want to collaborate with us? We're here to help! Send us a message, and we'll get back to you as soon as possible.
+                Have questions, ideas, or want to collaborate with us? We're here to help! Send us a message, and we'll get back to you as soon as possible.
             </p>
-          </div>
-          <form id="contact-form" action="#" method="POST" style="max-width: 500px; margin: 0 auto; background: #1e1e30; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
-            <!-- Email Field -->
-            <div style="margin-bottom: 20px;">
-              <input 
-                type="email" 
-                name="email" 
-                placeholder="Your Email" 
-                required 
-                style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #444; background: #2e2e50; color: #ffffff; font-size: 1rem;"
-              >
+            <form id="contact-form">
+                <!-- Email Field -->
+                <div>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="Your Email" 
+                        required 
+                        aria-label="Your Email"
+                    >
+                </div>
+                <!-- Message Field -->
+                <div>
+                    <textarea 
+                        name="message" 
+                        placeholder="Your Message" 
+                        rows="5" 
+                        required 
+                        aria-label="Your Message"
+                    ></textarea>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit">
+                    Send Message
+                </button>
+            </form>
+            <!-- Success Message -->
+            <div id="success-message">
+                🎉 Success! Your message has been sent.
             </div>
-            <!-- Message Field -->
-            <div style="margin-bottom: 20px;">
-              <textarea 
-                name="message" 
-                placeholder="Your Message" 
-                rows="5" 
-                required 
-                style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #444; background: #2e2e50; color: #ffffff; font-size: 1rem; resize: none;"
-              ></textarea>
+            <!-- Additional Contact Information -->
+            <div class="additional-info">
+                <p>Prefer to reach out directly? Email us at <a href="mailto:contact@kojib.com">contact@kojib.com</a></p>
+                <p>Follow us on <a href="https://twitter.com/kojib_com" target="_blank">Twitter</a> and <a href="https://linkedin.com/in/kojib" target="_blank">LinkedIn</a></p>
             </div>
-            <!-- Submit Button -->
-            <button 
-              type="submit" 
-              style="width: 100%; background: #00ff99; color: #1e1e30; padding: 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.3s ease, transform 0.3s ease;"
-              onmouseover="this.style.background='#00cc80'; this.style.transform='scale(1.05)';"
-              onmouseout="this.style.background='#00ff99'; this.style.transform='scale(1)';"
-            >
-              Send Message
-            </button>
-          </form>
-          <!-- Success Message -->
-          <div id="success-message" style="display: none; margin-top: 30px; font-size: 1.2rem; color: #00ff99; font-weight: bold;">
-            🎉 Success! Your message has been sent.
-          </div>
-          <!-- Additional Contact Information -->
-          <div style="margin-top: 30px; font-size: 1rem;">
-            <p>Prefer to reach out directly? Email us at <a href="mailto:contact@kojib.com" style="color: #00ff99; text-decoration: none;">contact@kojib.com</a></p>
-            <p>Follow us on <a href="https://twitter.com/kojib_com" target="_blank" style="color: #00ff99; text-decoration: none;">Twitter</a> and <a href="https://linkedin.com/company/kojib" target="_blank" style="color: #00ff99; text-decoration: none;">LinkedIn</a></p>
-          </div>
         </div>
-      
-        <script>
-          // Handle form submission
-          document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent actual form submission
-            
-            // Show success message
-            const successMessage = document.getElementById('success-message');
-            successMessage.style.display = 'block';
-      
-            // Optional: Clear form inputs
-            this.reset();
-          });
-        </script>
-      </section>
-      
+    </section>
+
     <!-- ============================================
          Footer
     ============================================= -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="/image/logo.png" alt="Footer Logo">
+                <a href="/index.html">
+                    <img src="image/logo.png" alt="Footer Logo">
+                </a>
             </div>
             <div class="footer-about">
                 <p>
@@ -870,35 +1115,28 @@
             <div class="footer-links">
                 <ul>
                     <li><a href="/index.html">Home</a></li>
+                    <li><a href="#noosphere-section">Noosphere</a></li>
                     <li><a href="#key-features">Features</a></li>
                     <li><a href="#applications">Applications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <div class="social-links">
-                <a href="https://twitter.com/kojib_com" aria-label="Twitter"><img src="/image/twitter-icon.svg" alt="Twitter"></a>
-                <a href="https://github.com/kojibai/noosphere" aria-label="GitHub"><img src="/image/github-logo.svg" alt="GitHub"></a>
-                <a href="https://linkedin.com/in/kojib" aria-label="LinkedIn"><img src="/image/linkedin-icon.svg" alt="LinkedIn"></a>
+                <a href="https://twitter.com/kojib_com" aria-label="Twitter">
+                    <img src="image/twitter-icon.svg" alt="Twitter">
+                </a>
+                <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+                    <img src="image/github-logo.svg" alt="GitHub">
+                </a>
+                <a href="https://linkedin.com/in/kojib" aria-label="LinkedIn">
+                    <img src="image/linkedin-icon.svg" alt="LinkedIn">
+                </a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Noosphere. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a></p>
+            <p>&copy; <span id="current-year"></span> Noosphere. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a></p>
         </div>
     </footer>
-    
-        <style>
-            .github-icon {
-                transition: transform 0.5s ease, filter 0.5s ease;
-                filter: drop-shadow(0 0 5px #ffffff);
-            }
-    
-            .github-icon:hover {
-                transform: rotate(360deg) scale(1.2);
-                filter: drop-shadow(0 0 10px #00ff99);
-            }
-        </style>
-    </footer>
-    
 
     <!-- ============================================
          JavaScript for Interactivity and Animations
@@ -940,22 +1178,38 @@
             });
         });
 
-        // Adding "Wow" Effects: Enhanced Particle Background using Particles.js
-(function() {
-    const script = document.createElement('script');
-    script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
-    script.onload = () => {
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent actual form submission
+            
+            // Show success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+      
+            // Optional: Clear form inputs
+            this.reset();
+        });
+
+        // JavaScript to set the current year
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- ============================================
+         Particle Background using Particles.js (Optional)
+    ============================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
         particlesJS("noosphere-section", {
             "particles": {
                 "number": {
-                    "value": 89, // Phi-influenced value (55 + 34, Fibonacci sequence)
+                    "value": 80,
                     "density": {
                         "enable": true,
-                        "value_area": 1618 // Golden ratio proportion
+                        "value_area": 800
                     }
                 },
                 "color": {
-                    "value": ["#00ff99", "#00cc80", "#ffffff"] // Adding gradient-like color variety
+                    "value": ["#00ff99", "#00cc80", "#ffffff"]
                 },
                 "shape": {
                     "type": "circle",
@@ -969,7 +1223,7 @@
                     "random": true,
                     "anim": {
                         "enable": true,
-                        "speed": 1.618, // Phi-based animation speed
+                        "speed": 1,
                         "opacity_min": 0.2,
                         "sync": false
                     }
@@ -979,14 +1233,14 @@
                     "random": true,
                     "anim": {
                         "enable": true,
-                        "speed": 2.618, // Another Phi-derived value
+                        "speed": 2,
                         "size_min": 0.5,
                         "sync": false
                     }
                 },
                 "move": {
                     "enable": true,
-                    "speed": 1.618, // Golden ratio speed
+                    "speed": 1.618,
                     "direction": "none",
                     "random": true,
                     "straight": false,
@@ -1014,7 +1268,7 @@
                 "modes": {
                     "repulse": {
                         "distance": 100,
-                        "duration": 0.618 // Golden ratio for interaction duration
+                        "duration": 0.618
                     },
                     "push": {
                         "particles_nb": 5
@@ -1027,189 +1281,13 @@
             },
             "retina_detect": true,
             "background": {
-                "color": "#1e1e30",
-                "image": "", // Optional background image
+                "color": "transparent",
+                "image": "",
                 "position": "50% 50%",
                 "repeat": "no-repeat",
                 "size": "cover"
             }
         });
-    };
-    document.body.appendChild(script);
-})();
-
-      // Create Scroll to Top Button
-const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = `
- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" class="phi-motion-icon">
-  <style>
-    @keyframes divineMotion {
-      0% {
-        transform: scale(1);
-        opacity: 0.9;
-        filter: drop-shadow(0 0 4px #00cc80) drop-shadow(0 0 6px #00cc80);
-      }
-      38.2% { /* Reflects 1/phi proportion */
-        transform: scale(1.1);
-        opacity: 1;
-        filter: drop-shadow(0 0 8px #00ff99) drop-shadow(0 0 10px #00cc80);
-      }
-      61.8% { /* Reflects phi proportion */
-        transform: scale(0.95);
-        opacity: 0.95;
-        filter: drop-shadow(0 0 6px #00cc80) drop-shadow(0 0 8px #00ff99);
-      }
-      100% {
-        transform: scale(1);
-        opacity: 0.9;
-        filter: drop-shadow(0 0 4px #00cc80) drop-shadow(0 0 6px #00cc80);
-      }
-    }
-
-    .phi-path {
-      fill: url(#glossy-gradient);
-      filter: drop-shadow(0 0 4px #00cc80);
-      transform-origin: center;
-      animation: divineMotion 6.18s infinite ease-in-out;
-    }
-
-    .phi-path:hover {
-      filter: drop-shadow(0 0 10px #00ff99) drop-shadow(0 0 12px #00cc80);
-    }
-
-    #glossy-gradient {
-      gradientTransform: rotate(45deg);
-    }
-  </style>
-  <defs>
-    <linearGradient id="glossy-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00cc80" stop-opacity="1" />
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#00cc80" stop-opacity="1" />
-    </linearGradient>
-  </defs>
-  <path class="phi-path" d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
-</svg>
-
-
-
-`;
-scrollToTopBtn.style.position = 'fixed';
-scrollToTopBtn.style.bottom = '20px';
-scrollToTopBtn.style.left = '10px';
-scrollToTopBtn.style.width = '50px';
-scrollToTopBtn.style.height = '50px'; 
-scrollToTopBtn.style.display = 'flex';
-scrollToTopBtn.style.alignItems = 'center';
-scrollToTopBtn.style.justifyContent = 'center';
-scrollToTopBtn.style.border = 'none';
-scrollToTopBtn.style.borderRadius = '50%';
-scrollToTopBtn.style.background = 'linear-gradient(145deg, #1e1e30, #00cc80)';
-scrollToTopBtn.style.cursor = 'pointer';
-scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
-scrollToTopBtn.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-scrollToTopBtn.style.display = 'none';
-scrollToTopBtn.style.zIndex = '1000';
-scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
-
-document.body.appendChild(scrollToTopBtn);
-
-// Add hover effect
-scrollToTopBtn.addEventListener('mouseover', () => {
-  scrollToTopBtn.style.transform = 'scale(1.1)';
-  scrollToTopBtn.style.boxShadow = '0 10px 15px rgba(0, 255, 153, 0.5)';
-});
-
-scrollToTopBtn.addEventListener('mouseout', () => {
-  scrollToTopBtn.style.transform = 'scale(1)';
-  scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
-});
-
-// Show/Hide Scroll to Top Button
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    scrollToTopBtn.style.display = 'flex';
-  } else {
-    scrollToTopBtn.style.display = 'none';
-  }
-});
-
-// Create Pop-up Menu
-const menu = document.createElement('div');
-menu.style.position = 'fixed';
-menu.style.bottom = '80px';
-menu.style.left = '10px';
-menu.style.background = 'rgba(30, 30, 48, 0.95)';
-menu.style.border = '1px solid #00cc80';
-menu.style.borderRadius = '12px';
-menu.style.boxShadow = '0 6px 15px rgba(0, 255, 153, 0.5)';
-menu.style.padding = '15px';
-menu.style.display = 'none';
-menu.style.zIndex = '1000';
-menu.style.color = '#fff';
-menu.innerHTML = `
-  <ul style="list-style: none; margin: 0; padding: 0;">
-    <li style="margin: 10px 0;"><button class="menu-item" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); closeMenu();">Scroll to Top</button></li>
-    <li style="margin: 10px 0;"><a href="/index.html" class="menu-item" onclick="closeMenu();">Home</a></li>
-    <li style="margin: 10px 0;"><a href="#key-features" class="menu-item" onclick="closeMenu();">Features</a></li>
-    <li style="margin: 10px 0;"><a href="#applications" class="menu-item" onclick="closeMenu();">Applications</a></li>
-    <li style="margin: 10px 0;"><a href="#contact" class="menu-item" onclick="closeMenu();">Contact</a></li>
-    <li style="margin: 10px 0;"><a href="https://github.com/kojibai/noosphere" target="_blank" class="menu-item" onclick="closeMenu();">GitHub Repo</a></li>
-  </ul>
-`;
-document.body.appendChild(menu);
-
-// Function to close the menu
-function closeMenu() {
-  menu.style.display = 'none';
-}
-
-// Toggle Menu on Button Click
-scrollToTopBtn.addEventListener('click', () => {
-  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-});
-
-// Add glowing animation
-const style = document.createElement('style');
-style.innerHTML = `
-  .scroll-to-top-icon {
-    fill: #00cc80;
-    animation: pulseGlow 2s infinite;
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% {
-      transform: scale(1);
-      filter: drop-shadow(0 0 4px #00ff99) drop-shadow(0 0 8px #00cc80);
-    }
-    50% {
-      transform: scale(1.1);
-      filter: drop-shadow(0 0 12px #00ff99) drop-shadow(0 0 16px #00cc80);
-    }
-  }
-
-  .menu-item {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    color: #00ff99;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: left;
-    text-decoration: none;
-    display: block;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-
-  .menu-item:hover {
-    background: rgba(0, 255, 153, 0.1);
-    color: #00cc80;
-  }
-`;
-document.head.appendChild(style);
-
-
-
     </script>
 
 <!-- ============================================
