@@ -1005,35 +1005,35 @@ scrollToTopBtn.innerHTML = `
     @keyframes divineMotion {
       0% {
         transform: scale(1);
-        opacity: 0.8;
-        filter: drop-shadow(0 0 6px #00cc80) drop-shadow(0 0 10px #00cc80);
+        opacity: 0.9;
+        filter: drop-shadow(0 0 4px #00cc80) drop-shadow(0 0 6px #00cc80);
       }
       38.2% { /* Reflects 1/phi proportion */
-        transform: scale(1.618);
+        transform: scale(1.1);
         opacity: 1;
-        filter: drop-shadow(0 0 12px #00ff99) drop-shadow(0 0 18px #00cc80);
+        filter: drop-shadow(0 0 8px #00ff99) drop-shadow(0 0 10px #00cc80);
       }
       61.8% { /* Reflects phi proportion */
-        transform: scale(0.618);
-        opacity: 0.9;
-        filter: drop-shadow(0 0 8px #00cc80) drop-shadow(0 0 14px #00ff99);
+        transform: scale(0.95);
+        opacity: 0.95;
+        filter: drop-shadow(0 0 6px #00cc80) drop-shadow(0 0 8px #00ff99);
       }
       100% {
         transform: scale(1);
-        opacity: 0.8;
-        filter: drop-shadow(0 0 6px #00cc80) drop-shadow(0 0 10px #00cc80);
+        opacity: 0.9;
+        filter: drop-shadow(0 0 4px #00cc80) drop-shadow(0 0 6px #00cc80);
       }
     }
 
     .phi-path {
       fill: url(#glossy-gradient);
-      filter: drop-shadow(0 0 6px #00cc80);
+      filter: drop-shadow(0 0 4px #00cc80);
       transform-origin: center;
       animation: divineMotion 6.18s infinite ease-in-out;
     }
 
     .phi-path:hover {
-      filter: drop-shadow(0 0 15px #00ff99) drop-shadow(0 0 20px #00cc80);
+      filter: drop-shadow(0 0 10px #00ff99) drop-shadow(0 0 12px #00cc80);
     }
 
     #glossy-gradient {
@@ -1043,12 +1043,13 @@ scrollToTopBtn.innerHTML = `
   <defs>
     <linearGradient id="glossy-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#00cc80" stop-opacity="1" />
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
       <stop offset="100%" stop-color="#00cc80" stop-opacity="1" />
     </linearGradient>
   </defs>
   <path class="phi-path" d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
 </svg>
+
 
 
 `;
