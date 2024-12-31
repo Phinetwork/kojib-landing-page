@@ -1174,18 +1174,18 @@
             document.body.appendChild(script);
         })();
 
-        // Create Scroll to Top Button
+       // Create Scroll to Top Button
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" class="scroll-to-top-icon">
-    <path d="M12 2c-.55 0-1 .45-1 1v15.59l-5.3-5.3a1 1 0 10-1.4 1.4l7 7c.39.39 1.02.39 1.41 0l7-7a1 1 0 00-1.4-1.4l-5.3 5.3V3c0-.55-.45-1-1-1z"/>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" class="scroll-to-top-icon">
+    <path d="M12 2c.55 0 1 .45 1 1v15.59l5.3-5.3a1 1 0 111.4 1.4l-7 7a1 1 0 01-1.41 0l-7-7a1 1 0 111.4-1.4l5.3 5.3V3c0-.55.45-1 1-1z"/>
   </svg>
 `;
 scrollToTopBtn.style.position = 'fixed';
 scrollToTopBtn.style.bottom = '40px';
-scrollToTopBtn.style.left = '40px';
-scrollToTopBtn.style.width = '80px';
-scrollToTopBtn.style.height = '80px';
+scrollToTopBtn.style.left = '20px';
+scrollToTopBtn.style.width = '60px';
+scrollToTopBtn.style.height = '60px';
 scrollToTopBtn.style.display = 'flex';
 scrollToTopBtn.style.alignItems = 'center';
 scrollToTopBtn.style.justifyContent = 'center';
@@ -1193,7 +1193,7 @@ scrollToTopBtn.style.border = 'none';
 scrollToTopBtn.style.borderRadius = '50%';
 scrollToTopBtn.style.background = 'linear-gradient(145deg, #1e1e30, #00cc80)';
 scrollToTopBtn.style.cursor = 'pointer';
-scrollToTopBtn.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
 scrollToTopBtn.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
 scrollToTopBtn.style.display = 'none';
 scrollToTopBtn.style.zIndex = '1000';
@@ -1204,12 +1204,12 @@ document.body.appendChild(scrollToTopBtn);
 // Add hover effect
 scrollToTopBtn.addEventListener('mouseover', () => {
   scrollToTopBtn.style.transform = 'scale(1.1)';
-  scrollToTopBtn.style.boxShadow = '0 12px 25px rgba(0, 255, 153, 0.5)';
+  scrollToTopBtn.style.boxShadow = '0 10px 15px rgba(0, 255, 153, 0.5)';
 });
 
 scrollToTopBtn.addEventListener('mouseout', () => {
   scrollToTopBtn.style.transform = 'scale(1)';
-  scrollToTopBtn.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+  scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
 });
 
 // Show/Hide Scroll to Top Button
@@ -1240,15 +1240,16 @@ style.innerHTML = `
   @keyframes pulseGlow {
     0%, 100% {
       transform: scale(1);
-      filter: drop-shadow(0 0 5px #00ff99) drop-shadow(0 0 10px #00cc80);
+      filter: drop-shadow(0 0 4px #00ff99) drop-shadow(0 0 8px #00cc80);
     }
     50% {
       transform: scale(1.1);
-      filter: drop-shadow(0 0 15px #00ff99) drop-shadow(0 0 20px #00cc80);
+      filter: drop-shadow(0 0 12px #00ff99) drop-shadow(0 0 16px #00cc80);
     }
   }
 `;
 document.head.appendChild(style);
+
 
 
     </script>
