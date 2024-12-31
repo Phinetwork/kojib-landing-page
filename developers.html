@@ -2,20 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Developers - Kojib</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    /* ============================================
+       General Styling
+    ============================================= */
+    body, html {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #121212, #1c1c1c);
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #121212;
       color: #f4f4f4;
+      scroll-behavior: smooth;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header Styling */
     .header {
       background: #1c1c1c;
-      padding: 20px;
-      text-align: center;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
@@ -24,58 +41,172 @@
       font-size: 2rem;
       font-weight: bold;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
+    .header .logo:hover {
+      color: #00995e;
+    }
+
+    /* Navigation Styling */
     .header nav {
-      margin-top: 10px;
+      position: relative;
     }
 
-    .header .nav-links {
+    .nav-links {
       list-style: none;
-      padding: 0;
       display: flex;
-      justify-content: center;
       gap: 20px;
     }
 
-    .header .nav-links a {
-      text-decoration: none;
+    .nav-links li a {
       color: #f4f4f4;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
 
-    .header .nav-links a:hover {
+    .nav-links li a:hover {
       color: #00cc80;
     }
 
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1100;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #f4f4f4;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #1c1c1c;
+      width: 200px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-nav ul li a {
+      padding: 10px 20px;
+      color: #f4f4f4;
+      font-size: 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+      display: block;
+    }
+
+    .mobile-nav ul li a:hover {
+      background: #00cc80;
+      color: #121212;
+    }
+
+    /* Transformations for Menu Toggle Animation */
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      background-color: #00cc80;
+      box-shadow: 0 0 10px #00cc80;
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      background-color: #00cc80;
+      box-shadow: 0 0 10px #00cc80;
+    }
+
+    /* Hero Section Styling */
     .hero {
       text-align: center;
       padding: 100px 20px;
-      background: linear-gradient(to bottom, #121212, #1a1a1a);
+      background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: url('image/developer-background.jpg') center center/cover no-repeat;
+      opacity: 0.3;
+      z-index: -1;
     }
 
     .hero h1 {
       font-size: 3rem;
       color: #00cc80;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+      animation: fadeInDown 1s ease-out forwards;
+      opacity: 0;
     }
 
     .hero p {
       font-size: 1.5rem;
       margin-top: 20px;
       line-height: 1.8;
+      color: rgba(244, 244, 244, 0.9);
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
+      max-width: 800px;
     }
 
+    /* Developers Container Styling */
     .developers-container {
       max-width: 1200px;
       margin: 40px auto;
       padding: 20px;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
     }
 
     .developers-container h2 {
       text-align: center;
       color: #00cc80;
       margin-bottom: 20px;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
     }
 
     .developer-section {
@@ -84,11 +215,18 @@
       border-radius: 10px;
       margin-bottom: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .developer-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
     }
 
     .developer-section h3 {
       color: #00cc80;
       margin-bottom: 20px;
+      font-size: 1.5rem;
     }
 
     .developer-section p {
@@ -96,11 +234,34 @@
       line-height: 1.8;
     }
 
+    .developer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .developer-section ul li {
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    .developer-section ul li strong {
+      color: #00cc80;
+    }
+
+    /* Resources Section Styling */
     .resources {
       background: #1c1c1c;
       padding: 20px;
       border-radius: 10px;
       margin-top: 20px;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .resources h3 {
+      color: #00cc80;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
     }
 
     .resources ul {
@@ -116,24 +277,30 @@
       text-decoration: none;
       color: #00cc80;
       font-size: 1.2rem;
+      transition: color 0.3s ease;
     }
 
     .resources ul li a:hover {
       text-decoration: underline;
+      color: #00995e;
     }
 
+    /* Call-to-Action Section Styling */
     .cta-section {
       text-align: center;
       margin: 40px 0;
       padding: 40px 20px;
       background: #1c1c1c;
       border-radius: 10px;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
     }
 
     .cta-section h2 {
       font-size: 2rem;
       color: #00cc80;
       margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
     }
 
     .cta-section a {
@@ -143,29 +310,231 @@
       padding: 10px 20px;
       border-radius: 5px;
       font-size: 1rem;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
     }
 
     .cta-section a:hover {
       background: #00995e;
+      transform: translateY(-3px);
     }
 
+    /* Categories Section Styling */
+    .categories {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .category {
+      background: #1a1a1a;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #f4f4f4;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
+      background: #00cc80;
+      color: #121212;
+    }
+
+    /* Latest Discussions Section Styling */
+    .latest-discussions {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .latest-discussions h2 {
+      text-align: center;
+      color: #00cc80;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
+    .discussion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .discussion-item {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .discussion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
+    }
+
+    .discussion-item h3 {
+      color: #00cc80;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .discussion-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(244, 244, 244, 0.9);
+    }
+
+    .discussion-item a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #00cc80;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .discussion-item a:hover {
+      color: #00995e;
+    }
+
+    /* Join the Community Section Styling */
+    .join-community {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .join-community h2 {
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
+    .join-community p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(244, 244, 244, 0.9);
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+    }
+
+    .join-community a {
+      text-decoration: none;
+      background: #00cc80;
+      color: #121212;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .join-community a:hover {
+      background: #00995e;
+      transform: translateY(-5px);
+    }
+
+    /* Footer Styling */
     .footer {
       background: #1c1c1c;
       text-align: center;
       padding: 20px;
       color: #f4f4f4;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .footer a {
       color: #00cc80;
       text-decoration: none;
       margin: 0 10px;
+      transition: color 0.3s ease;
     }
 
     .footer a:hover {
       text-decoration: underline;
+      color: #00995e;
     }
+
+    /* Mobile Menu Styling */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: block;
+      }
+    }
+
+    /* Developers Container Responsive Adjustments */
+    @media (max-width: 768px) {
+      .developers-container {
+        padding: 10px;
+      }
+
+      .developer-section {
+        padding: 20px;
+      }
+
+      .developer-section h3 {
+        font-size: 1.2rem;
+      }
+
+      .developer-section p,
+      .developer-section ul li {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Smooth Scrolling for In-Page Links */
+    html {
+      scroll-behavior: smooth;
+    }
+
   </style>
 </head>
 <body>
@@ -174,6 +543,11 @@
   <header class="header">
     <a href="index.html" class="logo">Kojib</a>
     <nav>
+      <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -181,12 +555,27 @@
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="careers.html">Careers</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="community-forum.html">Community Forum</a></li>
+        <li><a href="developer-blog.html">Developer Blog</a></li>
       </ul>
+      <!-- Mobile Navigation -->
+      <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="community-forum.html">Community Forum</a></li>
+          <li><a href="developer-blog.html">Developer Blog</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
-   <!-- Hero Section -->
-   <section class="hero">
+  <!-- Hero Section -->
+  <section class="hero">
     <h1>Developers</h1>
     <p>Your portal to innovation, collaboration, and cutting-edge tools.</p>
   </section>
@@ -238,7 +627,7 @@
           </a>
         </li>
         <li>
-          <a href="/developer-blog.html" target="_blank" rel="noopener noreferrer">
+          <a href="developer-blog.html" target="_blank" rel="noopener noreferrer">
             Developer Blog 
           </a>
         </li>
@@ -251,7 +640,7 @@
     </div>
 
     <!-- Our Goals and Aims Section -->
-    <div class="goals-aims">
+    <div class="developer-section">
       <h3>Our Goals and Aims</h3>
       <p>
         At Kojib, our primary goal is to democratize artificial intelligence, making it accessible and
@@ -262,7 +651,7 @@
     </div>
 
     <!-- Accomplishments Section -->
-    <div class="accomplishments">
+    <div class="developer-section">
       <h3>What We've Accomplished</h3>
       <p>
         Since our inception, Kojib has successfully launched multiple AI-driven tools and APIs that have
@@ -273,7 +662,7 @@
     </div>
 
     <!-- Vision Section -->
-    <div class="vision">
+    <div class="developer-section">
       <h3>Our Vision</h3>
       <p>
         We envision a future where artificial intelligence seamlessly integrates into every facet of human life,
@@ -287,10 +676,51 @@
   <!-- Call-to-Action Section -->
   <section class="cta-section">
     <h2>Ready to Build with Us?</h2>
-    <a href="https://github.com/kojibai">Get Started</a>
+    <a href="https://github.com/kojibai" target="_blank" rel="noopener noreferrer">Get Started</a>
   </section>
-  <style>
-    /* Chatbot Button */
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="category">Artificial Intelligence</div>
+    <div class="category">Machine Learning</div>
+    <div class="category">Data Science</div>
+    <div class="category">Web Development</div>
+    <div class="category">DevOps</div>
+    <div class="category">Open-Source</div>
+    <div class="category">Career Advice</div>
+    <div class="category">Tutorials & Resources</div>
+  </section>
+
+  <!-- Latest Discussions Section -->
+  <section class="latest-discussions">
+    <h2>Recent Topics</h2>
+    <div class="discussion-list">
+      <div class="discussion-item">
+        <h3>Integrating AI into Existing Projects</h3>
+        <p>What are the best practices for integrating AI functionalities into legacy systems? Share your experiences and strategies.</p>
+        <a href="#">Join the Discussion</a>
+      </div>
+      <div class="discussion-item">
+        <h3>Effective Code Review Processes</h3>
+        <p>How do you implement effective code review processes in your team? Discuss tools, techniques, and workflows.</p>
+        <a href="#">Join the Discussion</a>
+      </div>
+      <div class="discussion-item">
+        <h3>Scaling Applications with Cloud Services</h3>
+        <p>Share your insights on scaling applications using various cloud services. What challenges have you faced and how did you overcome them?</p>
+        <a href="#">Join the Discussion</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join the Community Section -->
+  <section class="join-community">
+    <h2>Become a Part of Our Community</h2>
+    <p>Join the Kojib Community Forum to connect with developers worldwide. Share your knowledge, ask questions, and collaborate on innovative projects.</p>
+    <a href="signup.html">Join Now</a>
+  </section>
+
+  <style>/* Chatbot Button */
     #chatbot-button {
         position: fixed;
         bottom: 20px;
@@ -498,6 +928,8 @@
         }
     }
     </style>
+  
+
 <!-- AI Chatbot -->
 <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
     <div id="chatbot-header">
@@ -519,27 +951,50 @@
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-
-<script>
-  // JavaScript to set the current year
-  document.getElementById("current-year").textContent = new Date().getFullYear();
-</script>
     <nav>
       <a href="index.html">Home</a> |
       <a href="privacy-policy.html">Privacy Policy</a> |
       <a href="terms-of-service.html">Terms of Service</a>
     </nav>
   </footer>
-  <!-- Scripts -->
-  <script src="lib/three.min.js"></script>
-  <script src="lib/gsap.min.js"></script>
-  <script src="lib/ScrollTrigger.min.js"></script>
-  <script src="js/particles.js"></script>
-  <script src="js/scroll.js"></script>
-  <script src="js/main.js"></script>
- 
-     <!-- Include other scripts or libraries -->
-     <script src="chatbot.js"></script>
 
+  <!-- Scripts for Mobile Menu Functionality -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event from bubbling up to window
+      mobileNav.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+      const isExpanded = menuToggle.classList.contains('open');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
+      mobileNav.setAttribute('aria-hidden', !isExpanded);
+    });
+
+    // Close mobile menu when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // Accessibility: Close mobile menu with Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // JavaScript to set the current year
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+<script src="chatbot.js"></script>
 </body>
 </html>
