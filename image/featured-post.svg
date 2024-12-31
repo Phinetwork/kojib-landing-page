@@ -66,10 +66,4 @@
     Unlock the Power of AI
     <animate attributeName="opacity" values="1;0.9;1" dur="3.236s" repeatCount="indefinite" />
   </text>
-
-  <!-- Description Text -->
-  <text x="50%" y="85%" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" opacity="0.8">
-    Transforming bold ideas into groundbreaking realities
-    <animate attributeName="opacity" values="0.8;1;0.8" dur="3.618s" repeatCount="indefinite" />
-  </text>
 </svg>
