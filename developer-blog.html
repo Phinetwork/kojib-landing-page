@@ -484,6 +484,14 @@
       scroll-behavior: smooth;
     }
 
+    .blog-post img {
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
   </style>
 </head>
 <body>
@@ -536,51 +544,118 @@
   </div>
 
   <!-- Blog Posts Section -->
-  <section class="blog-posts">
+<section class="blog-posts">
     <!-- Featured Post -->
     <article class="blog-post">
-      <img src="image/featured-post.jpg" alt="Unlocking the Power of AI: A Comprehensive Guide">
+      <img src="image/featured-post.svg" alt="Unlocking the Power of AI: A Comprehensive Guide">
       <h3>Unlocking the Power of AI: A Comprehensive Guide</h3>
       <p>Delve into the fundamentals of artificial intelligence and discover how to harness its capabilities to build intelligent applications.</p>
       <a href="#">Read More</a>
     </article>
-
+  
     <!-- Latest Posts -->
     <article class="blog-post">
-      <img src="image/post1.jpg" alt="Top 10 Open-Source Libraries for Data Science">
+      <img src="image/post1.svg" alt="Top 10 Open-Source Libraries for Data Science">
       <h3>Top 10 Open-Source Libraries for Data Science</h3>
       <p>Enhance your data science projects with these powerful and versatile open-source libraries. Boost your productivity and efficiency.</p>
       <a href="#">Read More</a>
     </article>
-
+  
     <article class="blog-post">
-      <img src="image/post2.jpg" alt="Building Scalable Web Applications with Microservices">
+      <img src="image/post2.svg" alt="Building Scalable Web Applications with Microservices">
       <h3>Building Scalable Web Applications with Microservices</h3>
       <p>Learn how to design and implement scalable web applications using the microservices architecture. Best practices and real-world examples.</p>
       <a href="#">Read More</a>
     </article>
-
+  
     <article class="blog-post">
-      <img src="image/post3.jpg" alt="Introduction to Machine Learning Algorithms">
+      <img src="image/post3.svg" alt="Introduction to Machine Learning Algorithms">
       <h3>Introduction to Machine Learning Algorithms</h3>
       <p>Understand the core machine learning algorithms that are shaping the future of technology. From supervised to unsupervised learning.</p>
       <a href="#">Read More</a>
     </article>
-
+  
     <article class="blog-post">
-      <img src="image/post4.jpg" alt="Optimizing Your Code for Performance and Efficiency">
+      <img src="image/post4.svg" alt="Optimizing Your Code for Performance and Efficiency">
       <h3>Optimizing Your Code for Performance and Efficiency</h3>
       <p>Discover techniques to optimize your code, improve performance, and make your applications more efficient and responsive.</p>
       <a href="#">Read More</a>
     </article>
-
+  
     <article class="blog-post">
-      <img src="image/post5.jpg" alt="DevOps Best Practices for Continuous Integration and Deployment">
+      <img src="image/post5.svg" alt="DevOps Best Practices for Continuous Integration and Deployment">
       <h3>DevOps Best Practices for Continuous Integration and Deployment</h3>
       <p>Implement DevOps best practices to streamline your development workflow, enhance collaboration, and ensure continuous integration and deployment.</p>
       <a href="#">Read More</a>
     </article>
   </section>
+  
+  <style>
+    /* Blog Posts Section Styling */
+    .blog-posts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, rgba(30, 30, 48, 0.9), rgba(20, 20, 35, 0.95));
+      color: #ffffff;
+    }
+  
+    .blog-post {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .blog-post:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0, 255, 153, 0.4);
+    }
+  
+    .blog-post img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 255, 153, 0.2);
+    }
+  
+    .blog-post h3 {
+      font-size: 1.5rem;
+      color: #00ff99;
+      margin-bottom: 10px;
+    }
+  
+    .blog-post p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+  
+    .blog-post a {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #ffffff;
+      background: linear-gradient(135deg, #00cc80, #0099ff);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+  
+    .blog-post a:hover {
+      background: linear-gradient(135deg, #00ff99, #00ccff);
+      transform: scale(1.05);
+    }
+  </style>
+  
 
   <!-- Categories Section -->
   <section class="categories">
@@ -848,7 +923,7 @@
   <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
     <img src="image/chat-icon.svg" alt="Chat Icon" />
   </div> 
-  
+
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
