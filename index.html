@@ -586,8 +586,49 @@
 
 
 
-  <!-- Showcase Section -->
+  <!-- ============================================
+     Showcase Section
+============================================= -->
 <section id="showcase" class="showcase-section">
+  <!-- Inline Styles for Showcase Animations -->
+  <style>
+    /* ============================================
+       Showcase Icon Animations
+    ============================================= */
+    @keyframes phiMotion {
+      0% {
+        transform: scale(1);
+        opacity: 0.95;
+      }
+      38.2% { /* Reflects 1/phi proportion */
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      61.8% { /* Reflects phi proportion */
+        transform: scale(0.95);
+        opacity: 0.95;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.95;
+      }
+    }
+
+    .phi-motion {
+      animation: phiMotion 1.618s infinite ease-in-out;
+    }
+
+    /* Optional: Enhance Feature Card Hover Effect */
+    .feature-card:hover .feature-icon img {
+      animation: phiMotion 1.618s infinite ease-in-out;
+    }
+
+    /* Ensure Smooth Transition */
+    .feature-icon img {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+  </style>
+
   <div class="showcase-content">
     <h2 class="showcase-title">Our Capabilities</h2>
     <p class="showcase-text">
@@ -597,7 +638,7 @@
       <!-- Predictive Modeling Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon">
+          <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon" class="phi-motion">
         </div>
         <h3>Predictive Modeling</h3>
         <p>Harness the power of advanced algorithms to gain actionable insights.</p>
@@ -606,7 +647,7 @@
       <!-- Neural Network Design Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/neural-network-icon.svg" alt="Neural Network Design Icon">
+          <img src="image/neural-network-icon.svg" alt="Neural Network Design Icon" class="phi-motion">
         </div>
         <h3>Neural Network Design</h3>
         <p>Our cutting-edge neural network architectures emulate human intelligence.</p>
@@ -615,7 +656,7 @@
       <!-- Human-Centric AI Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/human-centric-icon.svg" alt="Human-Centric AI Icon">
+          <img src="image/human-centric-icon.svg" alt="Human-Centric AI Icon" class="phi-motion">
         </div>
         <h3>Human-Centric AI</h3>
         <p>We believe AI should enhance humanity, not replace it.</p>
@@ -624,7 +665,7 @@
       <!-- Data Visualization Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/data-visualization-icon.svg" alt="Data Visualization Icon">
+          <img src="image/data-visualization-icon.svg" alt="Data Visualization Icon" class="phi-motion">
         </div>
         <h3>Data Visualization</h3>
         <p>Transform complex datasets into vivid, interactive visual stories.</p>
@@ -633,7 +674,7 @@
       <!-- Scalable Automation Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/automation-icon.svg" alt="Scalable Automation Icon">
+          <img src="image/automation-icon.svg" alt="Scalable Automation Icon" class="phi-motion">
         </div>
         <h3>Scalable Automation</h3>
         <p>Streamline your processes with intelligent automation that grows with you.</p>
@@ -642,7 +683,7 @@
       <!-- Creative AI Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/creative-ai-icon.svg" alt="Creative AI Icon">
+          <img src="image/creative-ai-icon.svg" alt="Creative AI Icon" class="phi-motion">
         </div>
         <h3>Creative AI</h3>
         <p>Empower your imagination with AI tools designed for creators.</p>
@@ -650,6 +691,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- ============================================
      Skyriz Comprehensive Introductory Section
