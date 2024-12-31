@@ -622,9 +622,61 @@
       transform: translateY(0);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
+
+    .blog-post {
+    background: linear-gradient(145deg, #161b22, #1c1f27);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.blog-post-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.blog-post-title {
+    font-size: 1.8rem;
+    color: #00ff99;
+    margin-bottom: 10px;
+    text-shadow: 0 0 12px #00ff99, 0 0 20px rgba(0, 255, 153, 0.8);
+}
+
+.blog-post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #c9d1d9;
+    margin-bottom: 20px;
+}
+
+.read-more-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #004d26, #00ff99);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.read-more-button:hover {
+    background: linear-gradient(145deg, #00b37e, #005030);
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 255, 153, 0.4);
+}
+
   </style>
   
-  
+  <section>
     <!-- Latest Posts -->
     <article class="blog-post">
       <img src="image/post1.svg" alt="Top 10 Open-Source Libraries for Data Science">
@@ -634,11 +686,14 @@
     </article>
   
     <article class="blog-post">
-      <img src="image/post2.svg" alt="Building Scalable Web Applications with Microservices">
-      <h3>Building Scalable Web Applications with Microservices</h3>
-      <p>Learn how to design and implement scalable web applications using the microservices architecture. Best practices and real-world examples.</p>
-      <a href="#">Read More</a>
+        <img src="image/post2.svg" alt="Building Scalable Web Applications with Microservices" class="blog-post-image">
+        <h3 class="blog-post-title">Building Scalable Web Applications with Microservices</h3>
+        <p class="blog-post-content">
+            Learn how to design and implement scalable web applications using the microservices architecture. Best practices and real-world examples.
+        </p>
+        <a href="web-apps-microservices.html" class="read-more-button">Read More</a>
     </article>
+    
   
     <article class="blog-post">
       <img src="image/post3.svg" alt="Introduction to Machine Learning Algorithms">
@@ -660,6 +715,7 @@
       <p>Implement DevOps best practices to streamline your development workflow, enhance collaboration, and ensure continuous integration and deployment.</p>
       <a href="#">Read More</a>
     </article>
+</section>
   </section>
   
   <style>
