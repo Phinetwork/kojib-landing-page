@@ -109,7 +109,538 @@
         }
     </style>
 </head>
+<style>
+    /* Reset CSS */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Typography */
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Inter', sans-serif;
+        color: #c9d1d9;
+    }
+
+    /* Navbar Styling */
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 70px;
+        z-index: 1000; /* Ensure it stays on top */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent; /* Fully transparent background */
+        box-shadow: none; /* Remove shadow for complete transparency */
+        transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .nav-container {
+        width: 90%;
+        max-width: 1200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Logo */
+    .logo img {
+        height: 40px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .logo img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Logo Glow and Twinkle Effect */
+    #navbar.scrolled .logo img {
+        transform: scale(1.1);
+        filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
+        animation: subtleTwinkle 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes subtleTwinkle {
+        0%,
+        100% {
+            filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
+        }
+
+        50% {
+            filter: brightness(1.5) drop-shadow(0 0 12px #00ff99);
+        }
+    }
+
+    /* Nav Links */
+    .nav-links {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        color: #00ff99;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1100; /* Ensure it's on top of the nav */
+        transition: transform 0.3s ease;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        border-radius: 3px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Hamburger Open State */
+    .hamburger.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: #00ff99;
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: #00ff99;
+    }
+
+    /* Mobile Menu Styles */
+    @media (max-width: 768px) {
+        .hamburger {
+            display: flex;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            height: 100%;
+            width: 250px;
+            background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 255, 153, 0.9));
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px 20px;
+            box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            transition: right 0.3s ease-in-out;
+            animation: phiShimmer 5s infinite ease-in-out; /* Apply the shimmering effect */
+        }
+
+        .nav-links.active {
+            right: 0;
+            background: linear-gradient(135deg, #004d26, #00ff99);
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
+        }
+
+        .nav-links li {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-links li a {
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-links li a:hover {
+            color: #000;
+            background: #00ff99;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+    }
+
+    /* Phi-Based Shimmering Animation */
+    @keyframes phiShimmer {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        38.2% {
+            background-position: 50% 100%;
+        }
+
+        61.8% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Smooth Animation for Nav Links */
+    .nav-links li {
+        transform: translateX(-50px);
+        opacity: 0;
+        animation: slideIn 0.3s ease forwards;
+    }
+
+    .nav-links li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .nav-links li:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .nav-links li:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+
+    .nav-links li:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+
+    .nav-links li:nth-child(5) {
+        animation-delay: 0.5s;
+    }
+
+    .nav-links li:nth-child(6) {
+        animation-delay: 0.6s;
+    }
+
+    .nav-links li:nth-child(7) {
+        animation-delay: 0.7s;
+    }
+
+    .nav-links li:nth-child(8) {
+        animation-delay: 0.8s;
+    }
+
+    .nav-links li:nth-child(9) {
+        animation-delay: 0.9s;
+    }
+
+    .nav-links li:nth-child(10) {
+        animation-delay: 1s;
+    }
+
+    .nav-links li:nth-child(11) {
+        animation-delay: 1.1s;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(-50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Hover Effects for Hamburger Menu */
+    .hamburger:hover {
+        transform: scale(1.1);
+    }
+
+    /* General Reset */
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth; /* Smooth scrolling for better UX */
+    }
+
+    /* Featured Image Styling */
+    .featured-image {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        background: url('https://source.unsplash.com/1600x900/?machine-learning,algorithms') no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 70px; /* To offset the fixed navbar */
+    }
+
+    .featured-image .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+
+    .featured-image h2 {
+        position: relative;
+        color: #00ff99;
+        font-size: 2.5rem;
+        text-align: center;
+        z-index: 1;
+        text-shadow: 0 0 10px #00ff99, 0 0 20px rgba(0, 255, 153, 0.8);
+        max-width: 80%;
+    }
+
+    /* Container Styling */
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        display: flex;
+        gap: 40px;
+    }
+
+    /* Table of Contents Styling */
+    .toc {
+        flex: 1;
+        background: #161b22;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 100px; /* Adjust based on navbar height */
+        height: fit-content;
+    }
+
+    .toc h3 {
+        margin-bottom: 15px;
+        color: #00ff99;
+        text-align: center;
+        text-shadow: 0 0 5px #00ff99;
+    }
+
+    .toc ul {
+        list-style: none;
+    }
+
+    .toc ul li {
+        margin-bottom: 10px;
+    }
+
+    .toc ul li a {
+        text-decoration: none;
+        color: #c9d1d9;
+        transition: color 0.3s ease;
+    }
+
+    .toc ul li a:hover {
+        color: #00ff99;
+    }
+
+    /* Sections Styling */
+    section {
+        flex: 3;
+        background: #161b22;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
+    }
+
+    section h2 {
+        color: #00ff99;
+        margin-bottom: 15px;
+        text-shadow: 0 0 5px #00ff99;
+    }
+
+    section img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    section img:hover {
+        transform: scale(1.02);
+    }
+
+    section p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    section ul {
+        list-style: disc inside;
+        margin-bottom: 15px;
+    }
+
+    section ul li {
+        margin-bottom: 10px;
+    }
+
+    section h3 {
+        color: #00b37e;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* Read More Button Styling */
+    .read-more {
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(145deg, #004d26, #00ff99);
+        color: #000;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .read-more:hover {
+        background: linear-gradient(145deg, #00b37e, #006b41);
+        box-shadow: 0 8px 15px rgba(0, 255, 153, 0.4);
+        transform: translateY(-2px);
+    }
+
+    /* Footer Styling */
+    footer {
+        background-color: #161b22;
+        color: #c9d1d9;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+    }
+
+    footer a {
+        color: #00ff99;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+        font-size: 1.2rem;
+    }
+
+    footer a:hover {
+        color: #28a745;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .container {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .toc {
+            position: static;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .featured-image {
+            height: 40vh;
+        }
+
+        .featured-image h2 {
+            font-size: 1.8rem;
+            max-width: 90%;
+        }
+
+        .toc ul li a {
+            font-size: 1rem;
+        }
+
+        .read-more {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            width: 250px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .featured-image {
+            height: 30vh;
+        }
+
+        .featured-image h2 {
+            font-size: 1.5rem;
+            max-width: 95%;
+        }
+
+        .toc h3 {
+            font-size: 1.1rem;
+        }
+
+        .toc ul li a {
+            font-size: 0.95rem;
+        }
+
+        .nav-links {
+            width: 200px;
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+
 <body>
+
+<!-- Navbar -->
+<nav id="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="image/logo.svg" alt="Site Logo">
+        </div>
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="community-forum.html">Back To Forum</a></li>
+        </ul>
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
     <header>
         <h1>Best Practices for Collaborative Development</h1>
         <p>Sharing insights and strategies for effective collaboration in development teams. What are your go-to practices?</p>
