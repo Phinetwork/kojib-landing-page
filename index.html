@@ -627,6 +627,49 @@
     }
   </style>
 
+  <!-- ============================================
+     Showcase Section
+============================================= -->
+<section id="showcase" class="showcase-section">
+  <!-- Inline Styles for Showcase Animations -->
+  <style>
+    /* ============================================
+       Showcase Icon Animations - Glow and Twinkle
+    ============================================= */
+   /* Showcase Section - Glow and Twinkle Animations */
+@keyframes phiGlowTwinkle {
+  0% {
+    box-shadow: 0 0 5px #00cc80, 0 0 10px #00cc80;
+  }
+  38.2% { /* Reflects 1/phi proportion */
+    box-shadow: 0 0 15px #00ff99, 0 0 25px #00ff99;
+  }
+  61.8% { /* Reflects phi proportion */
+    box-shadow: 0 0 10px #00cc80, 0 0 20px #00cc80;
+  }
+  100% {
+    box-shadow: 0 0 5px #00cc80, 0 0 10px #00cc80;
+  }
+}
+
+.glow-twinkle {
+  animation: phiGlowTwinkle 1.618s infinite ease-in-out;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Enhance Feature Card Hover Effect */
+.feature-card:hover .feature-icon img {
+  animation: phiGlowTwinkle 1.618s infinite ease-in-out;
+}
+
+/* Ensure Smooth Transition */
+.feature-icon img {
+  transition: box-shadow 0.3s ease;
+  border-radius: 50%; /* Optional: Make icons circular */
+}
+
+  </style>
+
   <div class="showcase-content">
     <h2 class="showcase-title">Our Capabilities</h2>
     <p class="showcase-text">
@@ -689,6 +732,7 @@
     </div>
   </div>
 </section>
+
 
 
 <!-- ============================================
