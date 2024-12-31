@@ -793,7 +793,7 @@
                 <li><a href="#noosphere-section">Noosphere</a></li>
                 <li><a href="#key-features">Features</a></li>
                 <li><a href="#applications">Applications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Contribute</a></li>
                 <!-- GitHub Repo Link -->
                 <li class="github-link">
                     <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub Repository">
@@ -1050,52 +1050,110 @@
         </div>
     </section>
 
-    <!-- ============================================
-         Contact Section
-    ============================================= -->
-    <section id="contact">
-        <div class="noosphere-container">
-            <h2 class="noosphere-title">Contact Us</h2>
-            <p>
-                Have questions, ideas, or want to collaborate with us? We're here to help! Send us a message, and we'll get back to you as soon as possible.
-            </p>
-            <form id="contact-form">
-                <!-- Email Field -->
-                <div>
-                    <input 
-                        type="email" 
-                        name="email" 
-                        placeholder="Your Email" 
-                        required 
-                        aria-label="Your Email"
-                    >
-                </div>
-                <!-- Message Field -->
-                <div>
-                    <textarea 
-                        name="message" 
-                        placeholder="Your Message" 
-                        rows="5" 
-                        required 
-                        aria-label="Your Message"
-                    ></textarea>
-                </div>
-                <!-- Submit Button -->
-                <button type="submit">
-                    Send Message
-                </button>
-            </form>
-            <!-- Success Message -->
-            <div id="success-message">
-                🎉 Success! Your message has been sent.
-            </div>
-            <!-- Additional Contact Information -->
-            <div class="additional-info">
-                <p>Prefer to reach out directly? Email us at <a href="mailto:contact@kojib.com">contact@kojib.com</a></p>
-                <p>Follow us on <a href="https://twitter.com/kojib_com" target="_blank">Twitter</a> and <a href="https://linkedin.com/in/kojib" target="_blank">LinkedIn</a></p>
-            </div>
-        </div>
-    </section>
+   <!-- ============================================
+         Call-to-Action Section
+============================================= -->
+<section id="cta">
+    <div class="noosphere-container">
+      <h2 class="noosphere-title">Join the Revolution</h2>
+      <p>
+        Be part of something extraordinary. Dive into the Noosphere framework and help shape the future of scalable, intelligent, and developer-friendly tools.
+      </p>
+      <!-- Call-to-Action Button -->
+      <div class="cta-button-container">
+        <a href="https://github.com/kojibai/noosphere" target="_blank" class="cta-button">
+          Explore the GitHub Repository
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path fill="#FFFFFF" d="M12 0a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6V21c-3.3.7-4-1.4-4-1.4-.5-1.3-1.2-1.6-1.2-1.6-.9-.6 0-.6 0-.6 1 .1 1.6 1.1 1.6 1.1.9 1.5 2.3 1 2.8.8.1-.7.4-1 .6-1.3-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 6.4 18 6.7 18 6.7c.6 1.6.3 2.8.1 3.1.7.9 1.2 1.9 1.2 3.2 0 4.4-2.7 5.4-5.3 5.7.4.3.7.9.7 1.7v2.6c0 .4.2.7.8.6A12 12 0 0 0 12 0z"></path>
+          </svg>
+        </a>
+      </div>
+      <!-- Dynamic Glow Effect -->
+      <div class="cta-glow-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" class="cta-glow">
+          <circle cx="150" cy="150" r="140" fill="none" stroke="#00ff99" stroke-width="3">
+            <animate attributeName="r" values="140;150;140" dur="3.618s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.618s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="150" cy="150" r="110" fill="none" stroke="#0099ff" stroke-width="2">
+            <animate attributeName="r" values="110;120;110" dur="2.618s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2.618s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Additional Styles -->
+  <style>
+    #cta {
+      padding: 100px 20px;
+      background: linear-gradient(135deg, rgba(30, 30, 48, 0.95), rgba(20, 20, 35, 0.95));
+      color: #ffffff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+  
+    .noosphere-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #00ff99;
+      text-shadow: 0 0 15px rgba(0, 255, 153, 0.8);
+      margin-bottom: 20px;
+    }
+  
+    #cta p {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+  
+    .cta-button-container {
+      margin-top: 30px;
+    }
+  
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffffff;
+      background: linear-gradient(135deg, #00cc80, #0099ff);
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 255, 153, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .cta-button svg {
+      margin-left: 10px;
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+    }
+  
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 255, 153, 0.8);
+    }
+  
+    .cta-glow-container {
+      margin-top: 50px;
+    }
+  
+    .cta-glow {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+    }
+  </style>
+  
 
     <!-- ============================================
          Footer
@@ -1378,7 +1436,7 @@
                 <a href="#applications" class="menu-item" onclick="closeMenu();">Applications</a>
             </li>
             <li style="margin: 10px 0;">
-                <a href="#contact" class="menu-item" onclick="closeMenu();">Contact</a>
+                <a href="#contact" class="menu-item" onclick="closeMenu();">Contribute</a>
             </li>
             <li style="margin: 10px 0;">
                 <a href="https://github.com/kojibai/noosphere" target="_blank" class="menu-item" onclick="closeMenu();">GitHub Repo</a>
