@@ -1,77 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" aria-labelledby="aboutHeroTitle" role="img">
-  <title id="aboutHeroTitle">Kojib About Page Hero Graphic</title>
-
-  <!-- Background Gradients -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" fill="none">
   <defs>
-    <linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1e1e2f">
-        <animate attributeName="stop-color" values="#1e1e2f;#2a2a50;#1e1e2f" dur="15s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#2a2a50">
-        <animate attributeName="stop-color" values="#2a2a50;#1e1e2f;#2a2a50" dur="15s" repeatCount="indefinite" />
-      </stop>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradientAI" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2f" />
+      <stop offset="100%" stop-color="#2a2a50" />
     </linearGradient>
 
-    <radialGradient id="heroRadial" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="rgba(0, 255, 153, 0.8)">
-        <animate attributeName="stop-color" values="rgba(0, 255, 153, 0.8);rgba(0, 153, 255, 0.6);rgba(0, 255, 153, 0.8)" dur="20s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
+    <!-- Glow Effect -->
+    <radialGradient id="glowGradientAI" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
     </radialGradient>
 
-    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Text Gradient -->
+    <linearGradient id="textGradientAI" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff" />
       <stop offset="100%" stop-color="#00ff99" />
     </linearGradient>
+
+    <!-- Circuit Line Pattern -->
+    <pattern id="circuitPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="10" x2="20" y2="10" stroke="#00ff99" stroke-width="1" />
+      <line x1="10" y1="0" x2="10" y2="20" stroke="#00ff99" stroke-width="1" />
+    </pattern>
   </defs>
 
   <!-- Background Rectangle -->
-  <rect x="0" y="0" width="1440" height="600" fill="url(#heroGradient)" />
+  <rect x="0" y="0" width="400" height="300" fill="url(#bgGradientAI)" />
 
-  <!-- Pulsating Circle -->
-  <circle cx="720" cy="300" r="300" fill="url(#heroRadial)" opacity="0.6">
-    <animate attributeName="r" values="300;350;280;300" dur="15s" repeatCount="indefinite" />
-    <animate attributeName="opacity" values="0.6;0.8;0.4;0.6" dur="20s" repeatCount="indefinite" />
+  <!-- Glow Circle -->
+  <circle cx="200" cy="150" r="140" fill="url(#glowGradientAI)" opacity="0.5">
+    <animate attributeName="r" values="140;150;140" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;0.7;0.5" dur="2.618s" repeatCount="indefinite" />
   </circle>
 
-  <!-- Abstract Flowing Paths -->
-  <path d="M200 100 Q400 300 600 100 T1000 100" fill="none" stroke="#00ff99" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="16s" repeatCount="indefinite" />
-    <animateTransform attributeName="transform" type="translate" values="0 0;0 10;0 -10;0 0" dur="18s" repeatCount="indefinite" />
-  </path>
-  <path d="M150 500 Q300 300 450 500 T1050 500" fill="none" stroke="#0099ff" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="20s" repeatCount="indefinite" />
-    <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 10;0 0" dur="22s" repeatCount="indefinite" />
-  </path>
-
-  <!-- Glowing Dots and Lines -->
-  <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8">
-    <path d="M900 150 v100 h100">
-      <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 5;0 0" dur="14s" repeatCount="indefinite" />
-    </path>
-    <circle cx="1000" cy="250" r="6" fill="#ffffff">
-      <animate attributeName="r" values="6;9;6" dur="12s" repeatCount="indefinite" />
-    </circle>
-    <path d="M400 450 h-100 v-100">
-      <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 5;0 0" dur="16s" repeatCount="indefinite" />
-    </path>
-    <circle cx="300" cy="350" r="6" fill="#ffffff">
-      <animate attributeName="r" values="6;10;6" dur="18s" repeatCount="indefinite" />
-    </circle>
+  <!-- AI Symbol -->
+  <g transform="translate(100, 60)">
+    <rect x="50" y="50" width="100" height="100" fill="url(#circuitPattern)" />
+    <text x="100" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="url(#textGradientAI)" font-weight="bold">
+      AI
+      <animate attributeName="opacity" values="1;0.8;1" dur="3.236s" repeatCount="indefinite" />
+    </text>
   </g>
 
-  <!-- Title and Subtitle -->
-  <text x="50%" y="40%" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" fill="url(#textGradient)" font-weight="bold">
-    Redefining Technology
-    <animateTransform attributeName="transform" type="scale" values="1 1;1.05 1.05;1 1" dur="15s" repeatCount="indefinite" />
-  </text>
-  <text x="50%" y="48%" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="url(#textGradient)" font-weight="300">
-    Empowering people. Inspiring progress.
-    <animate attributeName="opacity" values="1;0.8;1" dur="18s" repeatCount="indefinite" />
-  </text>
+  <!-- Neural Network Effect -->
+  <circle cx="100" cy="80" r="6" fill="#00ff99">
+    <animate attributeName="cx" values="100;200;300;100" dur="3.236s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;150;220;80" dur="3.236s" repeatCount="indefinite" />
+    <animate attributeName="r" values="6;8;6" dur="3.236s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="220" r="6" fill="#0099ff">
+    <animate attributeName="cx" values="300;200;100;300" dur="3.236s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="220;150;80;220" dur="3.236s" repeatCount="indefinite" />
+    <animate attributeName="r" values="6;8;6" dur="3.236s" repeatCount="indefinite" />
+  </circle>
 
-  <!-- Bottom Wave -->
-  <path d="M0 500 Q360 600 720 500 T1440 500 L1440 600 L0 600 Z" fill="#ffffff" opacity="0.5">
-    <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 10;0 0" dur="18s" repeatCount="indefinite" />
-  </path>
+  <!-- Title and Description -->
+  <text x="50%" y="50%" font-size="24" font-family="Arial, sans-serif" fill="url(#textGradientAI)" text-anchor="middle" dominant-baseline="middle">
+    Unlock the Power of AI
+    <animate attributeName="opacity" values="1;0.9;1" dur="2.618s" repeatCount="indefinite" />
+  </text>
 </svg>

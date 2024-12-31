@@ -4,37 +4,42 @@
   <!-- Background Gradients -->
   <defs>
     <linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00cc80">
-        <animate attributeName="stop-color" values="#00cc80;#007744;#00cc80" dur="13.162s" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="#1e1e2f">
+        <animate attributeName="stop-color" values="#1e1e2f;#2a2a50;#1e1e2f" dur="15s" repeatCount="indefinite" />
       </stop>
-      <stop offset="100%" stop-color="#00995e">
-        <animate attributeName="stop-color" values="#00995e;#00cc80;#00995e" dur="17.857s" repeatCount="indefinite" />
+      <stop offset="100%" stop-color="#2a2a50">
+        <animate attributeName="stop-color" values="#2a2a50;#1e1e2f;#2a2a50" dur="15s" repeatCount="indefinite" />
       </stop>
     </linearGradient>
 
     <radialGradient id="heroRadial" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.9)">
-        <animate attributeName="stop-color" values="rgba(255, 255, 255, 0.9);rgba(255, 255, 255, 0.6);rgba(255, 255, 255, 0.9)" dur="21.345s" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="rgba(0, 255, 153, 0.8)">
+        <animate attributeName="stop-color" values="rgba(0, 255, 153, 0.8);rgba(0, 153, 255, 0.6);rgba(0, 255, 153, 0.8)" dur="20s" repeatCount="indefinite" />
       </stop>
       <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
     </radialGradient>
+
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#00ff99" />
+    </linearGradient>
   </defs>
 
   <!-- Background Rectangle -->
   <rect x="0" y="0" width="1440" height="600" fill="url(#heroGradient)" />
 
   <!-- Pulsating Circle -->
-  <circle cx="720" cy="300" r="280" fill="url(#heroRadial)" opacity="0.6">
-    <animate attributeName="r" values="280;320;260;280" dur="15s" repeatCount="indefinite" />
+  <circle cx="720" cy="300" r="300" fill="url(#heroRadial)" opacity="0.6">
+    <animate attributeName="r" values="300;350;280;300" dur="15s" repeatCount="indefinite" />
     <animate attributeName="opacity" values="0.6;0.8;0.4;0.6" dur="20s" repeatCount="indefinite" />
   </circle>
 
-  <!-- Flowing Abstract Paths -->
-  <path d="M200 100 Q400 300 600 100 T1000 100" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6">
+  <!-- Abstract Flowing Paths -->
+  <path d="M200 100 Q400 300 600 100 T1000 100" fill="none" stroke="#00ff99" stroke-width="2" opacity="0.6">
     <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="16s" repeatCount="indefinite" />
     <animateTransform attributeName="transform" type="translate" values="0 0;0 10;0 -10;0 0" dur="18s" repeatCount="indefinite" />
   </path>
-  <path d="M150 500 Q300 300 450 500 T1050 500" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6">
+  <path d="M150 500 Q300 300 450 500 T1050 500" fill="none" stroke="#0099ff" stroke-width="2" opacity="0.6">
     <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="20s" repeatCount="indefinite" />
     <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 10;0 0" dur="22s" repeatCount="indefinite" />
   </path>
@@ -53,20 +58,14 @@
     <circle cx="300" cy="350" r="6" fill="#ffffff">
       <animate attributeName="r" values="6;10;6" dur="18s" repeatCount="indefinite" />
     </circle>
-    <path d="M1200 400 v-150 h-100">
-      <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 5;0 0" dur="24s" repeatCount="indefinite" />
-    </path>
-    <circle cx="1100" cy="250" r="6" fill="#ffffff">
-      <animate attributeName="r" values="6;9;6" dur="16s" repeatCount="indefinite" />
-    </circle>
   </g>
 
   <!-- Title and Subtitle -->
-  <text x="50%" y="40%" text-anchor="middle" font-family="'Arial', sans-serif" font-size="50" fill="#ffffff" font-weight="bold">
+  <text x="50%" y="40%" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" fill="url(#textGradient)" font-weight="bold">
     Redefining Technology
     <animateTransform attributeName="transform" type="scale" values="1 1;1.05 1.05;1 1" dur="15s" repeatCount="indefinite" />
   </text>
-  <text x="50%" y="48%" text-anchor="middle" font-family="'Arial', sans-serif" font-size="20" fill="#ffffff" font-weight="300">
+  <text x="50%" y="48%" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="url(#textGradient)" font-weight="300">
     Empowering people. Inspiring progress.
     <animate attributeName="opacity" values="1;0.8;1" dur="18s" repeatCount="indefinite" />
   </text>
