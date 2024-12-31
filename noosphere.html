@@ -515,6 +515,12 @@
                 <li><a href="#key-features">Features</a></li>
                 <li><a href="#applications">Applications</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <!-- GitHub Repo Link -->
+                <li>
+                    <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub Repository" style="display: inline-flex; align-items: center;">
+                        <img src="image/github-logo.svg" alt="GitHub Logo" style="width: 20px; height: 20px; margin-right: 5px; animation: rotate 4s infinite linear;">Repo
+                    </a>
+                </li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -523,6 +529,30 @@
             </div>
         </div>
     </nav>
+    
+    <!-- Additional CSS -->
+    <style>
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .nav-links li a:hover img {
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+    
     
 
     <!-- ============================================
@@ -818,8 +848,234 @@
         </script>
       </section>
       
+    <!-- ============================================
+         Footer
+    ============================================= -->
+    <footer>
+        <div class="footer-content" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 20px; background: #1e1e30; color: #ffffff;">
+            <div class="footer-logo" style="flex: 1; text-align: left;">
+                <img src="/image/logo.png" alt="Footer Logo" style="width: 150px; height: auto;">
+            </div>
+            <div class="footer-about" style="flex: 2; text-align: center; font-size: 1rem;">
+                <p>
+                    Noosphere is an open-source project dedicated to revolutionizing middleware frameworks with AI-powered routing, scalability, and developer-friendly tools.
+                </p>
+            </div>
+            <div class="footer-links" style="flex: 1; text-align: right;">
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; gap: 15px; justify-content: flex-end;">
+                    <li><a href="/index.html" style="color: #00ff99; text-decoration: none;">Home</a></li>
+                    <li><a href="#key-features" style="color: #00ff99; text-decoration: none;">Features</a></li>
+                    <li><a href="#applications" style="color: #00ff99; text-decoration: none;">Applications</a></li>
+                    <li><a href="#contact" style="color: #00ff99; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-links" style="flex: 1; text-align: right;">
+                <a href="https://twitter.com/kojib_com" aria-label="Twitter" style="margin-right: 15px;">
+                    <img src="/image/twitter-icon.svg" alt="Twitter" style="width: 30px; height: 30px;">
+                </a>
+                <a href="https://github.com/kojibai/noosphere" aria-label="GitHub" style="margin-right: 15px;">
+                    <img class="github-icon" src="/image/github-logo.svg" alt="GitHub" style="width: 30px; height: 30px;">
+                </a>
+                <a href="https://linkedin.com/in/kojib" aria-label="LinkedIn">
+                    <img src="/image/linkedin-icon.svg" alt="LinkedIn" style="width: 30px; height: 30px;">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom" style="text-align: center; padding: 10px; font-size: 0.9rem; background: #2e2e50;">
+            <p>&copy; 2024 Noosphere. All rights reserved. | <a href="/privacy-policy.html" style="color: #00ff99; text-decoration: none;">Privacy Policy</a></p>
+        </div>
+    
+        <style>
+            .github-icon {
+                transition: transform 0.5s ease, filter 0.5s ease;
+                filter: drop-shadow(0 0 5px #ffffff);
+            }
+    
+            .github-icon:hover {
+                transform: rotate(360deg) scale(1.2);
+                filter: drop-shadow(0 0 10px #00ff99);
+            }
+        </style>
+    </footer>
+    
 
     <!-- ============================================
+         JavaScript for Interactivity and Animations
+    ============================================= -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth Scroll for Internal Links (excluding Home)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Prevent default behavior
+                e.preventDefault();
+
+                // Check if href is not "/index.html"
+                if (this.getAttribute('href') !== '/index.html') {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70, // Adjust for fixed navbar
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Adding "Wow" Effects: Particle Background using Particles.js
+        // Load Particles.js script dynamically
+        (function() {
+            const script = document.createElement('script');
+            script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
+            script.onload = () => {
+                particlesJS("noosphere-section", {
+                    "particles": {
+                        "number": {
+                            "value": 50,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#00ff99"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.3,
+                            "random": true
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false
+                        }
+                    },
+                    "interactivity": {
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "repulse"
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            };
+            document.body.appendChild(script);
+        })();
+
+      // Create Scroll to Top Button
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" class="scroll-to-top-icon">
+    <path d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
+  </svg>
+`;
+scrollToTopBtn.style.position = 'fixed';
+scrollToTopBtn.style.bottom = '40px';
+scrollToTopBtn.style.left = '20px';
+scrollToTopBtn.style.width = '60px';
+scrollToTopBtn.style.height = '60px';
+scrollToTopBtn.style.display = 'flex';
+scrollToTopBtn.style.alignItems = 'center';
+scrollToTopBtn.style.justifyContent = 'center';
+scrollToTopBtn.style.border = 'none';
+scrollToTopBtn.style.borderRadius = '50%';
+scrollToTopBtn.style.background = 'linear-gradient(145deg, #1e1e30, #00cc80)';
+scrollToTopBtn.style.cursor = 'pointer';
+scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
+scrollToTopBtn.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+scrollToTopBtn.style.display = 'none';
+scrollToTopBtn.style.zIndex = '1000';
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
+
+document.body.appendChild(scrollToTopBtn);
+
+// Add hover effect
+scrollToTopBtn.addEventListener('mouseover', () => {
+  scrollToTopBtn.style.transform = 'scale(1.1)';
+  scrollToTopBtn.style.boxShadow = '0 10px 15px rgba(0, 255, 153, 0.5)';
+});
+
+scrollToTopBtn.addEventListener('mouseout', () => {
+  scrollToTopBtn.style.transform = 'scale(1)';
+  scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
+});
+
+// Show/Hide Scroll to Top Button
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.style.display = 'flex';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+});
+
+// Scroll to Top on Button Click
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Add glowing animation
+const style = document.createElement('style');
+style.innerHTML = `
+  .scroll-to-top-icon {
+    fill: #00cc80;
+    animation: pulseGlow 2s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 4px #00ff99) drop-shadow(0 0 8px #00cc80);
+    }
+    50% {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 12px #00ff99) drop-shadow(0 0 16px #00cc80);
+    }
+  }
+`;
+document.head.appendChild(style);
+
+
+
+    </script>
+<!-- ============================================
          Ai chatbot Section
     ============================================= -->
     <style>/* Chatbot Button */
@@ -1049,215 +1305,6 @@
       <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
         <img src="image/chat-icon.svg" alt="Chat Icon" />
       </div> 
-    <!-- ============================================
-         Footer
-    ============================================= -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="/image/logo.png" alt="Footer Logo">
-            </div>
-            <div class="footer-about">
-                <p>
-                    Noosphere is an open-source project dedicated to revolutionizing middleware frameworks with AI-powered routing, scalability, and developer-friendly tools.
-                </p>
-            </div>
-            <div class="footer-links">
-                <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="#key-features">Features</a></li>
-                    <li><a href="#applications">Applications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="social-links">
-                <a href="https://twitter.com/kojib_com" aria-label="Twitter"><img src="/image/twitter-icon.svg" alt="Twitter"></a>
-                <a href="https://github.com/kojibai/noosphere" aria-label="GitHub"><img src="/image/github-logo.svg" alt="GitHub"></a>
-                <a href="https://linkedin.com/in/kojib" aria-label="LinkedIn"><img src="/image/linkedin-icon.svg" alt="LinkedIn"></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Noosphere. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a></p>
-        </div>
-    </footer>
-
-    <!-- ============================================
-         JavaScript for Interactivity and Animations
-    ============================================= -->
-    <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
-                hamburger.classList.remove('open');
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Smooth Scroll for Internal Links (excluding Home)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                // Prevent default behavior
-                e.preventDefault();
-
-                // Check if href is not "/index.html"
-                if (this.getAttribute('href') !== '/index.html') {
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 70, // Adjust for fixed navbar
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Adding "Wow" Effects: Particle Background using Particles.js
-        // Load Particles.js script dynamically
-        (function() {
-            const script = document.createElement('script');
-            script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
-            script.onload = () => {
-                particlesJS("noosphere-section", {
-                    "particles": {
-                        "number": {
-                            "value": 50,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            "value": "#00ff99"
-                        },
-                        "shape": {
-                            "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            }
-                        },
-                        "opacity": {
-                            "value": 0.3,
-                            "random": true
-                        },
-                        "size": {
-                            "value": 3,
-                            "random": true
-                        },
-                        "move": {
-                            "enable": true,
-                            "speed": 2,
-                            "direction": "none",
-                            "random": false,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false
-                        }
-                    },
-                    "interactivity": {
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                "mode": "repulse"
-                            }
-                        }
-                    },
-                    "retina_detect": true
-                });
-            };
-            document.body.appendChild(script);
-        })();
-
-      // Create Scroll to Top Button
-const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" class="scroll-to-top-icon">
-    <path d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
-  </svg>
-`;
-scrollToTopBtn.style.position = 'fixed';
-scrollToTopBtn.style.bottom = '40px';
-scrollToTopBtn.style.left = '20px';
-scrollToTopBtn.style.width = '60px';
-scrollToTopBtn.style.height = '60px';
-scrollToTopBtn.style.display = 'flex';
-scrollToTopBtn.style.alignItems = 'center';
-scrollToTopBtn.style.justifyContent = 'center';
-scrollToTopBtn.style.border = 'none';
-scrollToTopBtn.style.borderRadius = '50%';
-scrollToTopBtn.style.background = 'linear-gradient(145deg, #1e1e30, #00cc80)';
-scrollToTopBtn.style.cursor = 'pointer';
-scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
-scrollToTopBtn.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-scrollToTopBtn.style.display = 'none';
-scrollToTopBtn.style.zIndex = '1000';
-scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
-
-document.body.appendChild(scrollToTopBtn);
-
-// Add hover effect
-scrollToTopBtn.addEventListener('mouseover', () => {
-  scrollToTopBtn.style.transform = 'scale(1.1)';
-  scrollToTopBtn.style.boxShadow = '0 10px 15px rgba(0, 255, 153, 0.5)';
-});
-
-scrollToTopBtn.addEventListener('mouseout', () => {
-  scrollToTopBtn.style.transform = 'scale(1)';
-  scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
-});
-
-// Show/Hide Scroll to Top Button
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    scrollToTopBtn.style.display = 'flex';
-  } else {
-    scrollToTopBtn.style.display = 'none';
-  }
-});
-
-// Scroll to Top on Button Click
-scrollToTopBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
-
-// Add glowing animation
-const style = document.createElement('style');
-style.innerHTML = `
-  .scroll-to-top-icon {
-    fill: #00cc80;
-    animation: pulseGlow 2s infinite;
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% {
-      transform: scale(1);
-      filter: drop-shadow(0 0 4px #00ff99) drop-shadow(0 0 8px #00cc80);
-    }
-    50% {
-      transform: scale(1.1);
-      filter: drop-shadow(0 0 12px #00ff99) drop-shadow(0 0 16px #00cc80);
-    }
-  }
-`;
-document.head.appendChild(style);
-
-
-
-    </script>
-
 
      <!-- Include other scripts or libraries -->
      <script src="chatbot.js"></script>
