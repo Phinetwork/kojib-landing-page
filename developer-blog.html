@@ -544,14 +544,86 @@
   </div>
 
   <!-- Blog Posts Section -->
-<section class="blog-posts">
+  <section class="blog-posts">
     <!-- Featured Post -->
     <article class="blog-post">
       <img src="image/featured-post.svg" alt="Unlocking the Power of AI: A Comprehensive Guide">
       <h3>Unlocking the Power of AI: A Comprehensive Guide</h3>
       <p>Delve into the fundamentals of artificial intelligence and discover how to harness its capabilities to build intelligent applications.</p>
-      <a href="#">Read More</a>
+      <a href="unlock-power-of-ai.html" class="read-more">Read More</a>
     </article>
+  </section>
+  
+  <style>
+    /* Blog Posts Section */
+    .blog-posts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0;
+      font-family: Arial, sans-serif;
+    }
+  
+    /* Blog Post Article */
+    .blog-post {
+      max-width: 600px;
+      text-align: center;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .blog-post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  
+    .blog-post img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+  
+    .blog-post h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    .blog-post p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+  
+    /* Read More Link */
+    .read-more {
+      display: inline-block;
+      font-size: 1rem;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(145deg, #1e90ff, #00bfff);
+      padding: 10px 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .read-more:hover {
+      background: linear-gradient(145deg, #00bfff, #1e90ff);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+    .read-more:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  
   
     <!-- Latest Posts -->
     <article class="blog-post">
