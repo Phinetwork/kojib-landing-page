@@ -777,43 +777,68 @@
 </head>
 <body>
 
-    <!-- ============================================
+<!-- ============================================
          Navbar
 ============================================= -->
 <nav id="navbar">
-  <div class="nav-container">
-    <!-- Logo links to the homepage -->
-    <div class="logo">
-      <a href="/index.html">
-        <img src="image/logo.png" alt="Logo">
-      </a>
-    </div>
-
-    <!-- Navigation Links -->
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="#noosphere-section">Noosphere</a></li>
-      <li><a href="#key-features">Features</a></li>
-      <li><a href="#applications">Applications</a></li>
-      <li><a href="#cta">Contribute</a></li>
-      <li><a href="/developers.html">Developers</a></li>
-      <!-- GitHub Repo Link -->
-      <li class="github-link">
-        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub Repository">
-          <img src="image/github-logo.svg" alt="GitHub Logo">
-          GitHub
+    <div class="nav-container">
+      <!-- Logo links to the homepage -->
+      <div class="logo">
+        <a href="/index.html">
+          <img src="image/logo.png" alt="Logo">
         </a>
-      </li>
-    </ul>
-
-    <!-- Hamburger Menu -->
-    <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      </div>
+  
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="#noosphere-section">Noosphere</a></li>
+        <li><a href="#key-features">Features</a></li>
+        <li><a href="#applications">Applications</a></li>
+        <li><a href="#cta">Contribute</a></li>
+        <li><a href="/developers.html">Developers</a></li>
+        <!-- GitHub Repo Link -->
+        <li class="github-link">
+          <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub Repository">
+            <img src="image/github-logo.svg" alt="GitHub Logo">
+            GitHub
+          </a>
+        </li>
+      </ul>
+  
+      <!-- Hamburger Menu -->
+      <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+  
+      // Toggle the navbar visibility when the hamburger is clicked
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.setAttribute(
+          "aria-expanded",
+          navLinks.classList.contains("active")
+        );
+      });
+  
+      // Close the menu when a link is clicked
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          hamburger.setAttribute("aria-expanded", "false");
+        });
+      });
+    });
+  </script>
+  
 
 
     <!-- ============================================
