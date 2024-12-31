@@ -1,63 +1,75 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" fill="none">
   <defs>
     <!-- Background Gradient -->
-    <linearGradient id="bgGradientAI" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#1e1e2f" />
       <stop offset="100%" stop-color="#2a2a50" />
     </linearGradient>
 
     <!-- Glow Effect -->
-    <radialGradient id="glowGradientAI" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.8" />
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.7" />
       <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
     </radialGradient>
 
+    <!-- Circuit Line Pattern -->
+    <pattern id="circuitPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="10" x2="20" y2="10" stroke="#00ff99" stroke-width="0.5" />
+      <line x1="10" y1="0" x2="10" y2="20" stroke="#00ff99" stroke-width="0.5" />
+    </pattern>
+
     <!-- Text Gradient -->
-    <linearGradient id="textGradientAI" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff" />
       <stop offset="100%" stop-color="#00ff99" />
     </linearGradient>
-
-    <!-- Circuit Line Pattern -->
-    <pattern id="circuitPattern" width="20" height="20" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="10" x2="20" y2="10" stroke="#00ff99" stroke-width="1" />
-      <line x1="10" y1="0" x2="10" y2="20" stroke="#00ff99" stroke-width="1" />
-    </pattern>
   </defs>
 
   <!-- Background Rectangle -->
-  <rect x="0" y="0" width="400" height="300" fill="url(#bgGradientAI)" />
+  <rect x="0" y="0" width="400" height="300" fill="url(#bgGradient)" />
 
-  <!-- Glow Circle -->
-  <circle cx="200" cy="150" r="140" fill="url(#glowGradientAI)" opacity="0.5">
-    <animate attributeName="r" values="140;150;140" dur="2.618s" repeatCount="indefinite" />
-    <animate attributeName="opacity" values="0.5;0.7;0.5" dur="2.618s" repeatCount="indefinite" />
+  <!-- Pulsating Glow -->
+  <circle cx="200" cy="150" r="130" fill="url(#glowGradient)" opacity="0.5">
+    <animate attributeName="r" values="130;150;130" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2.618s" repeatCount="indefinite" />
   </circle>
 
   <!-- AI Symbol -->
-  <g transform="translate(100, 60)">
-    <rect x="50" y="50" width="100" height="100" fill="url(#circuitPattern)" />
-    <text x="100" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="url(#textGradientAI)" font-weight="bold">
+  <g transform="translate(100, 70)">
+    <rect x="50" y="50" width="100" height="100" fill="url(#circuitPattern)">
+      <animate attributeName="fill" values="url(#circuitPattern);#00ff99;url(#circuitPattern)" dur="3.236s" repeatCount="indefinite" />
+    </rect>
+    <text x="100" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="url(#textGradient)" font-weight="bold">
       AI
-      <animate attributeName="opacity" values="1;0.8;1" dur="3.236s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0.9;1" dur="2.618s" repeatCount="indefinite" />
     </text>
   </g>
 
   <!-- Neural Network Effect -->
-  <circle cx="100" cy="80" r="6" fill="#00ff99">
-    <animate attributeName="cx" values="100;200;300;100" dur="3.236s" repeatCount="indefinite" />
-    <animate attributeName="cy" values="80;150;220;80" dur="3.236s" repeatCount="indefinite" />
-    <animate attributeName="r" values="6;8;6" dur="3.236s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="300" cy="220" r="6" fill="#0099ff">
-    <animate attributeName="cx" values="300;200;100;300" dur="3.236s" repeatCount="indefinite" />
-    <animate attributeName="cy" values="220;150;80;220" dur="3.236s" repeatCount="indefinite" />
-    <animate attributeName="r" values="6;8;6" dur="3.236s" repeatCount="indefinite" />
-  </circle>
+  <g>
+    <circle cx="80" cy="80" r="5" fill="#00ff99">
+      <animate attributeName="cx" values="80;200;320;80" dur="4.236s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="80;150;220;80" dur="4.236s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="320" cy="220" r="5" fill="#0099ff">
+      <animate attributeName="cx" values="320;200;80;320" dur="4.236s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="220;150;80;220" dur="4.236s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="150" r="8" fill="#ffffff">
+      <animate attributeName="r" values="8;12;8" dur="3.618s" repeatCount="indefinite" />
+      <animate attributeName="fill" values="#ffffff;#00ff99;#ffffff" dur="3.618s" repeatCount="indefinite" />
+    </circle>
+  </g>
 
-  <!-- Title and Description -->
-  <text x="50%" y="50%" font-size="24" font-family="Arial, sans-serif" fill="url(#textGradientAI)" text-anchor="middle" dominant-baseline="middle">
+  <!-- Title Text -->
+  <text x="50%" y="30%" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="url(#textGradient)">
     Unlock the Power of AI
-    <animate attributeName="opacity" values="1;0.9;1" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0.9;1" dur="3.236s" repeatCount="indefinite" />
+  </text>
+
+  <!-- Description Text -->
+  <text x="50%" y="85%" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#ffffff" opacity="0.8">
+    Transforming bold ideas into groundbreaking realities
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3.618s" repeatCount="indefinite" />
   </text>
 </svg>
