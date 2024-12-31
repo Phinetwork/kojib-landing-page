@@ -586,46 +586,44 @@
 
 
 
-  <!-- ============================================
+ <!-- ============================================
      Showcase Section
 ============================================= -->
 <section id="showcase" class="showcase-section">
   <!-- Inline Styles for Showcase Animations -->
   <style>
     /* ============================================
-       Showcase Icon Animations
+       Showcase Icon Animations - Glow and Twinkle
     ============================================= */
-    @keyframes phiMotion {
+    @keyframes phiGlowTwinkle {
       0% {
-        transform: scale(1);
-        opacity: 0.95;
+        box-shadow: 0 0 5px #00cc80, 0 0 10px #00cc80;
       }
       38.2% { /* Reflects 1/phi proportion */
-        transform: scale(1.05);
-        opacity: 1;
+        box-shadow: 0 0 15px #00ff99, 0 0 25px #00ff99;
       }
       61.8% { /* Reflects phi proportion */
-        transform: scale(0.95);
-        opacity: 0.95;
+        box-shadow: 0 0 10px #00cc80, 0 0 20px #00cc80;
       }
       100% {
-        transform: scale(1);
-        opacity: 0.95;
+        box-shadow: 0 0 5px #00cc80, 0 0 10px #00cc80;
       }
     }
 
-    .phi-motion {
-      animation: phiMotion 1.618s infinite ease-in-out;
+    .glow-twinkle {
+      animation: phiGlowTwinkle 1.618s infinite ease-in-out;
+      transition: box-shadow 0.3s ease;
     }
 
-    /* Optional: Enhance Feature Card Hover Effect */
+    /* Enhance Feature Card Hover Effect */
     .feature-card:hover .feature-icon img {
-      animation: phiMotion 1.618s infinite ease-in-out;
+      animation: phiGlowTwinkle 1.618s infinite ease-in-out;
     }
 
     /* Ensure Smooth Transition */
     .feature-icon img {
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: box-shadow 0.3s ease;
+      border-radius: 50%; /* Optional: Make icons circular */
     }
   </style>
 
@@ -638,7 +636,7 @@
       <!-- Predictive Modeling Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon" class="phi-motion">
+          <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon" class="glow-twinkle">
         </div>
         <h3>Predictive Modeling</h3>
         <p>Harness the power of advanced algorithms to gain actionable insights.</p>
@@ -647,7 +645,7 @@
       <!-- Neural Network Design Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/neural-network-icon.svg" alt="Neural Network Design Icon" class="phi-motion">
+          <img src="image/neural-network-icon.svg" alt="Neural Network Design Icon" class="glow-twinkle">
         </div>
         <h3>Neural Network Design</h3>
         <p>Our cutting-edge neural network architectures emulate human intelligence.</p>
@@ -656,7 +654,7 @@
       <!-- Human-Centric AI Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/human-centric-icon.svg" alt="Human-Centric AI Icon" class="phi-motion">
+          <img src="image/human-centric-icon.svg" alt="Human-Centric AI Icon" class="glow-twinkle">
         </div>
         <h3>Human-Centric AI</h3>
         <p>We believe AI should enhance humanity, not replace it.</p>
@@ -665,7 +663,7 @@
       <!-- Data Visualization Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/data-visualization-icon.svg" alt="Data Visualization Icon" class="phi-motion">
+          <img src="image/data-visualization-icon.svg" alt="Data Visualization Icon" class="glow-twinkle">
         </div>
         <h3>Data Visualization</h3>
         <p>Transform complex datasets into vivid, interactive visual stories.</p>
@@ -674,7 +672,7 @@
       <!-- Scalable Automation Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/automation-icon.svg" alt="Scalable Automation Icon" class="phi-motion">
+          <img src="image/automation-icon.svg" alt="Scalable Automation Icon" class="glow-twinkle">
         </div>
         <h3>Scalable Automation</h3>
         <p>Streamline your processes with intelligent automation that grows with you.</p>
@@ -683,7 +681,7 @@
       <!-- Creative AI Feature -->
       <div class="feature-card">
         <div class="feature-icon">
-          <img src="image/creative-ai-icon.svg" alt="Creative AI Icon" class="phi-motion">
+          <img src="image/creative-ai-icon.svg" alt="Creative AI Icon" class="glow-twinkle">
         </div>
         <h3>Creative AI</h3>
         <p>Empower your imagination with AI tools designed for creators.</p>
