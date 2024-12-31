@@ -87,22 +87,44 @@
             filter: drop-shadow(0 0 10px var(--secondary-color));
         }
 
-        /* Nav Links */
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+        /* Default hidden state for mobile menu */
+.nav-links {
+  position: fixed;
+  top: 70px; /* Adjust based on your navbar height */
+  right: -100%;
+  width: 200px;
+  height: calc(100vh - 70px); /* Full height below navbar */
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 255, 153, 0.9));
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: right 0.3s ease-in-out;
+}
 
-        .nav-links li a {
-            color: var(--light-text);
-            font-size: 1rem;
-            transition: color var(--transition-speed) ease;
-        }
+/* Show the menu when active */
+.nav-links.active {
+  right: 0; /* Slide in from the right */
+}
 
-        .nav-links li a:hover {
-            color: var(--secondary-color);
-        }
+/* Mobile hamburger menu */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
 
         /* GitHub Link */
         .nav-links li.github-link a {
@@ -126,7 +148,20 @@
             transform: rotate(360deg);
             filter: drop-shadow(0 0 10px var(--secondary-color));
         }
+/* Hamburger open state */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background: var(--secondary-color);
+}
 
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+  background: var(--secondary-color);
+}
         /* Hamburger Menu */
         .hamburger {
             display: none;
