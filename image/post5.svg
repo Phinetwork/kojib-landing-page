@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradientDevOps" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0078D7" />
+      <stop offset="100%" stop-color="#00D7A7" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="glowGradientDevOps" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0078D7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Text Gradient -->
+    <linearGradient id="textGradientDevOps" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#00D7A7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Rectangle -->
+  <rect x="0" y="0" width="400" height="300" fill="url(#bgGradientDevOps)" />
+
+  <!-- Glow Circle -->
+  <circle cx="200" cy="150" r="140" fill="url(#glowGradientDevOps)" opacity="0.6">
+    <animate attributeName="r" values="140;160;140" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.8;0.6" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Infinity Loop Icon -->
+  <g transform="translate(150, 120)">
+    <path d="M50,20 C30,20 20,40 20,60 C20,80 30,100 50,100 C70,100 80,80 80,60 C80,40 70,20 50,20 Z
+             M50,20 C70,20 90,40 90,60 C90,80 70,100 50,100 C30,100 10,80 10,60 C10,40 30,20 50,20 Z" 
+          fill="#ffffff" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 50 60" to="360 50 60" dur="3.236s" repeatCount="indefinite" />
+      <animate attributeName="fill" values="#ffffff;#00D7A7;#0078D7;#ffffff" dur="3.236s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+  <!-- Dynamic Title Text -->
+  <text x="50%" y="50%" font-size="24" font-family="Arial, sans-serif" fill="url(#textGradientDevOps)" text-anchor="middle" dominant-baseline="middle">
+    Streamlined DevOps
+    <animate attributeName="opacity" values="1;0.8;1" dur="2.618s" repeatCount="indefinite" />
+  </text>
+
+  <!-- Subtle Particle Effect -->
+  <circle cx="50" cy="50" r="3" fill="#ffffff" opacity="0.6">
+    <animate attributeName="cx" values="50;200;350" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="50;150;250" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="350" cy="250" r="3" fill="#ffffff" opacity="0.6">
+    <animate attributeName="cx" values="350;200;50" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="250;150;50" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+</svg>

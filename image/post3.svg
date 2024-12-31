@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="mlBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E40" />
+      <stop offset="100%" stop-color="#30305C" />
+    </linearGradient>
+
+    <!-- Circular Glow Gradient -->
+    <radialGradient id="mlGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00FFC6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#1E1E40" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Text Gradient -->
+    <linearGradient id="mlText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFC6" />
+      <stop offset="100%" stop-color="#00A3E0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Rectangle -->
+  <rect x="0" y="0" width="400" height="300" fill="url(#mlBackground)" />
+
+  <!-- Central Circular Glow -->
+  <circle cx="200" cy="150" r="120" fill="url(#mlGlow)" opacity="0.7">
+    <animate attributeName="r" values="120;140;120" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Neural Network Icon -->
+  <g transform="translate(130, 80)">
+    <circle cx="30" cy="30" r="8" fill="#00FFC6">
+      <animate attributeName="r" values="8;12;8" dur="1.618s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="100" cy="30" r="8" fill="#00A3E0">
+      <animate attributeName="r" values="8;12;8" dur="1.618s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="65" cy="70" r="8" fill="#FFFFFF">
+      <animate attributeName="r" values="8;12;8" dur="1.618s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Connections -->
+    <line x1="30" y1="30" x2="65" y2="70" stroke="#FFFFFF" stroke-width="2" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="1.618s" repeatCount="indefinite" />
+    </line>
+    <line x1="100" y1="30" x2="65" y2="70" stroke="#FFFFFF" stroke-width="2" opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="1.618s" repeatCount="indefinite" />
+    </line>
+  </g>
+
+  <!-- Dynamic Title Text -->
+  <text x="200" y="150" font-size="24" font-family="Arial, sans-serif" fill="url(#mlText)" text-anchor="middle" dominant-baseline="middle">
+    Machine Learning
+    <animate attributeName="opacity" values="1;0.8;1" dur="2.618s" repeatCount="indefinite" />
+  </text>
+
+  <!-- Subtle Particle Effects -->
+  <circle cx="50" cy="50" r="3" fill="#00FFC6" opacity="0.6">
+    <animate attributeName="cx" values="50;200;350" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="50;150;250" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="350" cy="250" r="3" fill="#00A3E0" opacity="0.6">
+    <animate attributeName="cx" values="350;200;50" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="250;150;50" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+</svg>
