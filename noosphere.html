@@ -1000,15 +1000,43 @@
       // Create Scroll to Top Button
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" class="scroll-to-top-icon">
-    <path d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" class="phi-motion-icon">
+  <style>
+    @keyframes divineMotion {
+      0% {
+        transform: scale(1) rotate(0deg) translateX(0px);
+        opacity: 0.8;
+      }
+      38.2% { /* Reflects 1/phi proportion */
+        transform: scale(1.618) rotate(144deg) translateX(10px);
+        opacity: 1;
+      }
+      61.8% { /* Reflects phi proportion */
+        transform: scale(0.618) rotate(288deg) translateX(-10px);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(1) rotate(360deg) translateX(0px);
+        opacity: 0.8;
+      }
+    }
+
+    .phi-path {
+      fill: #00cc80;
+      filter: drop-shadow(0 0 6px #00cc80);
+      transform-origin: center;
+      animation: divineMotion 6.18s infinite ease-in-out;
+    }
+  </style>
+  <path class="phi-path" d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
+</svg>
+
 `;
 scrollToTopBtn.style.position = 'fixed';
-scrollToTopBtn.style.bottom = '40px';
-scrollToTopBtn.style.left = '20px';
-scrollToTopBtn.style.width = '60px';
-scrollToTopBtn.style.height = '60px';
+scrollToTopBtn.style.bottom = '20px';
+scrollToTopBtn.style.left = '10px';
+scrollToTopBtn.style.width = '50px';
+scrollToTopBtn.style.height = '50px';
 scrollToTopBtn.style.display = 'flex';
 scrollToTopBtn.style.alignItems = 'center';
 scrollToTopBtn.style.justifyContent = 'center';
@@ -1044,12 +1072,40 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Scroll to Top on Button Click
+// Create Pop-up Menu
+const menu = document.createElement('div');
+menu.style.position = 'fixed';
+menu.style.bottom = '80px';
+menu.style.left = '10px';
+menu.style.background = 'white';
+menu.style.border = '1px solid #ddd';
+menu.style.borderRadius = '8px';
+menu.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
+menu.style.padding = '10px';
+menu.style.display = 'none';
+menu.style.zIndex = '1000';
+menu.innerHTML = `
+  <ul style="list-style: none; margin: 0; padding: 0;">
+    <li style="margin: 5px 0;"><button class="menu-item">Scroll to Top</button></li>
+    <li style="margin: 5px 0;"><button class="menu-item">Home</button></li>
+    <li style="margin: 5px 0;"><button class="menu-item">Other Sections</button></li>
+    <li style="margin: 5px 0;"><a href="https://github.com" target="_blank" class="menu-item">GitHub Repo</a></li>
+  </ul>
+`;
+document.body.appendChild(menu);
+
+// Toggle Menu on Button Click
 scrollToTopBtn.addEventListener('click', () => {
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+});
+
+// Scroll to Top Functionality
+menu.querySelectorAll('.menu-item')[0].addEventListener('click', () => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   });
+  menu.style.display = 'none';
 });
 
 // Add glowing animation
@@ -1070,8 +1126,25 @@ style.innerHTML = `
       filter: drop-shadow(0 0 12px #00ff99) drop-shadow(0 0 16px #00cc80);
     }
   }
+
+  .menu-item {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+  }
+
+  .menu-item:hover {
+    background: #f0f0f0;
+  }
 `;
 document.head.appendChild(style);
+
 
     </script>
 
