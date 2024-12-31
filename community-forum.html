@@ -536,64 +536,123 @@
   </div>
 
   <!-- Forum Threads Section -->
-  <section class="forum-threads">
+<section class="forum-threads" style="padding: 60px 20px; background: linear-gradient(135deg, #1e1e30, #2a2a50); color: #ffffff; text-align: center; font-family: 'Inter', sans-serif;">
+    <style>
+      /* Forum Threads Styling */
+      .forum-threads {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+  
+      .thread {
+        background: rgba(30, 30, 48, 0.8);
+        border-radius: 15px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 4px 15px rgba(0, 255, 153, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: left;
+      }
+  
+      .thread:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 255, 153, 0.5);
+      }
+  
+      .thread img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: drop-shadow(0 0 15px rgba(0, 255, 153, 0.6));
+      }
+  
+      .thread:hover img {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 25px rgba(0, 255, 153, 0.8));
+      }
+  
+      .thread h3 {
+        font-size: 1.5rem;
+        color: #00ff99;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+      }
+  
+      .thread p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 15px;
+        line-height: 1.5;
+      }
+  
+      .thread a {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #ffffff;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #00cc80, #0099ff);
+        box-shadow: 0 4px 15px rgba(0, 255, 153, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+  
+      .thread a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 255, 153, 0.6);
+      }
+    </style>
+  
     <!-- Featured Thread -->
     <article class="thread">
-      <img src="image/featured-thread.jpg" alt="Featured Thread Image">
+      <img src="image/featured-thread.svg" alt="Featured Thread Image">
       <h3>Best Practices for Collaborative Development</h3>
       <p>Sharing insights and strategies for effective collaboration in development teams. What are your go-to practices?</p>
       <a href="#">Join the Discussion</a>
     </article>
-
+  
     <!-- Latest Threads -->
     <article class="thread">
-      <img src="image/thread1.jpg" alt="Thread 1 Image">
+      <img src="image/thread1.svg" alt="Thread 1 Image">
       <h3>Optimizing React Applications for Performance</h3>
       <p>Discuss techniques and tools to enhance the performance of React-based applications. Share your experiences and tips.</p>
       <a href="#">Join the Discussion</a>
     </article>
-
+  
     <article class="thread">
-      <img src="image/thread2.jpg" alt="Thread 2 Image">
+      <img src="image/thread2.svg" alt="Thread 2 Image">
       <h3>Implementing Secure Authentication in Web Apps</h3>
       <p>Explore methods for securing user authentication in web applications. What frameworks and practices do you recommend?</p>
       <a href="#">Join the Discussion</a>
     </article>
-
+  
     <article class="thread">
-      <img src="image/thread3.jpg" alt="Thread 3 Image">
+      <img src="image/thread3.svg" alt="Thread 3 Image">
       <h3>Deploying Scalable Microservices with Kubernetes</h3>
       <p>Share your experiences and challenges in deploying microservices using Kubernetes. Best practices and resources are welcome.</p>
       <a href="#">Join the Discussion</a>
     </article>
-
+  
     <article class="thread">
-      <img src="image/thread4.jpg" alt="Thread 4 Image">
+      <img src="image/thread4.svg" alt="Thread 4 Image">
       <h3>Introduction to GraphQL: Benefits and Use Cases</h3>
       <p>Discuss the advantages of using GraphQL over REST APIs. Share use cases where GraphQL has significantly improved your projects.</p>
       <a href="#">Join the Discussion</a>
     </article>
-
+  
     <article class="thread">
-      <img src="image/thread5.jpg" alt="Thread 5 Image">
+      <img src="image/thread5.svg" alt="Thread 5 Image">
       <h3>Effective Debugging Techniques for JavaScript</h3>
       <p>Share your go-to debugging tools and techniques for JavaScript development. How do you efficiently identify and fix issues?</p>
       <a href="#">Join the Discussion</a>
     </article>
   </section>
-
-  <!-- Categories Section -->
-  <section class="categories">
-    <div class="category">General Discussion</div>
-    <div class="category">Frontend Development</div>
-    <div class="category">Backend Development</div>
-    <div class="category">DevOps</div>
-    <div class="category">AI & Machine Learning</div>
-    <div class="category">Open-Source Projects</div>
-    <div class="category">Career Advice</div>
-    <div class="category">Tutorials & Resources</div>
-  </section>
-
+  
   <!-- Latest Discussions Section -->
   <section class="latest-discussions">
     <h2>Recent Topics</h2>
