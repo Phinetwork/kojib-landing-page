@@ -652,84 +652,74 @@
   }
 </style>
 <!-- Skyriz Section Content -->
-  <div class="skyriz-content">
-    <h2 class="skyriz-title">Meet <span class="highlight">Skyriz</span></h2>
-    <p class="skyriz-text">
-      Unlock the power of personalized AI learning with Skyriz. Transforming education with innovative, intuitive, and intelligent solutions tailored for every learner.
-    </p>
-    <div class="skyriz-features">
-      <div class="feature-card">
-        <img src="image/adaptive-learning-icon.svg" alt="Adaptive Learning Icon" class="feature-icon">
-        <h3>Adaptive Learning</h3>
-        <p>Skyriz personalizes the learning experience with real-time AI adjustments to your progress.</p>
-      </div>
-      <div class="feature-card">
-        <img src="image/ai-powered-insights-icon.svg" alt="AI Insights Icon" class="feature-icon">
-        <h3>AI Insights</h3>
-        <p>Gain deep, actionable insights that empower students and educators alike.</p>
-      </div>
-      <div class="feature-card">
-        <img src="image/collaborative-tools-icon.svg" alt="Collaborative Tools Icon" class="feature-icon">
-        <h3>Collaborative Tools</h3>
-        <p>Seamlessly connect with peers and educators for collaborative growth.</p>
-      </div>
-    <!-- Call to Action Button -->
-    <a href="https://skyriz.app" class="cta-button">
-      Explore Skyriz
-      <!-- Arrow SVG Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-        <defs>
-          <!-- Gradient Definitions -->
-          <radialGradient id="arrowGlowGradient" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#00ff99" stop-opacity="1" />
-            <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00ff99" />
-            <stop offset="100%" stop-color="#0099ff" />
-          </linearGradient>
-        </defs>
-      
-        <!-- Background Glow -->
-        <circle cx="32" cy="32" r="30" fill="url(#arrowGlowGradient)" opacity="0.5">
-          <animate attributeName="r" from="30" to="36" dur="1.618s" repeatCount="indefinite" />
-          <animate attributeName="opacity" from="0.5" to="0.2" dur="1.618s" repeatCount="indefinite" />
-        </circle>
-      
-        <!-- Rotating Background Circle -->
-        <circle cx="32" cy="32" r="28" stroke="url(#arrowGradient)" stroke-width="2" fill="none">
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 32 32"
-            to="360 32 32"
-            dur="2.618s"
-            repeatCount="indefinite"
-          />
-        </circle>
-      
-        <!-- Arrow Path -->
-        <path d="M26 20l10 12-10 12V20z" fill="url(#arrowGradient)">
-          <animateTransform
-            attributeName="transform"
-            type="translate"
-            from="0 0"
-            to="0 -4"
-            dur="1.618s"
-            repeatCount="indefinite"
-            additive="sum"
-          />
-        </path>
-      
-        <!-- Inner Glow -->
-        <circle cx="32" cy="32" r="5" fill="url(#arrowGlowGradient)" opacity="0.8">
-          <animate attributeName="r" from="5" to="10" dur="1.618s" repeatCount="indefinite" />
-          <animate attributeName="opacity" from="0.8" to="0.4" dur="1.618s" repeatCount="indefinite" />
-        </circle>
-      </svg>
-      
+<div class="skyriz-content">
+  <h2 class="skyriz-title">Meet <span class="highlight">Skyriz</span></h2>
+  <p class="skyriz-text">
+    Unlock the power of personalized AI learning with Skyriz. Transforming education with innovative, intuitive, and intelligent solutions tailored for every learner.
+  </p>
+  <div class="skyriz-features">
+    <div class="feature-card">
+      <img src="image/adaptive-learning-icon.svg" alt="Adaptive Learning Icon" class="feature-icon">
+      <h3>Adaptive Learning</h3>
+      <p>Skyriz personalizes the learning experience with real-time AI adjustments to your progress.</p>
+    </div>
+    <div class="feature-card">
+      <img src="image/ai-powered-insights-icon.svg" alt="AI Insights Icon" class="feature-icon">
+      <h3>AI Insights</h3>
+      <p>Gain deep, actionable insights that empower students and educators alike.</p>
+    </div>
+    <div class="feature-card">
+      <img src="image/collaborative-tools-icon.svg" alt="Collaborative Tools Icon" class="feature-icon">
+      <h3>Collaborative Tools</h3>
+      <p>Seamlessly connect with peers and educators for collaborative growth.</p>
+    </div>
+  </div>
+
+  <!-- Call-to-Action Button -->
+  <a href="https://skyriz.app" class="cta-button" style="position: relative; display: inline-block; padding: 15px 40px; border-radius: 30px; background: linear-gradient(135deg, #00ff99, #0099ff); color: #ffffff; font-weight: bold; font-size: 1.2rem; text-decoration: none; box-shadow: 0 4px 15px rgba(0, 255, 153, 0.5); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <span style="position: relative; z-index: 2;">Explore Skyriz</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 2;">
+      <defs>
+        <!-- Gradient Definitions -->
+        <radialGradient id="arrowGlowGradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#00ff99" stop-opacity="1" />
+          <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#00ff99" />
+          <stop offset="100%" stop-color="#0099ff" />
+        </linearGradient>
+      </defs>
+
+      <!-- Arrow Path -->
+      <path d="M26 20l10 12-10 12V20z" fill="url(#arrowGradient)">
+        <animateTransform
+          attributeName="transform"
+          type="translate"
+          from="0 0"
+          to="0 -4"
+          dur="1.618s"
+          repeatCount="indefinite"
+          additive="sum"
+        />
+      </path>
+    </svg>
+
+    <!-- Glowing Effect -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle, rgba(0, 255, 153, 0.3), rgba(0, 153, 255, 0)); z-index: 1; opacity: 0; transition: opacity 0.3s ease;">
+    </div>
+    <style>
+      .cta-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 255, 153, 0.7);
+      }
+      .cta-button:hover div {
+        opacity: 1;
+      }
+    </style>
   </a>
 </div>
+
 </section>
 
 <!-- ============================================
