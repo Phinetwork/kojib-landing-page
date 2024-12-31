@@ -1174,43 +1174,67 @@
             document.body.appendChild(script);
         })();
 
-        // Optional: Scroll to Top Button
-        const scrollToTopBtn = document.createElement('button');
-        scrollToTopBtn.innerHTML = '⬆️';
-        scrollToTopBtn.style.position = 'fixed';
-        scrollToTopBtn.style.bottom = '40px';
-        scrollToTopBtn.style.left = '40px';
-        scrollToTopBtn.style.padding = '10px 15px';
-        scrollToTopBtn.style.fontSize = '18px';
-        scrollToTopBtn.style.border = 'none';
-        scrollToTopBtn.style.borderRadius = '50%';
-        scrollToTopBtn.style.background = '#00ff99';
-        scrollToTopBtn.style.color = '#1e1e2f';
-        scrollToTopBtn.style.cursor = 'pointer';
-        scrollToTopBtn.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.3)';
-        scrollToTopBtn.style.transition = 'transform 0.3s ease, background 0.3s ease';
-        scrollToTopBtn.style.display = 'none';
-        scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
-        scrollToTopBtn.style.zIndex = '1000';
+        // Create Scroll to Top Button
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="#1e1e30">
+    <path d="M12 2c-.55 0-1 .45-1 1v15.59l-5.3-5.3a1 1 0 10-1.4 1.4l7 7c.39.39 1.02.39 1.41 0l7-7a1 1 0 00-1.4-1.4l-5.3 5.3V3c0-.55-.45-1-1-1z"/>
+  </svg>
+  <span style="font-weight: bold; font-size: 16px; margin-top: 5px; display: block;">Top</span>
+`;
+scrollToTopBtn.style.position = 'fixed';
+scrollToTopBtn.style.bottom = '40px';
+scrollToTopBtn.style.left = '40px';
+scrollToTopBtn.style.padding = '15px';
+scrollToTopBtn.style.width = '80px';
+scrollToTopBtn.style.height = '80px';
+scrollToTopBtn.style.display = 'flex';
+scrollToTopBtn.style.flexDirection = 'column';
+scrollToTopBtn.style.alignItems = 'center';
+scrollToTopBtn.style.justifyContent = 'center';
+scrollToTopBtn.style.border = 'none';
+scrollToTopBtn.style.borderRadius = '50%';
+scrollToTopBtn.style.background = 'linear-gradient(145deg, #00ff99, #00cc80)';
+scrollToTopBtn.style.color = '#1e1e30';
+scrollToTopBtn.style.cursor = 'pointer';
+scrollToTopBtn.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+scrollToTopBtn.style.transition = 'transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease';
+scrollToTopBtn.style.display = 'none';
+scrollToTopBtn.style.zIndex = '1000';
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
 
-        document.body.appendChild(scrollToTopBtn);
+document.body.appendChild(scrollToTopBtn);
 
-        // Show/Hide Scroll to Top Button
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.style.display = 'block';
-            } else {
-                scrollToTopBtn.style.display = 'none';
-            }
-        });
+// Add Hover Effects
+scrollToTopBtn.addEventListener('mouseover', () => {
+  scrollToTopBtn.style.background = 'linear-gradient(145deg, #00cc80, #00995e)';
+  scrollToTopBtn.style.transform = 'scale(1.1)';
+  scrollToTopBtn.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.4)';
+});
 
-        // Scroll to Top on Button Click
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+scrollToTopBtn.addEventListener('mouseout', () => {
+  scrollToTopBtn.style.background = 'linear-gradient(145deg, #00ff99, #00cc80)';
+  scrollToTopBtn.style.transform = 'scale(1)';
+  scrollToTopBtn.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.3)';
+});
+
+// Show/Hide Scroll to Top Button
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.style.display = 'flex';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+});
+
+// Scroll to Top on Button Click
+scrollToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
     </script>
 
 
