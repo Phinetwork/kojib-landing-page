@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <style>
+    .bubble {
+      fill: #00cc80;
+      transform-origin: center;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    .line {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      animation: flow 4s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes flow {
+      0% {
+        stroke-dasharray: 0, 100;
+      }
+      50% {
+        stroke-dasharray: 50, 50;
+      }
+      100% {
+        stroke-dasharray: 100, 0;
+      }
+    }
+  </style>
+
+  <!-- Lines -->
+  <line class="line" x1="30" y1="40" x2="70" y2="60" />
+  <line class="line" x1="30" y1="60" x2="70" y2="40" />
+
+  <!-- Speech Bubbles -->
+  <rect class="bubble" x="25" y="35" width="12" height="8" rx="2" />
+  <rect class="bubble" x="63" y="57" width="12" height="8" rx="2" />
+</svg>
