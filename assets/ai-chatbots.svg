@@ -1,17 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <style>
     .bubble {
-      fill: #00cc80;
+      fill: url(#bubble-gradient);
+      stroke: #ffffff;
+      stroke-width: 0.5;
       transform-origin: center;
-      animation: float 3s infinite ease-in-out;
+      animation: float 3.14s infinite ease-in-out;
     }
 
     .line {
       fill: none;
-      stroke: #ffffff;
-      stroke-width: 1.5;
+      stroke: #00cc80;
+      stroke-width: 2;
       stroke-linecap: round;
-      animation: flow 4s infinite ease-in-out;
+      animation: flow 6.18s infinite ease-in-out;
+    }
+
+    .ai-core {
+      fill: #00cc80;
+      stroke: #ffffff;
+      stroke-width: 1;
+      transform-origin: center;
+      animation: pulse 3.14s infinite ease-in-out;
     }
 
     @keyframes float {
@@ -19,28 +29,58 @@
         transform: translateY(0);
       }
       50% {
-        transform: translateY(-3px);
+        transform: translateY(-5px);
       }
     }
 
     @keyframes flow {
       0% {
-        stroke-dasharray: 0, 100;
+        stroke-dasharray: 0, 200;
       }
       50% {
-        stroke-dasharray: 50, 50;
+        stroke-dasharray: 100, 100;
       }
       100% {
-        stroke-dasharray: 100, 0;
+        stroke-dasharray: 200, 0;
       }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.618); /* Golden ratio scaling */
+        opacity: 0.9;
+      }
+    }
+
+    #bubble-gradient {
+      gradientTransform: rotate(45deg);
     }
   </style>
 
-  <!-- Lines -->
-  <line class="line" x1="30" y1="40" x2="70" y2="60" />
-  <line class="line" x1="30" y1="60" x2="70" y2="40" />
+  <defs>
+    <radialGradient id="bubble-gradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00cc80" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#00cc80" stop-opacity="0.8" />
+    </radialGradient>
+  </defs>
+
+  <!-- AI Core -->
+  <circle class="ai-core" cx="100" cy="100" r="10" />
+
+  <!-- Connection Lines -->
+  <line class="line" x1="90" y1="90" x2="60" y2="60" />
+  <line class="line" x1="110" y1="90" x2="140" y2="60" />
+  <line class="line" x1="90" y1="110" x2="60" y2="140" />
+  <line class="line" x1="110" y1="110" x2="140" y2="140" />
 
   <!-- Speech Bubbles -->
-  <rect class="bubble" x="25" y="35" width="12" height="8" rx="2" />
-  <rect class="bubble" x="63" y="57" width="12" height="8" rx="2" />
+  <rect class="bubble" x="50" y="50" width="20" height="10" rx="3" />
+  <rect class="bubble" x="130" y="50" width="20" height="10" rx="3" />
+  <rect class="bubble" x="50" y="140" width="20" height="10" rx="3" />
+  <rect class="bubble" x="130" y="140" width="20" height="10" rx="3" />
 </svg>

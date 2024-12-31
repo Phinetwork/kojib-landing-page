@@ -1,16 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <style>
     .node {
-      fill: #ff6f61;
-      animation: pulse 2s infinite ease-in-out;
+      fill: url(#node-gradient);
+      stroke: #ffffff;
+      stroke-width: 1;
+      animation: pulse 3.14s infinite ease-in-out;
     }
 
     .connection {
       fill: none;
-      stroke: #ffffff;
-      stroke-width: 1.5;
+      stroke: #ff6f61;
+      stroke-width: 2;
       stroke-linecap: round;
-      animation: connect 3s infinite ease-in-out;
+      animation: connect 6.18s infinite ease-in-out;
+    }
+
+    .data-stream {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1;
+      stroke-dasharray: 4;
+      animation: stream 4s infinite linear;
     }
 
     @keyframes pulse {
@@ -18,29 +28,57 @@
         transform: scale(1);
       }
       50% {
-        transform: scale(1.2);
+        transform: scale(1.618); /* Golden ratio scaling */
       }
     }
 
     @keyframes connect {
       0% {
-        stroke-dasharray: 0, 100;
+        stroke-dasharray: 0, 200;
+      }
+      50% {
+        stroke-dasharray: 100, 100;
       }
       100% {
-        stroke-dasharray: 100, 0;
+        stroke-dasharray: 200, 0;
       }
+    }
+
+    @keyframes stream {
+      0% {
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: -20;
+      }
+    }
+
+    #node-gradient {
+      gradientTransform: rotate(45deg);
     }
   </style>
 
+  <defs>
+    <radialGradient id="node-gradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff6f61" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#ff6f61" stop-opacity="0.8" />
+    </radialGradient>
+  </defs>
+
   <!-- Connections -->
-  <line class="connection" x1="30" y1="50" x2="50" y2="30" />
-  <line class="connection" x1="50" y1="30" x2="70" y2="50" />
-  <line class="connection" x1="70" y1="50" x2="50" y2="70" />
-  <line class="connection" x1="50" y1="70" x2="30" y2="50" />
+  <line class="connection" x1="60" y1="100" x2="100" y2="60" />
+  <line class="connection" x1="100" y1="60" x2="140" y2="100" />
+  <line class="connection" x1="140" y1="100" x2="100" y2="140" />
+  <line class="connection" x1="100" y1="140" x2="60" y2="100" />
+
+  <!-- Data Streams -->
+  <line class="data-stream" x1="80" y1="80" x2="120" y2="120" />
+  <line class="data-stream" x1="120" y1="80" x2="80" y2="120" />
 
   <!-- Nodes -->
-  <circle class="node" cx="30" cy="50" r="4" />
-  <circle class="node" cx="50" cy="30" r="4" />
-  <circle class="node" cx="70" cy="50" r="4" />
-  <circle class="node" cx="50" cy="70" r="4" />
+  <circle class="node" cx="60" cy="100" r="6" />
+  <circle class="node" cx="100" cy="60" r="6" />
+  <circle class="node" cx="140" cy="100" r="6" />
+  <circle class="node" cx="100" cy="140" r="6" />
 </svg>
