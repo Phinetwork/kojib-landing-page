@@ -108,12 +108,81 @@
             </radialGradient>
           </defs>
           <path d="M13 7l5 5-5 5V7z" fill="url(#arrowGradient)">
-            <animateTransform attributeName="transform" type="translate" from="0 0" to="5 0" dur="0.8s" repeatCount="indefinite" />
+            <animateTransform 
+              attributeName="transform" 
+              type="translate" 
+              values="0 0; 5 0; 0 0" 
+              dur="2.618s" <!-- Timed to golden ratio -->
+              repeatCount="indefinite" />
           </path>
         </svg>
       </a>
     </div>
   </div>
+</section>
+
+<!-- Animations -->
+<style>
+  /* Keywords Animation */
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(0, 255, 153, 1);
+    }
+    50% {
+      text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(0, 255, 153, 1);
+    }
+  }
+
+  @keyframes pulsate {
+    0%, 100% {
+      color: rgba(255, 255, 255, 1);
+      transform: scale(1);
+    }
+    61.8% { /* Golden Ratio Keyframe */
+      color: rgba(0, 255, 153, 1);
+      transform: scale(1.1);
+    }
+  }
+
+  .glow-keyword {
+    animation: glow 2.618s infinite ease-in-out;
+  }
+
+  .pulsate-keyword {
+    animation: pulsate 2.618s infinite ease-in-out;
+  }
+
+  /* CTA Button Animation */
+  @keyframes ctaPulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 6px 20px rgba(0, 255, 153, 0.6);
+    }
+    61.8% { /* Golden Ratio Rhythm */
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 255, 153, 0.8);
+    }
+  }
+
+  .cta-button {
+    animation: ctaPulse 2.618s infinite ease-in-out;
+  }
+
+  /* Arrow Animation Inside CTA */
+  @keyframes arrowTranslate {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    61.8% {
+      transform: translateX(5px);
+    }
+  }
+
+  .cta-button svg path {
+    animation: arrowTranslate 2.618s infinite ease-in-out;
+  }
+</style>
+
 
   <!-- Story Content -->
   <div class="story-content" style="position: relative; z-index: 2; max-width: 900px; margin: 40px auto;">
