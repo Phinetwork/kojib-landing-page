@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <!-- Gradient Definitions -->
+    <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ccff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#0066ff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="gridGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff99" />
+      <stop offset="100%" stop-color="#0099ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Glow -->
+  <circle cx="300" cy="300" r="250" fill="url(#orbGlow)" opacity="0.3">
+    <animate attributeName="r" from="250" to="260" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="0.3" to="0.1" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Hexagonal Grid -->
+  <g id="hex-grid" transform="translate(300, 300)">
+    <g id="hex-cell" transform="scale(1.618)">
+      <polygon points="30,0 15,25.98 -15,25.98 -30,0 -15,-25.98 15,-25.98" fill="none" stroke="url(#gridGradient)" stroke-width="2" />
+      <animateTransform attributeName="transform" type="scale" values="1.618; 1.7; 1.618" dur="2.618s" repeatCount="indefinite" />
+    </g>
+
+    <!-- Cloning Hexagonal Grid -->
+    <use href="#hex-cell" transform="translate(60, 34.64)" />
+    <use href="#hex-cell" transform="translate(-60, 34.64)" />
+    <use href="#hex-cell" transform="translate(120, 69.28)" />
+    <use href="#hex-cell" transform="translate(-120, 69.28)" />
+    <use href="#hex-cell" transform="translate(60, -34.64)" />
+    <use href="#hex-cell" transform="translate(-60, -34.64)" />
+    <use href="#hex-cell" transform="translate(0, -69.28)" />
+  </g>
+
+  <!-- Dynamic Orbs -->
+  <circle cx="300" cy="300" r="6" fill="url(#orbGlow)">
+    <animateMotion dur="2.618s" repeatCount="indefinite" keyTimes="0; 0.618; 1" keySplines="0.42 0 0.58 1">
+      <mpath href="#hex-cell" />
+    </animateMotion>
+  </circle>
+  <circle cx="300" cy="300" r="4" fill="url(#orbGlow)" opacity="0.7">
+    <animateMotion dur="4.236s" repeatCount="indefinite" keyTimes="0; 0.618; 1" keySplines="0.42 0 0.58 1">
+      <mpath href="#hex-cell" />
+    </animateMotion>
+  </circle>
+
+  <!-- Central Node -->
+  <circle cx="300" cy="300" r="20" fill="url(#gridGradient)">
+    <animate attributeName="r" from="20" to="24" dur="1.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="300" r="35" fill="none" stroke="url(#gridGradient)" stroke-width="2" opacity="0.8">
+    <animate attributeName="r" from="35" to="40" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="0.8" to="0.4" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <!-- Gradient Definitions -->
+    <radialGradient id="performanceGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffcc00" stop-opacity="1" />
+      <stop offset="100%" stop-color="#ff6600" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ccff" />
+      <stop offset="100%" stop-color="#0066ff" />
+    </linearGradient>
+    <linearGradient id="speedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff99" />
+      <stop offset="100%" stop-color="#00cc66" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Glow -->
+  <circle cx="300" cy="300" r="270" fill="url(#performanceGlow)" opacity="0.4">
+    <animate attributeName="r" from="270" to="280" dur="2.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="0.4" to="0.2" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Rotating Rings -->
+  <g id="rotating-rings" transform="translate(300, 300)">
+    <circle r="200" fill="none" stroke="url(#ringGradient)" stroke-width="4">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 0 0"
+        to="360 0 0"
+        dur="4.236s"
+        repeatCount="indefinite"
+      />
+    </circle>
+    <circle r="180" fill="none" stroke="url(#speedGradient)" stroke-width="3">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="360 0 0"
+        to="0 0 0"
+        dur="3.236s"
+        repeatCount="indefinite"
+      />
+    </circle>
+    <circle r="160" fill="none" stroke="url(#ringGradient)" stroke-width="2">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 0 0"
+        to="360 0 0"
+        dur="2.618s"
+        repeatCount="indefinite"
+      />
+    </circle>
+  </g>
+
+  <!-- Pulsating Core -->
+  <circle cx="300" cy="300" r="50" fill="url(#speedGradient)">
+    <animate attributeName="r" from="50" to="55" dur="1.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0.8" dur="1.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="300" r="70" fill="none" stroke="url(#ringGradient)" stroke-width="2" opacity="0.6">
+    <animate attributeName="r" from="70" to="75" dur="1.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="0.6" to="0.3" dur="1.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Speed Streaks -->
+  <g id="streaks" transform="translate(300, 300)">
+    <line x1="0" y1="-150" x2="0" y2="-200" stroke="url(#speedGradient)" stroke-width="3" stroke-linecap="round">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0"
+        to="360"
+        dur="2.618s"
+        repeatCount="indefinite"
+      />
+    </line>
+    <line x1="0" y1="-150" x2="0" y2="-200" stroke="url(#speedGradient)" stroke-width="3" stroke-linecap="round">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="120"
+        to="480"
+        dur="2.618s"
+        repeatCount="indefinite"
+      />
+    </line>
+    <line x1="0" y1="-150" x2="0" y2="-200" stroke="url(#speedGradient)" stroke-width="3" stroke-linecap="round">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="240"
+        to="600"
+        dur="2.618s"
+        repeatCount="indefinite"
+      />
+    </line>
+  </g>
+
+  <!-- Central Pulse -->
+  <circle cx="300" cy="300" r="10" fill="#ffffff">
+    <animate attributeName="r" from="10" to="15" dur="1.618s" repeatCount="indefinite" />
+    <animate attributeName="opacity" from="1" to="0.5" dur="1.618s" repeatCount="indefinite" />
+  </circle>
+</svg>
