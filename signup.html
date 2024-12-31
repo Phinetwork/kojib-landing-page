@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up - Kojib</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       General Styling
+    ============================================= */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #121212;
+      color: #f4f4f4;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header Styling */
+    .header {
+      background: #1c1c1c;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .header .logo {
+      color: #00cc80;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .header .logo:hover {
+      color: #00995e;
+    }
+
+    /* Navigation Styling */
+    .header nav {
+      position: relative;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: #f4f4f4;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #00cc80;
+    }
+
+    /* Mobile Menu Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1100;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #f4f4f4;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #1c1c1c;
+      width: 200px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-nav ul li a {
+      padding: 10px 20px;
+      color: #f4f4f4;
+      font-size: 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+      display: block;
+    }
+
+    .mobile-nav ul li a:hover {
+      background: #00cc80;
+      color: #121212;
+    }
+
+    /* Transformations for Menu Toggle Animation */
+    .menu-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      background-color: #00cc80;
+      box-shadow: 0 0 10px #00cc80;
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      background-color: #00cc80;
+      box-shadow: 0 0 10px #00cc80;
+    }
+
+    /* Hero Section Styling */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: url('image/signup-background.jpg') center center/cover no-repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #00cc80;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+      animation: fadeInDown 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      line-height: 1.8;
+      color: rgba(244, 244, 244, 0.9);
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
+      max-width: 800px;
+    }
+
+    /* Signup Form Styling */
+    .signup-form {
+      background: #1a1a1a;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .signup-form h2 {
+      text-align: center;
+      color: #00cc80;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
+    .signup-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .signup-form input[type="text"],
+    .signup-form input[type="email"],
+    .signup-form input[type="password"] {
+      width: 100%;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .signup-form input[type="text"]:focus,
+    .signup-form input[type="email"]:focus,
+    .signup-form input[type="password"]:focus {
+      outline: none;
+      box-shadow: 0 0 5px #00cc80;
+    }
+
+    .signup-form .terms {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .signup-form .terms input {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .signup-form .terms label {
+      font-size: 0.9rem;
+      color: #f4f4f4;
+    }
+
+    .signup-form button {
+      width: 100%;
+      padding: 12px;
+      background: #00cc80;
+      border: none;
+      border-radius: 5px;
+      color: #121212;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .signup-form button:hover {
+      background: #00995e;
+      transform: translateY(-3px);
+    }
+
+    .signup-form .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .signup-form .login-link a {
+      color: #00cc80;
+      font-weight: bold;
+    }
+
+    .signup-form .login-link a:hover {
+      color: #00995e;
+    }
+
+    /* Categories Section Styling */
+    .categories {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .category {
+      background: #1a1a1a;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #f4f4f4;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
+      background: #00cc80;
+      color: #121212;
+    }
+
+    /* Latest Discussions Section Styling */
+    .latest-discussions {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .latest-discussions h2 {
+      text-align: center;
+      color: #00cc80;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
+    .discussion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .discussion-item {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .discussion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
+    }
+
+    .discussion-item h3 {
+      color: #00cc80;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .discussion-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(244, 244, 244, 0.9);
+    }
+
+    .discussion-item a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #00cc80;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .discussion-item a:hover {
+      color: #00995e;
+    }
+
+    /* Join the Community Section Styling */
+    .join-community {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .join-community h2 {
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
+    .join-community p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(244, 244, 244, 0.9);
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+    }
+
+    .join-community a {
+      text-decoration: none;
+      background: #00cc80;
+      color: #121212;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .join-community a:hover {
+      background: #00995e;
+      transform: translateY(-5px);
+    }
+
+    /* Footer Styling */
+    .footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+      color: #f4f4f4;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer a {
+      color: #00cc80;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+      color: #00995e;
+    }
+
+    /* Mobile Menu Styling */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: block;
+      }
+    }
+
+    /* Signup Form Responsive Adjustments */
+    @media (max-width: 500px) {
+      .signup-form {
+        padding: 20px;
+      }
+
+      .signup-form h2 {
+        font-size: 1.8rem;
+      }
+
+      .signup-form input[type="text"],
+      .signup-form input[type="email"],
+      .signup-form input[type="password"] {
+        font-size: 0.9rem;
+      }
+
+      .signup-form button {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .signup-form .login-link {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Smooth Scrolling for In-Page Links */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">Kojib</a>
+    <nav>
+      <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="community-forum.html">Community Forum</a></li>
+        <li><a href="developer-blog.html">Developer Blog</a></li>
+      </ul>
+      <!-- Mobile Navigation -->
+      <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="community-forum.html">Community Forum</a></li>
+          <li><a href="developer-blog.html">Developer Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Create Your Kojib Account</h1>
+    <p>Join the Kojib community to access exclusive content, participate in discussions, and collaborate with fellow developers.</p>
+  </section>
+
+  <!-- Signup Form Section -->
+  <section class="signup-form">
+    <h2>Sign Up</h2>
+    <form action="submit_signup.php" method="POST">
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+      <div class="terms">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a>.</label>
+      </div>
+
+      <button type="submit">Sign Up</button>
+
+      <div class="login-link">
+        Already have an account? <a href="login.html">Log In</a>
+      </div>
+    </form>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="category">Artificial Intelligence</div>
+    <div class="category">Machine Learning</div>
+    <div class="category">Data Science</div>
+    <div class="category">Web Development</div>
+    <div class="category">DevOps</div>
+    <div class="category">Open-Source</div>
+    <div class="category">Career Advice</div>
+    <div class="category">Tutorials & Resources</div>
+  </section>
+
+  <!-- Latest Discussions Section -->
+  <section class="latest-discussions">
+    <h2>Recent Topics</h2>
+    <div class="discussion-list">
+      <div class="discussion-item">
+        <h3>Integrating AI into Existing Projects</h3>
+        <p>What are the best practices for integrating AI functionalities into legacy systems? Share your experiences and strategies.</p>
+        <a href="#">Join the Discussion</a>
+      </div>
+      <div class="discussion-item">
+        <h3>Effective Code Review Processes</h3>
+        <p>How do you implement effective code review processes in your team? Discuss tools, techniques, and workflows.</p>
+        <a href="#">Join the Discussion</a>
+      </div>
+      <div class="discussion-item">
+        <h3>Scaling Applications with Cloud Services</h3>
+        <p>Share your insights on scaling applications using various cloud services. What challenges have you faced and how did you overcome them?</p>
+        <a href="#">Join the Discussion</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join the Community Section -->
+  <section class="join-community">
+    <h2>Become a Part of Our Community</h2>
+    <p>Join the Kojib Community Forum to connect with developers worldwide. Share your knowledge, ask questions, and collaborate on innovative projects.</p>
+    <a href="signup.html">Join Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="privacy-policy.html">Privacy Policy</a> |
+      <a href="terms-of-service.html">Terms of Service</a>
+    </nav>
+  </footer>
+
+  <!-- Scripts for Mobile Menu Functionality -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event from bubbling up to window
+      mobileNav.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+      const isExpanded = menuToggle.classList.contains('open');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
+      mobileNav.setAttribute('aria-hidden', !isExpanded);
+    });
+
+    // Close mobile menu when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // Accessibility: Close mobile menu with Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileNav.classList.remove('active');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // JavaScript to set the current year
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
