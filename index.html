@@ -92,11 +92,11 @@
   <!-- Hero Section -->
   <div class="story-hero" style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
     <div class="hero-content" style="margin-bottom: 40px;">
-      <h1 class="story-title" style="font-size: 3.5rem; font-weight: bold; color: #00ff99; text-shadow: 0 0 15px rgba(0, 255, 153, 0.7); margin-bottom: 20px; animation: fadeInDown 1.2s ease-out;">
-        Redefining Technology
+      <h1 class="story-title" style="font-size: 3.5rem; font-weight: bold; color: #ffffff; margin-bottom: 20px; animation: fadeInDown 1.2s ease-out;">
+        <span class="glow-keyword">Redefining</span> <span class="pulsate-keyword">Technology</span>
       </h1>
       <p class="story-subtitle" style="font-size: 1.5rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); margin-bottom: 40px; animation: fadeInUp 1.2s ease-out;">
-        We bridge the gap between imagination and intelligence, creating AI that feels alive—technology that doesn’t just adapt to the world but transforms it. By building systems that inspire change, we empower individuals, businesses, and communities to reimagine what’s possible.
+        We bridge the gap between <span class="glow-keyword">imagination</span> and <span class="pulsate-keyword">intelligence</span>, creating AI that feels alive—technology that doesn’t just adapt to the world but transforms it. By building systems that inspire change, we empower individuals, businesses, and communities to reimagine what’s possible.
       </p>
       <a href="#contact" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center; padding: 15px 40px; font-size: 1.2rem; font-weight: bold; color: #ffffff; background: linear-gradient(135deg, #00cc80, #0099ff); border-radius: 50px; box-shadow: 0 6px 20px rgba(0, 255, 153, 0.6); text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease;">
         Let’s Build Your Vision
@@ -117,11 +117,11 @@
 
   <!-- Story Content -->
   <div class="story-content" style="position: relative; z-index: 2; max-width: 900px; margin: 40px auto;">
-    <h2 class="story-title" style="font-size: 3rem; font-weight: bold; color: #00ccff; text-shadow: 0 0 10px rgba(0, 153, 255, 0.7); margin-bottom: 20px; animation: fadeInDown 1.5s ease-out;">
-      Inspired by Nature, Built with Love
+    <h2 class="story-title" style="font-size: 3rem; font-weight: bold; color: #00ccff; margin-bottom: 20px; animation: fadeInDown 1.5s ease-out;">
+      Inspired by <span class="glow-keyword">Nature</span>, Built with <span class="pulsate-keyword">Love</span>
     </h2>
     <p class="story-text" style="font-size: 1.2rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); animation: fadeInUp 1.5s ease-out;">
-      Kojib is where the harmony of creative genius meets cutting-edge AI, blending artistry and intelligence to address humanity’s most complex challenges. Every solution we create embodies innovation, collaboration, and a deep respect for the human experience.
+      Kojib is where the harmony of <span class="glow-keyword">creative genius</span> meets <span class="pulsate-keyword">cutting-edge AI</span>, blending artistry and intelligence to address humanity’s most complex challenges. Every solution we create embodies innovation, collaboration, and a deep respect for the human experience.
     </p>
   </div>
 
@@ -155,13 +155,32 @@
     }
   }
 
-  @keyframes pulse {
+  @keyframes glowPulse {
     0%, 100% {
-      transform: scale(1);
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5), 0 0 20px rgba(0, 255, 153, 0.4);
     }
     50% {
-      transform: scale(1.05);
+      text-shadow: 0 0 20px rgba(0, 255, 153, 0.8), 0 0 40px rgba(0, 255, 153, 0.7);
     }
+  }
+
+  @keyframes pulsate {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(255, 153, 255, 0.5), 0 0 20px rgba(255, 153, 255, 0.4);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(255, 153, 255, 0.8), 0 0 40px rgba(255, 153, 255, 0.7);
+    }
+  }
+
+  .glow-keyword {
+    color: #00ff99;
+    animation: glowPulse 2.618s infinite ease-in-out;
+  }
+
+  .pulsate-keyword {
+    color: #ff66cc;
+    animation: pulsate 3.236s infinite ease-in-out;
   }
 
   .cta-button:hover {
