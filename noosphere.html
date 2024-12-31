@@ -1086,10 +1086,12 @@ menu.style.display = 'none';
 menu.style.zIndex = '1000';
 menu.innerHTML = `
   <ul style="list-style: none; margin: 0; padding: 0;">
-    <li style="margin: 5px 0;"><button class="menu-item">Scroll to Top</button></li>
-    <li style="margin: 5px 0;"><button class="menu-item">Home</button></li>
-    <li style="margin: 5px 0;"><button class="menu-item">Other Sections</button></li>
-    <li style="margin: 5px 0;"><a href="https://github.com" target="_blank" class="menu-item">GitHub Repo</a></li>
+    <li style="margin: 5px 0;"><button class="menu-item" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Scroll to Top</button></li>
+    <li style="margin: 5px 0;"><a href="/index.html" class="menu-item">Home</a></li>
+    <li style="margin: 5px 0;"><a href="#key-features" class="menu-item">Features</a></li>
+    <li style="margin: 5px 0;"><a href="#applications" class="menu-item">Applications</a></li>
+    <li style="margin: 5px 0;"><a href="#contact" class="menu-item">Contact</a></li>
+    <li style="margin: 5px 0;"><a href="https://github.com/kojibai/noosphere" target="_blank" class="menu-item">GitHub Repo</a></li>
   </ul>
 `;
 document.body.appendChild(menu);
