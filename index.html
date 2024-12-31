@@ -62,7 +62,6 @@
       <ul class="nav-links" id="nav-links">
           <li><a href="#intro">Home</a></li>
           <li><a href="#story">About</a></li>
-          <li><a href="#mission">Mission</a></li>
           <li><a href="#showcase">Capabilities</a></li>
           <li><a href="#skyriz">Skyriz</a></li>
           <li><a href="#noosphere-intro">Noosphere</a></li>
@@ -256,185 +255,40 @@
 </style>
 
 
-<style>
-  /* Mission Section Styling */
-  .mission-section {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, rgba(30, 30, 48, 0.9), rgba(20, 20, 35, 0.95));
-    color: #ffffff;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    font-family: 'Inter', sans-serif;
-    box-shadow: inset 0 0 20px rgba(0, 255, 153, 0.1);
-  }
-  
-  /* Title Styling */
-  .mission-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: #00ff99;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px rgba(0, 255, 153, 0.7);
-    animation: fadeInDown 1.2s ease-out;
-  }
-  
-  /* Text Styling */
-  .mission-text {
-    font-size: 1.5rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 50px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeInUp 1.5s ease-out;
-  }
-  
-  /* Values Section */
-  .values {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
-  
-  .value {
-    background: rgba(0, 255, 153, 0.1);
-    border: 1px solid rgba(0, 255, 153, 0.4);
-    border-radius: 15px;
-    padding: 20px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 255, 153, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .value:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 255, 153, 0.5);
-  }
-  
-  /* Value Icon */
-  .value-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-  }
-  
-  .svg-icon {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 153, 0.6));
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  
-  .value:hover .svg-icon {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 20px rgba(0, 255, 153, 0.8));
-  }
-  
-  /* Value Title */
-  .value h3 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
-  }
-  
-  /* Value Text */
-  .value p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.5;
-  }
-  
-  /* Animations */
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .mission-title {
-      font-size: 3rem;
-    }
-  
-    .mission-text {
-      font-size: 1.3rem;
-    }
-  
-    .value {
-      width: 90%;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .mission-title {
-      font-size: 2.5rem;
-    }
-  
-    .mission-text {
-      font-size: 1.2rem;
-    }
-  
-    .value {
-      padding: 15px;
-    }
-  }
-  </style>
-  
-  <!-- Mission Section -->
-  <section id="mission" class="mission-section">
-    <div class="mission">
-      <h2 class="mission-title">Our Mission</h2>
-      <p class="mission-text">
-        We believe technology should spark creativity, enhance life, and empower growth. Kojib transforms bold ideas into groundbreaking realities.
-      </p>
-      <div class="values">
-        <div class="value">
-          <div class="value-icon">
-            <object data="/image/imagination.svg" type="image/svg+xml" class="svg-icon"></object>
-          </div>
-          <h3>Imagination</h3>
-          <p>Creativity is the foundation of every innovation we build, inspiring limitless possibilities.</p>
+<!-- Mission Section -->
+<section id="story" class="story-section">
+  <div class="story-mission">
+    <h2 class="mission-title">Our Mission</h2>
+    <p class="mission-text">
+      We believe technology should spark creativity, enhance life, and empower growth. Kojib transforms bold ideas into groundbreaking realities.
+    </p>
+    <div class="values">
+      <div class="value">
+        <div class="value-icon">
+          <object data="/image/imagination.svg" type="image/svg+xml" class="svg-icon"></object>
         </div>
-        <div class="value">
-          <div class="value-icon">
-            <object data="/image/intelligence.svg" type="image/svg+xml" class="svg-icon"></object>
-          </div>
-          <h3>Intelligence</h3>
-          <p>Advanced AI solutions designed to transform industries and unlock human potential.</p>
+        <h3>Imagination</h3>
+        <p>Creativity is the foundation of every innovation we build, inspiring limitless possibilities.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon">
+          <object data="/image/intelligence.svg" type="image/svg+xml" class="svg-icon"></object>
         </div>
-        <div class="value">
-          <div class="value-icon">
-            <object data="/image/connection.svg" type="image/svg+xml" class="svg-icon"></object>
-          </div>
-          <h3>Connection</h3>
-          <p>Technology that bridges gaps, fosters collaboration, and empowers communities.</p>
+        <h3>Intelligence</h3>
+        <p>Advanced AI solutions designed to transform industries and unlock human potential.</p>
+      </div>
+      <div class="value">
+        <div class="value-icon">
+          <object data="/image/connection.svg" type="image/svg+xml" class="svg-icon"></object>
         </div>
+        <h3>Connection</h3>
+        <p>Technology that bridges gaps, fosters collaboration, and empowers communities.</p>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>
+
+
 <section id="story" class="story-section" style="background: linear-gradient(to bottom, #1212122a, #1c1c1c20); padding: 40px 20px; color: #f4f4f4; font-family: 'Arial', sans-serif;">
    <title>Our Story Modal</title>
   <style>
@@ -2061,7 +1915,6 @@
   <div id="scroll-sections">
       <a href="#intro">Home</a>
       <a href="#story">About</a>
-      <a href="#story-mission">Mission</a>
       <a href="#showcase">Capabilities</a>
       <a href="#skyriz">Skyriz</a>
       <a href="#noosphere-intro">Noosphere</a>
