@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noosphere - A Revolutionary Middleware Framework</title>
+    <style>
+        /* ============================================
+           General Reset and Typography
+        ============================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background: #1e1e30; /* Dark background for contrast */
+            color: white;
+        }
+
+        a {
+            color: #00ff99;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0099ff;
+        }
+
+        /* ============================================
+           Navbar Styling
+        ============================================= */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(30, 30, 47, 0.9); /* Semi-transparent background */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo img {
+            height: 40px;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #00ff99;
+        }
+
+        /* Hamburger Menu (Hidden on Desktop) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1100;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hamburger Open State */
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: #00ff99;
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: #00ff99;
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                height: 40%;
+                width: 200px;
+                background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 255, 153, 0.9));
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                transition: right 0.3s ease-in-out;
+            }
+
+            .nav-links.active {
+                right: 0;
+                background: linear-gradient(135deg, #004d26, #00ff99);
+                box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
+            }
+
+            .nav-links li {
+                text-align: center;
+                font-size: 1rem;
+            }
+
+            .nav-links li a:hover {
+                color: #000;
+                background: #00ff99;
+                border-radius: 5px;
+                padding: 5px 10px;
+            }
+        }
+
+        /* ============================================
+           Noosphere Section Styling
+        ============================================= */
+        #noosphere-section {
+            padding: 100px 20px 60px 20px; /* Top padding accounts for fixed navbar */
+            background: linear-gradient(135deg, rgba(30, 30, 47, 0.8), rgba(46, 46, 80, 0.8));
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .noosphere-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 255, 153, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .noosphere-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #00ff99;
+            text-shadow: 0 0 15px rgba(0, 255, 153, 0.6), 0 0 25px rgba(0, 255, 153, 0.4);
+            animation: subtlePulse 3s infinite alternate ease-in-out;
+        }
+
+        .noosphere-content {
+            text-align: left;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .noosphere-content h3 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #00ff99;
+            text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+        }
+
+        .noosphere-content h4 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #00ff99;
+            text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+        }
+
+        .noosphere-list {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .noosphere-list ul {
+            list-style-type: circle;
+            margin-left: 20px;
+        }
+
+        .noosphere-cta {
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #00ff99, #0099ff);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 15px #00ff99;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            animation: shimmerGlow 3s infinite;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(90deg, #0099ff, #00ff99);
+            box-shadow: 0 8px 20px #00ff99;
+            transform: scale(1.05);
+        }
+
+        /* Placeholder for Feature Icons */
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 5px 10px rgba(0, 255, 153, 0.5));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .feature-icon:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0px 8px 15px #00ffc6cc);
+        }
+
+        /* ============================================
+           Footer Styling
+        ============================================= */
+        footer {
+            background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        /* Footer Logo */
+        .footer-logo img {
+            max-width: 60px;
+            height: auto;
+            margin: 0 auto;
+            filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer About */
+        .footer-about {
+            flex: 1 1 300px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer Links */
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #00ff99;
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-links a img {
+            width: 40px;
+            height: 40px;
+            filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .social-links a:hover img {
+            transform: scale(1.2);
+            filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 10px;
+        }
+
+        .footer-bottom a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #00ff99;
+        }
+
+        /* ============================================
+           Animations
+        ============================================= */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes subtlePulse {
+            0% {
+                text-shadow: 0 0 15px rgba(0, 255, 153, 0.6), 0 0 25px rgba(0, 255, 153, 0.4);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(0, 255, 153, 0.8), 0 0 30px rgba(0, 255, 153, 0.6);
+            }
+        }
+
+        @keyframes shimmerGlow {
+            0% {
+                filter: brightness(1) contrast(1);
+            }
+            50% {
+                filter: brightness(1.05) contrast(1.02);
+            }
+            100% {
+                filter: brightness(1) contrast(1);
+            }
+        }
+
+        /* ============================================
+           Responsive Adjustments
+        ============================================= */
+        @media (max-width: 768px) {
+            .noosphere-title {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .noosphere-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .noosphere-content h4 {
+                font-size: 1.3rem;
+            }
+
+            .noosphere-list {
+                margin-left: 15px;
+                margin-bottom: 15px;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            /* Navbar Adjustments */
+            .nav-links {
+                height: 60%;
+            }
+
+            #navbar {
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .noosphere-title {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+
+            .noosphere-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .noosphere-content h4 {
+                font-size: 1.2rem;
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            /* Footer Adjustments */
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-about,
+            .footer-links,
+            .social-links {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .footer-links ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .social-links a img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .footer-bottom {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         Navbar
+    ============================================= -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/150x40?text=Logo" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#noosphere-section">Home</a></li>
+                <li><a href="#key-features">Features</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         Noosphere Section
+    ============================================= -->
+    <section id="noosphere-section">
+        <div class="noosphere-container">
+            <h2 class="noosphere-title">Noosphere: A Revolutionary Middleware Framework</h2>
+            
+            <div class="noosphere-content">
+                <h3>What is Noosphere?</h3>
+                <p>
+                    Noosphere is a next-generation middleware framework designed to bridge the gap between frontend applications and backend services by providing dynamic, intelligent, and scalable orchestration. It leverages cutting-edge AI-powered routing, modular backend integration, and developer-centric tools to create a seamless, efficient, and scalable infrastructure for modern applications.
+                </p>
+                <p>
+                    At its core, Noosphere is:
+                </p>
+                <ul class="noosphere-list">
+                    <li>A middleware that acts as a centralized layer to manage communication between clients (frontend) and various backend services.</li>
+                    <li>A dynamic orchestration platform that uses AI to intelligently route requests based on context, user intent, and system conditions.</li>
+                    <li>A scalable framework that allows businesses to handle multiple backend services effortlessly while optimizing performance and resource utilization.</li>
+                </ul>
+
+                <h3>The Point of Noosphere</h3>
+                <p>
+                    In today’s technology landscape, applications are becoming increasingly complex, often requiring communication with multiple backend services. Traditional middleware solutions rely on static rules for routing, which:
+                </p>
+                <ul class="noosphere-list">
+                    <li>Become unwieldy as the number of services grows.</li>
+                    <li>Struggle to adapt to dynamic, real-time requirements.</li>
+                    <li>Fail to optimize routing based on system performance or user intent.</li>
+                </ul>
+                <p>
+                    Noosphere addresses these challenges by introducing intelligence, modularity, and scalability:
+                </p>
+                <ul class="noosphere-list">
+                    <li><strong>Dynamic Routing:</strong> Instead of static rules, Noosphere leverages AI to dynamically determine where requests should go, based on:
+                        <ul>
+                            <li>User input or intent.</li>
+                            <li>Backend availability and performance.</li>
+                            <li>Contextual factors (e.g., time of day, location).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Simplified Integration:</strong> Adding new backend services is as simple as configuring them in Noosphere’s modular system. Developers don’t need to rewrite complex routing logic for every new service.</li>
+                    <li><strong>Scalability:</strong> Designed to scale horizontally, Noosphere can handle high traffic and distributed workloads, making it ideal for businesses of any size.</li>
+                </ul>
+
+                <h3>How is Noosphere Valuable?</h3>
+                <div class="noosphere-benefits">
+                    <h4>For Developers</h4>
+                    <ul class="noosphere-list">
+                        <li><strong>Ease of Use:</strong> Developers can integrate new backend services without diving into complex routing logic. Prebuilt connectors and clear documentation make onboarding effortless.</li>
+                        <li><strong>Time Savings:</strong> No need to manually maintain routing rules—AI automates decision-making.</li>
+                        <li><strong>Flexibility:</strong> Support for both rule-based and AI-driven routing allows developers to choose the best approach for their needs.</li>
+                        <li><strong>Open Source:</strong> Free for personal and non-commercial use, encouraging experimentation and community-driven improvements.</li>
+                    </ul>
+
+                    <h4>For Businesses</h4>
+                    <ul class="noosphere-list">
+                        <li><strong>Improved Performance:</strong> AI-powered routing ensures requests are sent to the optimal backend, reducing latency and improving user experiences.</li>
+                        <li><strong>Cost Efficiency:</strong> Dynamic load balancing minimizes wasted resources by distributing workloads effectively.</li>
+                        <li><strong>Scalable Architecture:</strong> Built to grow with your business, Noosphere supports enterprise-level traffic and backend complexity.</li>
+                        <li><strong>Future-Proofing:</strong> Designed to integrate seamlessly with modern AI technologies, Noosphere positions businesses to leverage AI advancements effortlessly.</li>
+                    </ul>
+
+                    <h4>For End Users</h4>
+                    <ul class="noosphere-list">
+                        <li><strong>Seamless Experience:</strong> Intelligent routing reduces delays, ensuring faster and more reliable responses.</li>
+                        <li><strong>Adaptability:</strong> The system can adjust in real-time to provide personalized responses and optimized performance.</li>
+                    </ul>
+                </div>
+
+                <h3>Key Features</h3>
+                <div class="noosphere-features">
+                    <h4>Dynamic Middleware Routing</h4>
+                    <p>
+                        Noosphere routes requests intelligently, deciding which backend service should handle each request based on:
+                    </p>
+                    <ul class="noosphere-list">
+                        <li>User input (e.g., natural language processing to determine intent).</li>
+                        <li>Backend performance metrics (e.g., latency, availability).</li>
+                        <li>Predefined rules for failover scenarios.</li>
+                    </ul>
+
+                    <h4>AI-Powered Decision Making</h4>
+                    <p>
+                        Using state-of-the-art transformer models, Noosphere:
+                    </p>
+                    <ul class="noosphere-list">
+                        <li>Understands user input to classify intent and route requests to the appropriate service.</li>
+                        <li>Optimizes decision-making by learning from historical data and system behavior.</li>
+                    </ul>
+
+                    <h4>Modular and Extensible</h4>
+                    <ul class="noosphere-list">
+                        <li>Easily add or remove backend services without modifying core logic.</li>
+                        <li>Prebuilt connectors for popular frameworks (e.g., Flask, Express, Django) simplify integration.</li>
+                    </ul>
+
+                    <h4>Scalability and Performance</h4>
+                    <ul class="noosphere-list">
+                        <li>Horizontal scaling allows the system to handle high-traffic workloads effortlessly.</li>
+                        <li>Real-time monitoring ensures optimal performance and immediate issue detection.</li>
+                    </ul>
+
+                    <h4>Comprehensive Developer Tooling</h4>
+                    <ul class="noosphere-list">
+                        <li>CLI tools for quick setup and management.</li>
+                        <li>Detailed documentation, tutorials, and examples.</li>
+                        <li>GitHub integration for CI/CD workflows.</li>
+                    </ul>
+                </div>
+
+                <h3>Why Noosphere?</h3>
+                <ul class="noosphere-list">
+                    <li><strong>Streamlined Development:</strong> Developers can focus on building application features instead of maintaining complex routing logic.</li>
+                    <li><strong>Unified Backend Management:</strong> Noosphere abstracts backend complexity, providing a single, unified interface for managing multiple services.</li>
+                    <li><strong>Future-Ready:</strong> Designed with scalability and AI integration at its core, Noosphere ensures your application infrastructure is ready for tomorrow’s challenges.</li>
+                    <li><strong>Empowered Innovation:</strong> By simplifying backend orchestration, Noosphere frees up resources, enabling developers to innovate faster.</li>
+                </ul>
+
+                <h3>Who Should Use Noosphere?</h3>
+                <ul class="noosphere-list">
+                    <li><strong>Startups:</strong> Simplify your architecture as you grow from one backend to many. Build intelligent systems without the overhead of developing custom routing solutions.</li>
+                    <li><strong>Enterprises:</strong> Streamline the management of complex backend ecosystems. Gain enterprise-grade scalability and performance optimization.</li>
+                    <li><strong>Open-Source Enthusiasts:</strong> Experiment with AI-powered routing and contribute to a growing community of developers.</li>
+                </ul>
+
+                <h3>Real-World Applications</h3>
+                <ul class="noosphere-list">
+                    <li><strong>E-commerce Platforms:</strong> Dynamically route requests to inventory, payment, or recommendation backends based on user actions.</li>
+                    <li><strong>AI Chatbots:</strong> Route chat requests intelligently to customer service, analytics, or knowledge-base backends.</li>
+                    <li><strong>Data Analytics:</strong> Direct requests to specialized analytics services based on query type or data structure.</li>
+                    <li><strong>SaaS Applications:</strong> Integrate Noosphere as a middleware layer for managing multi-tenant backend requests.</li>
+                </ul>
+
+                <h3>What’s Next for Noosphere?</h3>
+                <ul class="noosphere-list">
+                    <li><strong>Transformer-Based AI Models:</strong> Advanced intent classification for smarter routing.</li>
+                    <li><strong>Predictive Load Balancing:</strong> Anticipate and adapt to workload changes dynamically.</li>
+                    <li><strong>Enterprise Dashboards:</strong> Real-time analytics for backend performance and traffic metrics.</li>
+                    <li><strong>Multi-Region Routing:</strong> Seamlessly handle global traffic with regional failovers.</li>
+                </ul>
+
+                <h3>Summary</h3>
+                <p>
+                    Noosphere is not just a middleware framework—it’s a revolutionary tool for managing the growing complexity of modern application infrastructures. By combining AI, scalability, and developer-first design, Noosphere empowers businesses to innovate faster, operate smarter, and deliver unparalleled user experiences.
+                </p>
+                <p>
+                    Whether you’re a startup building your first application or an enterprise managing a complex backend ecosystem, Noosphere is your partner in creating intelligent, efficient, and future-ready systems. 🚀
+                </p>
+            </div>
+
+            <div class="noosphere-cta">
+                <a href="https://github.com/nicbloom/noosphere" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         Footer
+    ============================================= -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://via.placeholder.com/60?text=Logo" alt="Footer Logo">
+            </div>
+            <div class="footer-about">
+                <p>
+                    Noosphere is an open-source project dedicated to revolutionizing middleware frameworks with AI-powered routing, scalability, and developer-friendly tools.
+                </p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#noosphere-section">Home</a></li>
+                    <li><a href="#key-features">Features</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><img src="https://via.placeholder.com/40?text=TW" alt="Twitter"></a>
+                <a href="#" aria-label="GitHub"><img src="https://via.placeholder.com/40?text=GH" alt="GitHub"></a>
+                <a href="#" aria-label="LinkedIn"><img src="https://via.placeholder.com/40?text=LI" alt="LinkedIn"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Noosphere. All rights reserved. | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         JavaScript for Interactivity
+    ============================================= -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Optional: Smooth Scroll for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70, // Adjust for fixed navbar
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
