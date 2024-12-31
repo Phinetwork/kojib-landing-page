@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developer Blog - Kojib</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       General Styling
+    ============================================= */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #121212;
+      color: #f4f4f4;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header Styling */
+    .header {
+      background: #1c1c1c;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header .logo {
+      color: #00cc80;
+      font-size: 2rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .header .logo:hover {
+      color: #00995e;
+    }
+
+    .header nav {
+      margin-top: 10px;
+    }
+
+    .header .nav-links {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .header .nav-links li a {
+      color: #f4f4f4;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .header .nav-links li a:hover {
+      color: #00cc80;
+    }
+
+    /* Hero Section Styling */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100%;
+      background: url('image/blog-background.jpg') center center/cover no-repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #00cc80;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+      animation: fadeInDown 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      line-height: 1.8;
+      color: rgba(244, 244, 244, 0.9);
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
+      max-width: 800px;
+    }
+
+    /* Search Bar Styling */
+    .search-bar {
+      margin: 40px auto;
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background: #00cc80;
+      border: none;
+      border-radius: 5px;
+      color: #121212;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      background: #00995e;
+    }
+
+    /* Blog Posts Section Styling */
+    .blog-posts {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .blog-post {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
+    }
+
+    .blog-post img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .blog-post h3 {
+      color: #00cc80;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .blog-post p {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(244, 244, 244, 0.9);
+    }
+
+    .blog-post a {
+      margin-top: 15px;
+      align-self: flex-start;
+      background: #00cc80;
+      color: #121212;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+
+    .blog-post a:hover {
+      background: #00995e;
+    }
+
+    /* Categories Section Styling */
+    .categories {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .category {
+      background: #1a1a1a;
+      padding: 15px 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #f4f4f4;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
+      background: #00cc80;
+      color: #121212;
+    }
+
+    /* Latest Discussions Section Styling */
+    .latest-discussions {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .latest-discussions h2 {
+      text-align: center;
+      color: #00cc80;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
+    .discussion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .discussion-item {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .discussion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 255, 153, 0.7);
+    }
+
+    .discussion-item h3 {
+      color: #00cc80;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .discussion-item p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(244, 244, 244, 0.9);
+    }
+
+    .discussion-item a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #00cc80;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .discussion-item a:hover {
+      color: #00995e;
+    }
+
+    /* Join the Community Section Styling */
+    .join-community {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+      animation: fadeInUp 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    .join-community h2 {
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
+    .join-community p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(244, 244, 244, 0.9);
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+    }
+
+    .join-community a {
+      text-decoration: none;
+      background: #00cc80;
+      color: #121212;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .join-community a:hover {
+      background: #00995e;
+      transform: translateY(-5px);
+    }
+
+    /* Footer Styling */
+    .footer {
+      background: #1c1c1c;
+      text-align: center;
+      padding: 20px;
+      color: #f4f4f4;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer a {
+      color: #00cc80;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+      color: #00995e;
+    }
+
+    /* Chatbot Button Styling */
+    #chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #00ff99;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+
+    #chatbot-button:hover {
+      transform: scale(1.1);
+      background: #00cc80;
+    }
+
+    #chatbot-button img {
+      width: 30px;
+      height: 30px;
+      pointer-events: none; /* Ensure clicks don't affect the image */
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .blog-posts {
+        grid-template-columns: 1fr;
+      }
+
+      .categories {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .category {
+        width: 80%;
+      }
+
+      .latest-discussions .discussion-list {
+        gap: 15px;
+      }
+
+      .join-community h2 {
+        font-size: 2rem;
+      }
+
+      .join-community p {
+        font-size: 1rem;
+      }
+
+      .join-community a {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .blog-posts {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        width: 100%;
+      }
+
+      .testimonials .testimonial {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .testimonials .testimonial-content {
+        max-width: 600px;
+      }
+
+      .latest-discussions .discussion-list {
+        gap: 15px;
+      }
+
+      .join-community h2 {
+        font-size: 1.8rem;
+      }
+
+      .join-community p {
+        font-size: 1rem;
+      }
+
+      .join-community a {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 15px 20px;
+      }
+
+      .header .logo {
+        font-size: 1.5rem;
+      }
+
+      .header .nav-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .blog-posts {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        width: 100%;
+      }
+
+      .testimonials .testimonial {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .testimonials .testimonial-content {
+        max-width: 100%;
+      }
+
+      .latest-discussions .discussion-list {
+        gap: 10px;
+      }
+
+      .join-community h2 {
+        font-size: 1.5rem;
+      }
+
+      .join-community p {
+        font-size: 0.9rem;
+      }
+
+      .join-community a {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html" class="logo">Kojib</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="community-forum.html">Community Forum</a></li>
+        <li><a href="developer-blog.html">Developer Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to the Kojib Developer Blog</h1>
+    <p>Explore the latest insights, tutorials, and trends in AI and software development. Stay updated and elevate your skills with our expert articles.</p>
+  </section>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search blog posts..." aria-label="Search blog posts">
+    <button type="button">Search</button>
+  </div>
+
+  <!-- Blog Posts Section -->
+  <section class="blog-posts">
+    <!-- Featured Post -->
+    <article class="blog-post">
+      <img src="image/featured-post.jpg" alt="Featured Post Image">
+      <h3>Unlocking the Power of AI: A Comprehensive Guide</h3>
+      <p>Delve into the fundamentals of artificial intelligence and discover how to harness its capabilities to build intelligent applications.</p>
+      <a href="#">Read More</a>
+    </article>
+
+    <!-- Latest Posts -->
+    <article class="blog-post">
+      <img src="image/post1.jpg" alt="Post 1 Image">
+      <h3>Top 10 Open-Source Libraries for Data Science</h3>
+      <p>Enhance your data science projects with these powerful and versatile open-source libraries. Boost your productivity and efficiency.</p>
+      <a href="#">Read More</a>
+    </article>
+
+    <article class="blog-post">
+      <img src="image/post2.jpg" alt="Post 2 Image">
+      <h3>Building Scalable Web Applications with Microservices</h3>
+      <p>Learn how to design and implement scalable web applications using the microservices architecture. Best practices and real-world examples.</p>
+      <a href="#">Read More</a>
+    </article>
+
+    <article class="blog-post">
+      <img src="image/post3.jpg" alt="Post 3 Image">
+      <h3>Introduction to Machine Learning Algorithms</h3>
+      <p>Understand the core machine learning algorithms that are shaping the future of technology. From supervised to unsupervised learning.</p>
+      <a href="#">Read More</a>
+    </article>
+
+    <article class="blog-post">
+      <img src="image/post4.jpg" alt="Post 4 Image">
+      <h3>Optimizing Your Code for Performance and Efficiency</h3>
+      <p>Discover techniques to optimize your code, improve performance, and make your applications more efficient and responsive.</p>
+      <a href="#">Read More</a>
+    </article>
+
+    <article class="blog-post">
+      <img src="image/post5.jpg" alt="Post 5 Image">
+      <h3>DevOps Best Practices for Continuous Integration and Deployment</h3>
+      <p>Implement DevOps best practices to streamline your development workflow, enhance collaboration, and ensure continuous integration and deployment.</p>
+      <a href="#">Read More</a>
+    </article>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="category">Artificial Intelligence</div>
+    <div class="category">Machine Learning</div>
+    <div class="category">Data Science</div>
+    <div class="category">Web Development</div>
+    <div class="category">DevOps</div>
+    <div class="category">Open-Source</div>
+  </section>
+
+  <!-- Latest Discussions Section -->
+  <section class="latest-discussions">
+    <h2>Join the Conversation</h2>
+    <div class="discussion-list">
+      <div class="discussion-item">
+        <h3>How to Implement AI Ethics in Your Projects?</h3>
+        <p>As AI becomes more integrated into our daily lives, it's crucial to consider ethical implications. What are some best practices?</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="discussion-item">
+        <h3>Best Tools for Data Visualization in 2024</h3>
+        <p>Data visualization is key to understanding complex datasets. What tools are you using this year, and why?</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="discussion-item">
+        <h3>Strategies for Effective Remote Collaboration</h3>
+        <p>With the rise of remote work, how can teams collaborate more effectively to maintain productivity and innovation?</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join the Community Section -->
+  <section class="join-community">
+    <h2>Stay Updated with Our Latest Posts</h2>
+    <p>Subscribe to our newsletter to receive the latest articles, tutorials, and insights directly to your inbox. Join thousands of developers who are enhancing their skills and staying ahead in the tech industry.</p>
+    <a href="signup.html">Subscribe Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="privacy-policy.html">Privacy Policy</a> |
+      <a href="terms-of-service.html">Terms of Service</a>
+    </nav>
+  </footer>
+
+  <!-- Chatbot Button -->
+  <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
+    <img src="image/chat-icon.svg" alt="Chat Icon" />
+  </div> 
+
+  <!-- AI Chatbot -->
+  <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
+    <div id="chatbot-header">
+      <span>Kojib</span>
+      <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+    </div>
+    <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
+      <!-- Chat messages will be dynamically injected here -->
+    </div>
+    <div id="chatbot-input" role="form" aria-label="Chat Input">
+      <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+      <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+    </div>
+  </div>
+
+  <!-- Footer Scripts -->
+  <script>
+    // JavaScript to set the current year
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Include other scripts or libraries -->
+  <script src="lib/three.min.js"></script>
+  <script src="lib/gsap.min.js"></script>
+  <script src="lib/ScrollTrigger.min.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/main.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
