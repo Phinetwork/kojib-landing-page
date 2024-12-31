@@ -89,25 +89,6 @@
 </section>
 <!-- Story Section -->
 <section id="story" class="story-section" style="padding: 100px 20px; background: transparent; color: #ffffff; text-align: center; position: relative; overflow: hidden;">
-  <!-- Dynamic Beating Heart Placeholder -->
-  <div class="dynamic-heart" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="300" height="300">
-      <defs>
-        <radialGradient id="heartGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ff4d4d" stop-opacity="1" />
-          <stop offset="100%" stop-color="#ff0000" stop-opacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx="32" cy="32" r="30" fill="url(#heartGlow)" opacity="0.5">
-        <animate attributeName="r" from="30" to="35" dur="1s" repeatCount="indefinite" />
-        <animate attributeName="opacity" from="0.5" to="0.2" dur="1s" repeatCount="indefinite" />
-      </circle>
-      <path d="M32 58s-26-15.2-26-33.2C6 13.6 14.6 6 24 6c5 0 8.8 2.5 12 6.2C39.2 8.5 43 6 48 6c9.4 0 18 7.6 18 18.8C58 42.8 32 58 32 58z" fill="#ff4d4d">
-        <animateTransform attributeName="transform" type="scale" values="1 1; 1.05 1.05; 1 1" dur="1s" repeatCount="indefinite" />
-      </path>
-    </svg>
-  </div>
-
   <!-- Hero Section -->
   <div class="story-hero" style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto;">
     <div class="hero-content" style="margin-bottom: 40px;">
@@ -143,6 +124,11 @@
       Kojib is where the harmony of creative genius meets cutting-edge AI, blending artistry and intelligence to address humanity’s most complex challenges. Every solution we create embodies innovation, collaboration, and a deep respect for the human experience.
     </p>
   </div>
+
+  <!-- Beating Heart -->
+  <div style="position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%); z-index: 0;">
+    <img src="/assets/heart.svg" alt="Beating Heart" style="width: 400px; height: auto; animation: pulse 1.5s infinite ease-in-out;">
+  </div>
 </section>
 
 <!-- Animations -->
@@ -169,12 +155,12 @@
     }
   }
 
-  @keyframes float {
+  @keyframes pulse {
     0%, 100% {
-      transform: translateY(0);
+      transform: scale(1);
     }
     50% {
-      transform: translateY(-15px);
+      transform: scale(1.05);
     }
   }
 
@@ -183,6 +169,7 @@
     box-shadow: 0 10px 25px rgba(0, 255, 153, 0.8);
   }
 </style>
+
 
 <!-- Mission Section -->
 <section id="story" class="story-section">
