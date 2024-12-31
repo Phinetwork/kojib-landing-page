@@ -1098,7 +1098,7 @@ scrollToTopBtn.style.position = 'fixed';
 scrollToTopBtn.style.bottom = '20px';
 scrollToTopBtn.style.left = '10px';
 scrollToTopBtn.style.width = '50px';
-scrollToTopBtn.style.height = '50px';
+scrollToTopBtn.style.height = '50px'; 
 scrollToTopBtn.style.display = 'flex';
 scrollToTopBtn.style.alignItems = 'center';
 scrollToTopBtn.style.justifyContent = 'center';
@@ -1139,37 +1139,34 @@ const menu = document.createElement('div');
 menu.style.position = 'fixed';
 menu.style.bottom = '80px';
 menu.style.left = '10px';
-menu.style.background = 'white';
-menu.style.border = '1px solid #ddd';
-menu.style.borderRadius = '8px';
-menu.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
-menu.style.padding = '10px';
+menu.style.background = 'rgba(30, 30, 48, 0.95)';
+menu.style.border = '1px solid #00cc80';
+menu.style.borderRadius = '12px';
+menu.style.boxShadow = '0 6px 15px rgba(0, 255, 153, 0.5)';
+menu.style.padding = '15px';
 menu.style.display = 'none';
 menu.style.zIndex = '1000';
+menu.style.color = '#fff';
 menu.innerHTML = `
   <ul style="list-style: none; margin: 0; padding: 0;">
-    <li style="margin: 5px 0;"><button class="menu-item" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Scroll to Top</button></li>
-    <li style="margin: 5px 0;"><a href="/index.html" class="menu-item">Home</a></li>
-    <li style="margin: 5px 0;"><a href="#key-features" class="menu-item">Features</a></li>
-    <li style="margin: 5px 0;"><a href="#applications" class="menu-item">Applications</a></li>
-    <li style="margin: 5px 0;"><a href="#contact" class="menu-item">Contact</a></li>
-    <li style="margin: 5px 0;"><a href="https://github.com/kojibai/noosphere" target="_blank" class="menu-item">GitHub Repo</a></li>
+    <li style="margin: 10px 0;"><button class="menu-item" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); closeMenu();">Scroll to Top</button></li>
+    <li style="margin: 10px 0;"><a href="/index.html" class="menu-item" onclick="closeMenu();">Home</a></li>
+    <li style="margin: 10px 0;"><a href="#key-features" class="menu-item" onclick="closeMenu();">Features</a></li>
+    <li style="margin: 10px 0;"><a href="#applications" class="menu-item" onclick="closeMenu();">Applications</a></li>
+    <li style="margin: 10px 0;"><a href="#contact" class="menu-item" onclick="closeMenu();">Contact</a></li>
+    <li style="margin: 10px 0;"><a href="https://github.com/kojibai/noosphere" target="_blank" class="menu-item" onclick="closeMenu();">GitHub Repo</a></li>
   </ul>
 `;
 document.body.appendChild(menu);
 
+// Function to close the menu
+function closeMenu() {
+  menu.style.display = 'none';
+}
+
 // Toggle Menu on Button Click
 scrollToTopBtn.addEventListener('click', () => {
   menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-});
-
-// Scroll to Top Functionality
-menu.querySelectorAll('.menu-item')[0].addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-  menu.style.display = 'none';
 });
 
 // Add glowing animation
@@ -1194,20 +1191,23 @@ style.innerHTML = `
   .menu-item {
     background: none;
     border: none;
-    padding: 5px 10px;
-    color: #333;
+    padding: 10px 20px;
+    color: #00ff99;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     text-decoration: none;
     display: block;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   .menu-item:hover {
-    background: #f0f0f0;
+    background: rgba(0, 255, 153, 0.1);
+    color: #00cc80;
   }
 `;
 document.head.appendChild(style);
+
 
 
     </script>
