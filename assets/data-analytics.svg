@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <style>
     .node {
       fill: url(#node-gradient);
       stroke: #ffffff;
       stroke-width: 1;
-      animation: pulse 3.14s infinite ease-in-out;
+      animation: pulse var(--pulse-time) cubic-bezier(0.42, 0, 0.58, 1) infinite;
     }
 
     .connection {
       fill: none;
-      stroke: #ff6f61;
-      stroke-width: 2;
+      stroke: url(#connection-gradient);
+      stroke-width: 2.5;
       stroke-linecap: round;
-      animation: connect 6.18s infinite ease-in-out;
+      animation: connect var(--connect-time) cubic-bezier(0.42, 0, 0.58, 1) infinite;
     }
 
     .data-stream {
       fill: none;
       stroke: #ffffff;
       stroke-width: 1;
-      stroke-dasharray: 4;
-      animation: stream 4s infinite linear;
+      stroke-dasharray: 6;
+      animation: stream var(--stream-time) linear infinite;
     }
 
     @keyframes pulse {
@@ -28,19 +28,19 @@
         transform: scale(1);
       }
       50% {
-        transform: scale(1.618); /* Golden ratio scaling */
+        transform: scale(1.618);
       }
     }
 
     @keyframes connect {
       0% {
-        stroke-dasharray: 0, 200;
+        stroke-dasharray: 0, 300;
       }
       50% {
-        stroke-dasharray: 100, 100;
+        stroke-dasharray: 150, 150;
       }
       100% {
-        stroke-dasharray: 200, 0;
+        stroke-dasharray: 300, 0;
       }
     }
 
@@ -49,12 +49,19 @@
         stroke-dashoffset: 0;
       }
       100% {
-        stroke-dashoffset: -20;
+        stroke-dashoffset: -40;
       }
     }
 
     #node-gradient {
       gradientTransform: rotate(45deg);
+    }
+
+    #connection-gradient {
+      x1: 0%;
+      y1: 0%;
+      x2: 100%;
+      y2: 100%;
     }
   </style>
 
@@ -64,21 +71,26 @@
       <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
       <stop offset="100%" stop-color="#ff6f61" stop-opacity="0.8" />
     </radialGradient>
+
+    <linearGradient id="connection-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6f61" />
+      <stop offset="100%" stop-color="#ff9f80" />
+    </linearGradient>
   </defs>
 
   <!-- Connections -->
-  <line class="connection" x1="60" y1="100" x2="100" y2="60" />
-  <line class="connection" x1="100" y1="60" x2="140" y2="100" />
-  <line class="connection" x1="140" y1="100" x2="100" y2="140" />
-  <line class="connection" x1="100" y1="140" x2="60" y2="100" />
+  <line class="connection" x1="150" y1="200" x2="200" y2="150" style="--connect-time: 6.18s;" />
+  <line class="connection" x1="200" y1="150" x2="250" y2="200" style="--connect-time: 7.14s;" />
+  <line class="connection" x1="250" y1="200" x2="200" y2="250" style="--connect-time: 6.618s;" />
+  <line class="connection" x1="200" y1="250" x2="150" y2="200" style="--connect-time: 7.236s;" />
 
   <!-- Data Streams -->
-  <line class="data-stream" x1="80" y1="80" x2="120" y2="120" />
-  <line class="data-stream" x1="120" y1="80" x2="80" y2="120" />
+  <line class="data-stream" x1="170" y1="170" x2="230" y2="230" style="--stream-time: 4.14s;" />
+  <line class="data-stream" x1="230" y1="170" x2="170" y2="230" style="--stream-time: 4.618s;" />
 
   <!-- Nodes -->
-  <circle class="node" cx="60" cy="100" r="6" />
-  <circle class="node" cx="100" cy="60" r="6" />
-  <circle class="node" cx="140" cy="100" r="6" />
-  <circle class="node" cx="100" cy="140" r="6" />
+  <circle class="node" cx="150" cy="200" r="10" style="--pulse-time: 5.618s;" />
+  <circle class="node" cx="200" cy="150" r="10" style="--pulse-time: 6.18s;" />
+  <circle class="node" cx="250" cy="200" r="10" style="--pulse-time: 6.618s;" />
+  <circle class="node" cx="200" cy="250" r="10" style="--pulse-time: 7.236s;" />
 </svg>

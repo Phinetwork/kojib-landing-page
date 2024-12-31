@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <style>
     .scalability-node {
       fill: url(#node-gradient);
       stroke: #ffffff;
-      stroke-width: 0.5;
-      animation: pulse 3.14s infinite ease-in-out;
+      stroke-width: 1;
+      animation: pulse var(--pulse-time) cubic-bezier(0.42, 0, 0.58, 1) infinite;
     }
 
     .scalability-line {
-      stroke: #00cc80;
-      stroke-width: 1.5;
+      stroke: url(#line-gradient);
+      stroke-width: 2;
       stroke-linecap: round;
-      animation: connect 6.18s infinite ease-in-out;
+      animation: connect var(--connect-time) cubic-bezier(0.42, 0, 0.58, 1) infinite;
     }
 
     @keyframes pulse {
@@ -20,20 +20,20 @@
         opacity: 1;
       }
       50% {
-        transform: scale(1.618); /* Golden ratio scaling */
+        transform: scale(1.618);
         opacity: 0.8;
       }
     }
 
     @keyframes connect {
       0% {
-        stroke-dasharray: 0, 40;
+        stroke-dasharray: 0, 200;
       }
       50% {
-        stroke-dasharray: 20, 20;
+        stroke-dasharray: 100, 100;
       }
       100% {
-        stroke-dasharray: 40, 0;
+        stroke-dasharray: 200, 0;
       }
     }
 
@@ -48,22 +48,27 @@
       <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
       <stop offset="100%" stop-color="#00cc80" stop-opacity="0.8" />
     </radialGradient>
+
+    <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00cc80" />
+      <stop offset="100%" stop-color="#00ff99" />
+    </linearGradient>
   </defs>
 
   <!-- Central Node -->
-  <circle class="scalability-node" cx="100" cy="100" r="6" />
+  <circle class="scalability-node" cx="200" cy="200" r="12" style="--pulse-time: 5.236s;" />
 
   <!-- Connections -->
-  <line class="scalability-line" x1="100" y1="100" x2="50" y2="50" />
-  <line class="scalability-line" x1="100" y1="100" x2="150" y2="50" />
-  <line class="scalability-line" x1="100" y1="100" x2="50" y2="150" />
-  <line class="scalability-line" x1="100" y1="100" x2="150" y2="150" />
-  <line class="scalability-line" x1="100" y1="100" x2="100" y2="50" />
+  <line class="scalability-line" x1="200" y1="200" x2="100" y2="100" style="--connect-time: 8.236s;" />
+  <line class="scalability-line" x1="200" y1="200" x2="300" y2="100" style="--connect-time: 6.18s;" />
+  <line class="scalability-line" x1="200" y1="200" x2="100" y2="300" style="--connect-time: 7.14s;" />
+  <line class="scalability-line" x1="200" y1="200" x2="300" y2="300" style="--connect-time: 6.618s;" />
+  <line class="scalability-line" x1="200" y1="200" x2="200" y2="50" style="--connect-time: 9.14s;" />
 
   <!-- Outer Nodes -->
-  <circle class="scalability-node" cx="50" cy="50" r="4" />
-  <circle class="scalability-node" cx="150" cy="50" r="4" />
-  <circle class="scalability-node" cx="50" cy="150" r="4" />
-  <circle class="scalability-node" cx="150" cy="150" r="4" />
-  <circle class="scalability-node" cx="100" cy="50" r="4" />
+  <circle class="scalability-node" cx="100" cy="100" r="8" style="--pulse-time: 4.14s;" />
+  <circle class="scalability-node" cx="300" cy="100" r="8" style="--pulse-time: 4.618s;" />
+  <circle class="scalability-node" cx="100" cy="300" r="8" style="--pulse-time: 5.14s;" />
+  <circle class="scalability-node" cx="300" cy="300" r="8" style="--pulse-time: 6.618s;" />
+  <circle class="scalability-node" cx="200" cy="50" r="8" style="--pulse-time: 5.236s;" />
 </svg>

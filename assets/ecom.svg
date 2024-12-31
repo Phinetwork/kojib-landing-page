@@ -1,27 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <style>
     .cart {
       fill: url(#cart-gradient);
+      stroke: #ffffff;
+      stroke-width: 1;
       transform-origin: center;
-      animation: bounce 3s infinite ease-in-out;
+      animation: bounce 4.236s infinite cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     .path {
       fill: none;
-      stroke: #e3b341;
-      stroke-width: 2;
+      stroke: url(#path-gradient);
+      stroke-width: 3;
       stroke-linecap: round;
-      stroke-dasharray: 300;
-      animation: draw 6.18s infinite ease-in-out;
+      stroke-dasharray: 400;
+      animation: draw 8.236s infinite cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     .checkout-btn {
-      fill: #ffffff;
+      fill: url(#button-gradient);
       stroke: #e3b341;
-      stroke-width: 1;
-      opacity: 0.9;
+      stroke-width: 1.5;
       transform-origin: center;
-      animation: pulse 3.14s infinite ease-in-out;
+      animation: pulse 5.14s infinite cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     @keyframes bounce {
@@ -29,13 +30,13 @@
         transform: translateY(0);
       }
       50% {
-        transform: translateY(-10px);
+        transform: translateY(-15px);
       }
     }
 
     @keyframes draw {
       0% {
-        stroke-dashoffset: 300;
+        stroke-dashoffset: 400;
       }
       100% {
         stroke-dashoffset: 0;
@@ -52,10 +53,6 @@
         opacity: 1;
       }
     }
-
-    #cart-gradient {
-      gradientTransform: rotate(45deg);
-    }
   </style>
 
   <defs>
@@ -64,17 +61,27 @@
       <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
       <stop offset="100%" stop-color="#e3b341" stop-opacity="0.8" />
     </radialGradient>
+
+    <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e3b341" />
+      <stop offset="100%" stop-color="#ffc107" />
+    </linearGradient>
+
+    <linearGradient id="button-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e3b341" />
+    </linearGradient>
   </defs>
 
-  <!-- Paths -->
-  <path class="path" d="M 40,80 Q 100,20 160,80" />
-  <path class="path" d="M 40,120 Q 100,180 160,120" />
+  <!-- Dynamic Paths -->
+  <path class="path" d="M 80,150 Q 200,50 320,150" />
+  <path class="path" d="M 80,250 Q 200,350 320,250" />
 
   <!-- Shopping Carts -->
-  <rect class="cart" x="30" y="70" width="20" height="20" rx="4" />
-  <rect class="cart" x="150" y="110" width="20" height="20" rx="4" />
+  <rect class="cart" x="60" y="140" width="40" height="40" rx="10" />
+  <rect class="cart" x="300" y="220" width="40" height="40" rx="10" />
 
   <!-- Checkout Button -->
-  <rect class="checkout-btn" x="80" y="140" width="40" height="20" rx="5" />
-  <text x="100" y="155" font-family="Arial" font-size="8" fill="#e3b341" text-anchor="middle">Checkout</text>
+  <rect class="checkout-btn" x="180" y="300" width="80" height="40" rx="10" />
+  <text x="220" y="325" font-family="Arial" font-size="12" fill="#e3b341" text-anchor="middle">Checkout</text>
 </svg>

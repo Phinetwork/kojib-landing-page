@@ -1,47 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <style>
     .bubble {
       fill: url(#bubble-gradient);
       stroke: #ffffff;
       stroke-width: 0.5;
       transform-origin: center;
-      animation: float 3.14s infinite ease-in-out;
+      animation: float 6.18s infinite cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     .line {
       fill: none;
-      stroke: #00cc80;
+      stroke: url(#line-gradient);
       stroke-width: 2;
       stroke-linecap: round;
-      animation: flow 6.18s infinite ease-in-out;
+      animation: flow 8.236s infinite cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     .ai-core {
-      fill: #00cc80;
+      fill: url(#core-gradient);
       stroke: #ffffff;
-      stroke-width: 1;
+      stroke-width: 1.5;
       transform-origin: center;
-      animation: pulse 3.14s infinite ease-in-out;
+      animation: pulse 4.236s infinite cubic-bezier(0.42, 0, 0.58, 1);
     }
 
     @keyframes float {
       0%, 100% {
         transform: translateY(0);
+        opacity: 1;
       }
       50% {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        opacity: 0.9;
       }
     }
 
     @keyframes flow {
       0% {
-        stroke-dasharray: 0, 200;
+        stroke-dasharray: 0, 300;
       }
       50% {
-        stroke-dasharray: 100, 100;
+        stroke-dasharray: 150, 150;
       }
       100% {
-        stroke-dasharray: 200, 0;
+        stroke-dasharray: 300, 0;
       }
     }
 
@@ -51,13 +53,20 @@
         opacity: 1;
       }
       50% {
-        transform: scale(1.618); /* Golden ratio scaling */
-        opacity: 0.9;
+        transform: scale(1.618);
+        opacity: 0.8;
       }
     }
 
     #bubble-gradient {
       gradientTransform: rotate(45deg);
+    }
+
+    #line-gradient {
+      x1: 0%;
+      y1: 0%;
+      x2: 100%;
+      y2: 100%;
     }
   </style>
 
@@ -67,20 +76,30 @@
       <stop offset="50%" stop-color="#ffffff" stop-opacity="0.5" />
       <stop offset="100%" stop-color="#00cc80" stop-opacity="0.8" />
     </radialGradient>
+
+    <radialGradient id="core-gradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00cc80" />
+      <stop offset="100%" stop-color="#00ff99" />
+    </radialGradient>
+
+    <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00cc80" />
+      <stop offset="100%" stop-color="#00ff99" />
+    </linearGradient>
   </defs>
 
   <!-- AI Core -->
-  <circle class="ai-core" cx="100" cy="100" r="10" />
+  <circle class="ai-core" cx="200" cy="200" r="20" />
 
   <!-- Connection Lines -->
-  <line class="line" x1="90" y1="90" x2="60" y2="60" />
-  <line class="line" x1="110" y1="90" x2="140" y2="60" />
-  <line class="line" x1="90" y1="110" x2="60" y2="140" />
-  <line class="line" x1="110" y1="110" x2="140" y2="140" />
+  <line class="line" x1="180" y1="180" x2="120" y2="120" />
+  <line class="line" x1="220" y1="180" x2="280" y2="120" />
+  <line class="line" x1="180" y1="220" x2="120" y2="280" />
+  <line class="line" x1="220" y1="220" x2="280" y2="280" />
 
   <!-- Speech Bubbles -->
-  <rect class="bubble" x="50" y="50" width="20" height="10" rx="3" />
-  <rect class="bubble" x="130" y="50" width="20" height="10" rx="3" />
-  <rect class="bubble" x="50" y="140" width="20" height="10" rx="3" />
-  <rect class="bubble" x="130" y="140" width="20" height="10" rx="3" />
+  <rect class="bubble" x="100" y="100" width="40" height="20" rx="5" />
+  <rect class="bubble" x="260" y="100" width="40" height="20" rx="5" />
+  <rect class="bubble" x="100" y="280" width="40" height="20" rx="5" />
+  <rect class="bubble" x="260" y="280" width="40" height="20" rx="5" />
 </svg>
