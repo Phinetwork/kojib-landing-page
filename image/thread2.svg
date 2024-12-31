@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="secureBgGradient" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e1e2f" />
+      <stop offset="100%" stop-color="#2a2a50" />
+    </radialGradient>
+
+    <!-- Lock Glow -->
+    <radialGradient id="lockGlowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Soft Blur -->
+    <filter id="softBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+    </filter>
+
+    <!-- Particle Glow -->
+    <filter id="particleGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.6 0 0 0 0 1 0 0 0 0 0.6 0 0 0 1 0" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="300" fill="url(#secureBgGradient)" />
+
+  <!-- Glow Circle -->
+  <circle cx="200" cy="150" r="140" fill="url(#lockGlowGradient)" opacity="0.5">
+    <animate attributeName="r" values="140;150;140" dur="4.236s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;0.7;0.5" dur="4.236s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Lock Icon -->
+  <g transform="translate(150, 90)">
+    <!-- Lock Body -->
+    <rect x="30" y="50" width="60" height="80" rx="10" fill="#00ff99" filter="url(#softBlur)" />
+    <!-- Lock Shackle -->
+    <path d="M40 50 C40 30, 80 30, 80 50" fill="none" stroke="#0099ff" stroke-width="6" />
+    <!-- Keyhole -->
+    <circle cx="60" cy="90" r="6" fill="#1e1e2f" />
+  </g>
+
+  <!-- Particle Effects -->
+  <circle cx="100" cy="80" r="4" fill="#00ff99" filter="url(#particleGlow)">
+    <animate attributeName="cx" values="100;300;100" dur="6.854s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;220;80" dur="6.854s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="220" r="4" fill="#0099ff" filter="url(#particleGlow)">
+    <animate attributeName="cx" values="300;100;300" dur="6.854s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="220;80;220" dur="6.854s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Animated Neural Lines -->
+  <line x1="100" y1="80" x2="300" y2="220" stroke="#00ff99" stroke-width="1" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4.236s" repeatCount="indefinite" />
+  </line>
+  <line x1="300" y1="80" x2="100" y2="220" stroke="#0099ff" stroke-width="1" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4.236s" repeatCount="indefinite" />
+  </line>
+</svg>

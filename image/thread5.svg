@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="debugBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e2f" />
+      <stop offset="100%" stop-color="#2a2a50" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="debugGlowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Particle Glow Filter -->
+    <filter id="debugParticleGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5  0 0 0 0 1  0 0 0 0 0.7  0 0 0 1 0" />
+    </filter>
+
+    <!-- Debug Icon Style -->
+    <pattern id="debugIconPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="4" fill="#ffffff" />
+      <line x1="10" y1="0" x2="10" y2="20" stroke="#00ff99" stroke-width="1" />
+      <line x1="0" y1="10" x2="20" y2="10" stroke="#0099ff" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Background Rectangle -->
+  <rect x="0" y="0" width="400" height="300" fill="url(#debugBgGradient)" />
+
+  <!-- Glow Circle -->
+  <circle cx="200" cy="150" r="120" fill="url(#debugGlowGradient)">
+    <animate attributeName="r" values="120;130;120" dur="4.236s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.236s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Debugging Icon Placeholder -->
+  <rect x="80" y="50" width="240" height="150" rx="15" fill="url(#debugIconPattern)" />
+
+  <!-- Animated Particles -->
+  <circle cx="100" cy="80" r="6" fill="#00ff99" filter="url(#debugParticleGlow)">
+    <animate attributeName="cx" values="100;300;100" dur="6.854s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;220;80" dur="6.854s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="220" r="6" fill="#0099ff" filter="url(#debugParticleGlow)">
+    <animate attributeName="cx" values="300;100;300" dur="6.854s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="220;80;220" dur="6.854s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Animated Debugging Lines -->
+  <line x1="100" y1="80" x2="300" y2="220" stroke="#00ff99" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.236s" repeatCount="indefinite" />
+  </line>
+  <line x1="300" y1="80" x2="100" y2="220" stroke="#0099ff" stroke-width="1.5" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.236s" repeatCount="indefinite" />
+  </line>
+</svg>

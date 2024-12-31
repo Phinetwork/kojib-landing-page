@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="graphqlBgGradient" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1a1a2e" />
+      <stop offset="100%" stop-color="#2f2f49" />
+    </radialGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="graphqlGlowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e535ab" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#8904c4" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Node Glow -->
+    <filter id="nodeGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+    </filter>
+
+    <!-- Line Glow -->
+    <filter id="lineGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="300" fill="url(#graphqlBgGradient)" />
+
+  <!-- Glow Circle -->
+  <circle cx="200" cy="150" r="140" fill="url(#graphqlGlowGradient)">
+    <animate attributeName="r" values="140;160;140" dur="4.236s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.7;0.5;0.7" dur="4.236s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- GraphQL Nodes -->
+  <circle cx="200" cy="50" r="10" fill="#e535ab" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="10;12;10" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="100" cy="150" r="10" fill="#e535ab" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="10;12;10" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="200" cy="250" r="10" fill="#e535ab" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="10;12;10" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="150" r="10" fill="#e535ab" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="10;12;10" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Connecting Lines -->
+  <line x1="200" y1="50" x2="100" y2="150" stroke="#e535ab" stroke-width="3" filter="url(#lineGlow)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.236s" repeatCount="indefinite" />
+  </line>
+  <line x1="200" y1="50" x2="300" y2="150" stroke="#e535ab" stroke-width="3" filter="url(#lineGlow)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.236s" repeatCount="indefinite" />
+  </line>
+  <line x1="100" y1="150" x2="200" y2="250" stroke="#e535ab" stroke-width="3" filter="url(#lineGlow)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.236s" repeatCount="indefinite" />
+  </line>
+  <line x1="300" y1="150" x2="200" y2="250" stroke="#e535ab" stroke-width="3" filter="url(#lineGlow)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.236s" repeatCount="indefinite" />
+  </line>
+  <line x1="100" y1="150" x2="300" y2="150" stroke="#e535ab" stroke-width="3" filter="url(#lineGlow)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.236s" repeatCount="indefinite" />
+  </line>
+
+  <!-- Center Node -->
+  <circle cx="200" cy="150" r="15" fill="#e535ab" filter="url(#nodeGlow)">
+    <animate attributeName="r" values="15;18;15" dur="2.618s" repeatCount="indefinite" />
+  </circle>
+</svg>

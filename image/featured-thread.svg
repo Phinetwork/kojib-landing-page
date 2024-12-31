@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="threadBgGradient" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e1e2f" />
+      <stop offset="100%" stop-color="#2a2a50" />
+    </radialGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="threadGlowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff99" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Soft Blur -->
+    <filter id="threadSoftBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
+    </filter>
+
+    <!-- Particle Glow -->
+    <filter id="threadParticleGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.6 0 0 0 0 1 0 0 0 0 0.6 0 0 0 1 0" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="300" fill="url(#threadBgGradient)" />
+
+  <!-- Glow Circle -->
+  <circle cx="200" cy="150" r="140" fill="url(#threadGlowGradient)" opacity="0.6">
+    <animate attributeName="r" values="140;150;140" dur="4.236s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.8;0.6" dur="4.236s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Threads Icon -->
+  <g transform="translate(50, 50)">
+    <!-- Thread Node -->
+    <circle cx="100" cy="100" r="20" fill="#00ff99" filter="url(#threadSoftBlur)">
+      <animate attributeName="r" values="20;22;20" dur="2.618s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Connection Lines -->
+    <line x1="100" y1="100" x2="180" y2="150" stroke="#00ff99" stroke-width="2" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4.236s" repeatCount="indefinite" />
+    </line>
+    <line x1="180" y1="150" x2="120" y2="200" stroke="#0099ff" stroke-width="2" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="4.236s" repeatCount="indefinite" />
+    </line>
+
+    <!-- Additional Nodes -->
+    <circle cx="180" cy="150" r="15" fill="#0099ff" filter="url(#threadSoftBlur)">
+      <animate attributeName="r" values="15;17;15" dur="3.618s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="120" cy="200" r="10" fill="#00ff99" filter="url(#threadSoftBlur)">
+      <animate attributeName="r" values="10;12;10" dur="2.618s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Particle Effects -->
+  <circle cx="150" cy="100" r="5" fill="#00ff99" filter="url(#threadParticleGlow)">
+    <animate attributeName="cx" values="150;250;150" dur="6.854s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="100;200;100" dur="6.854s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="250" cy="200" r="5" fill="#0099ff" filter="url(#threadParticleGlow)">
+    <animate attributeName="cx" values="250;150;250" dur="6.854s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="200;100;200" dur="6.854s" repeatCount="indefinite" />
+  </circle>
+</svg>

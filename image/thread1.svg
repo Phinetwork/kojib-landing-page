@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="reactBgGradient" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#1e1e2f" />
+      <stop offset="100%" stop-color="#2a2a50" />
+    </radialGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="reactGlowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#61dafb" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#21a1f1" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Node Glow -->
+    <filter id="nodeGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+    </filter>
+
+    <!-- Line Glow -->
+    <filter id="lineGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="300" fill="url(#reactBgGradient)" />
+
+  <!-- Glow Circle -->
+  <circle cx="200" cy="150" r="140" fill="url(#reactGlowGradient)" opacity="0.5">
+    <animate attributeName="r" values="140;150;140" dur="4.236s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;0.7;0.5" dur="4.236s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Central React Symbol -->
+  <g transform="translate(200, 150)">
+    <ellipse rx="80" ry="30" fill="none" stroke="#61dafb" stroke-width="3" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="6.854s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse rx="80" ry="30" fill="none" stroke="#61dafb" stroke-width="3" opacity="0.7" transform="rotate(60)">
+      <animateTransform attributeName="transform" type="rotate" from="60 0 0" to="420 0 0" dur="6.854s" repeatCount="indefinite" />
+    </ellipse>
+    <ellipse rx="80" ry="30" fill="none" stroke="#61dafb" stroke-width="3" opacity="0.7" transform="rotate(120)">
+      <animateTransform attributeName="transform" type="rotate" from="120 0 0" to="480 0 0" dur="6.854s" repeatCount="indefinite" />
+    </ellipse>
+  </g>
+
+  <!-- Nodes -->
+  <circle cx="100" cy="80" r="6" fill="#61dafb" filter="url(#nodeGlow)">
+    <animate attributeName="cx" values="100;300;100" dur="4.236s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;220;80" dur="4.236s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="220" r="6" fill="#21a1f1" filter="url(#nodeGlow)">
+    <animate attributeName="cx" values="300;100;300" dur="4.236s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="220;80;220" dur="4.236s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Connecting Lines -->
+  <line x1="100" y1="80" x2="300" y2="220" stroke="#61dafb" stroke-width="1" opacity="0.6" filter="url(#lineGlow)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4.236s" repeatCount="indefinite" />
+  </line>
+  <line x1="300" y1="80" x2="100" y2="220" stroke="#21a1f1" stroke-width="1" opacity="0.6" filter="url(#lineGlow)">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4.236s" repeatCount="indefinite" />
+  </line>
+</svg>
