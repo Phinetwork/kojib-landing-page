@@ -749,21 +749,93 @@
     <!-- ============================================
          Contact Section
     ============================================= -->
-    <section id="contact" style="padding: 100px 20px; background: #2e2e50; text-align: center;">
+    <section id="contact" style="padding: 100px 20px; background: #2e2e50; text-align: center; color: #ffffff;">
         <div class="noosphere-container">
-            <h2 class="noosphere-title">Contact Us</h2>
-            <div class="noosphere-content">
-                <p>Have questions or want to contribute? Reach out to us!</p>
-                <form action="#" method="POST" style="max-width: 500px; margin: 0 auto;">
-                    <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;">
-                    <textarea name="message" placeholder="Your Message" rows="5" required style="width: 100%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 15px;"></textarea>
-                    <button type="submit" style="background: #00ff99; color: #1e1e2f; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s ease, transform 0.3s ease;">
-                        Send Message
-                    </button>
-                </form>
+          <h2 class="noosphere-title" style="font-size: 2.5rem; color: #00ff99; margin-bottom: 20px;">Contact Us</h2>
+          <div class="noosphere-content" style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 40px;">
+            <p>
+              Have questions, ideas, or want to collaborate with us? We're here to help! Send us a message, and we'll get back to you as soon as possible.
+            </p>
+          </div>
+          <form id="contact-form" action="#" method="POST" style="max-width: 500px; margin: 0 auto; background: #1e1e30; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+            <!-- Email Field -->
+            <div style="margin-bottom: 20px;">
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Your Email" 
+                required 
+                style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #444; background: #2e2e50; color: #ffffff; font-size: 1rem;"
+              >
             </div>
+            <!-- Message Field -->
+            <div style="margin-bottom: 20px;">
+              <textarea 
+                name="message" 
+                placeholder="Your Message" 
+                rows="5" 
+                required 
+                style="width: 100%; padding: 15px; border-radius: 5px; border: 1px solid #444; background: #2e2e50; color: #ffffff; font-size: 1rem; resize: none;"
+              ></textarea>
+            </div>
+            <!-- Submit Button -->
+            <button 
+              type="submit" 
+              style="width: 100%; background: #00ff99; color: #1e1e30; padding: 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.3s ease, transform 0.3s ease;"
+              onmouseover="this.style.background='#00cc80'; this.style.transform='scale(1.05)';"
+              onmouseout="this.style.background='#00ff99'; this.style.transform='scale(1)';"
+            >
+              Send Message
+            </button>
+          </form>
+          <!-- Success Message -->
+          <div id="success-message" style="display: none; margin-top: 30px; font-size: 1.2rem; color: #00ff99; font-weight: bold;">
+            🎉 Success! Your message has been sent.
+          </div>
+          <!-- Additional Contact Information -->
+          <div style="margin-top: 30px; font-size: 1rem;">
+            <p>Prefer to reach out directly? Email us at <a href="mailto:contact@kojib.com" style="color: #00ff99; text-decoration: none;">contact@kojib.com</a></p>
+            <p>Follow us on <a href="https://twitter.com/kojib_com" target="_blank" style="color: #00ff99; text-decoration: none;">Twitter</a> and <a href="https://linkedin.com/company/kojib" target="_blank" style="color: #00ff99; text-decoration: none;">LinkedIn</a></p>
+          </div>
         </div>
-    </section>
+      
+        <script>
+          // Handle form submission
+          document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent actual form submission
+            
+            // Show success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+      
+            // Optional: Clear form inputs
+            this.reset();
+          });
+        </script>
+      </section>
+      
+
+    <!-- ============================================
+         Ai chatbot Section
+    ============================================= -->
+
+    <!-- AI Chatbot -->
+<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
+    <div id="chatbot-header">
+        <span>Kojib</span>
+        <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+    </div>
+    <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
+        <!-- Chat messages will be dynamically injected here -->
+    </div>
+    <div id="chatbot-input" role="form" aria-label="Chat Input">
+        <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+        <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+    </div>
+  </div>
+  <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
+    <img src="image/chat-icon.svg" alt="Chat Icon" />
+  </div>
 
     <!-- ============================================
          Footer
@@ -899,7 +971,7 @@
         scrollToTopBtn.innerHTML = '⬆️';
         scrollToTopBtn.style.position = 'fixed';
         scrollToTopBtn.style.bottom = '40px';
-        scrollToTopBtn.style.right = '40px';
+        scrollToTopBtn.style.left = '40px';
         scrollToTopBtn.style.padding = '10px 15px';
         scrollToTopBtn.style.fontSize = '18px';
         scrollToTopBtn.style.border = 'none';
@@ -932,5 +1004,10 @@
             });
         });
     </script>
+
+
+     <!-- Include other scripts or libraries -->
+     <script src="chatbot.js"></script>
+
 </body>
 </html>
