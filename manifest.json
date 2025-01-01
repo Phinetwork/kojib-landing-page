@@ -1,22 +1,56 @@
 {
-    "name": "Kojib",
-    "short_name": "Kojib",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#000000",
-    "theme_color": "#000000",
-    "description": "Kojib - The frontier of AI innovation.",
-    "icons": [
-      {
-        "src": "image/logo-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-      },
-      {
-        "src": "image/logo-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
-    ]
-  }
-  
+  "name": "Kojib",
+  "short_name": "Kojib",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Kojib - The frontier of AI innovation.",
+  "icons": [
+    {
+      "src": "favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "any",
+  "categories": ["technology", "artificial intelligence", "innovation"],
+  "lang": "en-US",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "label": "Home screen"
+    },
+    {
+      "src": "screenshots/screenshot2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "label": "Features page"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
