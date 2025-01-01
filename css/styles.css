@@ -71,7 +71,7 @@
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    z-index: 1100; /* Ensure it's on top of the nav */
+    z-index: 1000100; /* Ensure it's on top of the nav */
     transition: transform 0.3s ease;
 }
 
