@@ -2090,13 +2090,62 @@
      <!-- Include other scripts or libraries -->
      <script src="chatbot.js"></script>
      
-<!-- JavaScript -->
+
+<!-- JavaScript for Interactivity and Animations -->
 <script>
-  // Prevent scrolling behavior for specific links
-  document.getElementById("login-link").addEventListener("click", function (event) {
-    event.stopPropagation(); // Stop any bubbling behavior
+  // Wait for DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-links li a');
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (event) => {
+        if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('active');
+        }
+      });
+
+      // Close mobile menu when clicking a nav link
+      navLinkItems.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+
+    // Smooth Scroll for Internal Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        // Prevent default behavior
+        e.preventDefault();
+
+        const targetID = this.getAttribute('href');
+        if (targetID && targetID.startsWith('#')) {
+          const target = document.querySelector(targetID);
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 70, // Adjust for fixed navbar
+              behavior: 'smooth',
+            });
+          }
+        } else if (this.getAttribute('href') === 'https://chat.kojib.com/entry') {
+          // Allow external link to function normally
+          window.location.href = this.getAttribute('href');
+        }
+      });
+    });
   });
 </script>
-    
+
 </body>
 </html>
