@@ -1981,9 +1981,6 @@
 
 
 
-<!-- ============================================
-     Scroll to Top Button and Pop-up Menu Integration
-============================================= -->
 <script>
   // Create Scroll to Top Button
   const scrollToTopBtn = document.createElement('button');
@@ -1999,39 +1996,38 @@
           <path class="phi-path" d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
       </svg>
   `;
-  // Apply Styles to Scroll to Top Button
-  scrollToTopBtn.style.position = 'fixed';
-  scrollToTopBtn.style.bottom = '20px';
-  scrollToTopBtn.style.left = '10px';
-  scrollToTopBtn.style.width = '50px';
-  scrollToTopBtn.style.height = '50px'; 
-  scrollToTopBtn.style.display = 'flex';
-  scrollToTopBtn.style.alignItems = 'center';
-  scrollToTopBtn.style.justifyContent = 'center';
-  scrollToTopBtn.style.border = 'none';
-  scrollToTopBtn.style.borderRadius = '50%';
-  scrollToTopBtn.style.background = 'linear-gradient(145deg, #1e1e30, #00cc80)';
-  scrollToTopBtn.style.cursor = 'pointer';
-  scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
-  scrollToTopBtn.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-  scrollToTopBtn.style.display = 'none';
-  scrollToTopBtn.style.zIndex = '1000';
+  scrollToTopBtn.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #1e1e30, #00cc80);
+      cursor: pointer;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: none;
+      z-index: 1000;
+  `;
   scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
-  
-  // Append the button to the body
   document.body.appendChild(scrollToTopBtn);
-  
+
   // Add Hover Effects
   scrollToTopBtn.addEventListener('mouseover', () => {
       scrollToTopBtn.style.transform = 'scale(1.1)';
       scrollToTopBtn.style.boxShadow = '0 10px 15px rgba(0, 255, 153, 0.5)';
   });
-  
+
   scrollToTopBtn.addEventListener('mouseout', () => {
       scrollToTopBtn.style.transform = 'scale(1)';
       scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
   });
-  
+
   // Show/Hide Scroll to Top Button based on Scroll Position
   window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
@@ -2040,122 +2036,65 @@
           scrollToTopBtn.style.display = 'none';
       }
   });
-  
+
   // Create Pop-up Menu
   const menu = document.createElement('div');
-  menu.style.position = 'fixed';
-  menu.style.bottom = '80px';
-  menu.style.left = '10px';
-  menu.style.background = 'rgba(30, 30, 48, 0.95)';
-  menu.style.border = '1px solid #00cc80';
-  menu.style.borderRadius = '12px';
-  menu.style.boxShadow = '0 6px 15px rgba(0, 255, 153, 0.5)';
-  menu.style.padding = '15px';
-  menu.style.display = 'none';
-  menu.style.zIndex = '1000';
-  menu.style.color = '#fff';
+  menu.style.cssText = `
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: rgba(30, 30, 48, 0.95);
+      border: 1px solid #00cc80;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 255, 153, 0.5);
+      padding: 15px;
+      display: none;
+      z-index: 1000;
+      color: #fff;
+  `;
   menu.innerHTML = `
       <ul style="list-style: none; margin: 0; padding: 0;">
           <li style="margin: 10px 0;">
-              <a href="https://chat.kojib.com/entry" class="menu-item" onclick="closeMenu();">Login</a>
+              <a href="https://chat.kojib.com/entry" class="menu-item">Login</a>
           </li>
           <li style="margin: 10px 0;">
-              <a href="#story" class="menu-item" onclick="closeMenu();">About</a>
+              <a href="#story" class="menu-item">About</a>
           </li>
           <li style="margin: 10px 0;">
-              <a href="#showcase" class="menu-item" onclick="closeMenu();">Capabilities</a>
+              <a href="#showcase" class="menu-item">Capabilities</a>
           </li>
           <li style="margin: 10px 0;">
-              <a href="#applications" class="menu-item" onclick="closeMenu();">Applications</a>
+              <a href="#applications" class="menu-item">Applications</a>
           </li>
           <li style="margin: 10px 0;">
-              <a href="#skyriz" class="menu-item" onclick="closeMenu();">Skyriz</a>
+              <a href="#skyriz" class="menu-item">Skyriz</a>
           </li>
           <li style="margin: 10px 0;">
-              <a href="#noosphere" class="menu-item" onclick="closeMenu();">Noosphere</a>
+              <a href="#noosphere" class="menu-item">Noosphere</a>
           </li>
           <li style="margin: 10px 0;">
-              <a href="contact" class="menu-item" onclick="closeMenu();">Contact</a>
+              <a href="#contact" class="menu-item">Contact</a>
           </li>
+      </ul>
   `;
-  // Append the menu to the body
   document.body.appendChild(menu);
-  
-  // Function to Close the Menu
-  function closeMenu() {
-      menu.style.display = 'none';
-  }
-  
-  // Function to Scroll to Top
-  function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      closeMenu();
-  }
-  
+
   // Toggle Menu Display when Scroll to Top Button is Clicked
   scrollToTopBtn.addEventListener('click', () => {
       menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
   });
-  
-  // Inject Additional Styles for the Pop-up Menu and SVG Animations
+
+  // Inject Additional Styles for Menu Items
   const additionalStyles = document.createElement('style');
   additionalStyles.innerHTML = `
-      /* Phi Motion Icon Animations */
-      @keyframes divineMotion {
-          0% {
-              transform: scale(1);
-              opacity: 0.9;
-              filter: drop-shadow(0 0 4px #00cc80) drop-shadow(0 0 6px #00cc80);
-          }
-          38.2% { /* Reflects 1/phi proportion */
-              transform: scale(1.1);
-              opacity: 1;
-              filter: drop-shadow(0 0 8px #00ff99) drop-shadow(0 0 10px #00cc80);
-          }
-          61.8% { /* Reflects phi proportion */
-              transform: scale(0.95);
-              opacity: 0.95;
-              filter: drop-shadow(0 0 6px #00cc80) drop-shadow(0 0 8px #00ff99);
-          }
-          100% {
-              transform: scale(1);
-              opacity: 0.9;
-              filter: drop-shadow(0 0 4px #00cc80) drop-shadow(0 0 6px #00cc80);
-          }
-      }
-
-      .phi-path {
-          fill: url(#glossy-gradient);
-          filter: drop-shadow(0 0 4px #00cc80);
-          transform-origin: center;
-          animation: divineMotion 6.18s infinite ease-in-out;
-      }
-
-      .phi-path:hover {
-          filter: drop-shadow(0 0 10px #00ff99) drop-shadow(0 0 12px #00cc80);
-      }
-
-      /* Scroll to Top Icon */
-      .phi-motion-icon {
-          width: 24px;
-          height: 24px;
-      }
-
-      /* Menu Item Styles */
       .menu-item {
-          background: none;
-          border: none;
-          padding: 10px 20px;
-          color: #00ff99;
-          cursor: pointer;
-          font-size: 16px;
-          text-align: left;
           text-decoration: none;
+          color: #00ff99;
+          font-size: 16px;
+          padding: 10px 20px;
           display: block;
-          transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
-          width: 100%;
+          transition: background 0.3s ease, color 0.3s ease;
       }
-
       .menu-item:hover {
           background: rgba(0, 255, 153, 0.1);
           color: #00cc80;
@@ -2163,6 +2102,7 @@
   `;
   document.head.appendChild(additionalStyles);
 </script>
+
 
 <!-- AI Chatbot -->
 <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
