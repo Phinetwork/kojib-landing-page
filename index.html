@@ -111,49 +111,32 @@
 </head>
 
 <body>
- <!-- ============================================
-         Navbar
-============================================= -->
+
+   <!-- Navigation Menu -->
 <nav id="navbar">
   <div class="nav-container">
-    <!-- Logo links to the homepage -->
-    <div class="logo">
-      <a href="/index.html">
-        <img src="image/logo.png" alt="Logo">
+      <!-- Logo -->
+      <a href="#" class="logo">
+          <img src="image/logo.svg" alt="Kojib Logo">
       </a>
-    </div>
 
-    <!-- Navigation Links -->
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#intro">Home</a></li>
-      <li><a href="#story">About</a></li>
-      <li><a href="#showcase">Capabilities</a></li>
-      <li><a href="#skyriz">Skyriz</a></li>
-      <li><a href="#noosphere-intro">Noosphere</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="https://chat.kojib.com/entry">Developers</a></li>
-      <!-- GitHub Repo Link -->
-      <li class="github-link">
-        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub Repository">
-          <img src="image/github-logo.svg" alt="GitHub Logo">
-          GitHub
-        </a>
-      </li>
-    </ul>
+      <!-- Hamburger Menu -->
+      <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
 
-    <!-- Hamburger Menu -->
-    <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+      <!-- Menu Items -->
+      <ul class="nav-links" id="nav-links">
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#story">About</a></li>
+          <li><a href="#showcase">Capabilities</a></li>
+          <li><a href="#skyriz">Skyriz</a></li>
+          <li><a href="#noosphere-intro">Noosphere</a></li>
+          <li><a href="#contact">Contact</a></li>
   </div>
 </nav>
-
-  
-
-  
-
 
   <!-- Intro Section -->
   <div id="intro">
@@ -2057,7 +2040,8 @@
       <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
       <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
       <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
-      <a href="/our-story.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Our Story</a>
+      <a href="/our-story.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Our Story</a> | 
+      <a href="https://chat.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
     </p>
   </div>
 
@@ -2089,63 +2073,7 @@
  
      <!-- Include other scripts or libraries -->
      <script src="chatbot.js"></script>
-     
 
-<!-- JavaScript for Interactivity and Animations -->
-<script>
-  // Wait for DOM to load
-  document.addEventListener('DOMContentLoaded', () => {
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navLinkItems = document.querySelectorAll('.nav-links li a');
-
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('active');
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', (event) => {
-        if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
-          hamburger.classList.remove('open');
-          navLinks.classList.remove('active');
-        }
-      });
-
-      // Close mobile menu when clicking a nav link
-      navLinkItems.forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('open');
-          navLinks.classList.remove('active');
-        });
-      });
-    }
-
-    // Smooth Scroll for Internal Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        // Prevent default behavior
-        e.preventDefault();
-
-        const targetID = this.getAttribute('href');
-        if (targetID && targetID.startsWith('#')) {
-          const target = document.querySelector(targetID);
-          if (target) {
-            window.scrollTo({
-              top: target.offsetTop - 70, // Adjust for fixed navbar
-              behavior: 'smooth',
-            });
-          }
-        } else if (this.getAttribute('href') === 'https://chat.kojib.com/entry') {
-          // Allow external link to function normally
-          window.location.href = this.getAttribute('href');
-        }
-      });
-    });
-  });
-</script>
-
+    
 </body>
 </html>
