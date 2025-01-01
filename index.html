@@ -111,35 +111,36 @@
 </head>
 
 <body>
-
-   <!-- Navigation Menu -->
-<nav id="navbar">
-  <div class="nav-container">
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <div class="nav-container">
       <!-- Logo -->
       <a href="#" class="logo">
-          <img src="image/logo.svg" alt="Kojib Logo">
+        <img src="image/logo.svg" alt="Kojib Logo">
       </a>
 
       <!-- Hamburger Menu -->
       <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
       <!-- Menu Items -->
       <ul class="nav-links" id="nav-links">
-          <li><a href="#intro">Home</a></li>
-          <li><a href="#story">About</a></li>
-          <li><a href="#showcase">Capabilities</a></li>
-          <li><a href="#skyriz">Skyriz</a></li>
-          <li><a href="#noosphere-intro">Noosphere</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <!-- Login Link -->
-          <li><a href="https://chat.kojib.com/entry/" target="_self">Login</a></li>
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#story">About</a></li>
+        <li><a href="#showcase">Capabilities</a></li>
+        <li><a href="#skyriz">Skyriz</a></li>
+        <li><a href="#noosphere-intro">Noosphere</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- Login Link -->
+        <li><a href="https://chat.kojib.com/entry/" id="login-link" target="_self">Login</a></li>
       </ul>
     </div>
   </nav>
+
+  
 
 
   <!-- Intro Section -->
@@ -2076,7 +2077,14 @@
  
      <!-- Include other scripts or libraries -->
      <script src="chatbot.js"></script>
-
+     
+<!-- JavaScript -->
+<script>
+  // Prevent scrolling behavior for specific links
+  document.getElementById("login-link").addEventListener("click", function (event) {
+    event.stopPropagation(); // Stop any bubbling behavior
+  });
+</script>
     
 </body>
 </html>
