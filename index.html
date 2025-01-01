@@ -1979,130 +1979,17 @@
 </script>
 
 
-
-
-<script>
-  // Create Scroll to Top Button
-  const scrollToTopBtn = document.createElement('button');
-  scrollToTopBtn.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="phi-motion-icon">
-          <defs>
-              <linearGradient id="glossy-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#00cc80" stop-opacity="1" />
-                  <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
-                  <stop offset="100%" stop-color="#00cc80" stop-opacity="1" />
-              </linearGradient>
-          </defs>
-          <path class="phi-path" d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
-      </svg>
-  `;
-  scrollToTopBtn.style.cssText = `
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #1e1e30, #00cc80);
-      cursor: pointer;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: none;
-      z-index: 1000;
-  `;
-  scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
-  document.body.appendChild(scrollToTopBtn);
-
-  // Add Hover Effects
-  scrollToTopBtn.addEventListener('mouseover', () => {
-      scrollToTopBtn.style.transform = 'scale(1.1)';
-      scrollToTopBtn.style.boxShadow = '0 10px 15px rgba(0, 255, 153, 0.5)';
-  });
-
-  scrollToTopBtn.addEventListener('mouseout', () => {
-      scrollToTopBtn.style.transform = 'scale(1)';
-      scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
-  });
-
-  // Show/Hide Scroll to Top Button based on Scroll Position
-  window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-          scrollToTopBtn.style.display = 'flex';
-      } else {
-          scrollToTopBtn.style.display = 'none';
-      }
-  });
-
-  // Create Pop-up Menu
-  const menu = document.createElement('div');
-  menu.style.cssText = `
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      background: rgba(30, 30, 48, 0.95);
-      border: 1px solid #00cc80;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0, 255, 153, 0.5);
-      padding: 15px;
-      display: none;
-      z-index: 1000;
-      color: #fff;
-  `;
-  menu.innerHTML = `
-      <ul style="list-style: none; margin: 0; padding: 0;">
-          <li style="margin: 10px 0;">
-              <a href="https://chat.kojib.com/entry" class="menu-item">Login</a>
-          </li>
-          <li style="margin: 10px 0;">
-              <a href="#story" class="menu-item">About</a>
-          </li>
-          <li style="margin: 10px 0;">
-              <a href="#showcase" class="menu-item">Capabilities</a>
-          </li>
-          <li style="margin: 10px 0;">
-              <a href="#applications" class="menu-item">Applications</a>
-          </li>
-          <li style="margin: 10px 0;">
-              <a href="#skyriz" class="menu-item">Skyriz</a>
-          </li>
-          <li style="margin: 10px 0;">
-              <a href="#noosphere" class="menu-item">Noosphere</a>
-          </li>
-          <li style="margin: 10px 0;">
-              <a href="#contact" class="menu-item">Contact</a>
-          </li>
-      </ul>
-  `;
-  document.body.appendChild(menu);
-
-  // Toggle Menu Display when Scroll to Top Button is Clicked
-  scrollToTopBtn.addEventListener('click', () => {
-      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-  });
-
-  // Inject Additional Styles for Menu Items
-  const additionalStyles = document.createElement('style');
-  additionalStyles.innerHTML = `
-      .menu-item {
-          text-decoration: none;
-          color: #00ff99;
-          font-size: 16px;
-          padding: 10px 20px;
-          display: block;
-          transition: background 0.3s ease, color 0.3s ease;
-      }
-      .menu-item:hover {
-          background: rgba(0, 255, 153, 0.1);
-          color: #00cc80;
-      }
-  `;
-  document.head.appendChild(additionalStyles);
-</script>
-
+<div id="scroll-menu">
+  <div id="scroll-toggle">↑</div>
+  <div id="scroll-sections">
+      <a href="#intro">Home</a>
+      <a href="#story">About</a>
+      <a href="#showcase">Capabilities</a>
+      <a href="#skyriz">Skyriz</a>
+      <a href="#noosphere-intro">Noosphere</a>
+      <a href="#contact">Contact</a>
+  </div>
+</div>
 
 <!-- AI Chatbot -->
 <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
@@ -2153,8 +2040,7 @@
       <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
       <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
       <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
-      <a href="/our-story.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Our Story</a> | 
-      <a href="https://chat.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
+      <a href="/our-story.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Our Story</a>
     </p>
   </div>
 
