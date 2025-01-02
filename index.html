@@ -139,22 +139,54 @@
 </nav>
 
   <!-- Intro Section -->
-  <div id="intro">
-    <!-- Canvas for the Three.js Particle System -->
-    <canvas id="particleCanvas"></canvas>
-    <!-- Content Overlay -->
-    <div class="content">
-      <!-- Logo -->
-      <img src="image/logo.svg" alt="Kojib Logo" class="kojib-logo">
-      <h1 class="headline">
-        Where <span class="highlight">Imagination</span> Meets <span class="intelligence">Intelligence</span>
-      </h1>
-      <p class="subtext">
+<div id="intro">
+  <!-- Canvas for the Three.js Particle System -->
+  <canvas id="particleCanvas"></canvas>
+  <!-- Content Overlay -->
+  <div class="content">
+    <!-- Logo -->
+    <img src="image/logo.svg" alt="Kojib Logo" class="kojib-logo">
+    <h1 class="headline">
+      Where <span class="highlight">Imagination</span> Meets <span class="intelligence">Intelligence</span>
+    </h1>
+    <p class="subtext">
       At Kojib, we push the boundaries of artificial intelligence to craft human-centric solutions that inspire creativity, solve profound challenges, and unlock new possibilities.
-      </p>
-      <div class="scroll-prompt">Scroll to Discover ↓</div>
-    </div>
+    </p>
+    
+    <!-- Beautiful Seamless Button -->
+    <a href="https://chat.kojib.com/entry" class="cta-button">Get Started with Kojib</a>
+
+    <div class="scroll-prompt">Scroll to Discover ↓</div>
   </div>
+</div>
+
+<style>
+  /* Button Styling */
+  .cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
 
 <!-- Story Section -->
 <section id="story" class="story-section" style="padding: 100px 20px; background: transparent; color: #ffffff; text-align: center; position: relative; overflow: hidden;">
