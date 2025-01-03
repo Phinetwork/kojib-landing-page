@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#backgroundGradient)" />
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e30" />
+      <stop offset="100%" stop-color="#2e2e4f" />
+    </linearGradient>
+
+    <!-- Node Glow -->
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ccff" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+
+    <!-- Data Pipeline -->
+    <linearGradient id="dataPipeline" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff99" />
+      <stop offset="100%" stop-color="#0077ff" />
+    </linearGradient>
+  </defs>
+
+  <!-- Data Source -->
+  <rect x="100" y="200" width="150" height="100" rx="20" fill="#0077ff" />
+  <text x="175" y="250" font-family="'Arial', sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Raw Data
+  </text>
+
+  <!-- Processing Node 1: Data Cleaning -->
+  <circle cx="400" cy="250" r="50" fill="url(#nodeGlow)" />
+  <circle cx="400" cy="250" r="40" fill="#00ccff" />
+  <text x="400" y="250" font-family="'Arial', sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Cleaning
+  </text>
+
+  <!-- Processing Node 2: Data Transformation -->
+  <circle cx="600" cy="250" r="50" fill="url(#nodeGlow)" />
+  <circle cx="600" cy="250" r="40" fill="#00ccff" />
+  <text x="600" y="250" font-family="'Arial', sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Transform
+  </text>
+
+  <!-- Processing Node 3: Model Training -->
+  <circle cx="800" cy="250" r="50" fill="url(#nodeGlow)" />
+  <circle cx="800" cy="250" r="40" fill="#00ccff" />
+  <text x="800" y="250" font-family="'Arial', sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Training
+  </text>
+
+  <!-- Output Node: Intelligent Application -->
+  <rect x="950" y="200" width="150" height="100" rx="20" fill="#00ff99" />
+  <text x="1025" y="250" font-family="'Arial', sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Application
+  </text>
+
+  <!-- Connecting Arrows -->
+  <path d="M250 250 H350" stroke="url(#dataPipeline)" stroke-width="5" marker-end="url(#arrow)" />
+  <path d="M450 250 H550" stroke="url(#dataPipeline)" stroke-width="5" marker-end="url(#arrow)" />
+  <path d="M650 250 H750" stroke="url(#dataPipeline)" stroke-width="5" marker-end="url(#arrow)" />
+  <path d="M850 250 H950" stroke="url(#dataPipeline)" stroke-width="5" marker-end="url(#arrow)" />
+
+  <!-- Arrowhead -->
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+    <path d="M0,0 L10,5 L0,10 Z" fill="#00ff99" />
+  </marker>
+
+  <!-- Animation -->
+  <animateTransform 
+    attributeName="transform" 
+    type="translate" 
+    values="0 0; 0 -10; 0 0" 
+    dur="2s" 
+    repeatCount="indefinite" />
+
+  <!-- Labels -->
+  <text x="600" y="100" font-family="'Arial', sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">
+    Building Intelligent Applications
+  </text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#backgroundGradient)" />
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A202C" />
+      <stop offset="100%" stop-color="#2D3748" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#68D391" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+
+    <!-- Category Colors -->
+    <linearGradient id="healthcareGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#48BB78" />
+      <stop offset="100%" stop-color="#2F855A" />
+    </linearGradient>
+
+    <linearGradient id="financeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4299E1" />
+      <stop offset="100%" stop-color="#2B6CB0" />
+    </linearGradient>
+
+    <linearGradient id="transportGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ED8936" />
+      <stop offset="100%" stop-color="#DD6B20" />
+    </linearGradient>
+
+    <linearGradient id="entertainmentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D53F8C" />
+      <stop offset="100%" stop-color="#97266D" />
+    </linearGradient>
+  </defs>
+
+  <!-- Central AI Icon -->
+  <circle cx="600" cy="300" r="100" fill="url(#glow)" />
+  <circle cx="600" cy="300" r="80" fill="#68D391" stroke="#48BB78" stroke-width="3" />
+  <text x="550" y="305" font-family="'Arial', sans-serif" font-size="24" fill="#FFFFFF">AI</text>
+
+  <!-- Healthcare Section -->
+  <path d="M600 300 C 500 200, 400 250, 300 200" stroke="url(#healthcareGradient)" stroke-width="4" fill="none" />
+  <circle cx="300" cy="200" r="30" fill="#48BB78" />
+  <text x="260" y="205" font-family="'Arial', sans-serif" font-size="18" fill="#FFFFFF">Healthcare</text>
+
+  <!-- Finance Section -->
+  <path d="M600 300 C 700 200, 850 250, 900 150" stroke="url(#financeGradient)" stroke-width="4" fill="none" />
+  <circle cx="900" cy="150" r="30" fill="#4299E1" />
+  <text x="860" y="155" font-family="'Arial', sans-serif" font-size="18" fill="#FFFFFF">Finance</text>
+
+  <!-- Transportation Section -->
+  <path d="M600 300 C 600 400, 800 400, 850 500" stroke="url(#transportGradient)" stroke-width="4" fill="none" />
+  <circle cx="850" cy="500" r="30" fill="#ED8936" />
+  <text x="800" y="505" font-family="'Arial', sans-serif" font-size="18" fill="#FFFFFF">Transport</text>
+
+  <!-- Entertainment Section -->
+  <path d="M600 300 C 400 400, 300 400, 250 500" stroke="url(#entertainmentGradient)" stroke-width="4" fill="none" />
+  <circle cx="250" cy="500" r="30" fill="#D53F8C" />
+  <text x="200" y="505" font-family="'Arial', sans-serif" font-size="18" fill="#FFFFFF">Entertainment</text>
+</svg>

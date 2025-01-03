@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#gradientBackground)" />
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D0D0D" />
+      <stop offset="100%" stop-color="#1F1F1F" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0FF" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+
+    <!-- Connection Gradient -->
+    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#FFC107" />
+    </linearGradient>
+  </defs>
+
+  <!-- Central Hub -->
+  <circle cx="600" cy="300" r="80" fill="url(#glow)" />
+  <circle cx="600" cy="300" r="60" fill="#FF5722" />
+  <text x="600" y="305" font-family="'Arial', sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle">
+    AI Tools Hub
+  </text>
+
+  <!-- Tools Nodes -->
+  <!-- TensorFlow -->
+  <circle cx="300" cy="150" r="40" fill="#FFC107" />
+  <text x="300" y="155" font-family="'Arial', sans-serif" font-size="14" fill="#000000" text-anchor="middle">
+    TensorFlow
+  </text>
+  <path d="M600 300 Q450 225, 300 150" stroke="url(#connectionGradient)" stroke-width="3" fill="none" />
+
+  <!-- PyTorch -->
+  <circle cx="900" cy="150" r="40" fill="#FF5722" />
+  <text x="900" y="155" font-family="'Arial', sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">
+    PyTorch
+  </text>
+  <path d="M600 300 Q750 225, 900 150" stroke="url(#connectionGradient)" stroke-width="3" fill="none" />
+
+  <!-- Scikit-learn -->
+  <circle cx="300" cy="450" r="40" fill="#4CAF50" />
+  <text x="300" y="455" font-family="'Arial', sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">
+    Scikit-learn
+  </text>
+  <path d="M600 300 Q450 375, 300 450" stroke="url(#connectionGradient)" stroke-width="3" fill="none" />
+
+  <!-- Keras -->
+  <circle cx="900" cy="450" r="40" fill="#9C27B0" />
+  <text x="900" y="455" font-family="'Arial', sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">
+    Keras
+  </text>
+  <path d="M600 300 Q750 375, 900 450" stroke="url(#connectionGradient)" stroke-width="3" fill="none" />
+
+  <!-- Jupyter -->
+  <circle cx="600" cy="50" r="40" fill="#FF9800" />
+  <text x="600" y="55" font-family="'Arial', sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">
+    Jupyter
+  </text>
+  <path d="M600 300 L600 50" stroke="url(#connectionGradient)" stroke-width="3" fill="none" />
+
+</svg>

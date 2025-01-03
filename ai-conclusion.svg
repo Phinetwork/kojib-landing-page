@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" fill="none">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#backgroundGradient)" />
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2027" />
+      <stop offset="50%" stop-color="#203a43" />
+      <stop offset="100%" stop-color="#2c5364" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ffcc" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+  </defs>
+
+  <!-- Central Summary Icon -->
+  <circle cx="600" cy="300" r="100" fill="#00ffcc" />
+  <text x="600" y="305" font-family="'Arial', sans-serif" font-size="30" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    AI Impact
+  </text>
+
+  <!-- Transformative Sectors -->
+  <!-- Circle 1 -->
+  <circle cx="200" cy="150" r="60" fill="url(#glow)" />
+  <circle cx="200" cy="150" r="50" fill="#00ffcc" />
+  <text x="200" y="150" font-family="'Arial', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Healthcare
+  </text>
+
+  <!-- Circle 2 -->
+  <circle cx="1000" cy="150" r="60" fill="url(#glow)" />
+  <circle cx="1000" cy="150" r="50" fill="#00ffcc" />
+  <text x="1000" y="150" font-family="'Arial', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Finance
+  </text>
+
+  <!-- Circle 3 -->
+  <circle cx="300" cy="500" r="60" fill="url(#glow)" />
+  <circle cx="300" cy="500" r="50" fill="#00ffcc" />
+  <text x="300" y="500" font-family="'Arial', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Transport
+  </text>
+
+  <!-- Circle 4 -->
+  <circle cx="900" cy="500" r="60" fill="url(#glow)" />
+  <circle cx="900" cy="500" r="50" fill="#00ffcc" />
+  <text x="900" y="500" font-family="'Arial', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    Research
+  </text>
+
+  <!-- Connecting Lines -->
+  <line x1="600" y1="300" x2="200" y2="150" stroke="#00ffcc" stroke-width="3" />
+  <line x1="600" y1="300" x2="1000" y2="150" stroke="#00ffcc" stroke-width="3" />
+  <line x1="600" y1="300" x2="300" y2="500" stroke="#00ffcc" stroke-width="3" />
+  <line x1="600" y1="300" x2="900" y2="500" stroke="#00ffcc" stroke-width="3" />
+
+  <!-- Animation -->
+  <circle cx="600" cy="300" r="120" fill="none" stroke="#00ffcc" stroke-width="2" opacity="0.5">
+    <animate attributeName="r" values="120; 140; 120" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5; 0.8; 0.5" dur="2s" repeatCount="indefinite" />
+  </circle>
+</svg>
