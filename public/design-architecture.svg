@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E1E30" />
+      <stop offset="100%" stop-color="#00CC80" />
+    </linearGradient>
+    <linearGradient id="golden-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#FF8C00" />
+    </linearGradient>
+    <linearGradient id="neon-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00FF99" />
+      <stop offset="100%" stop-color="#00CC80" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Rectangle -->
+  <rect width="800" height="400" fill="url(#bg-gradient)" />
+
+  <!-- Animated Architecture Element -->
+  <g transform="translate(400,200)" id="animated-architecture">
+    <!-- Golden Ratio Spiral -->
+    <path d="M0 0 L100 0 A100 100 0 0 1 0 100 Z" fill="url(#golden-glow)" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="6.18s" repeatCount="indefinite" />
+    </path>
+    <circle cx="0" cy="0" r="10" fill="url(#neon-glow)">
+      <animate attributeName="r" values="10;20;10" dur="3.09s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0.5;1" dur="3.09s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Rays of Light -->
+  <g id="rays">
+    <line x1="400" y1="200" x2="400" y2="50" stroke="url(#neon-glow)" stroke-width="2">
+      <animate attributeName="x2" values="400;450;400" dur="6.18s" repeatCount="indefinite" />
+    </line>
+    <line x1="400" y1="200" x2="550" y2="200" stroke="url(#golden-glow)" stroke-width="2">
+      <animate attributeName="y2" values="200;250;200" dur="6.18s" repeatCount="indefinite" />
+    </line>
+  </g>
+
+  <!-- Pulsating Dots -->
+  <g id="dots">
+    <circle cx="200" cy="200" r="5" fill="url(#neon-glow)">
+      <animate attributeName="r" values="5;10;5" dur="3.09s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="200" r="5" fill="url(#golden-glow)">
+      <animate attributeName="r" values="5;10;5" dur="3.09s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Title Text -->
+  <text x="50%" y="90%" fill="#FFFFFF" text-anchor="middle" font-size="24" font-family="Arial, sans-serif">
+    Design Architecture
+    <animate attributeName="opacity" values="0;1;0" dur="6.18s" repeatCount="indefinite" />
+  </text>
+</svg>

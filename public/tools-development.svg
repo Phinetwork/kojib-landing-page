@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ccff" />
+      <stop offset="100%" stop-color="#0066ff" />
+    </linearGradient>
+    <linearGradient id="toolGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#ffcc00" />
+      <stop offset="100%" stop-color="#ff6600" />
+    </linearGradient>
+    <!-- Blur Filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Toolbox Base -->
+  <rect x="150" y="150" width="500" height="150" rx="10" fill="url(#toolGradient)" filter="url(#glow)" />
+  <rect x="160" y="140" width="480" height="30" rx="5" fill="#333" />
+  <rect x="300" y="90" width="200" height="50" rx="5" fill="#444" />
+  <text x="400" y="120" font-size="20" fill="#fff" text-anchor="middle">Tools & Dev</text>
+
+  <!-- Gears -->
+  <g class="gear" transform="translate(250, 200)">
+    <circle cx="0" cy="0" r="40" fill="#1E90FF" />
+    <path d="M-35,0 L-50,0 A50,50 0 0,1 0,-50 L0,-35 A35,35 0 0,0 -35,0 Z" fill="url(#gearGradient)" transform="rotate(0)" />
+    <circle cx="0" cy="0" r="10" fill="#fff" />
+  </g>
+
+  <g class="gear" transform="translate(500, 200)">
+    <circle cx="0" cy="0" r="30" fill="#FF4500" />
+    <path d="M-25,0 L-40,0 A40,40 0 0,1 0,-40 L0,-25 A25,25 0 0,0 -25,0 Z" fill="url(#gearGradient)" transform="rotate(0)" />
+    <circle cx="0" cy="0" r="8" fill="#fff" />
+  </g>
+
+  <!-- Animation -->
+  <animateTransform 
+    xlink:href="#gear1" 
+    attributeName="transform" 
+    type="rotate" 
+    from="0 0 0" 
+    to="360 0 0" 
+    dur="4s" 
+    repeatCount="indefinite" />
+  <animateTransform 
+    xlink:href="#gear2" 
+    attributeName="transform" 
+    type="rotate" 
+    from="360 0 0" 
+    to="0 0 0" 
+    dur="4s" 
+    repeatCount="indefinite" />
+
+  <!-- Wrench Icon -->
+  <path d="M300,180 L400,180 L400,190 L320,190 Z" fill="url(#toolGradient)" />
+</svg>
