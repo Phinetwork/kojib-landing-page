@@ -221,7 +221,7 @@
     </div>
   </div>
 
-  <section style="position: relative; padding-bottom: 50px;">
+  
   <!-- Story Content -->
   <div class="story-content" style="position: relative; z-index: 2; max-width: 900px; margin: 40px auto;">
     <h2 class="story-title" style="font-size: 3rem; font-weight: bold; color: #00ccff; margin-bottom: 20px; animation: fadeInDown 1.5s ease-out;">
@@ -233,7 +233,7 @@
   </div>
 
   <!-- Beating Heart -->
-  <div style="position: relative; text-align: center;">
+<div id="heart-scroll" style="position: relative; text-align: center; cursor: pointer;">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400"
        style="display: block; margin: 0 auto; border: none; outline: none; box-shadow: none; background: transparent;">
     <defs>
@@ -290,11 +290,16 @@
   </svg>
 </div>
 
-  
-
 </section>
-
-</section>
+<script>
+  document.getElementById('heart-scroll').addEventListener('click', () => {
+    // Get the next section
+    const nextSection = document.querySelector('#contact'); // Update with your next section's ID
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
 
 
  <!-- Animations -->
