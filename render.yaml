@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: php-chatscript-app
-    env: php
-    plan: free
-    buildCommand: ""        # No build step required for PHP
-    startCommand: php -S 0.0.0.0:80 -t public
-    staticPublishPath: public
