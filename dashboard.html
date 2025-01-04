@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kojib Dashboard</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #001F3F, #00FF99);
+            color: #F5F5F5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 20px;
+            text-align: center;
+            background: #001F3F;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #00FF99;
+            font-size: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button-card {
+            background: #00FF99;
+            color: #001F3F;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .button-card h2 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .button-card p {
+            font-size: 1rem;
+            margin: 0 0 15px;
+        }
+
+        .button-card a {
+            text-decoration: none;
+            color: #001F3F;
+            background: #F5F5F5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button-card a:hover {
+            background: #001F3F;
+            color: #00FF99;
+        }
+
+        /* Modular Section */
+        .future-features {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: #F5F5F5;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Kojib Dashboard</h1>
+        <p>Your central hub for managing all Kojib services. Select a service below to get started.</p>
+        
+        <div class="button-container">
+            <!-- Connect Button -->
+            <div class="button-card">
+                <h2>Connect</h2>
+                <p>Your gateway to collaboration and networking.</p>
+                <a href="https://connect.kojib.com" target="_blank">Go to Connect</a>
+            </div>
+
+            <!-- Chat Button -->
+            <div class="button-card">
+                <h2>Chat</h2>
+                <p>Stay connected with powerful communication tools.</p>
+                <a href="https://chat.kojib.com" target="_blank">Go to Chat</a>
+            </div>
+
+            <!-- Watch Button -->
+            <div class="button-card">
+                <h2>Watch</h2>
+                <p>Experience seamless video streaming and content.</p>
+                <a href="https://watch.kojib.com" target="_blank">Go to Watch</a>
+            </div>
+        </div>
+
+        <!-- Placeholder for future features -->
+        <div class="future-features">
+            <p>More features coming soon! Stay tuned for updates.</p>
+        </div>
+    </div>
+</body>
+</html>
