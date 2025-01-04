@@ -13,11 +13,33 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
             min-height: 100vh;
         }
 
+        /* Header Styles */
+        header {
+            background: #001F3F;
+            color: #F5F5F5;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header a {
+            text-decoration: none;
+            color: #00FF99;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #33FFC1;
+        }
+
+        /* Container Styles */
         .container {
             max-width: 800px;
             width: 90%;
@@ -26,6 +48,7 @@
             background: #001F3F;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             border-radius: 12px;
+            margin: auto;
         }
 
         h1 {
@@ -40,6 +63,7 @@
             line-height: 1.5;
         }
 
+        /* Button Styles */
         .button-container {
             display: flex;
             flex-wrap: wrap;
@@ -88,6 +112,27 @@
             color: #00FF99;
         }
 
+        /* Footer Styles */
+        footer {
+            background: #001F3F;
+            color: #F5F5F5;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #00FF99;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #33FFC1;
+        }
+
         /* Modular Section */
         .future-features {
             margin-top: 40px;
@@ -98,6 +143,12 @@
     </style>
 </head>
 <body>
+    <!-- Header Section -->
+    <header>
+        <a href="home.html">← Back to Homepage</a>
+    </header>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>Welcome to the Kojib Dashboard</h1>
         <p>Your central hub for managing all Kojib services. Select a service below to get started.</p>
@@ -130,5 +181,10 @@
             <p>More features coming soon! Stay tuned for updates.</p>
         </div>
     </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Kojib. All rights reserved. <a href="contact.html">Contact Us</a></p>
+    </footer>
 </body>
 </html>
