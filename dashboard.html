@@ -14,7 +14,6 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             min-height: 100vh;
         }
 
@@ -24,7 +23,7 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
-            background: #001F3F;
+            background: rgba(0, 31, 63, 0.95);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
@@ -34,33 +33,35 @@
         header .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         header .logo img {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
         }
 
         header .logo a {
             text-decoration: none;
             color: #00FF99;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
         }
 
-        /* Navigation Menu */
+        /* Navigation Styles */
         nav {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
         }
 
         nav a {
             text-decoration: none;
             color: #F5F5F5;
             font-size: 1.2rem;
-            transition: color 0.3s;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
@@ -76,10 +77,10 @@
         }
 
         .hamburger div {
-            width: 25px;
+            width: 30px;
             height: 3px;
             background: #F5F5F5;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .menu {
@@ -100,14 +101,14 @@
             .menu.open nav {
                 display: flex;
                 flex-direction: column;
-                background: #001F3F;
                 position: absolute;
                 top: 60px;
                 right: 20px;
-                width: 200px;
+                background: #001F3F;
                 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-                padding: 10px;
                 border-radius: 10px;
+                padding: 20px;
+                width: 200px;
             }
 
             .menu.open nav a {
@@ -115,18 +116,112 @@
                 text-align: center;
             }
         }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: auto;
+            padding: 40px 20px;
+            text-align: center;
+            background: rgba(0, 31, 63, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #00FF99;
+            font-size: 3rem;
+            text-shadow: 0 3px 10px rgba(0, 255, 153, 0.7);
+        }
+
+        p {
+            margin-bottom: 30px;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Button Cards */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .button-card {
+            background: linear-gradient(120deg, #00FF99, #33FFC1);
+            color: #001F3F;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 260px;
+            box-shadow: 0 5px 15px rgba(0, 255, 153, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 255, 153, 0.7);
+        }
+
+        .button-card h2 {
+            margin: 0 0 15px;
+            font-size: 1.8rem;
+        }
+
+        .button-card p {
+            font-size: 1rem;
+            margin: 0 0 15px;
+            opacity: 0.9;
+        }
+
+        .button-card a {
+            text-decoration: none;
+            color: #F5F5F5;
+            background: #001F3F;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .button-card a:hover {
+            background: #00FF99;
+            color: #001F3F;
+        }
+
+        /* Footer */
+        footer {
+            background: #001F3F;
+            color: #F5F5F5;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #00FF99;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #33FFC1;
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
-        <!-- Logo -->
         <div class="logo">
             <img src="logo.png" alt="Kojib Logo">
             <a href="home.html">Kojib</a>
         </div>
 
-        <!-- Navigation Menu -->
         <div class="menu">
             <nav>
                 <a href="home.html">Home</a>
@@ -141,20 +236,6 @@
                 <div></div>
             </div>
         </div>
-    </header>
-
-    <script>
-        // Toggle Hamburger Menu
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            menu.classList.toggle('open');
-        }
-    </script>
-</head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <a href="home.html">← Back to Home</a>
     </header>
 
     <!-- Main Content -->
@@ -184,16 +265,19 @@
                 <a href="https://watch.kojib.com" target="_blank">Go to Watch</a>
             </div>
         </div>
-
-        <!-- Placeholder for future features -->
-        <div class="future-features">
-            <p>More features coming soon! Stay tuned for updates.</p>
-        </div>
     </div>
 
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Kojib. All rights reserved. <a href="contact.html">Contact Us</a></p>
     </footer>
+
+    <script>
+        // Toggle Hamburger Menu
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
