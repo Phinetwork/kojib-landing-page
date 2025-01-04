@@ -246,24 +246,32 @@
         }
 
         /* Footer */
+        /* Footer Styles */
         footer {
-            background: #001F3F;
-            color: #F5F5F5;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        background: #001F3F;
+        color: #F5F5F5;
+        text-align: center;
+        padding: 10px 15px;
+     font-size: 0.85rem;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
         }
 
         footer a {
-            color: #00FF99;
-            text-decoration: none;
-            font-weight: bold;
+        color: #00FF99;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
         }
 
         footer a:hover {
-            color: #33FFC1;
+        color: #33FFC1;
         }
+
+        footer strong {
+        color: #00FF99;
+        font-weight: 600;
+        }
+
     </style>
 </head>
 <body>
@@ -321,8 +329,12 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Kojib. All rights reserved. <a href="contact.html">Contact Us</a></p>
+        <p>
+            &copy; 2025 <strong>Kojib</strong> | 
+            <a href="contact.html">Contact</a>
+        </p>
     </footer>
+    
 
     <script>
         // Toggle Hamburger Menu
