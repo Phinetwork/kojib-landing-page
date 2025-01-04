@@ -1,0 +1,8 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Route friendly URLs
+RewriteRule ^login$ public/login.php [L]
+RewriteRule ^logout$ public/logout.php [L]
+RewriteRule ^dashboard$ public/dashboard.php [L]
+RewriteRule ^api/(.*)$ public/api/$1 [L]
