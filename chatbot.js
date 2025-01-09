@@ -20,10 +20,8 @@ loadingIndicator.innerHTML = `
     <span class="dot"></span>
     <span class="dot"></span>
 `;
+loadingIndicator.style.display = "none"; // Hide initially
 chatbotMessages.appendChild(loadingIndicator);
-
-// Hide loading indicator initially
-loadingIndicator.style.display = "none";
 
 // Toggle Chatbot Visibility
 chatbotButton.addEventListener("click", () => {
@@ -48,8 +46,9 @@ sendMessage.addEventListener("click", async () => {
     // Add user message to conversation history
     conversationHistory.push({ role: "user", content: message });
 
-    // Show loading indicator
-    loadingIndicator.style.display = "block";
+    // Show loading indicator below the last message
+    loadingIndicator.style.display = "flex";
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Ensure it's visible
 
     // Call the Backend API
     const botReply = await getBotReply(message);
@@ -69,7 +68,9 @@ function addMessage(text, sender) {
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("message", sender);
     messageDiv.innerText = text;
-    chatbotMessages.appendChild(messageDiv);
+
+    // Append the message above the loading indicator
+    chatbotMessages.insertBefore(messageDiv, loadingIndicator);
 
     // Auto-scroll to the latest message
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
