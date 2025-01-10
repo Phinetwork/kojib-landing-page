@@ -1016,6 +1016,8 @@
   <p class="asterion-text">
     Asterion represents a groundbreaking fusion of cosmic intelligence, etheric principles, and predictive precision. It transcends the confines of traditional astrology or computational forecasting to emerge as a living system—one that deciphers the patterns of the universe and empowers humanity to align with its rhythms. Asterion is not merely a tool but an evolutionary leap in understanding time, energy, and the infinite interconnectedness of all things.
   </p>
+
+  <!-- Features Section -->
   <div class="asterion-features">
     <div class="feature-card">
       <img src="image/harmony-icon.svg" alt="Cosmic Harmony Icon">
@@ -1033,34 +1035,147 @@
       <p>Experience continuously refined predictions updated in real-time based on shifting celestial and etheric conditions, ensuring perpetual alignment.</p>
     </div>
   </div>
-</div>
 
-
-    <!-- Call-to-Action Button -->
+  <!-- Call-to-Action Button -->
+  <div class="cta-container">
     <a href="/" class="cta-button">
       <span>Explore Asterion</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="cta-icon">
         <path d="M26 20l12 12-12 12V20z" fill="#ffffff"></path>
       </svg>
     </a>
   </div>
-    <!-- Decorative Shapes -->
-    <div class="decorative-shape shape1"></div>
-    <div class="decorative-shape shape2"></div>
-  
-    <!-- Embedded JavaScript for Asterion Section -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const phi = 1.618;
-        const shapes = document.querySelectorAll('.decorative-shape');
-  
-        shapes.forEach((shape, index) => {
-          const delay = (index + 1) * phi;
-          shape.style.animationDelay = `${delay}s`;
-        });
-      });
-    </script>
-  </section>
+
+  <!-- Decorative Shapes -->
+  <div class="decorative-shape shape1"></div>
+  <div class="decorative-shape shape2"></div>
+</div>
+
+<!-- Embedded JavaScript for Asterion Section -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const phi = 1.618;
+    const shapes = document.querySelectorAll('.decorative-shape');
+
+    shapes.forEach((shape, index) => {
+      const delay = (index + 1) * phi;
+      shape.style.animationDelay = `${delay}s`;
+    });
+  });
+</script>
+
+<!-- CSS to Ensure the CTA Button and Styling Work Correctly -->
+<style>
+  .asterion-content {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .asterion-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .asterion-title span {
+    color: #00ff99;
+  }
+
+  .asterion-text {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .asterion-features {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .feature-card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+  }
+
+  .feature-card img {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    color: #00ff99;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    color: #cccccc;
+    font-size: 1rem;
+  }
+
+  .cta-container {
+    margin-top: 2rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #00ff99;
+    color: #000;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #00cc7a;
+  }
+
+  .cta-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5rem;
+  }
+
+  .decorative-shape {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 255, 153, 0.2);
+    border-radius: 50%;
+    animation: float 5s infinite ease-in-out;
+  }
+
+  .shape1 {
+    top: 10%;
+    left: 20%;
+  }
+
+  .shape2 {
+    bottom: 10%;
+    right: 20%;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+</style>
 
 
 <!-- ============================================
