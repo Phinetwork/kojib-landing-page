@@ -945,7 +945,6 @@
       color: rgba(255, 255, 255, 0.75);
     }
     
-    
     /* Keyframes */
     @keyframes float {
       0% {
@@ -959,7 +958,6 @@
       }
     }
     
-    /* Glow Animation */
     @keyframes fadeInGlow {
       0% {
         opacity: 0;
@@ -980,6 +978,104 @@
       }
     }
     
+    /* Independent CTA Button Styling */
+    #asterion .cta-button {
+      background: linear-gradient(135deg, #00cc80, #1e1e30);
+      color: #ffffff;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 204, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      /* Remove any default border or background */
+      border: none;
+      background: linear-gradient(135deg, #00cc80, #1e1e30);
+    }
+    
+    #asterion .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 204, 255, 0.7);
+      background: linear-gradient(135deg, #1e1e30, #00cc80);
+    }
+    
+    /* SVG Icon in Button */
+    #asterion .cta-button svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      transition: fill 0.3s ease;
+    }
+    
+    #asterion .cta-button:hover svg {
+      fill: #00ff99;
+    }
+    
+    /* Focus Styles for Accessibility */
+    #asterion .cta-button:focus {
+      outline: 2px dashed #00cc80;
+      outline-offset: 4px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #asterion {
+        padding: 60px 15px;
+      }
+      
+      #asterion .asterion-title {
+        font-size: 2.5rem;
+      }
+      
+      #asterion .asterion-text {
+        font-size: 1.2rem;
+      }
+      
+      #asterion .feature-card {
+        width: 100%;
+        max-width: 90%;
+      }
+      
+      #asterion .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      
+      #asterion .cta-button svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #asterion {
+        padding: 40px 10px;
+      }
+      
+      #asterion .asterion-title {
+        font-size: 2rem;
+      }
+      
+      #asterion .asterion-text {
+        font-size: 1rem;
+      }
+      
+      #asterion .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      #asterion .cta-button svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
   </style>
 
   <!-- Asterion Section Content -->
@@ -1016,6 +1112,14 @@
       </svg>
     </a>
 
+    <!-- Decorative Shapes (Optional) -->
+    <!-- Uncomment the following lines if you want to include decorative shapes -->
+    <!--
+    <div class="decorative-shape shape1"></div>
+    <div class="decorative-shape shape2"></div>
+    -->
+  </div>
+
   <!-- Embedded JavaScript for Asterion Section -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1029,6 +1133,7 @@
     });
   </script>
 </section>
+
 
 
 
