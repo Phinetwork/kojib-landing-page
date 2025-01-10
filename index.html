@@ -1104,13 +1104,64 @@
       </div>
     </div>
 
-    <!-- Call-to-Action Button -->
-    <a href="https://asterion.kojib.com" class="cta-button" aria-label="Explore Asterion">
-      <span>Explore Asterion</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="cta-icon" aria-hidden="true">
-        <path d="M26 20l12 12-12 12V20z" fill="currentColor"></path>
+     <!-- Call to Action Button -->
+     <a href="https://asterion.kojib.com" class="cta-button">
+      Explore Asrerion
+      <!-- Arrow SVG Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+        <defs>
+          <!-- Gradient Definitions -->
+          <radialGradient id="arrowGlowGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#00ff99" stop-opacity="1" />
+            <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00ff99" />
+            <stop offset="100%" stop-color="#0099ff" />
+          </linearGradient>
+        </defs>
+      
+        <!-- Background Glow -->
+        <circle cx="32" cy="32" r="30" fill="url(#arrowGlowGradient)" opacity="0.5">
+          <animate attributeName="r" from="30" to="36" dur="1.618s" repeatCount="indefinite" />
+          <animate attributeName="opacity" from="0.5" to="0.2" dur="1.618s" repeatCount="indefinite" />
+        </circle>
+      
+        <!-- Rotating Background Circle -->
+        <circle cx="32" cy="32" r="28" stroke="url(#arrowGradient)" stroke-width="2" fill="none">
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 32 32"
+            to="360 32 32"
+            dur="2.618s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      
+        <!-- Arrow Path -->
+        <path d="M26 20l10 12-10 12V20z" fill="url(#arrowGradient)">
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 0"
+            to="0 -4"
+            dur="1.618s"
+            repeatCount="indefinite"
+            additive="sum"
+          />
+        </path>
+      
+        <!-- Inner Glow -->
+        <circle cx="32" cy="32" r="5" fill="url(#arrowGlowGradient)" opacity="0.8">
+          <animate attributeName="r" from="5" to="10" dur="1.618s" repeatCount="indefinite" />
+          <animate attributeName="opacity" from="0.8" to="0.4" dur="1.618s" repeatCount="indefinite" />
+        </circle>
       </svg>
-    </a>
+      
+  </a>
+</div>
+
 
     <!-- Decorative Shapes (Optional) -->
     <!-- Uncomment the following lines if you want to include decorative shapes -->
@@ -1416,15 +1467,64 @@
       </div>
     </div>
 
-    <!-- Call-to-Action Button -->
-    <a href="https://skyriz.app" class="cta-button" aria-label="Explore Skyriz">
-      <span>Explore Skyriz</span>
+     <!-- Call to Action Button -->
+     <a href="https://skyriz.app" class="cta-button">
+      Explore Skyriz
       <!-- Arrow SVG Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M26 20l12 12-12 12V20z" fill="currentColor"></path>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+        <defs>
+          <!-- Gradient Definitions -->
+          <radialGradient id="arrowGlowGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#00ff99" stop-opacity="1" />
+            <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00ff99" />
+            <stop offset="100%" stop-color="#0099ff" />
+          </linearGradient>
+        </defs>
+      
+        <!-- Background Glow -->
+        <circle cx="32" cy="32" r="30" fill="url(#arrowGlowGradient)" opacity="0.5">
+          <animate attributeName="r" from="30" to="36" dur="1.618s" repeatCount="indefinite" />
+          <animate attributeName="opacity" from="0.5" to="0.2" dur="1.618s" repeatCount="indefinite" />
+        </circle>
+      
+        <!-- Rotating Background Circle -->
+        <circle cx="32" cy="32" r="28" stroke="url(#arrowGradient)" stroke-width="2" fill="none">
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 32 32"
+            to="360 32 32"
+            dur="2.618s"
+            repeatCount="indefinite"
+          />
+        </circle>
+      
+        <!-- Arrow Path -->
+        <path d="M26 20l10 12-10 12V20z" fill="url(#arrowGradient)">
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            from="0 0"
+            to="0 -4"
+            dur="1.618s"
+            repeatCount="indefinite"
+            additive="sum"
+          />
+        </path>
+      
+        <!-- Inner Glow -->
+        <circle cx="32" cy="32" r="5" fill="url(#arrowGlowGradient)" opacity="0.8">
+          <animate attributeName="r" from="5" to="10" dur="1.618s" repeatCount="indefinite" />
+          <animate attributeName="opacity" from="0.8" to="0.4" dur="1.618s" repeatCount="indefinite" />
+        </circle>
       </svg>
-    </a>
-  </div>
+      
+  </a>
+</div>
+
 
   <!-- Embedded JavaScript for the Skyriz Section -->
   <script>
