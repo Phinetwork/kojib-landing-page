@@ -1151,7 +1151,7 @@
       position: relative;
       width: 100%;
       padding: 80px 20px;
-      background: linear-gradient(135deg, #02020211, #1c1c1c08);
+      background: linear-gradient(135deg, rgba(2, 2, 2, 0.07), #1c1c1c08);
       color: white;
       text-align: center;
       overflow: hidden; /* Ensure no content spills out */
@@ -1253,72 +1253,6 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
-    /* Call-to-Action Button */
-    #skyriz .cta-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #00ff99, #0099ff);
-      color: #ffffff;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.5);
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    #skyriz .cta-button:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 8px 30px rgba(0, 255, 153, 0.7);
-      background: linear-gradient(135deg, #1e1e30, #00cc80);
-    }
-
-    /* CTA Button Text */
-    #skyriz .cta-button span {
-      position: relative;
-      z-index: 2;
-      transition: color 0.3s ease;
-    }
-
-    /* CTA Button Arrow Icon */
-    #skyriz .cta-button svg {
-      width: 24px;
-      height: 24px;
-      fill: #ffffff;
-      transition: fill 0.3s ease, transform 0.3s ease;
-      position: relative;
-      z-index: 2;
-    }
-
-    #skyriz .cta-button:hover svg {
-      fill: #00ff99;
-      transform: translateX(5px);
-    }
-
-    /* Glowing Overlay Effect */
-    #skyriz .cta-button::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 70%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 1;
-    }
-
-    #skyriz .cta-button:hover::before {
-      opacity: 1;
-    }
-
     /* Keyframes for Animations */
     @keyframes fadeInGlow {
       from {
@@ -1332,11 +1266,11 @@
     }
 
     @keyframes pulseHighlight {
-      0% {
+      from {
         text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
       }
-      100% {
-        text-shadow: 0 0 30px #00ff99, 0 0 60px rgba(0, 255, 153, 1);
+      to {
+        text-shadow: 0 0 25px #00ffff, 0 0 50px rgba(0, 255, 255, 1);
       }
     }
 
@@ -1360,97 +1294,100 @@
       }
     }
 
-    /* Decorative Shapes */
-    #skyriz .decorative-shape {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.05;
-      z-index: 0;
-      animation: float 6s ease-in-out infinite;
+    /* Independent CTA Button Styling */
+    #skyriz .cta-button {
+      background: linear-gradient(135deg, #00cc80, #1e1e30);
+      color: #ffffff;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 204, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
 
-    #skyriz .shape1 {
-      width: 300px;
-      height: 300px;
-      background: #00ff99;
-      top: -100px;
-      left: -100px;
-      animation-duration: 10.472s; /* 6s * φ ≈ 10.472s */
+    #skyriz .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 204, 255, 0.7);
+      background: linear-gradient(135deg, #1e1e30, #00cc80);
     }
 
-    #skyriz .shape2 {
-      width: 250px;
-      height: 250px;
-      background: #0099ff;
-      bottom: -80px;
-      right: -80px;
-      animation-duration: 9.708s; /* 6s / φ ≈ 9.708s */
+    /* SVG Icon in Button */
+    #skyriz .cta-button svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      transition: fill 0.3s ease, transform 0.3s ease;
     }
 
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-15px) rotate(180deg);
-      }
-      100% {
-        transform: translateY(0) rotate(360deg);
-      }
+    #skyriz .cta-button:hover svg {
+      fill: #00ff99;
+      transform: translateX(5px);
+    }
+
+    /* Focus Styles for Accessibility */
+    #skyriz .cta-button:focus {
+      outline: 2px dashed #00cc80;
+      outline-offset: 4px;
     }
 
     /* Responsive Design */
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
+      #skyriz {
+        padding: 60px 15px;
+      }
+      
       #skyriz .skyriz-title {
         font-size: 2.5rem;
       }
-
+      
       #skyriz .skyriz-text {
         font-size: 1.2rem;
       }
-
-      #skyriz .feature-card {
-        width: 220px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      #skyriz .skyriz-title {
-        font-size: 2.2rem;
-      }
-
-      #skyriz .skyriz-text {
-        font-size: 1rem;
-      }
-
+      
       #skyriz .feature-card {
         width: 100%;
-        max-width: 300px;
+        max-width: 90%;
       }
-
-      #skyriz .decorative-shape.shape1,
-      #skyriz .decorative-shape.shape2 {
-        display: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #skyriz .skyriz-title {
-        font-size: 1.8rem;
-      }
-
-      #skyriz .skyriz-text {
-        font-size: 0.95rem;
-      }
-
+      
       #skyriz .cta-button {
         padding: 12px 25px;
         font-size: 1rem;
       }
-
+      
       #skyriz .cta-button svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #skyriz {
+        padding: 40px 10px;
+      }
+      
+      #skyriz .skyriz-title {
+        font-size: 2rem;
+      }
+      
+      #skyriz .skyriz-text {
+        font-size: 1rem;
+      }
+      
+      #skyriz .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      #skyriz .cta-button svg {
+        width: 16px;
+        height: 16px;
       }
     }
   </style>
@@ -1480,36 +1417,14 @@
     </div>
 
     <!-- Call-to-Action Button -->
-    <a href="https://skyriz.app" class="cta-button">
+    <a href="https://skyriz.app" class="cta-button" aria-label="Explore Skyriz">
       <span>Explore Skyriz</span>
       <!-- Arrow SVG Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-        <defs>
-          <!-- Gradient Definitions -->
-          <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00ff99" />
-            <stop offset="100%" stop-color="#0099ff" />
-          </linearGradient>
-        </defs>
-        <!-- Arrow Path -->
-        <path d="M26 20l12 12-12 12V20z" fill="url(#arrowGradient)">
-          <animateTransform
-            attributeName="transform"
-            type="translate"
-            from="0 0"
-            to="0 -4"
-            dur="1.618s"
-            repeatCount="indefinite"
-            additive="sum"
-          />
-        </path>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M26 20l12 12-12 12V20z" fill="currentColor"></path>
       </svg>
     </a>
   </div>
-
-  <!-- Decorative Shapes -->
-  <div class="decorative-shape shape1"></div>
-  <div class="decorative-shape shape2"></div>
 
   <!-- Embedded JavaScript for the Skyriz Section -->
   <script>
@@ -1526,6 +1441,7 @@
     });
   </script>
 </section>
+
 
 
 <!-- ============================================
