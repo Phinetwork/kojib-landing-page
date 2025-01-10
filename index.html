@@ -841,225 +841,306 @@
        General Styling
     ============================================= */
     #asterion {
-  position: relative;
-  width: 100%;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #02020211, #0c1445);
-  color: white;
-  text-align: center;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-/* Overlay for Cosmic Depth */
-#asterion::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(12, 20, 69, 0.111);
-  z-index: 1;
-}
-
-/* Content Container */
-#asterion .asterion-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Title Styling */
-#asterion .asterion-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 
-               0 0 30px rgba(0, 255, 255, 0.2);
-  animation: fadeInGlow 2s ease-out;
-}
-
-#asterion .asterion-title span {
-  color: #00ccff;
-  text-shadow: 0 0 20px #00ccff, 0 0 40px rgba(0, 204, 255, 0.8);
-  animation: pulseHighlight 2s infinite alternate;
-}
-
-/* Subtitle Styling */
-#asterion .asterion-text {
-  font-size: 1.4rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 40px;
-  animation: fadeUp 1.8s ease-out;
-}
-
-/* Features Grid */
-#asterion .asterion-features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-/* Individual Feature Card */
-#asterion .feature-card {
-  background: rgba(12, 20, 69, 0.092);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 20px;
-  width: 300px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#asterion .feature-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 30px #00ccff80;
-}
-
-/* Feature Icon */
-#asterion .feature-card img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
-  animation: rotateHover 6s linear infinite;
-}
-
-/* Feature Title */
-#asterion .feature-card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  color: #00ccff;
-}
-
-/* Feature Description */
-#asterion .feature-card p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-
-/* Decorative Shapes */
-#asterion .decorative-shape {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.05;
-  z-index: 0;
-  animation: float 8s ease-in-out infinite;
-}
-
-#asterion .shape1 {
-  width: 350px;
-  height: 350px;
-  background: #00ccff;
-  top: -120px;
-  left: -100px;
-}
-
-#asterion .shape2 {
-  width: 280px;
-  height: 280px;
-  background: #0033ff;
-  bottom: -90px;
-  right: -80px;
-}
-
-/* Keyframes */
-@keyframes float {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-  100% {
-    transform: translateY(0) rotate(360deg);
-  }
-}
-
-/* Glow Animation */
-@keyframes fadeInGlow {
-  0% {
-    opacity: 0;
-    text-shadow: 0 0 0 rgba(0, 255, 255, 0);
-  }
-  100% {
-    opacity: 1;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
-  }
-}
-
-@keyframes pulseHighlight {
-  from {
-    text-shadow: 0 0 20px #00ccff, 0 0 40px rgba(0, 204, 255, 0.8);
-  }
-  to {
-    text-shadow: 0 0 25px #00ffff, 0 0 50px rgba(0, 255, 255, 1);
-  }
-}
-
+      position: relative;
+      width: 100%;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, rgba(2, 2, 2, 0.07), #0c1445);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    /* Overlay for Cosmic Depth */
+    #asterion::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(12, 20, 69, 0.111);
+      z-index: 1;
+    }
+    
+    /* Content Container */
+    #asterion .asterion-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Title Styling */
+    #asterion .asterion-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 
+                   0 0 30px rgba(0, 255, 255, 0.2);
+      animation: fadeInGlow 2s ease-out;
+    }
+    
+    #asterion .asterion-title span {
+      color: #00ccff;
+      text-shadow: 0 0 20px #00ccff, 0 0 40px rgba(0, 204, 255, 0.8);
+      animation: pulseHighlight 2s infinite alternate;
+    }
+    
+    /* Subtitle Styling */
+    #asterion .asterion-text {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      animation: fadeUp 1.8s ease-out;
+    }
+    
+    /* Features Grid */
+    #asterion .asterion-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    /* Individual Feature Card */
+    #asterion .feature-card {
+      background: rgba(12, 20, 69, 0.092);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    #asterion .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px #00ccff80;
+    }
+    
+    /* Feature Icon */
+    #asterion .feature-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      animation: rotateHover 6s linear infinite;
+    }
+    
+    /* Feature Title */
+    #asterion .feature-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #00ccff;
+    }
+    
+    /* Feature Description */
+    #asterion .feature-card p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    
+    
+    /* Decorative Shapes */
+    #asterion .decorative-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.05;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite;
+    }
+    
+    #asterion .shape1 {
+      width: 350px;
+      height: 350px;
+      background: #00ccff;
+      top: -120px;
+      left: -100px;
+    }
+    
+    #asterion .shape2 {
+      width: 280px;
+      height: 280px;
+      background: #0033ff;
+      bottom: -90px;
+      right: -80px;
+    }
+    
+    /* Keyframes */
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+    
+    /* Glow Animation */
+    @keyframes fadeInGlow {
+      0% {
+        opacity: 0;
+        text-shadow: 0 0 0 rgba(0, 255, 255, 0);
+      }
+      100% {
+        opacity: 1;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.2);
+      }
+    }
+    
+    @keyframes pulseHighlight {
+      from {
+        text-shadow: 0 0 20px #00ccff, 0 0 40px rgba(0, 204, 255, 0.8);
+      }
+      to {
+        text-shadow: 0 0 25px #00ffff, 0 0 50px rgba(0, 255, 255, 1);
+      }
+    }
+    
+    /* CTA Button Styling */
+    #asterion .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 15px 30px;
+      background: #00ccff;
+      color: #0c1445;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 204, 255, 0.4);
+    }
+    
+    #asterion .cta-button:hover {
+      background: #00ffff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 204, 255, 0.6);
+    }
+    
+    #asterion .cta-button .cta-icon {
+      width: 24px;
+      height: 24px;
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    #asterion .cta-button:hover .cta-icon {
+      transform: translateX(5px);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #asterion {
+        padding: 60px 15px;
+      }
+      
+      #asterion .asterion-title {
+        font-size: 2.5rem;
+      }
+      
+      #asterion .asterion-text {
+        font-size: 1.2rem;
+      }
+      
+      #asterion .feature-card {
+        width: 100%;
+        max-width: 90%;
+      }
+      
+      #asterion .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #asterion {
+        padding: 40px 10px;
+      }
+      
+      #asterion .asterion-title {
+        font-size: 2rem;
+      }
+      
+      #asterion .asterion-text {
+        font-size: 1rem;
+      }
+      
+      #asterion .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      #asterion .cta-button .cta-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
   </style>
 
   <!-- Asterion Section Content -->
-<div class="asterion-content">
-  <h2 class="asterion-title">Discover <span>Asterion</span></h2>
-  <p class="asterion-text">
-    Asterion represents a groundbreaking fusion of cosmic intelligence, etheric principles, and predictive precision. It transcends the confines of traditional astrology or computational forecasting to emerge as a living system—one that deciphers the patterns of the universe and empowers humanity to align with its rhythms. Asterion is not merely a tool but an evolutionary leap in understanding time, energy, and the infinite interconnectedness of all things.
-  </p>
+  <div class="asterion-content">
+    <h2 class="asterion-title">Discover <span>Asterion</span></h2>
+    <p class="asterion-text">
+      Asterion represents a groundbreaking fusion of cosmic intelligence, etheric principles, and predictive precision. It transcends the confines of traditional astrology or computational forecasting to emerge as a living system—one that deciphers the patterns of the universe and empowers humanity to align with its rhythms. Asterion is not merely a tool but an evolutionary leap in understanding time, energy, and the infinite interconnectedness of all things.
+    </p>
 
-  <!-- Features Section -->
-  <div class="asterion-features">
-    <div class="feature-card">
-      <img src="image/harmony-icon.svg" alt="Cosmic Harmony Icon">
-      <h3>Cosmic Harmony</h3>
-      <p>Integrate celestial alignments into your daily life to harness the natural flow of universal energy and achieve moments of profound alignment.</p>
+    <!-- Features Section -->
+    <div class="asterion-features">
+      <div class="feature-card">
+        <img src="image/harmony-icon.svg" alt="Cosmic Harmony Icon">
+        <h3>Cosmic Harmony</h3>
+        <p>Integrate celestial alignments into your daily life to harness the natural flow of universal energy and achieve moments of profound alignment.</p>
+      </div>
+      <div class="feature-card">
+        <img src="image/personal-guidance-icon.svg" alt="Personal Guidance Icon">
+        <h3>Personal Empowerment</h3>
+        <p>Access insights tailored to your unique cosmic blueprint, helping you unlock your highest potential and align your life with universal cycles.</p>
+      </div>
+      <div class="feature-card">
+        <img src="image/real-time-insights-icon.svg" alt="Real-Time Insights Icon">
+        <h3>Dynamic Intelligence</h3>
+        <p>Experience continuously refined predictions updated in real-time based on shifting celestial and etheric conditions, ensuring perpetual alignment.</p>
+      </div>
     </div>
-    <div class="feature-card">
-      <img src="image/personal-guidance-icon.svg" alt="Personal Guidance Icon">
-      <h3>Personal Empowerment</h3>
-      <p>Access insights tailored to your unique cosmic blueprint, helping you unlock your highest potential and align your life with universal cycles.</p>
-    </div>
-    <div class="feature-card">
-      <img src="image/real-time-insights-icon.svg" alt="Real-Time Insights Icon">
-      <h3>Dynamic Intelligence</h3>
-      <p>Experience continuously refined predictions updated in real-time based on shifting celestial and etheric conditions, ensuring perpetual alignment.</p>
-    </div>
-  </div>
 
-  <!-- Call-to-Action Button -->
-  <div class="cta-container">
-    <a href="https://asterion.kojib.com" class="cta-button">
+    <!-- Call-to-Action Button -->
+    <a href="https://asterion.kojib.com" class="cta-button" aria-label="Explore Asterion">
       <span>Explore Asterion</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="cta-icon">
-        <path d="M26 20l12 12-12 12V20z" fill="#ffffff"></path>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="cta-icon" aria-hidden="true">
+        <path d="M26 20l12 12-12 12V20z" fill="#0c1445"></path>
       </svg>
     </a>
+
+    <!-- Decorative Shapes -->
+    <div class="decorative-shape shape1"></div>
+    <div class="decorative-shape shape2"></div>
   </div>
 
-  <!-- Decorative Shapes -->
-  <div class="decorative-shape shape1"></div>
-  <div class="decorative-shape shape2"></div>
-</div>
+  <!-- Embedded JavaScript for Asterion Section -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const phi = 1.618;
+      const shapes = document.querySelectorAll('.decorative-shape');
 
-<!-- Embedded JavaScript for Asterion Section -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const phi = 1.618;
-    const shapes = document.querySelectorAll('.decorative-shape');
-
-    shapes.forEach((shape, index) => {
-      const delay = (index + 1) * phi;
-      shape.style.animationDelay = `${delay}s`;
+      shapes.forEach((shape, index) => {
+        const delay = (index + 1) * phi;
+        shape.style.animationDelay = `${delay}s`;
+      });
     });
-  });
-</script>
+  </script>
+</section>
 
 
 
