@@ -947,8 +947,11 @@
 
 /* Call-to-Action Button */
 #asterion .cta-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #00ccff, #99f2c899);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Center text and icon */
+  gap: 10px;
+  background: linear-gradient(135deg, #00ccff, #0099cc);
   color: #ffffff;
   padding: 15px 40px;
   font-size: 1.2rem;
@@ -956,21 +959,19 @@
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 204, 255, 0.5);
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: none; /* Remove any border */
+  cursor: pointer;
+  box-shadow: none; /* Remove outer ring */
   position: relative;
   overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center; /* Center text and icon */
-  gap: 10px;
 }
 
 #asterion .cta-button:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 40px rgba(0, 204, 255, 0.7);
-  background: linear-gradient(135deg, #00ff99, #0099cc);
+  transform: translateY(-3px) scale(1.02); /* Subtle hover effect */
+  background: linear-gradient(135deg, #00ff99, #0066cc); /* Elegant hover color */
 }
+
 
 /* Decorative Shapes */
 #asterion .decorative-shape {
@@ -1061,7 +1062,7 @@
 
   <!-- Call-to-Action Button -->
   <div class="cta-container">
-    <a href="/" class="cta-button">
+    <a href="https://asterion.kojib.com" class="cta-button">
       <span>Explore Asterion</span>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="cta-icon">
         <path d="M26 20l12 12-12 12V20z" fill="#ffffff"></path>
