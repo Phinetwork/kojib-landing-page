@@ -1178,7 +1178,54 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
-  
+    /* Call-to-Action Button */
+    #skyriz .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00ff99, #0099ff);
+      color: #ffffff;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.5);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #skyriz .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 255, 153, 0.7);
+      background: linear-gradient(135deg, #1e1e30, #00cc80);
+    }
+
+    /* CTA Button Text */
+    #skyriz .cta-button span {
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
+
+    /* CTA Button Arrow Icon */
+    #skyriz .cta-button svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+      transition: fill 0.3s ease, transform 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    #skyriz .cta-button:hover svg {
+      fill: #00ff99;
+      transform: translateX(5px);
+    }
+
     /* Glowing Overlay Effect */
     #skyriz .cta-button::before {
       content: '';
