@@ -569,6 +569,51 @@ canvas {
     margin-bottom: 2rem;
 }
 
+.cta-button-unique {
+  display: inline-block;
+  background: linear-gradient(90deg, #00ff99, #009966);
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 255, 153, 0.5);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  z-index: 10; /* Ensure it's on top */
+}
+
+.cta-button-unique:hover {
+  background: linear-gradient(90deg, #00cc80, #00ccff);
+  box-shadow: 0 6px 20px rgba(0, 255, 153, 0.7);
+  transform: scale(1.1);
+}
+
+.cta-button-unique::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(-45deg);
+  transition: left 0.5s ease;
+}
+
+.cta-button-unique:hover::before {
+  left: 100%;
+}
+
+.cta-button-unique:active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 153, 102, 0.8);
+}
+
+
 .cta-button {
     display: inline-block;
     background: linear-gradient(90deg, #00ff99, #009966);
