@@ -154,132 +154,151 @@
       At Kojib, we push the boundaries of artificial intelligence to craft human-centric solutions that inspire creativity, solve profound challenges, and unlock new possibilities.
     </p>
     
-    <style>.cta-button-unique {
-      position: relative;
-      display: inline-block;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 15px 30px;
-      border-radius: 30px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease-in-out;
-  }
-  
-  .cta-text {
-      position: relative;
-      z-index: 2;
-      color: white;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-  }
-  
-  .cta-svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      fill: none;
-      pointer-events: none;
-      animation: draw 2s ease-in-out infinite alternate;
-  }
-  
-  .cta-button-unique:hover {
-      transform: scale(1.1);
-      filter: url(#cosmic-flame); /* Apply the flame effect */
-      animation: cosmic-explosion 0.8s ease-out forwards; /* Ignition animation */
-  }
-  
-  .cta-button-unique:hover .cta-svg {
-      animation: draw-hover 1.5s infinite ease-in-out;
-  }
-  
-  .cta-button-unique:active {
-      transform: scale(1.05);
-      filter: url(#cosmic-flame);
-      animation: cosmic-burst 1s ease-out forwards; /* Clicking bursts the flame */
-  }
-  
-  @keyframes draw {
-      0% {
-          stroke-dasharray: 0, 300;
+    <style>
+      /* Button Container */
+      .cta-button-unique {
+          position: relative;
+          display: inline-block;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: white;
+          text-transform: uppercase;
+          text-decoration: none;
+          padding: 15px 30px;
+          border-radius: 30px;
+          overflow: hidden;
+          cursor: pointer;
+          transition: transform 0.3s ease-in-out;
+          background: transparent; /* Ensure background stays transparent */
       }
-      100% {
-          stroke-dasharray: 300, 0;
+      
+      /* Button Text Styling */
+      .cta-text {
+          position: relative;
+          z-index: 2;
+          color: white;
+          font-family: 'Inter', sans-serif;
+          font-size: 1.3rem;
+          font-weight: 600;
       }
-  }
-  
-  @keyframes draw-hover {
-      0% {
-          stroke-dasharray: 300, 0;
-          stroke-width: 2;
+      
+      /* SVG Outline */
+      .cta-svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          fill: none;
+          pointer-events: none;
+          animation: draw 2s ease-in-out infinite alternate;
       }
-      50% {
-          stroke-dasharray: 150, 150;
-          stroke-width: 3;
+      
+      /* Hover Effect: Ignite Cosmic Flame */
+      .cta-button-unique:hover {
+          transform: scale(1.1);
+          filter: url(#cosmic-flame);
+          animation: cosmic-explosion 0.8s ease-out forwards;
       }
-      100% {
-          stroke-dasharray: 300, 0;
-          stroke-width: 2;
+      
+      /* SVG Animation on Hover */
+      .cta-button-unique:hover .cta-svg {
+          animation: draw-hover 1.5s infinite ease-in-out;
       }
-  }
-  
-  /* Cosmic explosion on hover */
-  @keyframes cosmic-explosion {
-      0% {
-          box-shadow: 0 0 15px rgba(0, 255, 153, 0.7), 0 0 50px rgba(0, 204, 255, 0.5);
+      
+      /* Active/Click Effect: Burst Flame */
+      .cta-button-unique:active {
+          transform: scale(1.05);
+          filter: url(#cosmic-flame);
+          animation: cosmic-burst 1s ease-out forwards;
       }
-      50% {
-          box-shadow: 0 0 50px rgba(0, 255, 153, 0.9), 0 0 100px rgba(0, 204, 255, 0.7);
+      
+      /* Outline Drawing Animation */
+      @keyframes draw {
+          0% {
+              stroke-dasharray: 0, 300;
+          }
+          100% {
+              stroke-dasharray: 300, 0;
+          }
       }
-      100% {
-          box-shadow: 0 0 30px rgba(0, 255, 153, 0.6), 0 0 70px rgba(0, 204, 255, 0.6);
+      
+      @keyframes draw-hover {
+          0% {
+              stroke-dasharray: 300, 0;
+              stroke-width: 2;
+          }
+          50% {
+              stroke-dasharray: 150, 150;
+              stroke-width: 3;
+          }
+          100% {
+              stroke-dasharray: 300, 0;
+              stroke-width: 2;
+          }
       }
-  }
-  
-  /* Cosmic burst on click */
-  @keyframes cosmic-burst {
-      0% {
-          box-shadow: 0 0 15px rgba(255, 255, 0, 0.7), 0 0 50px rgba(255, 69, 0, 0.5);
+      
+      /* Cosmic Explosion on Hover */
+      @keyframes cosmic-explosion {
+          0% {
+              box-shadow: 0 0 15px rgba(0, 255, 153, 0.7), 0 0 50px rgba(0, 204, 255, 0.5);
+          }
+          50% {
+              box-shadow: 0 0 50px rgba(0, 255, 153, 0.9), 0 0 100px rgba(0, 204, 255, 0.7);
+          }
+          100% {
+              box-shadow: 0 0 30px rgba(0, 255, 153, 0.6), 0 0 70px rgba(0, 204, 255, 0.6);
+          }
       }
-      50% {
-          box-shadow: 0 0 70px rgba(255, 215, 0, 1), 0 0 150px rgba(255, 69, 0, 0.9);
+      
+      /* Cosmic Burst on Click */
+      @keyframes cosmic-burst {
+          0% {
+              box-shadow: 0 0 15px rgba(255, 255, 0, 0.7), 0 0 50px rgba(255, 69, 0, 0.5);
+          }
+          50% {
+              box-shadow: 0 0 70px rgba(255, 215, 0, 1), 0 0 150px rgba(255, 69, 0, 0.9);
+          }
+          100% {
+              box-shadow: 0 0 30px rgba(255, 255, 0, 0.6), 0 0 70px rgba(255, 69, 0, 0.6);
+          }
       }
-      100% {
-          box-shadow: 0 0 30px rgba(255, 255, 0, 0.6), 0 0 70px rgba(255, 69, 0, 0.6);
+      
+      /* Ensure Proper Mobile Responsiveness */
+      @media (max-width: 768px) {
+          .cta-button-unique {
+              padding: 10px 20px;
+              font-size: 1rem;
+          }
+          .cta-text {
+              font-size: 1.1rem;
+          }
       }
-  }
-  
-  </style>
-    <!-- Seamless Button -->
-    <a href="https://app.kojib.com/entry" class="cta-button-unique">
-      <span class="cta-text">ENTER</span>
-      <svg class="cta-svg" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="5" rx="25" fill="none" stroke-width="2" stroke="url(#gradient)" width="170" height="50"></rect>
-          <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#00ccff; stop-opacity:1"></stop>
-                  <stop offset="100%" style="stop-color:#00ff99; stop-opacity:1"></stop>
-              </linearGradient>
-              <filter id="cosmic-flame">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"></feGaussianBlur>
-                  <feColorMatrix type="matrix" values="1 0 0 0 0
-                                                        0 0.8 0 0 0
-                                                        0 0 1 0 0
-                                                        0 0 0 20 -7" result="flame"></feColorMatrix>
-                  <feBlend in="SourceGraphic" in2="flame" mode="screen"></feBlend>
-              </filter>
-          </defs>
-      </svg>
-  </a>
-  
-  
+      </style>
+      
+      <!-- Cosmic Button -->
+      <a href="https://app.kojib.com/entry" class="cta-button-unique">
+          <span class="cta-text">ENTER</span>
+          <svg class="cta-svg" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="5" rx="25" fill="none" stroke-width="2" stroke="url(#gradient)" width="170" height="50"></rect>
+              <defs>
+                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" style="stop-color:#00ccff; stop-opacity:1"></stop>
+                      <stop offset="100%" style="stop-color:#00ff99; stop-opacity:1"></stop>
+                  </linearGradient>
+                  <filter id="cosmic-flame">
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"></feGaussianBlur>
+                      <feColorMatrix type="matrix" values="1 0 0 0 0
+                                                            0 0.8 0 0 0
+                                                            0 0 1 0 0
+                                                            0 0 0 20 -7" result="flame"></feColorMatrix>
+                      <feBlend in="SourceGraphic" in2="flame" mode="screen"></feBlend>
+                  </filter>
+              </defs>
+          </svg>
+      </a>
+      
   
 
     <div class="scroll-prompt" id="scroll-to-story">Scroll to Discover ↓</div>
