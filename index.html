@@ -268,15 +268,90 @@
     </a>
 </div>
 
-  <!-- Story Content -->
-  <div class="story-content" style="position: relative; z-index: 2; max-width: 900px; margin: 40px auto;">
-    <h2 class="story-title" style="font-size: 3rem; font-weight: bold; color: #00ccff; margin-bottom: 20px; animation: fadeInDown 1.5s ease-out;">
-      Inspired by <span class="glow-keyword">Nature</span>, Built with <span class="pulsate-keyword">Love</span>
-    </h2>
-    <p class="story-text" style="font-size: 1.2rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); animation: fadeInUp 1.5s ease-out;">
-      Kojib is where the harmony of <span class="glow-keyword">creative genius</span> meets <span class="pulsate-keyword">cutting-edge AI</span>, blending artistry and intelligence to address humanity’s most complex challenges. Every solution we create embodies innovation, collaboration, and a deep respect for the human experience.
-    </p>
-  </div>
+ <!-- Story Content -->
+<div class="story-content">
+  <h2 class="story-title">
+    Inspired by <span class="glow-keyword">Nature</span>,<br> Built with <span class="pulsate-keyword">Love</span>
+  </h2>
+  <p class="story-text">
+    Kojib is where the harmony of <span class="glow-keyword">creative genius</span> meets <span class="pulsate-keyword">cutting-edge AI</span>, blending artistry and intelligence to address humanity’s most complex challenges. Every solution we create embodies innovation, collaboration, and a deep respect for the human experience.
+  </p>
+</div>
+
+<style>
+  /* Story Content Styling */
+  .story-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .story-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00ccff;
+    margin-bottom: 20px;
+    animation: fadeInDown 1.5s ease-out;
+  }
+
+  .story-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    animation: fadeInUp 1.5s ease-out;
+  }
+
+  .glow-keyword {
+    color: #00ffcc;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.8);
+  }
+
+  .pulsate-keyword {
+    color: #ff99ff;
+    animation: pulsate 2s infinite;
+  }
+
+  @keyframes pulsate {
+    0%, 100% {
+      text-shadow: 0 0 6px rgba(255, 153, 255, 0.8);
+    }
+    50% {
+      text-shadow: 0 0 12px rgba(255, 153, 255, 1);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .story-title {
+      font-size: 2.5rem;
+    }
+
+    .story-text {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .story-title {
+      font-size: 1.5rem;
+    }
+
+    .story-text {
+      font-size: 0.9rem;
+    }
+
+    .story-content {
+      padding: 15px;
+    }
+  }
+</style>
+
 
   <!-- Beating Heart -->
 <div id="heart-scroll" style="position: relative; text-align: center; cursor: pointer;">
