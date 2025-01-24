@@ -170,7 +170,6 @@
           cursor: pointer;
           transition: transform 0.3s ease-in-out;
           background: transparent; /* Keep background transparent */
-          animation: glitch-fade-in 1.5s ease-in-out forwards; /* Apply fade-in glitch */
       }
       
       /* Button Text Styling */
@@ -181,9 +180,6 @@
           font-family: 'Inter', sans-serif;
           font-size: 1.3rem;
           font-weight: 600;
-          opacity: 0; /* Initial opacity for fade-in effect */
-          animation: glitch-fade-in 1.5s ease-in-out forwards, subtle-glitch-text 3s infinite;
-          animation-delay: 0.2s; /* Staggered fade-in for text */
       }
       
       /* SVG Outline */
@@ -196,9 +192,7 @@
           height: 100%;
           fill: none;
           pointer-events: none;
-          opacity: 0; /* Initial opacity for fade-in effect */
-          animation: glitch-fade-in 1.5s ease-in-out forwards, draw 2s ease-in-out infinite alternate;
-          animation-delay: 0.4s; /* Staggered fade-in for outline */
+          animation: draw 2s ease-in-out infinite alternate;
       }
       
       /* Hover Effect: Cosmic Flame with Face-Up and Inward Motion */
@@ -240,26 +234,6 @@
           100% {
               stroke-dasharray: 300, 0;
               stroke-width: 2;
-          }
-      }
-      
-      /* Glitch Fade-In Effect */
-      @keyframes glitch-fade-in {
-          0% {
-              opacity: 0;
-              transform: translateY(10px) skewX(-10deg);
-          }
-          25% {
-              opacity: 0.4;
-              transform: translateY(-5px) skewX(5deg);
-          }
-          50% {
-              opacity: 0.7;
-              transform: translateY(0) skewX(-2deg);
-          }
-          100% {
-              opacity: 1;
-              transform: translateY(0) skewX(0);
           }
       }
       
@@ -310,13 +284,13 @@
           .cta-button-unique {
               padding: 10px 20px;
               font-size: 1rem;
+              background: transparent !important; /* Override background on mobile */
           }
           .cta-text {
               font-size: 1.1rem;
-              animation: subtle-glitch-text 3s infinite;
           }
           .cta-svg {
-              animation: draw 3s ease-in-out infinite alternate;
+              animation: draw 3s ease-in-out infinite alternate; /* Slower animation on mobile */
           }
       }
       </style>
@@ -334,7 +308,6 @@
               </defs>
           </svg>
       </a>
-      
       
   
 
