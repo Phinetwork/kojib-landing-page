@@ -169,7 +169,8 @@
           overflow: hidden;
           cursor: pointer;
           transition: transform 0.3s ease-in-out;
-          background: transparent; /* Ensure background stays transparent */
+          background: transparent; /* Keep background transparent */
+          animation: glitch-fade-in 1.5s ease-in-out forwards; /* Apply fade-in glitch */
       }
       
       /* Button Text Styling */
@@ -180,6 +181,9 @@
           font-family: 'Inter', sans-serif;
           font-size: 1.3rem;
           font-weight: 600;
+          opacity: 0; /* Initial opacity for fade-in effect */
+          animation: glitch-fade-in 1.5s ease-in-out forwards, subtle-glitch-text 3s infinite;
+          animation-delay: 0.2s; /* Staggered fade-in for text */
       }
       
       /* SVG Outline */
@@ -192,13 +196,15 @@
           height: 100%;
           fill: none;
           pointer-events: none;
-          animation: draw 2s ease-in-out infinite alternate;
+          opacity: 0; /* Initial opacity for fade-in effect */
+          animation: glitch-fade-in 1.5s ease-in-out forwards, draw 2s ease-in-out infinite alternate;
+          animation-delay: 0.4s; /* Staggered fade-in for outline */
       }
       
-      /* Hover Effect: Ignite Cosmic Flame */
+      /* Hover Effect: Cosmic Flame with Face-Up and Inward Motion */
       .cta-button-unique:hover {
           transform: scale(1.1);
-          animation: cosmic-explosion 0.8s ease-out forwards;
+          animation: cosmic-explosion 1s ease-out forwards, face-up-inward 0.8s ease-in-out forwards;
       }
       
       /* SVG Animation on Hover */
@@ -206,10 +212,10 @@
           animation: draw-hover 1.5s infinite ease-in-out;
       }
       
-      /* Active/Click Effect: Burst Flame */
+      /* Active/Click Effect: Enhanced Cosmic Burst */
       .cta-button-unique:active {
           transform: scale(1.05);
-          animation: cosmic-burst 1s ease-out forwards;
+          animation: cosmic-burst 1.2s ease-out forwards;
       }
       
       /* Outline Drawing Animation */
@@ -237,29 +243,65 @@
           }
       }
       
-      /* Cosmic Explosion on Hover */
-      @keyframes cosmic-explosion {
+      /* Glitch Fade-In Effect */
+      @keyframes glitch-fade-in {
           0% {
-              box-shadow: 0 0 15px rgba(0, 255, 153, 0.7), 0 0 50px rgba(0, 204, 255, 0.5);
+              opacity: 0;
+              transform: translateY(10px) skewX(-10deg);
+          }
+          25% {
+              opacity: 0.4;
+              transform: translateY(-5px) skewX(5deg);
           }
           50% {
-              box-shadow: 0 0 50px rgba(0, 255, 153, 0.9), 0 0 100px rgba(0, 204, 255, 0.7);
+              opacity: 0.7;
+              transform: translateY(0) skewX(-2deg);
           }
           100% {
-              box-shadow: 0 0 30px rgba(0, 255, 153, 0.6), 0 0 70px rgba(0, 204, 255, 0.6);
+              opacity: 1;
+              transform: translateY(0) skewX(0);
           }
       }
       
-      /* Cosmic Burst on Click */
-      @keyframes cosmic-burst {
+      /* Cosmic Explosion with Upward Ripple */
+      @keyframes cosmic-explosion {
           0% {
-              box-shadow: 0 0 15px rgba(255, 255, 0, 0.7), 0 0 50px rgba(255, 69, 0, 0.5);
+              box-shadow: 0 0 20px rgba(0, 255, 153, 0.7), 0 0 50px rgba(0, 204, 255, 0.5);
+              transform: translateY(0);
           }
           50% {
-              box-shadow: 0 0 70px rgba(255, 215, 0, 1), 0 0 150px rgba(255, 69, 0, 0.9);
+              box-shadow: 0 0 70px rgba(0, 255, 153, 0.9), 0 0 150px rgba(0, 204, 255, 0.7);
+              transform: translateY(-10px); /* Face upward */
           }
           100% {
-              box-shadow: 0 0 30px rgba(255, 255, 0, 0.6), 0 0 70px rgba(255, 69, 0, 0.6);
+              box-shadow: 0 0 40px rgba(0, 255, 153, 0.6), 0 0 90px rgba(0, 204, 255, 0.6);
+              transform: translateY(0);
+          }
+      }
+      
+      /* Face-Up and Inward Ripple Effect */
+      @keyframes face-up-inward {
+          0% {
+              transform: scale(1);
+          }
+          50% {
+              transform: scale(1.1) rotateX(20deg);
+          }
+          100% {
+              transform: scale(1);
+          }
+      }
+      
+      /* Enhanced Cosmic Burst on Click */
+      @keyframes cosmic-burst {
+          0% {
+              box-shadow: 0 0 20px rgba(255, 255, 0, 0.7), 0 0 50px rgba(255, 69, 0, 0.5);
+          }
+          50% {
+              box-shadow: 0 0 100px rgba(255, 215, 0, 1), 0 0 200px rgba(255, 69, 0, 0.9);
+          }
+          100% {
+              box-shadow: 0 0 50px rgba(255, 255, 0, 0.6), 0 0 90px rgba(255, 69, 0, 0.6);
           }
       }
       
@@ -268,13 +310,13 @@
           .cta-button-unique {
               padding: 10px 20px;
               font-size: 1rem;
-              background: transparent !important; /* Override background on mobile */
           }
           .cta-text {
               font-size: 1.1rem;
+              animation: subtle-glitch-text 3s infinite;
           }
           .cta-svg {
-              animation: draw 3s ease-in-out infinite alternate; /* Slower animation on mobile */
+              animation: draw 3s ease-in-out infinite alternate;
           }
       }
       </style>
@@ -292,6 +334,7 @@
               </defs>
           </svg>
       </a>
+      
       
   
 
