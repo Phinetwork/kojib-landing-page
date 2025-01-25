@@ -136,6 +136,7 @@
           <li><a href="#asterion">Asterion</a></li>
           <li><a href="#skyriz">Skyriz</a></li>
           <li><a href="#noosphere-intro">Noosphere</a></li>
+          <li><a href="#kojib-consulting">Consulting</a></li>
           <li><a href="#contact">Discover Innovation</a></li>
   </div>
 </nav>
@@ -2724,8 +2725,240 @@
       });
   </script>
 </section>
+
+<!-- ============================================
+     Kojib Consulting Comprehensive Section
+============================================= -->
+<section id="kojib-consulting">
+  <!-- Kojib Consulting CSS -->
+  <style>
+    /* ============================================
+       General Styling
+    ============================================= */
+    #kojib-consulting {
+      position: relative;
+      width: 100%;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, rgba(2, 2, 2, 0.07), #1c1c1c08);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Overlay for Depth */
+    #kojib-consulting::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(30, 30, 47, 0.114);
+      z-index: 1;
+    }
+
+    /* Content Container */
+    #kojib-consulting .consulting-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Title Styling */
+    #kojib-consulting .consulting-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 
+                   0 0 20px rgba(255, 255, 255, 0.2);
+      animation: fadeInGlow 2s ease-out;
+    }
+
+    #kojib-consulting .consulting-title span {
+      color: #00ff99;
+      text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
+      animation: pulseHighlight 2s infinite alternate;
+    }
+
+    /* Subtitle Styling */
+    #kojib-consulting .consulting-text {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+      animation: fadeUp 1.8s ease-out;
+    }
+
+    /* Features Grid */
+    #kojib-consulting .consulting-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    /* Individual Feature Card */
+    #kojib-consulting .feature-card {
+      background: rgba(30, 30, 47, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #kojib-consulting .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
+    }
+
+    /* Feature Icon */
+    #kojib-consulting .feature-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      animation: grow 5s linear infinite;
+    }
+
+    /* Feature Title */
+    #kojib-consulting .feature-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      color: #00ff99;
+    }
+
+    /* Feature Description */
+    #kojib-consulting .feature-card p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* Call to Action Button Styling */
+    #kojib-consulting .cta-button {
+      background: linear-gradient(135deg, #00cc80, #1e1e30);
+      color: #ffffff;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 204, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    #kojib-consulting .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 204, 255, 0.7);
+      background: linear-gradient(135deg, #1e1e30, #00cc80);
+    }
+
+    /* SVG Icon in Button */
+    #kojib-consulting .cta-button svg {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+      transition: fill 0.3s ease, transform 0.3s ease;
+    }
+
+    #kojib-consulting .cta-button:hover svg {
+      fill: #00ff99;
+      transform: translateX(5px);
+    }
+
+    /* Focus Styles for Accessibility */
+    #kojib-consulting .cta-button:focus {
+      outline: 2px dashed #00cc80;
+      outline-offset: 4px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #kojib-consulting {
+        padding: 60px 15px;
+      }
+      
+      #kojib-consulting .consulting-title {
+        font-size: 2.5rem;
+      }
+      
+      #kojib-consulting .consulting-text {
+        font-size: 1.2rem;
+      }
+      
+      #kojib-consulting .feature-card {
+        width: 100%;
+        max-width: 90%;
+      }
+      
+      #kojib-consulting .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      
+      #kojib-consulting .cta-button svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  </style>
+
+  <!-- Kojib Consulting Section Content -->
+  <div class="consulting-content">
+    <h2 class="consulting-title">Elevate Your Business with <span class="highlight">Kojib Consulting</span></h2>
+    <p class="consulting-text">
+      At Kojib, we transform businesses into thriving powerhouses by leveraging AI-driven insights and cutting-edge strategies. From identifying hidden inefficiencies to crafting tailored solutions, we help you achieve unparalleled results.
+    </p>
+    <div class="consulting-features">
+      <div class="feature-card">
+        <img src="image/business-audit-icon.svg" alt="Business Audit Icon" class="feature-icon">
+        <h3>Comprehensive Business Audit</h3>
+        <p>Discover untapped potential with a deep dive into your operations, uncovering inefficiencies and growth opportunities.</p>
+      </div>
+      <div class="feature-card">
+        <img src="image/custom-strategy-icon.svg" alt="Custom Strategy Icon" class="feature-icon">
+        <h3>Custom Strategies</h3>
+        <p>We tailor strategies to fit your unique goals, ensuring maximum impact and scalability.</p>
+      </div>
+      <div class="feature-card">
+        <img src="image/ongoing-support-icon.svg" alt="Ongoing Support Icon" class="feature-icon">
+        <h3>Ongoing Optimization</h3>
+        <p>Stay ahead of the competition with continuous support and performance enhancements.</p>
+      </div>
+    </div>
+
+     <!-- Call to Action Button -->
+     <a href="/consulting.html" class="cta-button">
+      EXPLORE CONSULTING
+      <!-- Arrow SVG Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+        <defs>
+          <!-- Gradient Definitions -->
+          <linearGradient id="ctaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00ff99" />
+            <stop offset="100%" stop-color="#0099ff" />
+          </linearGradient>
+        </defs>
+        <!-- Arrow Path -->
+        <path d="M26 20l10 12-10 12V20z" fill="url(#ctaGradient)"></path>
+      </svg>
+    </a>
+  </div>
+</section>
  <!-- Call to Action Section -->
-<section id="contact" class="cta-section">
+ <section id="contact" class="cta-section">
   <div class="cta-container">
     <!-- Header -->
     <div class="cta-header">
@@ -2840,7 +3073,6 @@
 </script>
 
 
-
 <div id="scroll-menu">
   <div id="scroll-toggle">↑</div>
   <div id="scroll-sections">
@@ -2851,6 +3083,7 @@
       <a href="#asterion">Asterion</a>
       <a href="#skyriz">Skyriz</a>
       <a href="#noosphere-intro">Noosphere</a>
+      <a href="#kojib-consulting">Consulting</a>
       <a href="#contact">Discover Innovation</a>
   </div>
 </div>
