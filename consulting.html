@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kojib Consulting - Transform Your Business</title>
+  <script src="https://js.stripe.com/v3/"></script> <!-- Stripe.js -->
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #000, #111);
+      color: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00FF99;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .cta-btn {
+      background: #00FF99;
+      color: #000;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .cta-btn:hover {
+      background: #00cc7a;
+      transform: scale(1.1);
+    }
+
+    /* Navigation Menu */
+    nav {
+      background: #000;
+      box-shadow: 0 4px 8px rgba(0, 255, 153, 0.2);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      color: #00FF99;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(120deg, #00FF99, #004d33);
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    .hero .cta-btn {
+      margin-top: 30px;
+    }
+
+    /* Services Section */
+    .services {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .services h2 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #00FF99;
+    }
+
+    .service-box {
+      margin: 20px;
+      padding: 30px;
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 255, 153, 0.5);
+    }
+
+    .service-box h3 {
+      color: #00FF99;
+      font-size: 1.8rem;
+    }
+
+    .service-box p {
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <nav>
+    <div class="container">
+      <span class="logo">Kojib</span>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <h1>Revolutionize Your Business with Kojib AI Solutions</h1>
+      <p>Transform your operations, automate workflows, and scale your business with cutting-edge AI and blockchain technology.</p>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="services" id="services">
+    <div class="container">
+      <h2>Our Consulting Services</h2>
+      <div class="service-box">
+        <h3>Initial Assessment</h3>
+        <p>A comprehensive analysis of your business, identifying inefficiencies and creating an actionable roadmap.</p>
+        <p><strong>$500</strong></p>
+        <button class="cta-btn" onclick="checkout('price_1QlCQBCnElKewPPGLTYivsut')">Book Now</button>
+      </div>
+      <div class="service-box">
+        <h3>Tier 1: Strategy Only</h3>
+        <p>Receive a customized roadmap to revolutionize your business with AI and digital innovation.</p>
+        <p><strong>$10,000</strong></p>
+        <button class="cta-btn" onclick="checkout('price_1QlCQBCnElKewPPGLTYivsut')">Get Started</button>
+      </div>
+      <div class="service-box">
+        <h3>Tier 2: Strategy + Implementation</h3>
+        <p>Let us execute your transformation with tailored AI tools and seamless integration.</p>
+        <p><strong>$50,000</strong></p>
+        <button class="cta-btn" onclick="checkout('price_1QlCQBCnElKewPPGLTYivsut')">Transform Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Kojib AI Solutions. All Rights Reserved.
+  </footer>
+
+  <!-- Stripe Integration -->
+  <script>
+    const stripe = Stripe('pk_live_51JC8PeCnElKewPPGtfJ0uZEs20pxZNgjtmx1c17wOah58ukuaJol6tvxJ8W4R9AXyAKd17qg9f8yLKVP94oZfcOA00FLL9QWCs'); // Replace with your live publishable key
+
+function checkout(priceId) {
+  stripe.redirectToCheckout({
+    lineItems: [{ price: priceId, quantity: 1 }],
+    mode: 'payment',
+    successUrl: 'https://kojib.com/success', // Replace with your success URL
+    cancelUrl: 'https://kojib.com/cancel',   // Replace with your cancel URL
+  }).then(function (result) {
+    if (result.error) {
+      alert(result.error.message);
+    }
+  });
+}
+
+  </script>
+</body>
+</html>
