@@ -15,14 +15,20 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   
   <style>
-    /* Global Styles */
+    /* Reset and Global Styles */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
+      display: flex;
+      flex-direction: column;
       font-family: 'Roboto', sans-serif;
       background: #0a0a0a;
       color: #fff;
@@ -111,14 +117,15 @@
     /* Hero Section */
     .hero {
       position: relative;
-      height: 100vh;
+      height: 100vh; /* Ensure hero takes full viewport height */
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url('image/hero-bg.jpg') center/cover no-repeat;
+      background: transparent; /* Make background transparent to show particles */
       color: #fff;
       text-align: center;
       overflow: hidden;
+      margin-top: 60px; /* To prevent content being hidden behind fixed nav */
     }
 
     .hero::before {
@@ -128,7 +135,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+      background: transparent; /* Remove dark overlay to show particles clearly */
       z-index: 1;
     }
 
@@ -138,6 +145,11 @@
       max-width: 800px;
       padding: 20px;
       animation: fadeInUp 1s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%; /* Ensure content fills the hero height */
     }
 
     .hero h1 {
@@ -170,8 +182,9 @@
       border-radius: 30px;
       cursor: pointer;
       transition: all 0.3s ease;
-      display: inline-block;
-      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
     }
 
@@ -179,12 +192,22 @@
       background: linear-gradient(135deg, #00FF99, #00995e);
       color: #000;
       border: none;
+      font-weight: 700;
     }
 
     .cta-btn:hover {
       background: linear-gradient(135deg, #00cc7a, #006f4a);
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+    }
+
+    .cta-btn .fa-arrow-right {
+      margin-left: 10px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .cta-btn:hover .fa-arrow-right {
+      margin-left: 15px;
     }
 
     .learn-more-btn {
@@ -281,10 +304,16 @@
     }
 
     .service-box a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       margin-top: 20px;
       color: #00FF99;
       font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .service-box a:hover {
+      color: #00cc7a;
     }
 
     /* Testimonials Section */
@@ -317,10 +346,21 @@
 
     .testimonial-slider {
       display: flex;
-      overflow-x: scroll;
+      overflow-x: auto;
       scroll-behavior: smooth;
       gap: 30px;
       padding-bottom: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .testimonial-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .testimonial-slider::-webkit-scrollbar-thumb {
+      background: #00FF99;
+      border-radius: 4px;
     }
 
     .testimonial {
@@ -389,6 +429,57 @@
       line-height: 1.6;
     }
 
+    /* Call to Action Section */
+    .cta-section {
+      background: #111;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00FF99;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #d4d4d4;
+    }
+
+    .cta-section .cta-btn {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 30px;
+      background: #00FF99;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-section .cta-btn:hover {
+      background: #00cc7a;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+    }
+
+    .cta-section .cta-btn .fa-arrow-right {
+      margin-left: 10px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .cta-section .cta-btn:hover .fa-arrow-right {
+      margin-left: 15px;
+    }
+
     /* Footer */
     footer {
       background: #1a1a1a;
@@ -452,6 +543,14 @@
         flex: none;
         width: 90%;
       }
+
+      .cta-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-section p {
+        font-size: 1rem;
+      }
     }
 
     /* Animations */
@@ -464,6 +563,28 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Flex Layout for Sticky Footer */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ensure Particle Canvas Covers Hero Section */
+    .hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* Prevent Body Scroll Behind Fixed Nav */
+    body {
+      padding-top: 60px; /* Height of the nav */
     }
   </style>
 </head>
@@ -482,120 +603,155 @@
         <li><a href="#value">Results</a></li>
         <li><a href="#services">Get Started</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
   
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content" data-aos="fade-up">
-      <h1>Unleash Your Business Potential with Kojib</h1>
-      <p>Take the first step to transform your business with a tailored strategy powered by cutting-edge AI and innovation.</p>
-      <div class="hero-buttons">
-        <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd" class="cta-btn">Book Your Initial Assessment</a>
-        <a href="#value" class="learn-more-btn">Learn More</a>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <canvas id="heroCanvas" class="hero-canvas"></canvas>
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Unleash Your Business Potential with Kojib</h1>
+        <p>Take the first step to transform your business with a tailored strategy powered by cutting-edge AI and innovation.</p>
+        <div class="hero-buttons">
+          <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd" class="cta-btn">
+            Book Your Initial Assessment <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#value" class="learn-more-btn">Learn More</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    
+    <!-- Value Add Section -->
+    <section class="value-add" id="value">
+      <div class="container" data-aos="fade-up">
+        <h3>Real Savings, Real Results</h3>
+        <p>Our services save businesses an average of $100,000 annually by eliminating inefficiencies.</p>
+        <p>Clients have reported productivity boosts of over 200% and record-breaking revenue within 6 months.</p>
+        <p>Invest in a strategy that pays for itself many times over.</p>
+      </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2>The Full Kojib Experience</h2>
+        <div class="service-grid">
+          <div class="service-box" data-aos="zoom-in">
+            <h3>Step 1: Initial Assessment</h3>
+            <p>Your journey begins with a $1,000 in-depth assessment, analyzing your business operations, identifying inefficiencies, and uncovering hidden opportunities. This fee will be deducted from the full strategy cost.</p>
+            <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd">Start with the Assessment <i class="fas fa-arrow-right" style="margin-left: 5px;"></i></a>
+          </div>
+          <div class="service-box" data-aos="zoom-in" data-aos-delay="100">
+            <h3>Step 2: Strategic Roadmap</h3>
+            <p>Following the assessment, we craft a custom strategy to revolutionize your business operations, leveraging AI and cutting-edge technology to boost efficiency and profitability.</p>
+          </div>
+          <div class="service-box" data-aos="zoom-in" data-aos-delay="200">
+            <h3>Step 3: Implementation & Execution</h3>
+            <p>Our team of experts implements the strategy with precision, integrating tailored AI tools, optimizing workflows, and delivering measurable results.</p>
+          </div>
+          <div class="service-box" data-aos="zoom-in" data-aos-delay="300">
+            <h3>Step 4: Continuous Growth & Support</h3>
+            <p>We provide ongoing support and optimization to ensure your business stays ahead of the competition and maximizes long-term success.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial" data-aos="fade-up">
+            <p>"Kojib didn’t just help us adapt; they helped us thrive in a competitive market. Their strategic roadmap and execution brought us record-breaking growth."</p>
+            <h4>- Alex T., Founder of NovaTech</h4>
+          </div>
+          <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+            <p>"From the initial assessment to ongoing support, Kojib was instrumental in transforming our operations. Our efficiency and revenue have never been higher."</p>
+            <h4>- Lisa M., CEO of FutureSync</h4>
+          </div>
+          <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
+            <p>"The team at Kojib is exceptional. Their innovative solutions and dedication have significantly boosted our market presence and profitability."</p>
+            <h4>- Michael B., CTO of InnovateX</h4>
+          </div>
+          <div class="testimonial" data-aos="fade-up" data-aos-delay="300">
+            <p>"Kojib's expertise in AI-driven strategies has transformed our business operations, leading to unprecedented growth and efficiency."</p>
+            <h4>- Sarah K., COO of TechWave</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+      <div class="container" data-aos="fade-up">
+        <h2>Ready to Elevate Your Business?</h2>
+        <p>Join the ranks of industry leaders who have transformed their operations with Kojib's expertise. Let's embark on a journey to unparalleled success together.</p>
+        <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd" class="cta-btn">
+          Get Started Today <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+  </main>
   
-  <!-- Value Add Section -->
-  <section class="value-add" id="value">
-    <div class="container" data-aos="fade-up">
-      <h3>Real Savings, Real Results</h3>
-      <p>Our services save businesses an average of $100,000 annually by eliminating inefficiencies.</p>
-      <p>Clients have reported productivity boosts of over 200% and record-breaking revenue within 6 months.</p>
-      <p>Invest in a strategy that pays for itself many times over.</p>
-    </div>
-  </section>
-  
-  <!-- Services Section -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2>The Full Kojib Experience</h2>
-      <div class="service-grid">
-        <div class="service-box" data-aos="zoom-in">
-          <h3>Step 1: Initial Assessment</h3>
-          <p>Your journey begins with a $1,000 in-depth assessment, analyzing your business operations, identifying inefficiencies, and uncovering hidden opportunities. This fee will be deducted from the full strategy cost.</p>
-          <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd">Start with the Assessment</a>
-        </div>
-        <div class="service-box" data-aos="zoom-in" data-aos-delay="100">
-          <h3>Step 2: Strategic Roadmap</h3>
-          <p>Following the assessment, we craft a custom strategy to revolutionize your business operations, leveraging AI and cutting-edge technology to boost efficiency and profitability.</p>
-        </div>
-        <div class="service-box" data-aos="zoom-in" data-aos-delay="200">
-          <h3>Step 3: Implementation & Execution</h3>
-          <p>Our team of experts implements the strategy with precision, integrating tailored AI tools, optimizing workflows, and delivering measurable results.</p>
-        </div>
-        <div class="service-box" data-aos="zoom-in" data-aos-delay="300">
-          <h3>Step 4: Continuous Growth & Support</h3>
-          <p>We provide ongoing support and optimization to ensure your business stays ahead of the competition and maximizes long-term success.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Testimonials Section -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <h2>What Our Clients Say</h2>
-      <div class="testimonial-slider">
-        <div class="testimonial" data-aos="fade-up">
-          <p>"Kojib didn’t just help us adapt; they helped us thrive in a competitive market. Their strategic roadmap and execution brought us record-breaking growth."</p>
-          <h4>- Alex T., Founder of NovaTech</h4>
-        </div>
-        <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
-          <p>"From the initial assessment to ongoing support, Kojib was instrumental in transforming our operations. Our efficiency and revenue have never been higher."</p>
-          <h4>- Lisa M., CEO of FutureSync</h4>
-        </div>
-        <!-- Add more testimonials as needed -->
-      </div>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="container">
-      <!-- Logo -->
-      <div class="footer-logo">
-        <img src="image/logo.svg" alt="Kojib Logo">
-      </div>
-      <!-- Social Media Links -->
-      <div class="social-links">
-        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      </div>
-      <!-- Navigation Links -->
-      <div class="footer-links">
-        <a href="/services.html">Services</a> | 
-        <a href="/faq.html">FAQ</a> | 
-        <a href="/developers.html">Developers</a> | 
-        <a href="/careers.html">Careers</a> | 
-        <a href="/about.html">About</a> | 
-        <a href="https://app.kojib.com/entry">Login</a>
-      </div>
-      <!-- Footer Bottom -->
-      <div class="footer-bottom">
-        <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-        <p>Designed with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by Kojib</p>
-        <p>
-          <a href="terms-of-service.html">Terms of Service</a> | 
-          <a href="cookie-policy.html">Cookie Policy</a> | 
-          <a href="privacy-policy.html">Privacy Policy</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- Back to Top Button -->
-  <button id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+  <footer style="background: #1c1c1c28; color: #f4f4f4; text-align: center; padding: 20px; font-family: 'Arial', sans-serif;">
+    <!-- logo -->
+   <div style="margin-bottom: 20px;">
+     <img src="image/logo.svg" alt="Kojib Logo" style="width: 60px; max-width: 20%; margin: 0 auto;">
+   </div>
+   <!-- Social Media Links -->
+   <div class="social-links" style="margin-bottom: 10px;">
+     <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+       <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
+     </a>
+     <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+       <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
+     </a>
+     <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+       <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
+     </a>
+   </a>
+   <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+       <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
+   </a>
+   </div>
+ 
+   <!-- Navigation Links -->
+   <div class="footer-links" style="margin-bottom: 20px;">
+     <p style="margin: 8px 0;">
+       <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
+       <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
+       <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
+       <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
+       <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
+       <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
+     </p>
+   </div>
+ 
+   <!-- Footer Bottom -->
+   <div class="footer-bottom" style="margin-top: 10px;">
+     <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+     <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
+     <p style="margin: 8px 0;">
+       <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
+       <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
+       <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
+     </p>
+   </div>
+ 
+   <script>
+     // JavaScript to set the current year
+     document.getElementById("current-year").textContent = new Date().getFullYear();
+   </script>
+ </footer>
   
   <!-- JavaScript Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   
-  <!-- Particle.js Script (Optional Enhanced) -->
+  <!-- Particle.js Script -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   
   <!-- Main JavaScript -->
@@ -610,7 +766,7 @@
     particlesJS("heroCanvas", {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 100,
           "density": { "enable": true, "value_area": 800 }
         },
         "color": { "value": "#00FF99" },
@@ -620,7 +776,7 @@
           "polygon": { "nb_sides": 5 }
         },
         "opacity": {
-          "value": 0.5,
+          "value": 0.6,
           "random": true,
           "anim": { "enable": false }
         },
@@ -638,7 +794,7 @@
         },
         "move": {
           "enable": true,
-          "speed": 2,
+          "speed": 3,
           "direction": "none",
           "random": false,
           "straight": false,
@@ -670,32 +826,7 @@
         navbar.classList.remove('scrolled');
       }
     });
-
-    // Back to Top Button Functionality
-    const backToTopButton = document.getElementById('backToTop');
-
-    window.onscroll = function() {
-      scrollFunction();
-    };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        backToTopButton.style.display = "block";
-      } else {
-        backToTopButton.style.display = "none";
-      }
-    }
-
-    backToTopButton.addEventListener('click', function(){
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Set Current Year in Footer
-    document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
-  
-  <!-- Particle Canvas -->
-  <canvas id="heroCanvas" class="hero-canvas"></canvas>
   
 </body>
 </html>
