@@ -12,7 +12,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Reset & Base Styles */
+    /* ============================================
+       CSS Variables for Consistent Theming
+    ============================================= */
+    :root {
+      --primary-color: #00cc80;
+      --secondary-color: #00ff99;
+      --dark-bg: #1e1e30;
+      --navbar-bg: rgba(255, 255, 255, 0.95); /* Clean white background */
+      --light-text: #f4f4f4;
+      --hover-color: #0099ff;
+      --cta-gradient: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+      --cta-hover-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      --footer-bg: linear-gradient(135deg, rgba(30, 30, 47, 0.75), rgba(46, 46, 80, 0.75));
+      --transition-speed: 0.3s;
+    }
+
+    /* ============================================
+       Reset & Base Styles
+    ============================================= */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -30,7 +48,7 @@
     }
 
     a {
-      color: #00cc80;
+      color: var(--primary-color);
       text-decoration: none;
       transition: color 0.3s ease;
     }
@@ -39,9 +57,11 @@
       color: #00995e;
     }
 
-    /* Header Styles */
+    /* ============================================
+       Header Styles
+    ============================================= */
     .header {
-      background: #ffffff;
+      background: var(--navbar-bg); /* Changed to white */
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
@@ -61,7 +81,7 @@
     .navbar .logo {
       font-size: 1.8rem;
       font-weight: 700;
-      color: #00cc80;
+      color: var(--primary-color);
     }
 
     .nav-links {
@@ -78,7 +98,7 @@
 
     .nav-links li a:hover,
     .nav-links li a.active {
-      color: #00cc80;
+      color: var(--primary-color);
     }
 
     /* Hamburger Menu Styles */
@@ -105,9 +125,9 @@
         position: absolute;
         top: 60px;
         right: 20px;
-        background-color: #ffffff;
+        background-color: #ffffff; /* Clean white background */
         flex-direction: column;
-        width: 200px;
+        width: 220px;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -126,9 +146,22 @@
       .hamburger {
         display: flex;
       }
+
+      .nav-links li a {
+        color: #333;
+      }
+
+      .nav-links li a:hover {
+        color: var(--primary-color);
+        background: rgba(0, 204, 128, 0.1);
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
     }
 
-    /* Main Content Styles */
+    /* ============================================
+       Main Content Styles
+    ============================================= */
     main.terms-container {
       flex: 1;
       max-width: 800px;
@@ -140,7 +173,7 @@
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 10px;
-      color: #00cc80;
+      color: var(--primary-color);
     }
 
     p {
@@ -192,12 +225,12 @@
 
     .form-group input:focus,
     .form-group textarea:focus {
-      border-color: #00cc80;
+      border-color: var(--primary-color);
       outline: none;
     }
 
     .submit-button {
-      background: #00cc80;
+      background: var(--primary-color);
       color: #fff;
       padding: 12px 25px;
       border: none;
@@ -215,11 +248,11 @@
 
     .success-message {
       display: none;
-      color: #00cc80;
+      color: var(--primary-color);
       background-color: #e6f9f4;
       padding: 15px;
       margin-top: 20px;
-      border: 1px solid #00cc80;
+      border: 1px solid var(--primary-color);
       border-radius: 5px;
       text-align: center;
       font-size: 1.2rem;
@@ -268,7 +301,7 @@
 
     .cta-section h2 {
       font-size: 2rem;
-      color: #00ff99;
+      color: var(--secondary-color);
       margin-bottom: 15px;
     }
 
@@ -280,7 +313,7 @@
 
     .cta-section a {
       text-decoration: none;
-      background: #00ff99;
+      background: var(--secondary-color);
       color: #121212;
       padding: 12px 30px;
       border-radius: 30px;
@@ -291,7 +324,7 @@
     }
 
     .cta-section a:hover {
-      background: #00cc80;
+      background: var(--primary-color);
       transform: translateY(-2px);
     }
 
@@ -306,7 +339,7 @@
 
     .contact-info h2 {
       font-size: 2rem;
-      color: #00cc80;
+      color: var(--primary-color);
       margin-bottom: 15px;
     }
 
@@ -328,7 +361,7 @@
       display: flex;
       align-items: center;
       font-size: 1.2rem;
-      color: #00cc80;
+      color: var(--primary-color);
       transition: color 0.3s ease, transform 0.3s ease;
     }
 
@@ -354,13 +387,13 @@
     }
 
     .login-option a {
-      color: #00cc80;
+      color: var(--primary-color);
       font-weight: 600;
     }
 
     /* Footer Styles */
     .footer {
-      background: #1a1a1a;
+      background: var(--dark-bg);
       color: #ccc;
       text-align: center;
       padding: 20px;
@@ -380,17 +413,17 @@
     }
 
     .footer-nav a:hover {
-      color: #00cc80;
+      color: var(--primary-color);
     }
 
-    /* Chatbot Button Styles (Unchanged) */
+    /* Chatbot Button Styles */
     #chatbot-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
       width: 60px;
       height: 60px;
-      background: #00ff99;
+      background: var(--secondary-color);
       border-radius: 50%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       display: flex;
@@ -403,7 +436,7 @@
 
     #chatbot-button:hover {
       transform: scale(1.1);
-      background: #00cc80;
+      background: var(--primary-color);
     }
 
     #chatbot-button img {
@@ -412,7 +445,7 @@
       pointer-events: none; /* Ensure clicks don't affect the image */
     }
 
-    /* Chatbot Window Styles (Unchanged) */
+    /* Chatbot Window Styles */
     #chatbot {
       position: fixed;
       bottom: 100px;
@@ -433,7 +466,7 @@
 
     /* Chatbot Header */
     #chatbot-header {
-      background: #00ff99;
+      background: var(--secondary-color);
       color: black;
       padding: 10px;
       text-align: center;
@@ -465,7 +498,7 @@
       font-size: 0.9rem;
       line-height: 1.5;
       scrollbar-width: thin; /* For modern browsers */
-      scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+      scrollbar-color: var(--secondary-color) #222; /* Custom scrollbar colors */
     }
 
     #chatbot-messages::-webkit-scrollbar {
@@ -477,7 +510,7 @@
     }
 
     #chatbot-messages::-webkit-scrollbar-thumb {
-      background: #00ff99;
+      background: var(--secondary-color);
       border-radius: 5px;
     }
 
@@ -488,7 +521,7 @@
 
     #chatbot-messages .user {
       text-align: right;
-      color: #00ff99;
+      color: var(--secondary-color);
     }
 
     #chatbot-messages .bot {
@@ -507,7 +540,7 @@
       width: 8px;
       height: 8px;
       margin: 0 5px;
-      background-color: #00ff99;
+      background-color: var(--secondary-color);
       border-radius: 50%;
       display: inline-block;
       animation: bounce 1.2s infinite;
@@ -552,7 +585,7 @@
     }
 
     #chatbot-input button {
-      background: #00ff99;
+      background: var(--secondary-color);
       border: none;
       padding: 10px 15px;
       color: black;
@@ -563,7 +596,7 @@
     }
 
     #chatbot-input button:hover {
-      background: #00cc80;
+      background: var(--primary-color);
       transform: scale(1.05);
     }
 
@@ -622,6 +655,65 @@
       #chatbot-input button {
         padding: 8px 12px; /* Smaller padding for smaller screens */
         font-size: 0.9rem;
+      }
+    }
+
+    /* ============================================
+       Dynamic Visual Section Styling
+    ============================================= */
+    .dynamic-visual-section {
+      position: relative;
+      width: 100%;
+      height: 400px; /* Increased height for better visibility */
+      background: #f0f0f0;
+      margin-top: 60px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .dynamic-visual-section #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .dynamic-visual-section svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      z-index: 2;
+    }
+
+    /* Divine Shapes */
+    .dynamic-visual-section svg .divine-shape {
+      fill: none;
+      stroke: var(--primary-color);
+      stroke-width: 2;
+      opacity: 0.7;
+      animation: evolveShape 10s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    .dynamic-visual-section svg .divine-shape:hover {
+      stroke: var(--secondary-color);
+      opacity: 1;
+    }
+
+    @keyframes evolveShape {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.05) rotate(180deg);
+      }
+      100% {
+        transform: scale(1) rotate(360deg);
       }
     }
   </style>
@@ -700,6 +792,16 @@
     </section>
   </main>
 
+  <!-- Dynamic Visual Section -->
+  <section class="dynamic-visual-section" id="dynamic-visual-section">
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+    
+    <!-- Animated SVG Elements Removed -->
+    <!-- The SVG that contained the rotating image has been removed as per your request -->
+    
+  </section>
+
   <!-- Additional Contact Info -->
   <section class="contact-info">
     <h2>Other Ways to Reach Us</h2>
@@ -729,11 +831,11 @@
     </ul>
     
     <div class="login-option" style="margin-top: 20px;">
-      <p>Already have an account? <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none;">Log in here</a> to access your dashboard and connect with us directly.</p>
+      <p>Already have an account? <a href="https://app.kojib.com/entry" style="color: var(--primary-color); text-decoration: none;">Log in here</a> to access your dashboard and connect with us directly.</p>
     </div>
   </section>
 
-  <!-- Chatbot Integration (Unchanged) -->
+  <!-- Chatbot Integration -->
   <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
     <div id="chatbot-header">
       <span>Kojib</span>
@@ -755,9 +857,9 @@
   <footer class="footer">
     <p>&copy; 2024 Kojib. All rights reserved.</p>
     <nav class="footer-nav">
-        <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="terms-of-service.html">Terms of Service</a> | 
-        <a href="cookie-policy.html">Cookie Policy</a>
+      <a href="privacy-policy.html">Privacy Policy</a> | 
+      <a href="terms-of-service.html">Terms of Service</a> | 
+      <a href="cookie-policy.html">Cookie Policy</a>
     </nav>
   </footer>
 
@@ -797,6 +899,382 @@
         hamburger.click();
       }
     });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Close mobile menu when clicking a nav link
+    const navLinkItems = document.querySelectorAll('.nav-links li a');
+    navLinkItems.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Smooth Scroll for Internal Links (excluding Home)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        // Prevent default behavior
+        e.preventDefault();
+
+        // Check if href is not "/index.html"
+        if (this.getAttribute('href') !== '/index.html') {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 70, // Adjust for fixed navbar
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // JavaScript to set the current year in Footer
+    document.querySelector('.footer #current-year')?.textContent = new Date().getFullYear();
   </script>
+
+  <!-- ============================================
+       Particle Background using Particles.js
+  ============================================= -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 150, // Increased number for more particles
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": ["#00ff99", "#00cc80", "#ffffff"] // Vibrant colors
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.7, // Higher opacity for visibility
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1,
+            "opacity_min": 0.3,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 4, // Increased size for better visibility
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00cc80",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3, // Increased speed for more dynamic movement
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse" // Interactive repulsion on hover
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push" // Add particles on click
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true,
+      "background": {
+        "color": "#f0f0f0",
+        "image": "",
+        "position": "50% 50%",
+        "repeat": "no-repeat",
+        "size": "cover"
+      }
+    });
+
+    // Function to interact with particles when divine shapes are hovered
+    const divineShapes = document.querySelectorAll('.divine-shape');
+
+    divineShapes.forEach(shape => {
+      shape.addEventListener('mouseenter', () => {
+        // Repulse particles away from the shape
+        const pJS = window.pJSDom && window.pJSDom.length > 0 ? window.pJSDom[0].pJS : null;
+        if (pJS) {
+          const rect = shape.getBoundingClientRect();
+          const pos = {
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2
+          };
+          pJS.interactivity.mouse.pos_x = pos.x;
+          pJS.interactivity.mouse.pos_y = pos.y;
+          pJS.interactivity.events.onhover.mode = 'repulse';
+        }
+      });
+
+      shape.addEventListener('mouseleave', () => {
+        // Reset interactivity
+        const pJS = window.pJSDom && window.pJSDom.length > 0 ? window.pJSDom[0].pJS : null;
+        if (pJS) {
+          pJS.interactivity.mouse.pos_x = null;
+          pJS.interactivity.mouse.pos_y = null;
+          pJS.interactivity.events.onhover.mode = 'repulse';
+        }
+      });
+    });
+  </script>
+
+  <!-- ============================================
+       Scroll to Top Button and Pop-up Menu Integration
+  ============================================= -->
+  <script>
+    // Create Scroll to Top Button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="phi-motion-icon">
+        <defs>
+          <linearGradient id="glossy-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00cc80" stop-opacity="1" />
+            <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#00cc80" stop-opacity="1" />
+          </linearGradient>
+        </defs>
+        <path class="phi-path" d="M12 22c-.55 0-1-.45-1-1V5.41l-5.3 5.3a1 1 0 01-1.4-1.4l7-7a1 1 0 011.41 0l7 7a1 1 0 01-1.4 1.4l-5.3-5.3V21c0 .55-.45 1-1 1z"/>
+      </svg>
+    `;
+    // Apply Styles to Scroll to Top Button
+    scrollToTopBtn.style.position = 'fixed';
+    scrollToTopBtn.style.bottom = '20px';
+    scrollToTopBtn.style.left = '10px';
+    scrollToTopBtn.style.width = '50px';
+    scrollToTopBtn.style.height = '50px'; 
+    scrollToTopBtn.style.display = 'flex';
+    scrollToTopBtn.style.alignItems = 'center';
+    scrollToTopBtn.style.justifyContent = 'center';
+    scrollToTopBtn.style.border = 'none';
+    scrollToTopBtn.style.borderRadius = '50%';
+    scrollToTopBtn.style.background = 'linear-gradient(145deg, #1e1e30, var(--primary-color))';
+    scrollToTopBtn.style.cursor = 'pointer';
+    scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
+    scrollToTopBtn.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+    scrollToTopBtn.style.display = 'none';
+    scrollToTopBtn.style.zIndex = '1000';
+    scrollToTopBtn.setAttribute('aria-label', 'Scroll to Top');
+    
+    // Append the button to the body
+    document.body.appendChild(scrollToTopBtn);
+    
+    // Add Hover Effects
+    scrollToTopBtn.addEventListener('mouseover', () => {
+      scrollToTopBtn.style.transform = 'scale(1.1)';
+      scrollToTopBtn.style.boxShadow = '0 10px 15px rgba(0, 255, 153, 0.5)';
+    });
+    
+    scrollToTopBtn.addEventListener('mouseout', () => {
+      scrollToTopBtn.style.transform = 'scale(1)';
+      scrollToTopBtn.style.boxShadow = '0 6px 10px rgba(0, 0, 0, 0.3)';
+    });
+    
+    // Show/Hide Scroll to Top Button based on Scroll Position
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = 'flex';
+      } else {
+        scrollToTopBtn.style.display = 'none';
+      }
+    });
+    
+    // Create Pop-up Menu
+    const menu = document.createElement('div');
+    menu.style.position = 'fixed';
+    menu.style.bottom = '80px';
+    menu.style.left = '10px';
+    menu.style.background = 'rgba(255, 255, 255, 0.95)'; /* Clean white background */
+    menu.style.border = '1px solid var(--primary-color)';
+    menu.style.borderRadius = '12px';
+    menu.style.boxShadow = '0 6px 15px rgba(0, 255, 153, 0.5)';
+    menu.style.padding = '15px';
+    menu.style.display = 'none';
+    menu.style.zIndex = '1000';
+    menu.style.color = '#333'; /* Dark text for readability */
+    menu.innerHTML = `
+      <ul style="list-style: none; margin: 0; padding: 0;">
+        <li style="margin: 10px 0;">
+          <a href="/" class="menu-item" onclick="closeMenu();">Home</a>
+        </li>
+        <li style="margin: 10px 0;">
+          <a href="/consulting" target="_blank" class="menu-item" onclick="closeMenu();">Consultation</a>
+        </li>
+        <li style="margin: 10px 0;">
+          <a href="https://app.kojib.com/entry" target="_blank" class="menu-item" onclick="closeMenu();">Login</a>
+        </li>
+      </ul>
+    `;
+    // Append the menu to the body
+    document.body.appendChild(menu);
+    
+    // Function to Close the Menu
+    function closeMenu() {
+      menu.style.display = 'none';
+    }
+    
+    // Function to Scroll to Top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      closeMenu();
+    }
+    
+    // Toggle Menu Display when Scroll to Top Button is Clicked
+    scrollToTopBtn.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    // Inject Additional Styles for the Pop-up Menu and SVG Animations
+    const additionalStyles = document.createElement('style');
+    additionalStyles.innerHTML = `
+      /* Phi Motion Icon Animations */
+      @keyframes divineMotion {
+        0% {
+          transform: scale(1);
+          opacity: 0.9;
+          filter: drop-shadow(0 0 4px var(--primary-color)) drop-shadow(0 0 6px var(--primary-color));
+        }
+        38.2% { /* Reflects 1/phi proportion */
+          transform: scale(1.1);
+          opacity: 1;
+          filter: drop-shadow(0 0 8px #00ff99) drop-shadow(0 0 12px var(--primary-color));
+        }
+        61.8% { /* Reflects phi proportion */
+          transform: scale(0.95);
+          opacity: 0.95;
+          filter: drop-shadow(0 0 6px var(--primary-color)) drop-shadow(0 0 8px #00ff99);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.9;
+          filter: drop-shadow(0 0 4px var(--primary-color)) drop-shadow(0 0 6px var(--primary-color));
+        }
+      }
+
+      .phi-path {
+        fill: url(#glossy-gradient);
+        filter: drop-shadow(0 0 4px var(--primary-color));
+        transform-origin: center;
+        animation: divineMotion 6.18s infinite ease-in-out;
+      }
+
+      .phi-path:hover {
+        filter: drop-shadow(0 0 10px #00ff99) drop-shadow(0 0 12px var(--primary-color));
+      }
+
+      /* Scroll to Top Icon */
+      .phi-motion-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* Menu Item Styles */
+      .menu-item {
+        background: none;
+        border: none;
+        padding: 10px 20px;
+        color: #333;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: left;
+        text-decoration: none;
+        display: block;
+        transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+        width: 100%;
+      }
+
+      .menu-item:hover {
+        background: rgba(0, 204, 128, 0.1);
+        color: var(--primary-color);
+      }
+    `;
+    document.head.appendChild(additionalStyles);
+
+    // ============================================
+    // GSAP Animations for SVG Elements
+    // ============================================
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.fromTo(".dynamic-visual-section svg .divine-shape", 
+        { scale: 0.8, opacity: 0.5 }, 
+        { scale: 1.2, opacity: 1, duration: 4, repeat: -1, yoyo: true, ease: "power1.inOut", stagger: 0.5 }
+      );
+    });
+  </script>
+
 </body>
 </html>
