@@ -207,11 +207,13 @@
       left: 0;
     }
 
-    .mobile-nav ul li a:hover::after {
+    .mobile-nav ul li a:hover::after,
+    .mobile-nav ul li a:active::after {
       width: 50%;
     }
 
-    .mobile-nav ul li a:hover {
+    .mobile-nav ul li a:hover,
+    .mobile-nav ul li a:active {
       color: #00cc7a;
       transform: scale(1.05);
     }
@@ -227,12 +229,50 @@
       nav ul {
         display: none;
       }
+
+      /* Adjust Hero Section for Mobile */
+      .hero {
+        height: 80vh; /* Reduced height for mobile */
+        margin-top: 60px; /* Reduced top margin */
+      }
+
+      .hero-content {
+        padding: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .cta-btn, .learn-more-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        height: 75vh; /* Further reduced height for very small screens */
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .cta-btn, .learn-more-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+      }
     }
 
     /* Hero Section */
     .hero {
       position: relative;
-      height: 100vh; /* Ensure hero takes full viewport height */
+      height: 90vh; /* Reduced height from 100vh to 90vh */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -310,7 +350,8 @@
       font-weight: 700;
     }
 
-    .cta-btn:hover {
+    .cta-btn:hover,
+    .cta-btn:active {
       background: linear-gradient(135deg, #00cc7a, #006f4a);
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
@@ -321,7 +362,8 @@
       transition: margin-left 0.3s ease;
     }
 
-    .cta-btn:hover .fa-arrow-right {
+    .cta-btn:hover .fa-arrow-right,
+    .cta-btn:active .fa-arrow-right {
       margin-left: 15px;
     }
 
@@ -331,7 +373,8 @@
       border: 2px solid #00FF99;
     }
 
-    .learn-more-btn:hover {
+    .learn-more-btn:hover,
+    .learn-more-btn:active {
       background: linear-gradient(135deg, #00FF99, #00995e);
       color: #fff;
       transform: translateY(-3px) scale(1.05);
@@ -580,7 +623,8 @@
       justify-content: center;
     }
 
-    .cta-section .cta-btn:hover {
+    .cta-section .cta-btn:hover,
+    .cta-section .cta-btn:active {
       background: #00cc7a;
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
@@ -591,7 +635,8 @@
       transition: margin-left 0.3s ease;
     }
 
-    .cta-section .cta-btn:hover .fa-arrow-right {
+    .cta-section .cta-btn:hover .fa-arrow-right,
+    .cta-section .cta-btn:active .fa-arrow-right {
       margin-left: 15px;
     }
 
@@ -783,6 +828,13 @@
     /* Prevent Body Scroll Behind Fixed Nav */
     body.no-scroll {
       overflow: hidden;
+    }
+
+    /* Interactive Elements for Mobile */
+    .cta-btn:active, 
+    .learn-more-btn:active {
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+      transform: translateY(-3px) scale(1.05);
     }
   </style>
 </head>
