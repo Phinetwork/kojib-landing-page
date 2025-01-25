@@ -2,55 +2,627 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact Us - Kojib</title>
+  
+  <!-- External Stylesheets -->
   <link rel="stylesheet" href="terms-of-service.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
   <style>
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: #00cc80;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #00995e;
+    }
+
+    /* Header Styles */
+    .header {
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00cc80;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      font-weight: 500;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #00cc80;
+    }
+
+    /* Hamburger Menu Styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Navigation Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #ffffff;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Main Content Styles */
+    main.terms-container {
+      flex: 1;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #00cc80;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    /* Contact Form Styles */
+    .contact-section {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #00cc80;
+      outline: none;
+    }
+
+    .submit-button {
+      background: #00cc80;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .submit-button:hover {
+      background: #00995e;
+      transform: translateY(-2px);
+    }
+
     .success-message {
       display: none;
       color: #00cc80;
-      background-color: #f4f4f4;
+      background-color: #e6f9f4;
       padding: 15px;
-      margin: 20px 0;
+      margin-top: 20px;
       border: 1px solid #00cc80;
       border-radius: 5px;
       text-align: center;
       font-size: 1.2rem;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* CTA Section Styles */
     .cta-section {
-      margin-top: 40px;
-      padding: 30px;
+      margin-top: 60px;
+      padding: 40px;
       background: #1a1a1a;
       border-radius: 10px;
       text-align: center;
-      color: white;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(0, 204, 128, 0.2), transparent 70%);
+      transform: rotate(45deg);
+      animation: rotateBg 10s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes rotateBg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cta-section > * {
+      position: relative;
+      z-index: 1;
     }
 
     .cta-section h2 {
       font-size: 2rem;
-      color: #00cc80;
+      color: #00ff99;
+      margin-bottom: 15px;
     }
 
     .cta-section p {
       font-size: 1.2rem;
-      margin: 20px 0;
-      color: #f4f4f4;
+      margin-bottom: 25px;
+      color: #e0e0e0;
     }
 
     .cta-section a {
       text-decoration: none;
-      background: #00cc80;
+      background: #00ff99;
       color: #121212;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 12px 30px;
+      border-radius: 30px;
       font-size: 1rem;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+      font-weight: 700;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .cta-section a:hover {
-      background: #00995e;
+      background: #00cc80;
+      transform: translateY(-2px);
+    }
+
+    /* Additional Contact Info Styles */
+    .contact-info {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #f4f4f4;
+      margin-top: 60px;
+      border-radius: 10px;
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+      color: #00cc80;
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .social-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .social-links li a {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      color: #00cc80;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-links li a img {
+      margin-right: 8px;
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links li a:hover {
+      color: #00995e;
+      transform: scale(1.1);
+    }
+
+    .social-links li a:hover img {
+      transform: scale(1.2);
+    }
+
+    .login-option p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .login-option a {
+      color: #00cc80;
+      font-weight: 600;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 80px;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-nav a {
+      color: #ccc;
+      margin: 0 10px;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+      color: #00cc80;
+    }
+
+    /* Chatbot Button Styles (Unchanged) */
+    #chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #00ff99;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+
+    #chatbot-button:hover {
+      transform: scale(1.1);
+      background: #00cc80;
+    }
+
+    #chatbot-button img {
+      width: 30px;
+      height: 30px;
+      pointer-events: none; /* Ensure clicks don't affect the image */
+    }
+
+    /* Chatbot Window Styles (Unchanged) */
+    #chatbot {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 350px;
+      max-width: 90%; /* Ensure responsiveness for smaller screens */
+      height: 500px;
+      max-height: 70%; /* Adjust height for smaller screens */
+      background: #1c1c1c;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+      overflow: hidden;
+    }
+
+    /* Chatbot Header */
+    #chatbot-header {
+      background: #00ff99;
+      color: black;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+    }
+
+    #chatbot-header button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: black;
+      transition: transform 0.2s ease;
+    }
+
+    #chatbot-header button:hover {
+      transform: scale(1.2);
+    }
+
+    /* Chatbot Messages */
+    #chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      scrollbar-width: thin; /* For modern browsers */
+      scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+    }
+
+    #chatbot-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #222;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #00ff99;
+      border-radius: 5px;
+    }
+
+    #chatbot-messages .message {
+      margin-bottom: 10px;
+      word-wrap: break-word; /* Ensure long messages don't overflow */
+    }
+
+    #chatbot-messages .user {
+      text-align: right;
+      color: #00ff99;
+    }
+
+    #chatbot-messages .bot {
+      text-align: left;
+      color: white;
+    }
+
+    /* Loading Bubbles */
+    #loading-indicator {
+      display: none; /* Hidden by default */
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    #loading-indicator .dot {
+      width: 8px;
+      height: 8px;
+      margin: 0 5px;
+      background-color: #00ff99;
+      border-radius: 50%;
+      display: inline-block;
+      animation: bounce 1.2s infinite;
+    }
+
+    #loading-indicator .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    #loading-indicator .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      0%, 80%, 100% {
+          transform: scale(0);
+      }
+      40% {
+          transform: scale(1);
+      }
+    }
+
+    /* Chatbot Input Section */
+    #chatbot-input {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      background: #333;
+      align-items: center;
+    }
+
+    #chatbot-input textarea {
+      flex: 1;
+      resize: none;
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #222;
+      color: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    #chatbot-input button {
+      background: #00ff99;
+      border: none;
+      padding: 10px 15px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #chatbot-input button:hover {
+      background: #00cc80;
+      transform: scale(1.05);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      main.terms-container {
+        padding: 0 10px;
+      }
+
+      .navbar .logo {
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .contact-section {
+        padding: 30px;
+      }
+
+      .cta-section {
+        padding: 30px;
+      }
+
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .cta-section p {
+        font-size: 1rem;
+      }
+
+      .cta-section a {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+      }
+
+      #chatbot {
+        bottom: 80px;
+        right: 10px;
+        width: 90%; /* Use most of the screen width */
+        height: auto; /* Let height adjust dynamically */
+        max-height: 80%; /* Limit max height */
+      }
+
+      #chatbot-header {
+        font-size: 1rem; /* Adjust header font size */
+      }
+
+      #chatbot-input textarea {
+        font-size: 0.8rem;
+      }
+
+      #chatbot-input button {
+        padding: 8px 12px; /* Smaller padding for smaller screens */
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -59,7 +631,15 @@
   <header class="header">
     <nav class="navbar">
       <a href="index.html" class="logo">Kojib</a>
-      <ul class="nav-links">
+      
+      <!-- Hamburger Menu Button -->
+      <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      
+      <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="faq.html">FAQ</a></li>
@@ -120,293 +700,57 @@
     </section>
   </main>
 
+  <!-- Additional Contact Info -->
+  <section class="contact-info">
+    <h2>Other Ways to Reach Us</h2>
+    <p>
+      You can also contact us via email at <a href="mailto:support@kojib.com">support@kojib.com</a>.<br>
+      Follow us on our social channels for updates:
+    </p>
+    <ul class="social-links">
+      <li>
+        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+          <img src="/image/twitter-icon.svg" alt="Twitter" width="24" height="24" />
+          Twitter
+        </a>
+      </li>
+      <li>
+        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+          <img src="/image/instagram-icon.svg" alt="Instagram" width="24" height="24" />
+          Instagram
+        </a>
+      </li>
+      <li>
+        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+          <img src="/image/linkedin-icon.svg" alt="LinkedIn" width="24" height="24" />
+          LinkedIn
+        </a>
+      </li>
+    </ul>
+    
+    <div class="login-option" style="margin-top: 20px;">
+      <p>Already have an account? <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none;">Log in here</a> to access your dashboard and connect with us directly.</p>
+    </div>
+  </section>
 
-   <!-- Additional Contact Info -->
-<section class="contact-info">
-  <h2>Other Ways to Reach Us</h2>
-  <p>
-    You can also contact us via email at <a href="mailto:support@kojib.com">support@kojib.com</a>.<br>
-    Follow us on our social channels for updates:
-  </p>
-  <ul class="social-links">
-    <li><a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">Twitter</a></li>
-    <li><a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">Instagram</a></li>
-    <li><a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">LinkedIn</a></li>
-  </ul>
-  <div class="login-option" style="margin-top: 20px;">
-    <p>Already have an account? <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none;">Log in here</a> to access your dashboard and connect with us directly.</p>
-  </div>
-</section>
-
-<style>
-.contact-info {
-  font-family: 'Arial', sans-serif;
-  text-align: center;
-  padding: 20px;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-.contact-info a {
-  color: #00cc80;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-  color: #00ff99;
-}
-
-.contact-info .social-links {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-.contact-info .social-links li {
-  display: inline;
-}
-
-.contact-info .login-option {
-  margin-top: 20px;
-  font-size: 14px;
-}
-</style>
-
-
-    
-
-  </main>
-  <style>
-    /* Chatbot Button */
-    #chatbot-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        background: #00ff99;
-        border-radius: 50%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        z-index: 1000;
-        transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-    }
-    
-    #chatbot-button:hover {
-        transform: scale(1.1);
-        background: #00cc80;
-    }
-    
-    #chatbot-button img {
-        width: 30px;
-        height: 30px;
-        pointer-events: none; /* Ensure clicks don't affect the image */
-    }
-    
-    /* Chatbot Window */
-    #chatbot {
-        position: fixed;
-        bottom: 100px;
-        right: 20px;
-        width: 350px;
-        max-width: 90%; /* Ensure responsiveness for smaller screens */
-        height: 500px;
-        max-height: 70%; /* Adjust height for smaller screens */
-        background: #1c1c1c;
-        color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        display: none;
-        flex-direction: column;
-        z-index: 1001;
-        overflow: hidden;
-    }
-    
-    /* Chatbot Header */
-    #chatbot-header {
-        background: #00ff99;
-        color: black;
-        padding: 10px;
-        text-align: center;
-        font-weight: bold;
-        position: relative;
-    }
-    
-    #chatbot-header button {
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        background: transparent;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: black;
-        transition: transform 0.2s ease;
-    }
-    
-    #chatbot-header button:hover {
-        transform: scale(1.2);
-    }
-    
-    /* Chatbot Messages */
-    #chatbot-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 10px;
-        font-size: 0.9rem;
-        line-height: 1.5;
-        scrollbar-width: thin; /* For modern browsers */
-        scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
-    }
-    
-    #chatbot-messages::-webkit-scrollbar {
-        width: 8px;
-    }
-    
-    #chatbot-messages::-webkit-scrollbar-track {
-        background: #222;
-    }
-    
-    #chatbot-messages::-webkit-scrollbar-thumb {
-        background: #00ff99;
-        border-radius: 5px;
-    }
-    
-    #chatbot-messages .message {
-        margin-bottom: 10px;
-        word-wrap: break-word; /* Ensure long messages don't overflow */
-    }
-    
-    #chatbot-messages .user {
-        text-align: right;
-        color: #00ff99;
-    }
-    
-    #chatbot-messages .bot {
-        text-align: left;
-        color: white;
-    }
-    
-    /* Loading Bubbles */
-    #loading-indicator {
-        display: none; /* Hidden by default */
-        text-align: center;
-        margin: 10px 0;
-    }
-    
-    #loading-indicator .dot {
-        width: 8px;
-        height: 8px;
-        margin: 0 5px;
-        background-color: #00ff99;
-        border-radius: 50%;
-        display: inline-block;
-        animation: bounce 1.2s infinite;
-    }
-    
-    #loading-indicator .dot:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-    
-    #loading-indicator .dot:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-    
-    @keyframes bounce {
-        0%, 80%, 100% {
-            transform: scale(0);
-        }
-        40% {
-            transform: scale(1);
-        }
-    }
-    
-    /* Chatbot Input Section */
-    #chatbot-input {
-        padding: 10px;
-        display: flex;
-        gap: 10px;
-        background: #333;
-        align-items: center;
-    }
-    
-    #chatbot-input textarea {
-        flex: 1;
-        resize: none;
-        padding: 10px;
-        border: 1px solid #555;
-        border-radius: 5px;
-        background: #222;
-        color: white;
-        font-family: inherit;
-        font-size: 0.9rem;
-    }
-    
-    #chatbot-input button {
-        background: #00ff99;
-        border: none;
-        padding: 10px 15px;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
-    
-    #chatbot-input button:hover {
-        background: #00cc80;
-        transform: scale(1.05);
-    }
-    
-    /* Mobile Adjustments */
-    @media (max-width: 768px) {
-        #chatbot {
-            bottom: 80px;
-            right: 10px;
-            width: 90%; /* Use most of the screen width */
-            height: auto; /* Let height adjust dynamically */
-            max-height: 80%; /* Limit max height */
-        }
-    
-        #chatbot-header {
-            font-size: 1rem; /* Adjust header font size */
-        }
-    
-        #chatbot-input textarea {
-            font-size: 0.8rem;
-        }
-    
-        #chatbot-input button {
-            padding: 8px 12px; /* Smaller padding for smaller screens */
-            font-size: 0.9rem;
-        }
-    }
-    </style>
-
-<!-- AI Chatbot -->
-<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
+  <!-- Chatbot Integration (Unchanged) -->
+  <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
     <div id="chatbot-header">
-        <span>Kojib</span>
-        <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+      <span>Kojib</span>
+      <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
     </div>
     <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
-        <!-- Chat messages will be dynamically injected here -->
+      <!-- Chat messages will be dynamically injected here -->
     </div>
     <div id="chatbot-input" role="form" aria-label="Chat Input">
-        <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
-        <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+      <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+      <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
     </div>
   </div>
   <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
     <img src="image/chat-icon.svg" alt="Chat Icon" />
   </div> 
+
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2024 Kojib. All rights reserved.</p>
@@ -417,23 +761,42 @@
     </nav>
   </footer>
 
+  <!-- Scripts -->
+  <script src="lib/three.min.js"></script>
+  <script src="lib/gsap.min.js"></script>
+  <script src="lib/ScrollTrigger.min.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/main.js"></script>
+  
+  <!-- Include other scripts or libraries -->
+  <script src="chatbot.js"></script>
+
   <script>
-    // Intercept form submission
+    // Contact Form Submission Handling
     document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault(); // Prevent actual form submission
-      document.getElementById("success-message").style.display = "block"; // Show success message
+      const successMessage = document.getElementById("success-message");
+      successMessage.style.display = "block"; // Show success message
       this.reset(); // Reset form fields
+      // Optionally, send form data via AJAX here
+    });
+
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Accessibility: Allow toggling menu with Enter key
+    hamburger.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        hamburger.click();
+      }
     });
   </script>
 </body>
-<!-- Scripts -->
-<script src="lib/three.min.js"></script>
-<script src="lib/gsap.min.js"></script>
-<script src="lib/ScrollTrigger.min.js"></script>
-<script src="js/particles.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/main.js"></script>
-
-   <!-- Include other scripts or libraries -->
-   <script src="chatbot.js"></script>
 </html>
