@@ -33,6 +33,7 @@
       background: #0a0a0a;
       color: #fff;
       overflow-x: hidden;
+      padding-top: 70px; /* Adjusted to match nav height */
     }
 
     a {
@@ -125,28 +126,16 @@
       cursor: pointer;
       z-index: 1100; /* Ensure it's on top of the mobile-nav */
       transition: transform 0.3s ease, color 0.3s ease;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .hamburger .bar {
-      position: absolute;
       width: 100%;
       height: 4px;
       background-color: #00FF99;
       border-radius: 2px;
       transition: all 0.3s ease;
-    }
-
-    .hamburger .bar1 {
-      top: 0;
-    }
-
-    .hamburger .bar2 {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .hamburger .bar3 {
-      bottom: 0;
     }
 
     .hamburger.open .bar1 {
@@ -166,26 +155,25 @@
     /* Mobile Navigation Menu */
     .mobile-nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 70px; /* Below the navbar */
+      right: 20px;
+      width: 200px;
       background: rgba(0, 0, 0, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transform: translateY(-100%);
+      align-items: flex-start;
+      padding: 20px;
+      transform: scale(0);
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       z-index: 2000; /* Higher than nav's z-index */
-      overflow-y: auto;
-      padding: 20px;
     }
 
     .mobile-nav.open {
-      transform: translateY(0);
+      transform: scale(1);
       opacity: 1;
       visibility: visible;
     }
@@ -194,16 +182,17 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 20px;
+      width: 100%;
     }
 
     .mobile-nav ul li a {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 600;
       color: #00FF99;
       transition: color 0.3s ease, transform 0.3s ease;
       position: relative;
-      animation: fadeIn 0.5s forwards;
+      width: 100%;
     }
 
     .mobile-nav ul li a::after {
@@ -215,8 +204,7 @@
       transition: width 0.3s;
       position: absolute;
       bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
     }
 
     .mobile-nav ul li a:hover::after {
@@ -228,22 +216,11 @@
       transform: scale(1.05);
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
       /* Show hamburger menu on mobile */
       .hamburger {
-        display: block;
+        display: flex;
       }
 
       /* Hide navigation links on mobile */
@@ -263,7 +240,7 @@
       color: #fff;
       text-align: center;
       overflow: hidden;
-      margin-top: 60px; /* To prevent content being hidden behind fixed nav */
+      margin-top: 70px; /* To prevent content being hidden behind fixed nav */
     }
 
     .hero::before {
@@ -622,50 +599,115 @@
     footer {
       position: relative; /* Establish stacking context */
       width: 100%; /* Full width of the viewport */
-      background: transparent; /* Transparent background to show particles */
-      color: rgba(255, 255, 255, 0.7); /* Slightly transparent white for text */
+      background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027); /* Updated background */
+      color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for text */
       text-align: center; /* Center-align content */
-      padding: 20px; /* Add padding around the footer */
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+      padding: 40px 20px; /* Increased padding */
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
       z-index: 8; /* Ensure it stacks properly above background elements */
+      font-family: 'Inter', sans-serif;
     }
 
     /* Footer Content Styling */
     footer .footer-content {
       max-width: 1200px; /* Restrict content width */
       margin: 0 auto; /* Center content horizontally */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
       padding: 10px 20px; /* Internal spacing for content */
       text-align: center; /* Center-align text */
       position: relative; /* Proper stacking order */
       z-index: 9; /* Ensure content is above background layers */
     }
 
-    /* Social Links Container */
-    footer .social-links {
-      margin-top: 10px; /* Space above the links */
+    /* Footer Logo */
+    .footer-logo img {
+      max-width: 60px;
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      transition: transform 0.3s ease;
     }
 
-    /* Social Links Styling */
-    footer .social-links a {
-      color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for text */
-      margin: 0 10px; /* Space between links */
-      text-decoration: none; /* Remove underline from links */
-      font-size: 1.2rem; /* Increase font size for better visibility */
-      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth hover effects */
+    .footer-logo img:hover {
+      transform: scale(1.1);
     }
 
-    /* Hover Effect for Social Links */
-    footer .social-links a:hover {
-      color: #00ff99; /* Bright green highlight on hover */
-      transform: scale(1.1); /* Slight enlargement for emphasis */
+    /* Footer About */
+    .footer-about {
+      flex: 1 1 300px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    /* Footer Text Styling */
-    footer p {
-      margin: 10px 0; /* Add spacing above and below text */
-      font-size: 0.9rem; /* Slightly smaller font for secondary text */
-      color: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
-      line-height: 1.5; /* Improve text readability */
+    /* Footer Links */
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .footer-links ul li a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links ul li a:hover {
+      color: #00ff99;
+    }
+
+    /* Social Media Links */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .social-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-links a img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
+    }
+
+    /* Footer Contact */
+    .footer-contact {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .footer-contact p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-contact a {
+      color: #00ff99;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer-contact a:hover {
+      color: #00cc80;
     }
 
     /* Divider Line Above Footer */
@@ -688,6 +730,15 @@
       footer p {
         font-size: 0.8rem; /* Adjust font size for readability */
       }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      /* Adjust footer for mobile */
+      footer {
+        padding: 30px 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -697,350 +748,6 @@
 
       footer p {
         font-size: 0.75rem; /* Smaller font for very small screens */
-      }
-    }
-
-    /* Footer Styles */
-    footer {
-      background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
-      font-family: 'Inter', sans-serif;
-    }
-    
-    /* Footer Content */
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-    }
-    
-    /* Footer Logo */
-    .footer-logo img {
-      max-width: 60px;
-      height: auto;
-      margin: 0 auto;
-      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
-      transition: transform 0.3s ease;
-    }
-    
-    .footer-logo img:hover {
-      transform: scale(1.1);
-    }
-    
-    /* Footer About */
-    .footer-about {
-      flex: 1 1 300px;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.9);
-    }
-    
-    /* Footer Links */
-    .footer-links ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-    
-    .footer-links ul li a {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.8);
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    
-    .footer-links ul li a:hover {
-      color: #00ff99;
-    }
-    
-    /* Social Media Links */
-    .social-links {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-    }
-    
-    .social-links a {
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    
-    .social-links a img {
-      width: 40px;
-      height: 40px;
-      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
-    }
-    
-    .social-links a:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
-    }
-    
-    /* Footer Contact */
-    .footer-contact {
-      flex: 1 1 300px;
-      text-align: center;
-    }
-    
-    .footer-contact p {
-      margin: 5px 0;
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.9);
-    }
-    
-    .footer-contact a {
-      color: #00ff99;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    
-    .footer-contact a:hover {
-      color: #00cc80;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      /* Show hamburger menu on mobile */
-      .hamburger {
-        display: block;
-      }
-
-      /* Hide navigation links on mobile */
-      nav ul {
-        display: none;
-      }
-      /* Navbar Styling */
-#navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 70px;
-    z-index: 1000; /* Ensure it stays on top */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent; /* Fully transparent background */
-    box-shadow: none; /* Remove shadow for complete transparency */
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.nav-container {
-    width: 90%;
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Logo */
-.logo img {
-    height: 40px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.1);
-}
-
-/* Logo Glow and Twinkle Effect */
-#navbar.scrolled .logo img {
-    transform: scale(1.1);
-    filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
-    animation: subtleTwinkle 3s infinite alternate ease-in-out;
-}
-
-@keyframes subtleTwinkle {
-    0%, 100% {
-        filter: brightness(1.4) drop-shadow(0 0 10px #00ff99);
-    }
-    50% {
-        filter: brightness(1.5) drop-shadow(0 0 12px #00ff99);
-    }
-}
-
-/* Nav Links */
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: #00ff99;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1000100; /* Ensure it's on top of the nav */
-    transition: transform 0.3s ease;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    border-radius: 3px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Hamburger Open State */
-.hamburger.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-    background-color: #00ff99;
-}
-
-.hamburger.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-    background-color: #00ff99;
-}
-
-/* Mobile Menu Styles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        height: 50%; /* Smaller menu height */
-        width: 200px; /* Adjusted menu width for smaller pop-out */
-        background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 255, 153, 0.9));
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        transition: right 0.3s ease-in-out;
-        animation: phiShimmer 5s infinite ease-in-out; /* Apply the shimmering effect */
-    }
-
-    .nav-links.active {
-        right: 0;
-        background: linear-gradient(135deg, #004d26, #00ff99);
-        box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
-    }
-
-    .nav-links li {
-        text-align: center;
-        font-size: 1rem;
-    }
-
-    .nav-links li a {
-        color: white;
-        font-weight: bold;
-        transition: color 0.3s ease-in-out;
-    }
-
-    .nav-links li a:hover {
-        color: #000;
-        background: #00ff99;
-        border-radius: 5px;
-        padding: 5px 10px;
-    }
-}
-
-/* Phi-Based Shimmering Animation */
-@keyframes phiShimmer {
-    0% {
-        background-position: 0% 50%;
-    }
-    38.2% { /* Using the golden ratio for natural movement */
-        background-position: 50% 100%;
-    }
-    61.8% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-/* Smooth Animation for Nav Links */
-.nav-links li {
-    transform: translateX(-50px);
-    opacity: 0;
-    animation: slideIn 0.3s ease forwards;
-}
-
-.nav-links li:nth-child(1) {
-    animation-delay: 0.1s;
-}
-.nav-links li:nth-child(2) {
-    animation-delay: 0.2s;
-}
-.nav-links li:nth-child(3) {
-    animation-delay: 0.3s;
-}
-.nav-links li:nth-child(4) {
-    animation-delay: 0.4s;
-}
-.nav-links li:nth-child(5) {
-    animation-delay: 0.5s;
-}
-.nav-links li:nth-child(6) {
-  animation-delay: 0.6s;
-}
-.nav-links li:nth-child(7) {
-  animation-delay: 0.7s;
-}
-.nav-links li:nth-child(8) {
-  animation-delay: 0.8s;
-}
-.nav-links li:nth-child(9) {
-  animation-delay: 0.9s;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Hover Effects for Hamburger Menu */
-.hamburger:hover {
-    transform: scale(1.1);
-}
-      .hero p {
-        font-size: 1rem;
-      }
-
-      /* Adjust footer for mobile */
-      footer {
-        padding: 30px 20px;
       }
     }
 
@@ -1074,11 +781,6 @@
     }
 
     /* Prevent Body Scroll Behind Fixed Nav */
-    body {
-      padding-top: 60px; /* Height of the nav */
-    }
-
-    /* Mobile Menu Transition for Body Scroll */
     body.no-scroll {
       overflow: hidden;
     }
@@ -1120,7 +822,6 @@
       <li><a href="#cta" class="mobile-link">Start</a></li>
     </ul>
   </div>
-  </nav>
   
   <!-- Main Content -->
   <main>
@@ -1212,55 +913,55 @@
     </section>
   </main>
   
-  <footer style="background: #1c1c1c28; color: #f4f4f4; text-align: center; padding: 20px; font-family: 'Arial', sans-serif;">
+  <footer>
     <!-- logo -->
-   <div style="margin-bottom: 20px;">
-     <img src="image/logo.svg" alt="Kojib Logo" style="width: 60px; max-width: 20%; margin: 0 auto;">
-   </div>
-   <!-- Social Media Links -->
-   <div class="social-links" style="margin-bottom: 10px;">
-     <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
-       <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
-     </a>
-     <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
-       <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
-     </a>
-     <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
-       <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
-     </a>
-     <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
-       <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
-     </a>
-   </div>
- 
-   <!-- Navigation Links -->
-   <div class="footer-links" style="margin-bottom: 20px;">
-     <p style="margin: 8px 0;">
-       <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
-       <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
-       <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
-       <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
-       <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
-       <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
-     </p>
-   </div>
- 
-   <!-- Footer Bottom -->
-   <div class="footer-bottom" style="margin-top: 10px;">
-     <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-     <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
-     <p style="margin: 8px 0;">
-       <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
-       <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
-       <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
-     </p>
-   </div>
- 
-   <script>
-     // JavaScript to set the current year
-     document.getElementById("current-year").textContent = new Date().getFullYear();
-   </script>
- </footer>
+    <div class="footer-logo" style="margin-bottom: 20px;">
+      <img src="image/logo.svg" alt="Kojib Logo">
+    </div>
+    <!-- Social Media Links -->
+    <div class="social-links" style="margin-bottom: 10px;">
+      <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+        <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+        <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+        <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+        <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
+      </a>
+    </div>
+  
+    <!-- Navigation Links -->
+    <div class="footer-links" style="margin-bottom: 20px;">
+      <p style="margin: 8px 0;">
+        <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
+        <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
+        <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
+        <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
+        <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
+        <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
+      </p>
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="margin-top: 10px;">
+      <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
+      <p style="margin: 8px 0;">
+        <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
+        <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
+        <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
+      </p>
+    </div>
+  
+    <script>
+      // JavaScript to set the current year
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
 
   <!-- JavaScript Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -1350,15 +1051,6 @@
       hamburger.classList.toggle('open');
       mobileNav.classList.toggle('open');
       document.body.classList.toggle('no-scroll');
-      // Toggle hamburger icon between bars and times
-      const icon = hamburger.querySelector('i');
-      if (hamburger.classList.contains('open')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
     });
 
     // Close mobile menu when a link is clicked
@@ -1367,23 +1059,15 @@
         hamburger.classList.remove('open');
         mobileNav.classList.remove('open');
         document.body.classList.remove('no-scroll');
-        // Reset hamburger icon to bars
-        const icon = hamburger.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
       });
     });
 
     // Close mobile menu when clicking outside the menu
     window.addEventListener('click', (e) => {
-      if (e.target === mobileNav) {
+      if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
         hamburger.classList.remove('open');
         mobileNav.classList.remove('open');
         document.body.classList.remove('no-scroll');
-        // Reset hamburger icon to bars
-        const icon = hamburger.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
       }
     });
   </script>
