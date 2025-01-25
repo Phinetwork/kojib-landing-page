@@ -2,318 +2,475 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kojib Consulting - Transform Your Business</title>
+  
+  <!-- Google Fonts for Enhanced Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Library for Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
   <style>
     /* Global Styles */
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #000, #111);
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #0a0a0a;
       color: #fff;
+      overflow-x: hidden;
     }
 
     a {
       text-decoration: none;
       color: #00FF99;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #00cc7a;
     }
 
     .container {
-      padding: 20px;
+      width: 90%;
       max-width: 1200px;
-      margin: auto;
-    }
-
-    .cta-btn {
-      background: #00FF99;
-      color: #000;
-      padding: 15px 30px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      display: inline-block;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .cta-btn:hover {
-      background: #00cc7a;
-      transform: scale(1.1);
+      margin: 0 auto;
+      padding: 20px 0;
     }
 
     /* Navigation Menu */
     nav {
-      background: #000;
-      box-shadow: 0 4px 8px rgba(0, 255, 153, 0.2);
-      padding: 10px 20px;
-      position: sticky;
+      background: rgba(0, 0, 0, 0.85);
+      position: fixed;
+      width: 100%;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.2);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease;
     }
 
-    nav .logo {
-      color: #00FF99;
-      font-size: 1.8rem;
-      font-weight: bold;
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
     }
 
     nav ul {
-      margin: 0;
-      padding: 0;
       list-style: none;
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    nav ul li {
-      margin: 0 20px;
+      gap: 20px;
     }
 
     nav ul li a {
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
+      font-size: 1rem;
+      font-weight: 500;
+      position: relative;
     }
 
-    nav ul li a:hover {
-      color: #fff;
+    nav ul li a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #00FF99;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
     }
 
-    /* Hero Section Styling */
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
     .hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #000; /* Fallback background if particles don't load */
-  overflow: hidden;
-  color: #fff;
-}
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('image/hero-bg.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
 
-.hero .container {
-  position: relative;
-  z-index: 2; /* Ensure text appears on top of the canvas */
-  max-width: 800px;
-  padding: 20px;
-}
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
 
-.hero-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Ensure canvas is behind the text */
-  background: transparent; /* Ensure no solid background blocks particles */
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+      animation: fadeInUp 1s ease-out;
+    }
 
     .hero h1 {
-      font-size: 4rem;
-      font-weight: bold;
-      color: #00ff99;
-      text-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 40px rgba(0, 255, 153, 0.3);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #00FF99;
       margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.7);
     }
 
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       line-height: 1.8;
       color: #d4d4d4;
       margin-bottom: 30px;
     }
 
-    /* Hero Buttons Styling */
-.hero-buttons {
-  display: flex;
-  gap: 50px; /* Add space between buttons on desktop */
-  justify-content: center; /* Center align buttons */
-  flex-wrap: wrap; /* Ensure stacking on smaller screens */
-  margin-top: 40px; /* Add spacing above the buttons */
-}
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.cta-btn,
-.learn-more-btn {
-  padding: 15px 40px; /* Slightly wider buttons for better visual impact */
-  font-size: 1.3rem; /* Slightly larger font size for better readability */
-  font-weight: bold;
-  border-radius: 30px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-}
+    .cta-btn, .learn-more-btn {
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
+    }
 
-.cta-btn {
-  background: linear-gradient(135deg, #00FF99, #00995e);
-  color: #000;
-  border: none;
-  box-shadow: 0 4px 15px rgba(0, 255, 153, 0.5);
-}
+    .cta-btn {
+      background: linear-gradient(135deg, #00FF99, #00995e);
+      color: #000;
+      border: none;
+    }
 
-.cta-btn:hover {
-  background: linear-gradient(135deg, #00cc7a, #006f4a);
-  transform: translateY(-2px) scale(1.05); /* Slightly lift the button on hover */
-  box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
-}
+    .cta-btn:hover {
+      background: linear-gradient(135deg, #00cc7a, #006f4a);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+    }
 
-.learn-more-btn {
-  background: transparent;
-  color: #00FF99;
-  border: 2px solid #00FF99;
-  box-shadow: 0 4px 10px rgba(0, 255, 153, 0.3);
-}
+    .learn-more-btn {
+      background: transparent;
+      color: #00FF99;
+      border: 2px solid #00FF99;
+    }
 
-.learn-more-btn:hover {
-  background: linear-gradient(135deg, #00FF99, #00995e);
-  color: #000;
-  transform: translateY(-2px) scale(1.05); /* Match hover effect of cta-btn */
-  box-shadow: 0 8px 20px rgba(0, 255, 153, 0.7);
-}
-
-/* Responsive Design for Buttons */
-@media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: column; /* Stack buttons on smaller screens */
-    gap: 20px; /* Reduce space between buttons for mobile */
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-buttons {
-    gap: 70px; /* Add more space between buttons for larger screens */
-    align-items: center; /* Ensure buttons are vertically aligned */
-  }
-
-  .cta-btn,
-  .learn-more-btn {
-    padding: 18px 50px; /* Slightly larger padding for desktop buttons */
-  }
-}
+    .learn-more-btn:hover {
+      background: linear-gradient(135deg, #00FF99, #00995e);
+      color: #fff;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+    }
 
     /* Services Section */
     .services {
+      padding: 80px 20px;
+      background: #111;
       text-align: center;
-      padding: 60px 20px;
     }
 
     .services h2 {
-      font-size: 3rem;
-      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
       color: #00FF99;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .services h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #00FF99;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
 
     .service-box {
-      margin: 20px;
-      padding: 30px;
-      background: #222;
+      background: #1a1a1a;
+      padding: 30px 20px;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
       border: 1px solid #444;
-      border-radius: 10px;
-      transition: all 0.3s ease-in-out;
-      text-align: center;
+    }
+
+    .service-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(0, 255, 153, 0.2), transparent);
+      transition: left 0.5s;
+      pointer-events: none;
+    }
+
+    .service-box:hover::before {
+      left: 100%;
     }
 
     .service-box:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 255, 153, 0.5);
+      box-shadow: 0 15px 25px rgba(0, 255, 153, 0.3);
     }
 
     .service-box h3 {
-      color: #00FF99;
+      font-family: 'Montserrat', sans-serif;
       font-size: 1.8rem;
+      font-weight: 600;
+      color: #00FF99;
       margin-bottom: 20px;
     }
 
     .service-box p {
-      margin-top: 10px;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: #ccc;
-    }
-
-    .testimonial {
-      margin: 20px auto;
-      max-width: 800px;
-      background: #333;
-      padding: 20px;
-      border-radius: 10px;
-      color: #fff;
-      text-align: left;
-      border-left: 5px solid #00FF99;
-    }
-
-    .testimonial p {
-      font-size: 1.2rem;
       line-height: 1.6;
     }
 
-    .testimonial h4 {
-      margin-top: 10px;
-      font-size: 1.1rem;
+    .service-box a {
+      display: inline-block;
+      margin-top: 20px;
       color: #00FF99;
+      font-weight: 600;
     }
 
+    /* Testimonials Section */
+    .testimonials {
+      padding: 60px 20px;
+      background: #0a0a0a;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00FF99;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .testimonials h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #00FF99;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .testimonial-slider {
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      gap: 30px;
+      padding-bottom: 20px;
+    }
+
+    .testimonial {
+      background: #1a1a1a;
+      padding: 30px 20px;
+      border-radius: 15px;
+      flex: 0 0 300px;
+      position: relative;
+      border-left: 5px solid #00FF99;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 255, 153, 0.4);
+    }
+
+    .testimonial p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #d4d4d4;
+      margin-bottom: 15px;
+    }
+
+    .testimonial h4 {
+      font-size: 1rem;
+      color: #00FF99;
+      font-weight: 600;
+    }
+
+    /* Value Add Section */
     .value-add {
-      background: #111;
-      padding: 40px 20px;
-      margin: 40px 0;
+      background: #222;
+      padding: 60px 20px;
       text-align: center;
       color: #00FF99;
     }
 
     .value-add h3 {
-      font-size: 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
       margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .value-add h3::after {
+      content: '';
+      width: 50px;
+      height: 3px;
+      background: #00FF99;
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .value-add p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin: 10px 0;
       color: #fff;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
     }
 
     /* Footer */
     footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
+      background: #1a1a1a;
       color: #fff;
-      font-size: 0.9rem;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .footer-logo img {
+      width: 60px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo img:hover {
+      transform: rotate(360deg);
+    }
+
+    .social-links a {
+      color: #00FF99;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #00cc7a;
+    }
+
+    .footer-links a {
+      color: #00cc80;
+      margin: 0 5px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #00FF99;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-slider {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .testimonial {
+        flex: none;
+        width: 90%;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
+  
   <!-- Navigation Menu -->
-<nav id="navbar">
-    <style>
-      /* Navigation Styles */
-      #navbar {
-        background-color: #1a1a1a;
-        position: sticky;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-  
-      .nav-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 10px 20px;
-      }
-  
-      .logo img {
-        height: 40px;
-      }
-  
-    </style>
-  
+  <nav id="navbar">
     <div class="nav-container">
       <!-- Logo -->
       <a href="#home" class="logo">
@@ -321,18 +478,18 @@
       </a>
       <!-- Navigation Links -->
       <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#value">Results</a></li>
         <li><a href="#services">Get Started</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
   
-
- <!-- Hero Section -->
-<div class="hero">
-    <canvas id="heroCanvas" class="hero-canvas"></canvas>
-    <div class="container">
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content" data-aos="fade-up">
       <h1>Unleash Your Business Potential with Kojib</h1>
       <p>Take the first step to transform your business with a tailored strategy powered by cutting-edge AI and innovation.</p>
       <div class="hero-buttons">
@@ -340,111 +497,205 @@
         <a href="#value" class="learn-more-btn">Learn More</a>
       </div>
     </div>
-  </div>
+  </section>
   
-
-
-  <!-- Particle.js Script -->
-  <script src="/js/heroParticles.js"></script>
-  <section>
-<div id="value"></div>
   <!-- Value Add Section -->
-  <div class="value-add" id="value">
-    <div class="container">
-    <h3>Real Savings, Real Results</h3>
-    <p>Our services save businesses an average of $100,000 annually by eliminating inefficiencies.</p>
-    <p>Clients have reported productivity boosts of over 200% and record-breaking revenue within 6 months.</p>
-    <p>Invest in a strategy that pays for itself many times over.</p>
-  </div>
-</div>
-</section>
+  <section class="value-add" id="value">
+    <div class="container" data-aos="fade-up">
+      <h3>Real Savings, Real Results</h3>
+      <p>Our services save businesses an average of $100,000 annually by eliminating inefficiencies.</p>
+      <p>Clients have reported productivity boosts of over 200% and record-breaking revenue within 6 months.</p>
+      <p>Invest in a strategy that pays for itself many times over.</p>
+    </div>
+  </section>
+  
   <!-- Services Section -->
-  <div class="services" id="services">
+  <section class="services" id="services">
     <div class="container">
       <h2>The Full Kojib Experience</h2>
-
-      <div class="service-box">
-        <h3>Step 1: Initial Assessment</h3>
-        <p>Your journey begins with a $1,000 in-depth assessment, analyzing your business operations, identifying inefficiencies, and uncovering hidden opportunities. This fee will be deducted from the full strategy cost.</p>
-        <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd" class="cta-btn">Start with the Assessment</a>
-      </div>
-
-      <div class="service-box">
-        <h3>Step 2: Strategic Roadmap</h3>
-        <p>Following the assessment, we craft a custom strategy to revolutionize your business operations, leveraging AI and cutting-edge technology to boost efficiency and profitability.</p>
-      </div>
-
-      <div class="service-box">
-        <h3>Step 3: Implementation & Execution</h3>
-        <p>Our team of experts implements the strategy with precision, integrating tailored AI tools, optimizing workflows, and delivering measurable results.</p>
-      </div>
-
-      <div class="service-box">
-        <h3>Step 4: Continuous Growth & Support</h3>
-        <p>We provide ongoing support and optimization to ensure your business stays ahead of the competition and maximizes long-term success.</p>
-      </div>
-
-      <div class="testimonial">
-        <p>"Kojib didn’t just help us adapt; they helped us thrive in a competitive market. Their strategic roadmap and execution brought us record-breaking growth."</p>
-        <h4>- Alex T., Founder of NovaTech</h4>
-      </div>
-
-      <div class="testimonial">
-        <p>"From the initial assessment to ongoing support, Kojib was instrumental in transforming our operations. Our efficiency and revenue have never been higher."</p>
-        <h4>- Lisa M., CEO of FutureSync</h4>
+      <div class="service-grid">
+        <div class="service-box" data-aos="zoom-in">
+          <h3>Step 1: Initial Assessment</h3>
+          <p>Your journey begins with a $1,000 in-depth assessment, analyzing your business operations, identifying inefficiencies, and uncovering hidden opportunities. This fee will be deducted from the full strategy cost.</p>
+          <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd">Start with the Assessment</a>
+        </div>
+        <div class="service-box" data-aos="zoom-in" data-aos-delay="100">
+          <h3>Step 2: Strategic Roadmap</h3>
+          <p>Following the assessment, we craft a custom strategy to revolutionize your business operations, leveraging AI and cutting-edge technology to boost efficiency and profitability.</p>
+        </div>
+        <div class="service-box" data-aos="zoom-in" data-aos-delay="200">
+          <h3>Step 3: Implementation & Execution</h3>
+          <p>Our team of experts implements the strategy with precision, integrating tailored AI tools, optimizing workflows, and delivering measurable results.</p>
+        </div>
+        <div class="service-box" data-aos="zoom-in" data-aos-delay="300">
+          <h3>Step 4: Continuous Growth & Support</h3>
+          <p>We provide ongoing support and optimization to ensure your business stays ahead of the competition and maximizes long-term success.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial" data-aos="fade-up">
+          <p>"Kojib didn’t just help us adapt; they helped us thrive in a competitive market. Their strategic roadmap and execution brought us record-breaking growth."</p>
+          <h4>- Alex T., Founder of NovaTech</h4>
+        </div>
+        <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+          <p>"From the initial assessment to ongoing support, Kojib was instrumental in transforming our operations. Our efficiency and revenue have never been higher."</p>
+          <h4>- Lisa M., CEO of FutureSync</h4>
+        </div>
+        <!-- Add more testimonials as needed -->
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <!-- Logo -->
+      <div class="footer-logo">
+        <img src="image/logo.svg" alt="Kojib Logo">
+      </div>
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <!-- Navigation Links -->
+      <div class="footer-links">
+        <a href="/services.html">Services</a> | 
+        <a href="/faq.html">FAQ</a> | 
+        <a href="/developers.html">Developers</a> | 
+        <a href="/careers.html">Careers</a> | 
+        <a href="/about.html">About</a> | 
+        <a href="https://app.kojib.com/entry">Login</a>
+      </div>
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+        <p>Designed with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by Kojib</p>
+        <p>
+          <a href="terms-of-service.html">Terms of Service</a> | 
+          <a href="cookie-policy.html">Cookie Policy</a> | 
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+  
+  <!-- JavaScript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <!-- Particle.js Script (Optional Enhanced) -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  
+  <!-- Main JavaScript -->
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
 
-  <footer style="background: #1c1c1c28; color: #f4f4f4; text-align: center; padding: 20px; font-family: 'Arial', sans-serif;">
-    <!-- logo -->
-   <div style="margin-bottom: 20px;">
-     <img src="image/logo.svg" alt="Kojib Logo" style="width: 60px; max-width: 20%; margin: 0 auto;">
-   </div>
-   <!-- Social Media Links -->
-   <div class="social-links" style="margin-bottom: 10px;">
-     <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
-       <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
-     </a>
-     <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
-       <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
-     </a>
-     <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
-       <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
-     </a>
-   </a>
-   <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
-       <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
-   </a>
-   </div>
- 
-   <!-- Navigation Links -->
-   <div class="footer-links" style="margin-bottom: 20px;">
-     <p style="margin: 8px 0;">
-       <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
-       <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
-       <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
-       <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
-       <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
-       <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
-     </p>
-   </div>
- 
-   <!-- Footer Bottom -->
-   <div class="footer-bottom" style="margin-top: 10px;">
-     <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-     <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
-     <p style="margin: 8px 0;">
-       <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
-       <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
-       <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
-     </p>
-   </div>
- 
-   <script>
-     // JavaScript to set the current year
-     document.getElementById("current-year").textContent = new Date().getFullYear();
-   </script>
- </footer>
+    // Particle.js Configuration
+    particlesJS("heroCanvas", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#00FF99" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00FF99",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 100, "duration": 0.4 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Sticky Navbar Background Change on Scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Back to Top Button Functionality
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.onscroll = function() {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    }
+
+    backToTopButton.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Set Current Year in Footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  
+  <!-- Particle Canvas -->
+  <canvas id="heroCanvas" class="hero-canvas"></canvas>
+  
 </body>
 </html>
