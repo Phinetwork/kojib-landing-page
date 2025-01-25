@@ -1118,14 +1118,55 @@
   });
 </script>
 
-<!-- Footer -->
-<footer class="footer" style="text-align: center; padding: 20px; background-color: #1c1c1c; color: #f4f4f4; font-family: 'Arial', sans-serif;">
-  <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-  <nav class="footer-nav" style="margin-top: 10px;">
-    <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 8px;">Privacy Policy</a> | 
-    <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 8px;">Terms of Service</a> | 
-    <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 8px;">Cookie Policy</a>
-  </nav>
+<footer style="background: #1c1c1c28; color: #f4f4f4; text-align: center; padding: 20px; font-family: 'Arial', sans-serif;">
+  <!-- logo -->
+ <div style="margin-bottom: 20px;">
+   <img src="image/logo.svg" alt="Kojib Logo" style="width: 60px; max-width: 20%; margin: 0 auto;">
+ </div>
+ <!-- Social Media Links -->
+ <div class="social-links" style="margin-bottom: 10px;">
+   <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+     <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
+   </a>
+   <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+     <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
+   </a>
+   <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+     <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
+   </a>
+ </a>
+ <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+     <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
+ </a>
+ </div>
+
+ <!-- Navigation Links -->
+ <div class="footer-links" style="margin-bottom: 20px;">
+   <p style="margin: 8px 0;">
+     <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
+     <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
+     <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
+     <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
+     <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
+     <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
+   </p>
+ </div>
+
+ <!-- Footer Bottom -->
+ <div class="footer-bottom" style="margin-top: 10px;">
+   <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+   <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
+   <p style="margin: 8px 0;">
+     <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
+     <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
+     <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
+   </p>
+ </div>
+
+ <script>
+   // JavaScript to set the current year
+   document.getElementById("current-year").textContent = new Date().getFullYear();
+ </script>
 </footer>
 
 <script>
