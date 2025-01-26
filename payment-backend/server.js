@@ -3,12 +3,11 @@
 const express = require('express');
 const cors = require('cors');
 const Stripe = require('stripe');
-require('dotenv').config();
+require('dotenv').config(); // Load environment variables
 
 // Initialize Stripe with your secret key from environment variables
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Initialize Express app
 const app = express();
 
 // Middleware
