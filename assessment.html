@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kojib Scheduler</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Stripe.js -->
+  <script src="https://js.stripe.com/v3/"></script>
+  
+  <!-- Google API Client Library -->
+  <script src="https://apis.google.com/js/api.js"></script>
+  
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #121212; /* Dark Background */
+      color: #e0e0e0; /* Light Gray Text */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      background: #1e1e1e; /* Darker Container Background */
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      max-width: 500px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2rem;
+      color: #81c784; /* Light Emerald Green */
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 0.95rem;
+      color: #b0bec5; /* Lighter Gray Text */
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .progress-step {
+      width: 20%;
+      text-align: center;
+      position: relative;
+      font-size: 0.8rem;
+      color: #90a4ae; /* Gray */
+    }
+
+    .progress-step::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin: 0 auto 5px;
+      border-radius: 50%;
+      background: #90a4ae; /* Gray */
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .progress-step.active::before {
+      background: #81c784; /* Light Emerald Green */
+      transform: scale(1.2);
+    }
+
+    .chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 10px;
+      max-height: 300px; /* Fixed height */
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #263238; /* Dark Slate Gray */
+      padding: 15px;
+      border: 1px solid #37474f; /* Dark Border */
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .message {
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 80%;
+      position: relative;
+      animation: slideIn 0.3s ease-out;
+      word-wrap: break-word;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .bot-message {
+      background: #81c784; /* Light Emerald Green */
+      color: #1c313a; /* Dark Text */
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .user-message {
+      background: #29b6f6; /* Light Blue */
+      color: #ffffff; /* White Text */
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+      box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .input-box {
+      display: flex;
+      flex-direction: column;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .input-box input,
+    .input-box select,
+    .input-box button {
+      margin-top: 10px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: 1px solid #546e7a; /* Dark Gray Border */
+      background: #37474f; /* Dark Background */
+      color: #eceff1; /* Light Text */
+      font-size: 16px;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    }
+
+    .input-box input::placeholder,
+    .input-box select::placeholder {
+      color: #78909c; /* Placeholder Gray */
+    }
+
+    .input-box input:focus,
+    .input-box select:focus {
+      outline: none;
+      border-color: #81c784; /* Light Emerald Green Border */
+      background: #455a64; /* Slightly Lighter Dark Background */
+    }
+
+    .input-box button {
+      background: #81c784; /* Light Emerald Green Background */
+      color: #1c313a; /* Dark Text */
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .input-box button:hover {
+      background: #66bb6a; /* Darker Emerald Green */
+      transform: translateY(-2px);
+    }
+
+    #card-element {
+      margin-top: 10px;
+      padding: 12px 20px;
+      border-radius: 30px;
+      background: #37474f; /* Dark Background */
+      color: #eceff1; /* Light Text */
+      border: 1px solid #546e7a; /* Dark Gray Border */
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    #card-element:focus {
+      outline: none;
+      border-color: #81c784; /* Light Emerald Green Border */
+      background: #455a64; /* Slightly Lighter Dark Background */
+    }
+
+    #card-errors {
+      color: #ef5350; /* Red Error Text */
+      font-size: 0.875rem;
+      margin-top: 10px;
+    }
+
+    .success-message {
+      text-align: center;
+      color: #66bb6a; /* Green Success */
+      margin-top: 20px;
+      font-size: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Scrollbar Styling */
+    .chat-container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-container::-webkit-scrollbar-track {
+      background: #263238; /* Dark Slate Gray */
+    }
+
+    .chat-container::-webkit-scrollbar-thumb {
+      background-color: #81c784; /* Light Emerald Green Scrollbar */
+      border-radius: 4px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .input-box input,
+      .input-box select,
+      .input-box button,
+      #card-element {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+
+      .chat-container {
+        max-height: 250px; /* Adjusted for smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="chat-container">
+    <div class="header">
+      <!-- Kojib Logo/Avatar -->
+      <img src="/image/logo.svg" alt="Kojib Logo"> <!-- Ensure the path is correct or replace with actual Kojib logo URL -->
+      <h1>Kojib Scheduler</h1>
+      <p>Schedule your assessment and complete payment seamlessly.</p>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-step active">Name</div>
+      <div class="progress-step">Email</div>
+      <div class="progress-step">Date</div>
+      <div class="progress-step">Time</div>
+      <div class="progress-step">Payment</div>
+    </div>
+    <div class="chat-container" id="messages">
+      <!-- Chat Messages will appear here -->
+    </div>
+    <div class="input-box" id="input-box">
+      <!-- Input fields will appear here -->
+    </div>
+  </div>
+
+  <script>
+    // Initialize Stripe with your publishable key
+    const stripe = Stripe('pk_live_51JC8PeCnElKewPPGtfJ0uZEs20pxZNgjtmx1c17wOah58ukuaJol6tvxJ8W4R9AXyAKd17qg9f8yLKVP94oZfcOA00FLL9QWCs'); // Replace with your actual Stripe publishable key
+    const chatContainer = document.getElementById('messages');
+    const inputBoxContainer = document.getElementById('input-box');
+    let currentStep = 0;
+    const userInputs = {};
+    let card; // To store the Stripe card element
+    let elements; // To store Stripe elements instance
+
+    const typingSpeed = 10; // Milliseconds per character
+
+    const steps = [
+      {
+        question: "👋 Let’s schedule your initial assessment. What’s your name?",
+        inputType: "text",
+        key: "name",
+        placeholder: "Enter your full name"
+      },
+      {
+        question: "📧 Thanks! What’s your email address so we can confirm the details?",
+        inputType: "email",
+        key: "email",
+        placeholder: "Enter your email"
+      },
+      {
+        question: "📅 Please select a date for your assessment.",
+        inputType: "date",
+        key: "date",
+      },
+      {
+        question: "🕒 Great! Now select a time slot.",
+        inputType: "select",
+        key: "time",
+        options: ["9:00 AM", "11:00 AM", "1:00 PM", "3:00 PM"]
+      },
+      {
+        question: "💳 Please enter your payment details to confirm your appointment.",
+        inputType: "payment",
+      }
+    ];
+
+    // Google API Configuration
+    const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com'; // Replace with your Google Client ID
+    const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
+
+    // Load the Google API client library
+    function loadGapi() {
+      gapi.load('client:auth2', initClient);
+    }
+
+    // Initialize the Google API client
+    function initClient() {
+      gapi.client.init({
+        apiKey: 'YOUR_GOOGLE_API_KEY', // Replace with your Google API Key (optional for some operations)
+        clientId: GOOGLE_CLIENT_ID,
+        discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
+        scope: SCOPES
+      }).then(() => {
+        console.log('Google API client initialized.');
+      }, (error) => {
+        console.error('Error initializing Google API client:', error);
+      });
+    }
+
+    // Function to create and display messages with typing effect for bot messages
+    function createMessage(content, isBot = true) {
+      return new Promise((resolve) => {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', isBot ? 'bot-message' : 'user-message');
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        if (isBot) {
+          let index = 0;
+          const typingInterval = setInterval(() => {
+            // Replace **text** with <strong>text</strong>
+            if (content.charAt(index) === '*' && content.charAt(index + 1) === '*') {
+              let endIndex = content.indexOf('**', index + 2);
+              if (endIndex !== -1) {
+                const boldText = content.substring(index + 2, endIndex);
+                messageDiv.innerHTML += `<strong>${boldText}</strong>`;
+                index = endIndex + 2;
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                if (index >= content.length) {
+                  clearInterval(typingInterval);
+                  resolve();
+                }
+                return;
+              }
+            }
+            messageDiv.innerHTML += content.charAt(index);
+            index++;
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            if (index === content.length) {
+              clearInterval(typingInterval);
+              resolve();
+            }
+          }, typingSpeed);
+        } else {
+          messageDiv.textContent = content;
+          resolve();
+        }
+      });
+    }
+
+    // Function to update the progress bar
+    function updateProgressBar(step) {
+      const progressSteps = document.querySelectorAll('.progress-step');
+      progressSteps.forEach((prog, index) => {
+        if (index <= step) {
+          prog.classList.add('active');
+        } else {
+          prog.classList.remove('active');
+        }
+      });
+    }
+
+    // Function to create input fields based on the current step
+    function createInputField(step) {
+      inputBoxContainer.innerHTML = ''; // Clear previous input
+
+      let inputElement;
+
+      if (step.inputType === 'text' || step.inputType === 'email' || step.inputType === 'date') {
+        inputElement = document.createElement('input');
+        inputElement.type = step.inputType;
+        inputElement.placeholder = step.placeholder || '';
+        inputElement.required = true;
+        inputElement.setAttribute('aria-label', step.placeholder || '');
+        inputBoxContainer.appendChild(inputElement);
+
+        // Add event listener for Enter key
+        inputElement.addEventListener('keypress', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            submitInput();
+          }
+        });
+      } else if (step.inputType === 'select') {
+        inputElement = document.createElement('select');
+        inputElement.required = true;
+        inputElement.setAttribute('aria-label', 'Select an option');
+        const defaultOption = document.createElement('option');
+        defaultOption.value = "";
+        defaultOption.textContent = "Select an option";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        inputElement.appendChild(defaultOption);
+        step.options.forEach(option => {
+          const opt = document.createElement('option');
+          opt.value = option;
+          opt.textContent = option;
+          inputElement.appendChild(opt);
+        });
+        inputBoxContainer.appendChild(inputElement);
+
+        // Add event listener for Enter key
+        inputElement.addEventListener('keypress', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            submitInput();
+          }
+        });
+      } else if (step.inputType === 'payment') {
+        const paymentInfo = document.createElement('div');
+        paymentInfo.innerHTML = `
+          <label for="card-element" style="display:block; margin-bottom: 10px; font-weight: 600;">💳 Credit or debit card</label>
+          <div id="card-element"></div>
+          <div id="card-errors" role="alert"></div>
+        `;
+        inputBoxContainer.appendChild(paymentInfo);
+      }
+
+      const submitButton = document.createElement('button');
+      submitButton.textContent = 'Submit';
+      submitButton.type = 'button';
+      submitButton.onclick = () => {
+        submitInput();
+      };
+      inputBoxContainer.appendChild(submitButton);
+
+      function submitInput() {
+        if (step.inputType === 'payment') {
+          processPayment();
+        } else {
+          if (inputElement && inputElement.value.trim()) {
+            userInputs[step.key] = inputElement.value;
+            createMessage(inputElement.value, false).then(() => {
+              inputBoxContainer.innerHTML = ''; // Clear input after submission
+              nextStep();
+            });
+          } else {
+            alert('🔔 Please fill out the field before submitting.');
+          }
+        }
+      }
+    }
+
+    // Function to process payment using Stripe and schedule Google Calendar event
+    async function processPayment() {
+      // Disable the submit button to prevent multiple clicks
+      const submitButton = document.querySelector('.input-box button');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Processing...';
+
+      // Confirm the card details and get a payment method
+      const { error, paymentMethod } = await stripe.createPaymentMethod({
+        type: 'card',
+        card: card,
+        billing_details: {
+          name: userInputs.name,
+          email: userInputs.email,
+        },
+      });
+
+      if (error) {
+        document.getElementById('card-errors').textContent = error.message;
+        submitButton.disabled = false;
+        submitButton.textContent = 'Submit';
+      } else {
+        // Prepare appointment data
+        const appointmentData = {
+          name: userInputs.name,
+          email: userInputs.email,
+          date: userInputs.date,
+          time: userInputs.time,
+          paymentMethodId: paymentMethod.id,
+        };
+
+        try {
+          // Send data to the server for Stripe payment processing
+          const response = await fetch('https://your-server-domain.com/api/schedule', { // Replace with your Stripe backend server URL
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(appointmentData),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            // Payment successful
+            await createMessage("✅ <strong>Payment successful!</strong> Your appointment is confirmed.", true);
+            await createMessage("📧 <strong>Thank you</strong> for scheduling your initial assessment. Details have been sent to your email.", true);
+            inputBoxContainer.innerHTML = ''; // Clear input after payment
+
+            // Initiate Google Calendar event creation
+            createCalendarEvent(appointmentData);
+          } else {
+            // Handle server-side errors
+            document.getElementById('card-errors').textContent = result.error || '❌ An error occurred. Please try again.';
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit';
+          }
+        } catch (err) {
+          console.error(err);
+          document.getElementById('card-errors').textContent = '❌ Failed to process your request. Please try again.';
+          submitButton.disabled = false;
+          submitButton.textContent = 'Submit';
+        }
+      }
+    }
+
+    // Function to initialize Stripe Elements
+    function initializeStripeElements() {
+      elements = stripe.elements();
+      card = elements.create('card', {
+        style: {
+          base: {
+            color: '#eceff1',
+            fontFamily: 'Inter, sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+              color: '#90a4ae',
+            },
+          },
+          invalid: {
+            color: '#ff6b6b',
+            iconColor: '#ff6b6b',
+          },
+        },
+      });
+      card.mount('#card-element');
+
+      card.on('change', function(event) {
+        const displayError = document.getElementById('card-errors');
+        if (event.error) {
+          displayError.textContent = event.error.message;
+        } else {
+          displayError.textContent = '';
+        }
+      });
+    }
+
+    // Function to create Google Calendar Event
+    async function createCalendarEvent(appointmentData) {
+      // Check if user is signed in
+      const authInstance = gapi.auth2.getAuthInstance();
+      if (!authInstance.isSignedIn.get()) {
+        // Prompt user to sign in
+        await authInstance.signIn();
+      }
+
+      // Get user's access token
+      const user = authInstance.currentUser.get();
+      const accessToken = user.getAuthResponse().access_token;
+
+      // Prepare event details
+      const event = {
+        summary: `Initial Assessment with ${appointmentData.name}`,
+        description: `Appointment scheduled by ${appointmentData.name} (${appointmentData.email}).`,
+        start: {
+          dateTime: getDateTime(appointmentData.date, appointmentData.time),
+          timeZone: 'America/New_York', // Adjust to your timezone
+        },
+        end: {
+          dateTime: getEndDateTime(appointmentData.date, appointmentData.time),
+          timeZone: 'America/New_York',
+        },
+        attendees: [{ email: appointmentData.email }],
+        reminders: {
+          useDefault: true,
+        },
+      };
+
+      try {
+        // Insert the event into the user's calendar
+        const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?access_token=' + accessToken, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(event),
+        });
+
+        if (response.ok) {
+          console.log('Calendar event created successfully.');
+          await createMessage("🗓️ <strong>Your appointment has been added to your Google Calendar.</strong>", true);
+        } else {
+          const errorData = await response.json();
+          console.error('Error creating calendar event:', errorData);
+          await createMessage("❌ <strong>Failed</strong> to add the appointment to your Google Calendar.", true);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        await createMessage("❌ <strong>An unexpected error occurred.</strong> Please try again later.", true);
+      }
+    }
+
+    // Helper functions to format date and time
+    function getDateTime(date, time) {
+      // Combine date and time into a DateTime string
+      // Assuming time is in format "9:00 AM"
+      const [hourMin, meridiem] = time.split(' ');
+      let [hour, minute] = hourMin.split(':');
+      hour = parseInt(hour, 10);
+      if (meridiem === 'PM' && hour !== 12) hour += 12;
+      if (meridiem === 'AM' && hour === 12) hour = 0;
+      const dt = new Date(`${date}T${pad(hour)}:${pad(minute)}:00`);
+      return dt.toISOString();
+    }
+
+    function getEndDateTime(date, time) {
+      const start = new Date(getDateTime(date, time));
+      // Assuming the appointment lasts 1 hour
+      start.setHours(start.getHours() + 1);
+      return start.toISOString();
+    }
+
+    function pad(num) {
+      return num < 10 ? '0' + num : num;
+    }
+
+    // Asynchronous function to handle the step-by-step conversation
+    async function nextStep() {
+      if (currentStep < steps.length) {
+        const step = steps[currentStep];
+        updateProgressBar(currentStep);
+        await createMessage(step.question, true);
+        createInputField(step);
+        currentStep++;
+
+        if (step.inputType === 'payment') {
+          // Initialize Stripe Elements after the card-element div is in the DOM
+          initializeStripeElements();
+        }
+      } else {
+        // All steps completed
+        updateProgressBar(currentStep);
+        // Optionally, you can add a final message or redirect the user
+      }
+    }
+
+    // Start the conversation after loading the Google API client
+    loadGapi();
+    createMessage("👋 Hi there! I'm Kojib, your personal assistant.", true).then(() => {
+      nextStep();
+    });
+
+    // Smooth scroll to bottom whenever new messages are added
+    const observer = new MutationObserver(() => {
+      const chatContainer = document.getElementById('messages');
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    });
+
+    observer.observe(chatContainer, { childList: true, subtree: true });
+  </script>
+</body>
+</html>
