@@ -12,11 +12,14 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://your-frontend-domain.com', // Replace with your actual frontend URL
+  origin: 'https://kojib.com', // Replace with your actual frontend URL
   methods: ['POST'],
   allowedHeaders: ['Content-Type'],
 }));
 app.use(express.json());
+
+// Define your Stripe Price ID (Replace with your actual Price ID)
+const PRICE_ID = 'price_1QlCQBCnElKewPPGLTYivsut'; // Example Price ID
 
 // Endpoint to handle payment and appointment scheduling
 app.post('/api/schedule', async (req, res) => {
@@ -27,19 +30,18 @@ app.post('/api/schedule', async (req, res) => {
     return res.status(400).json({ error: 'Missing paymentMethodId or appointmentData' });
   }
 
-  // Define the amount to charge (e.g., $50.00 -> 5000 cents)
-  // Modify this as needed based on your pricing strategy
-  const amount = 5000; // in cents
-
   try {
-    // Create a PaymentIntent with the payment method
+    // Create a PaymentIntent using the Price ID
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount,
+      amount: 0, // Amount is derived from the Price ID
       currency: 'usd',
       payment_method: paymentMethodId,
-      confirmation_method: 'automatic',
+      confirmation_method: 'manual',
       confirm: true,
+      // Link the PaymentIntent to the Price ID via metadata or handle it accordingly
+      // Since PaymentIntents don't directly accept Price IDs, we can store it in metadata
       metadata: {
+        price_id: PRICE_ID,
         name: appointmentData.name,
         email: appointmentData.email,
         date: appointmentData.date,

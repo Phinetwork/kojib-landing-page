@@ -11,9 +11,6 @@
   <!-- Stripe.js -->
   <script src="https://js.stripe.com/v3/"></script>
   
-  <!-- Google API Client Library -->
-  <script src="https://apis.google.com/js/api.js"></script>
-  
   <style>
     /* Reset & Base Styles */
     * {
@@ -197,28 +194,6 @@
       transform: translateY(-2px);
     }
 
-    #card-element {
-      margin-top: 10px;
-      padding: 12px 20px;
-      border-radius: 30px;
-      background: #37474f; /* Dark Background */
-      color: #eceff1; /* Light Text */
-      border: 1px solid #546e7a; /* Dark Gray Border */
-      transition: border-color 0.3s, background 0.3s;
-    }
-
-    #card-element:focus {
-      outline: none;
-      border-color: #81c784; /* Light Emerald Green Border */
-      background: #455a64; /* Slightly Lighter Dark Background */
-    }
-
-    #card-errors {
-      color: #ef5350; /* Red Error Text */
-      font-size: 0.875rem;
-      margin-top: 10px;
-    }
-
     .success-message {
       text-align: center;
       color: #66bb6a; /* Green Success */
@@ -253,8 +228,7 @@
 
       .input-box input,
       .input-box select,
-      .input-box button,
-      #card-element {
+      .input-box button {
         font-size: 14px;
         padding: 10px 15px;
       }
@@ -295,10 +269,13 @@
     const inputBoxContainer = document.getElementById('input-box');
     let currentStep = 0;
     const userInputs = {};
-    let card; // To store the Stripe card element
-    let elements; // To store Stripe elements instance
 
     const typingSpeed = 10; // Milliseconds per character
+
+    // Define the payment amount (in cents) and display value
+    const PRICE_AMOUNT = 100000; // $1,000.00
+    const PRICE_CURRENCY = 'usd';
+    const PRICE_DISPLAY = '$1,000.00';
 
     const steps = [
       {
@@ -325,33 +302,10 @@
         options: ["9:00 AM", "11:00 AM", "1:00 PM", "3:00 PM"]
       },
       {
-        question: "💳 Please enter your payment details to confirm your appointment.",
-        inputType: "payment",
+        question: `💳 You're about to make a payment of ${PRICE_DISPLAY} to confirm your appointment. Click Submit to proceed.`,
+        inputType: "submit",
       }
     ];
-
-    // Google API Configuration
-    const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com'; // Replace with your Google Client ID
-    const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
-
-    // Load the Google API client library
-    function loadGapi() {
-      gapi.load('client:auth2', initClient);
-    }
-
-    // Initialize the Google API client
-    function initClient() {
-      gapi.client.init({
-        apiKey: 'YOUR_GOOGLE_API_KEY', // Replace with your Google API Key (optional for some operations)
-        clientId: GOOGLE_CLIENT_ID,
-        discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
-        scope: SCOPES
-      }).then(() => {
-        console.log('Google API client initialized.');
-      }, (error) => {
-        console.error('Error initializing Google API client:', error);
-      });
-    }
 
     // Function to create and display messages with typing effect for bot messages
     function createMessage(content, isBot = true) {
@@ -364,22 +318,7 @@
         if (isBot) {
           let index = 0;
           const typingInterval = setInterval(() => {
-            // Replace **text** with <strong>text</strong>
-            if (content.charAt(index) === '*' && content.charAt(index + 1) === '*') {
-              let endIndex = content.indexOf('**', index + 2);
-              if (endIndex !== -1) {
-                const boldText = content.substring(index + 2, endIndex);
-                messageDiv.innerHTML += `<strong>${boldText}</strong>`;
-                index = endIndex + 2;
-                chatContainer.scrollTop = chatContainer.scrollHeight;
-                if (index >= content.length) {
-                  clearInterval(typingInterval);
-                  resolve();
-                }
-                return;
-              }
-            }
-            messageDiv.innerHTML += content.charAt(index);
+            messageDiv.textContent += content.charAt(index);
             index++;
             chatContainer.scrollTop = chatContainer.scrollHeight;
             if (index === content.length) {
@@ -452,27 +391,37 @@
             submitInput();
           }
         });
-      } else if (step.inputType === 'payment') {
+      } else if (step.inputType === 'submit') {
+        // Display payment amount and Submit button
         const paymentInfo = document.createElement('div');
         paymentInfo.innerHTML = `
-          <label for="card-element" style="display:block; margin-bottom: 10px; font-weight: 600;">💳 Credit or debit card</label>
-          <div id="card-element"></div>
-          <div id="card-errors" role="alert"></div>
+          <p>💳 You are about to make a payment of ${PRICE_DISPLAY} to confirm your appointment.</p>
         `;
         inputBoxContainer.appendChild(paymentInfo);
       }
 
-      const submitButton = document.createElement('button');
-      submitButton.textContent = 'Submit';
-      submitButton.type = 'button';
-      submitButton.onclick = () => {
-        submitInput();
-      };
-      inputBoxContainer.appendChild(submitButton);
+      if (step.inputType !== 'submit') {
+        const submitButton = document.createElement('button');
+        submitButton.textContent = 'Submit';
+        submitButton.type = 'button';
+        submitButton.onclick = () => {
+          submitInput();
+        };
+        inputBoxContainer.appendChild(submitButton);
+      } else {
+        const submitButton = document.createElement('button');
+        submitButton.textContent = 'Submit';
+        submitButton.type = 'button';
+        submitButton.onclick = () => {
+          submitPayment();
+        };
+        inputBoxContainer.appendChild(submitButton);
+      }
 
       function submitInput() {
-        if (step.inputType === 'payment') {
-          processPayment();
+        if (step.inputType === 'submit') {
+          // Handle payment submission via Stripe Checkout
+          handleCheckout();
         } else {
           if (inputElement && inputElement.value.trim()) {
             userInputs[step.key] = inputElement.value;
@@ -487,181 +436,41 @@
       }
     }
 
-    // Function to process payment using Stripe and schedule Google Calendar event
-    async function processPayment() {
-      // Disable the submit button to prevent multiple clicks
-      const submitButton = document.querySelector('.input-box button');
-      submitButton.disabled = true;
-      submitButton.textContent = 'Processing...';
-
-      // Confirm the card details and get a payment method
-      const { error, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: card,
-        billing_details: {
-          name: userInputs.name,
-          email: userInputs.email,
-        },
-      });
-
-      if (error) {
-        document.getElementById('card-errors').textContent = error.message;
-        submitButton.disabled = false;
-        submitButton.textContent = 'Submit';
-      } else {
-        // Prepare appointment data
-        const appointmentData = {
-          name: userInputs.name,
-          email: userInputs.email,
-          date: userInputs.date,
-          time: userInputs.time,
-          paymentMethodId: paymentMethod.id,
-        };
-
-        try {
-          // Send data to the server for Stripe payment processing
-          const response = await fetch('https://your-server-domain.com/api/schedule', { // Replace with your Stripe backend server URL
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(appointmentData),
-          });
-
-          const result = await response.json();
-
-          if (response.ok) {
-            // Payment successful
-            await createMessage("✅ <strong>Payment successful!</strong> Your appointment is confirmed.", true);
-            await createMessage("📧 <strong>Thank you</strong> for scheduling your initial assessment. Details have been sent to your email.", true);
-            inputBoxContainer.innerHTML = ''; // Clear input after payment
-
-            // Initiate Google Calendar event creation
-            createCalendarEvent(appointmentData);
-          } else {
-            // Handle server-side errors
-            document.getElementById('card-errors').textContent = result.error || '❌ An error occurred. Please try again.';
-            submitButton.disabled = false;
-            submitButton.textContent = 'Submit';
-          }
-        } catch (err) {
-          console.error(err);
-          document.getElementById('card-errors').textContent = '❌ Failed to process your request. Please try again.';
-          submitButton.disabled = false;
-          submitButton.textContent = 'Submit';
-        }
-      }
-    }
-
-    // Function to initialize Stripe Elements
-    function initializeStripeElements() {
-      elements = stripe.elements();
-      card = elements.create('card', {
-        style: {
-          base: {
-            color: '#eceff1',
-            fontFamily: 'Inter, sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-              color: '#90a4ae',
-            },
-          },
-          invalid: {
-            color: '#ff6b6b',
-            iconColor: '#ff6b6b',
-          },
-        },
-      });
-      card.mount('#card-element');
-
-      card.on('change', function(event) {
-        const displayError = document.getElementById('card-errors');
-        if (event.error) {
-          displayError.textContent = event.error.message;
-        } else {
-          displayError.textContent = '';
-        }
-      });
-    }
-
-    // Function to create Google Calendar Event
-    async function createCalendarEvent(appointmentData) {
-      // Check if user is signed in
-      const authInstance = gapi.auth2.getAuthInstance();
-      if (!authInstance.isSignedIn.get()) {
-        // Prompt user to sign in
-        await authInstance.signIn();
-      }
-
-      // Get user's access token
-      const user = authInstance.currentUser.get();
-      const accessToken = user.getAuthResponse().access_token;
-
-      // Prepare event details
-      const event = {
-        summary: `Initial Assessment with ${appointmentData.name}`,
-        description: `Appointment scheduled by ${appointmentData.name} (${appointmentData.email}).`,
-        start: {
-          dateTime: getDateTime(appointmentData.date, appointmentData.time),
-          timeZone: 'America/New_York', // Adjust to your timezone
-        },
-        end: {
-          dateTime: getEndDateTime(appointmentData.date, appointmentData.time),
-          timeZone: 'America/New_York',
-        },
-        attendees: [{ email: appointmentData.email }],
-        reminders: {
-          useDefault: true,
-        },
+    // Function to handle Stripe Checkout
+    async function handleCheckout() {
+      // Prepare appointment data
+      const appointmentData = {
+        name: userInputs.name,
+        email: userInputs.email,
+        date: userInputs.date,
+        time: userInputs.time,
       };
 
       try {
-        // Insert the event into the user's calendar
-        const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events?access_token=' + accessToken, {
+        // Send data to the server to create a Checkout Session
+        const response = await fetch('https://payment-backend-2dl3.onrender.com/api/create-checkout-session', { // Live backend URL
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(event),
+          body: JSON.stringify({ appointmentData }),
         });
 
+        const result = await response.json();
+
         if (response.ok) {
-          console.log('Calendar event created successfully.');
-          await createMessage("🗓️ <strong>Your appointment has been added to your Google Calendar.</strong>", true);
+          // Redirect to Stripe Checkout
+          window.location.href = result.url;
         } else {
-          const errorData = await response.json();
-          console.error('Error creating calendar event:', errorData);
-          await createMessage("❌ <strong>Failed</strong> to add the appointment to your Google Calendar.", true);
+          // Handle server-side errors
+          await createMessage("❌ An error occurred while creating the payment session. Please try again.", true);
+          inputBoxContainer.innerHTML = ''; // Clear input after failure
         }
-      } catch (error) {
-        console.error('Error:', error);
-        await createMessage("❌ <strong>An unexpected error occurred.</strong> Please try again later.", true);
+      } catch (err) {
+        console.error(err);
+        await createMessage("❌ Failed to process your request. Please try again.", true);
+        inputBoxContainer.innerHTML = ''; // Clear input after failure
       }
-    }
-
-    // Helper functions to format date and time
-    function getDateTime(date, time) {
-      // Combine date and time into a DateTime string
-      // Assuming time is in format "9:00 AM"
-      const [hourMin, meridiem] = time.split(' ');
-      let [hour, minute] = hourMin.split(':');
-      hour = parseInt(hour, 10);
-      if (meridiem === 'PM' && hour !== 12) hour += 12;
-      if (meridiem === 'AM' && hour === 12) hour = 0;
-      const dt = new Date(`${date}T${pad(hour)}:${pad(minute)}:00`);
-      return dt.toISOString();
-    }
-
-    function getEndDateTime(date, time) {
-      const start = new Date(getDateTime(date, time));
-      // Assuming the appointment lasts 1 hour
-      start.setHours(start.getHours() + 1);
-      return start.toISOString();
-    }
-
-    function pad(num) {
-      return num < 10 ? '0' + num : num;
     }
 
     // Asynchronous function to handle the step-by-step conversation
@@ -672,20 +481,15 @@
         await createMessage(step.question, true);
         createInputField(step);
         currentStep++;
-
-        if (step.inputType === 'payment') {
-          // Initialize Stripe Elements after the card-element div is in the DOM
-          initializeStripeElements();
-        }
       } else {
         // All steps completed
         updateProgressBar(currentStep);
+        await createMessage("🎉 All steps completed! Thank you for scheduling your assessment.", true);
         // Optionally, you can add a final message or redirect the user
       }
     }
 
-    // Start the conversation after loading the Google API client
-    loadGapi();
+    // Start the conversation
     createMessage("👋 Hi there! I'm Kojib, your personal assistant.", true).then(() => {
       nextStep();
     });
