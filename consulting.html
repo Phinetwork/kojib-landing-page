@@ -919,14 +919,285 @@
     </section>
     
     <!-- Value Add Section -->
-    <section class="value-add" id="value">
-      <div class="container" data-aos="fade-up">
-        <h3>Real Savings, Real Results</h3>
-        <p>Our services save businesses an average of $100,000 annually by eliminating inefficiencies.</p>
-        <p>Clients have reported productivity boosts of over 200% and record-breaking revenue within 6 months.</p>
-        <p>Invest in a strategy that pays for itself many times over.</p>
+<section class="value-add" id="value">
+    <div class="container" data-aos="fade-up">
+      <h3>Real Savings, Real Results</h3>
+      <p>
+        Our services save businesses an average of <strong>$100,000 annually</strong> by eliminating inefficiencies.
+        Clients have reported productivity boosts of over <strong>200%</strong> and record-breaking revenue within <strong>6 months</strong>.
+      </p>
+      <p>
+        Invest in a strategy that pays for itself many times over. Curious how much you could save? Use our
+        interactive AI estimator below to get a personalized projection for your business.
+      </p>
+  
+      <!-- AI Estimator Chatbot Section -->
+      <div id="chatbot-value-add" class="chatbot-container">
+        <div id="chatbot" class="chatbot">
+          <div id="chatbot-header">
+            <span>Kojib Savings Estimator</span>
+            <button id="close-chatbot" title="Close Chatbot">&times;</button>
+          </div>
+          <div id="chatbot-messages">
+            <!-- Initial Bot Message -->
+            <div class="bot message">
+              <p>Hello! I’m Kojib, your AI savings estimator. Please share the following details to calculate your estimated savings:</p>
+              <ul>
+                <li>Industry</li>
+                <li>Annual Revenue</li>
+                <li>Number of Employees</li>
+                <li>Main Challenges</li>
+              </ul>
+            </div>
+          </div>
+          <div id="loading-indicator" class="hidden">
+            <div class="bubbles">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div id="chatbot-input">
+            <textarea id="user-input" placeholder="Example: Tech, $2M, 50 employees, high employee turnover"></textarea>
+            <button id="send-message">Calculate</button>
+          </div>
+        </div>
+        <button id="schedule-assessment" class="hidden" onclick="window.open('https://pay.kojib.com/b/cN2aIwenbaBefMA3cd', '_blank')">
+          Schedule Your Initial Assessment
+        </button>
       </div>
-    </section>
+    </div>
+  </section>
+  
+  <style>
+    /* General Section Styling */
+    .value-add {
+      background: linear-gradient(135deg, #1e1e1e, #121212);
+      color: #f4f4f4;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+  
+    .value-add h3 {
+      font-size: 2rem;
+      color: #00ff99;
+      margin-bottom: 20px;
+      text-shadow: 0 3px 6px rgba(0, 255, 153, 0.5);
+    }
+  
+    /* Chatbot Container Styling */
+    .chatbot-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .chatbot {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #121212, #1e1e1e);
+      border: 1px solid #00cc80;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+  
+    #chatbot-header {
+      background: #00ff99;
+      color: #121212;
+      padding: 15px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    #close-chatbot {
+      background: transparent;
+      border: none;
+      color: #121212;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  
+    #chatbot-messages {
+      background: #121212;
+      color: #f4f4f4;
+      padding: 15px;
+      height: 300px;
+      overflow-y: auto;
+      font-size: 16px;
+      line-height: 1.5;
+      border-bottom: 1px solid #00cc80;
+    }
+  
+    .message {
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  
+    .bot.message {
+      background: #00cc80;
+      color: #121212;
+      text-align: left;
+    }
+  
+    .user.message {
+      background: #333;
+      color: #f4f4f4;
+      text-align: right;
+    }
+  
+    #loading-indicator {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+  
+    .bubbles {
+      display: flex;
+      gap: 5px;
+    }
+  
+    .bubbles span {
+      width: 8px;
+      height: 8px;
+      background: #00cc80;
+      border-radius: 50%;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+  
+    .bubbles span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+  
+    .bubbles span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  
+    #chatbot-input {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      background: #1c1c1c;
+    }
+  
+    #user-input {
+      flex: 1;
+      max-height: 100px;
+      overflow-y: scroll;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #222;
+      color: #f4f4f4;
+      padding: 10px;
+      font-size: 16px;
+    }
+  
+    #send-message {
+      background: #00ff99;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  
+    #send-message:hover {
+      background: #00cc80;
+    }
+  
+    #schedule-assessment {
+      margin-top: 20px;
+      background: #00ff99;
+      color: #121212;
+      border: none;
+      padding: 15px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 8px 15px rgba(0, 255, 153, 0.3);
+      display: none;
+    }
+  
+    #schedule-assessment.visible {
+      display: inline-block;
+    }
+  
+    #schedule-assessment:hover {
+      background: #00cc80;
+    }
+  </style>
+  <script>document.addEventListener("DOMContentLoaded", () => {
+    const messages = document.getElementById("chatbot-messages");
+    const userInput = document.getElementById("user-input");
+    const sendMessage = document.getElementById("send-message");
+    const loadingIndicator = document.getElementById("loading-indicator");
+    const scheduleAssessmentButton = document.getElementById("schedule-assessment");
+  
+    const SYSTEM_PROMPT = `
+      You are Kojib, an AI expert specializing in business optimization. Based on user input, estimate potential savings and provide a professional recommendation for using AI to drive efficiency. Include a clickable link to 'https://pay.kojib.com/b/cN2aIwenbaBefMA3cd' in your message, and conclude by suggesting they click the button below to schedule their initial assessment.
+    `;
+  
+    sendMessage.addEventListener("click", async () => {
+      const userMessage = userInput.value.trim();
+      if (!userMessage) return;
+  
+      addMessage(userMessage, "user");
+      userInput.value = "";
+      loadingIndicator.style.display = "flex";
+  
+      try {
+        const response = await fetch("https://chatbot-backend-ntxt.onrender.com/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: SYSTEM_PROMPT + `\nUser Input: ${userMessage}`,
+          }),
+        });
+  
+        const data = await response.json();
+        const botReply = data.reply || "Sorry, I couldn't calculate your savings. Please try again.";
+        addMessage(botReply, "bot");
+  
+        // Show button after the bot's first response
+        scheduleAssessmentButton.classList.add("visible");
+      } catch (error) {
+        addMessage("There was an error connecting to the server. Please try again.", "bot");
+      } finally {
+        loadingIndicator.style.display = "none";
+      }
+    });
+  
+    function addMessage(text, sender) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("message", sender);
+      messageDiv.innerHTML = text; // Use innerHTML for clickable links
+      messages.appendChild(messageDiv);
+      messages.scrollTop = messages.scrollHeight;
+    }
+  });
+  </script>
     
     <!-- Services Section -->
     <section class="services" id="services">
