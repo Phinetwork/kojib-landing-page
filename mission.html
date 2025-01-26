@@ -7,22 +7,25 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #121212, #1c1c1c);
-      color: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      color: #eaeaea;
     }
 
     .header {
-      background: #1c1c1c;
+      background: #1a1a1a;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .header .logo {
-      color: #00cc80;
-      font-size: 2rem;
-      font-weight: bold;
+      color: #00ff99;
+      font-size: 2.5rem;
+      font-weight: 700;
       text-decoration: none;
     }
 
@@ -35,74 +38,85 @@
       padding: 0;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
     }
 
     .header .nav-links a {
       text-decoration: none;
-      color: #f4f4f4;
-      font-size: 1rem;
+      color: #eaeaea;
+      font-size: 1.2rem;
       transition: color 0.3s ease;
     }
 
     .header .nav-links a:hover {
-      color: #00cc80;
+      color: #00ff99;
     }
 
     .hero {
       text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(to bottom, #121212, #1a1a1a);
+      padding: 120px 20px;
+      background: linear-gradient(to bottom, #0d0d0d, #121212);
+      color: #f4f4f4;
     }
 
     .hero h1 {
-      font-size: 3rem;
-      color: #00cc80;
+      font-size: 4rem;
+      color: #00ff99;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .hero p {
       font-size: 1.5rem;
       margin-top: 20px;
       line-height: 1.8;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .mission-container {
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 60px auto;
       padding: 20px;
     }
 
     .mission-container h2 {
       text-align: center;
-      color: #00cc80;
-      margin-bottom: 20px;
+      color: #00ff99;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      letter-spacing: 1.5px;
     }
 
     .mission-container p {
       font-size: 1.2rem;
       line-height: 1.8;
       margin-bottom: 20px;
+      text-align: justify;
     }
 
     .vision-card {
-      background: #1a1a1a;
+      background: #121212;
       margin: 20px 0;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .vision-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     }
 
     .vision-card h3 {
-      color: #00cc80;
-      font-size: 1.5rem;
+      color: #00ff99;
+      font-size: 1.8rem;
       margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .vision-card p {
@@ -113,48 +127,54 @@
 
     .cta-section {
       text-align: center;
-      margin: 40px 0;
-      padding: 40px 20px;
-      background: #1c1c1c;
-      border-radius: 10px;
+      margin: 40px auto;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #121212, #1a1a1a);
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     }
 
     .cta-section h2 {
-      font-size: 2rem;
-      color: #00cc80;
+      font-size: 2.5rem;
+      color: #00ff99;
       margin-bottom: 20px;
+      letter-spacing: 1.5px;
     }
 
     .cta-section p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      line-height: 1.8;
     }
 
     .cta-section a {
       text-decoration: none;
-      background: #00cc80;
+      background: #00ff99;
       color: #121212;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .cta-section a:hover {
       background: #00995e;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
     }
 
     .footer {
-      background: #1c1c1c;
+      background: #121212;
       text-align: center;
       padding: 20px;
-      color: #f4f4f4;
+      color: #eaeaea;
     }
 
     .footer a {
-      color: #00cc80;
+      color: #00ff99;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 15px;
     }
 
     .footer a:hover {
