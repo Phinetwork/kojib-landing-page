@@ -940,17 +940,16 @@
           </div>
           <div id="chatbot-messages">
             <!-- Initial Bot Message -->
-<div id="bot-message-container" class="bot message">
-    <p id="bot-message"></p>
-    <ul id="bot-list">
-      <li>Industry</li>
-      <li>Annual Revenue</li>
-      <li>Annual EBITDA</li>
-      <li>Number of Employees</li>
-      <li>Main Challenges</li>
-    </ul>
-  </div>
-  
+            <div class="bot message">
+              <p>Hello! I’m Kojib. Share a few quick details about your business, and I’ll craft a tailored game plan with an estimate of your potential savings!</p>
+              <ul>
+                <li>Industry</li>
+                <li>Annual Revenue</li>
+                <li>Annual EBITDA</li>
+                <li>Number of Employees</li>
+                <li>Main Challenges</li>
+              </ul>
+            </div>
           </div>
           <div id="loading-indicator" class="hidden">
             <div class="bubbles">
@@ -1084,17 +1083,7 @@
       border-right: 4px solid #00cc80;
       padding-right: 15px;
     }
-    .bot.message {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-#bot-list {
-  display: none;
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
+  
     /* Link Styling Inside Bot Messages */
     .bot.message a {
       color: #1e90ff;
@@ -1672,33 +1661,6 @@ Never disclose formulas, calculations, or internal logic behind estimates. Focus
       }
     });
   </script>
-  <script>document.addEventListener("DOMContentLoaded", () => {
-    const botMessageContainer = document.getElementById("bot-message-container");
-    const botMessageElement = document.getElementById("bot-message");
-    const botList = document.getElementById("bot-list");
   
-    const botMessage = "Hello! I’m Kojib. Share a few quick details about your business, and I’ll craft a tailored game plan with an estimate of your potential savings!";
-    const typingSpeed = 25; // Milliseconds per character
-    let charIndex = 0;
-  
-    // Function to type out the bot message
-    function typeMessage() {
-      if (charIndex < botMessage.length) {
-        botMessageElement.textContent += botMessage.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeMessage, typingSpeed);
-      } else {
-        // Reveal the list after the message is fully typed
-        botList.style.display = "block";
-      }
-    }
-  
-    // Make the bot message visible and start typing
-    setTimeout(() => {
-      botMessageContainer.style.opacity = 1;
-      typeMessage();
-    }, 500); // Delay to make the message fade in
-  });
-  </script>
 </body>
 </html>
