@@ -940,7 +940,7 @@
           </div>
           <div id="chatbot-messages">
             <!-- Initial Bot Message -->
-            <div class="bot message">
+            <div id="initial-bot-message" class="bot message">>
               <p>Hello! I’m Kojib. Share a few quick details about your business, and I’ll craft a tailored game plan with an estimate of your potential savings!</p>
               <ul>
                 <li>Industry</li>
@@ -969,7 +969,44 @@
       </div>
     </div>
   </section>
+  <script>document.addEventListener("DOMContentLoaded", () => {
+    const initialBotMessage = document.getElementById("initial-bot-message");
   
+    const messageParts = [
+      "Hello! I’m Kojib. Share a few quick details about your business, and I’ll craft a tailored game plan with an estimate of your potential savings!",
+      "<ul><li>Industry</li><li>Annual Revenue</li><li>Annual EBITDA</li><li>Number of Employees</li><li>Main Challenges</li></ul>"
+    ];
+  
+    let currentPart = 0;
+    let currentCharIndex = 0;
+  
+    function typeMessage() {
+      if (currentCharIndex < messageParts[currentPart].length) {
+        const currentText = messageParts[currentPart].substring(0, currentCharIndex + 1);
+        
+        if (currentPart === 0) {
+          // For the first part, type in as usual
+          initialBotMessage.innerHTML = currentText;
+        } else {
+          // For subsequent parts, append the new content without removing the previous one
+          const previousContent = messageParts.slice(0, currentPart).join(""); // All prior parts
+          initialBotMessage.innerHTML = previousContent + currentText;
+        }
+  
+        currentCharIndex++;
+        setTimeout(typeMessage, 12); // Adjust typing speed here
+      } else if (currentPart < messageParts.length - 1) {
+        currentPart++;
+        currentCharIndex = 0;
+        setTimeout(typeMessage, 300); // Add delay between message parts
+      }
+    }
+  
+    typeMessage();
+  });
+  
+  
+  </script>
   <style>
     /* General Section Styling */
     .value-add {
