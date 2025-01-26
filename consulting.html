@@ -977,14 +977,15 @@
       padding: 60px 20px;
       text-align: center;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
     }
   
     .value-add h3 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: #00ff99;
       margin-bottom: 20px;
-      text-shadow: 0 3px 6px rgba(0, 255, 153, 0.5);
+      text-shadow: 0 4px 8px rgba(0, 255, 153, 0.5);
     }
   
     /* Chatbot Container Styling */
@@ -1000,58 +1001,99 @@
       max-width: 400px;
       display: flex;
       flex-direction: column;
-      background: linear-gradient(135deg, #121212, #1e1e1e);
-      border: 1px solid #00cc80;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      background: rgba(18, 18, 18, 0.9);
+      border: 1px solid rgba(0, 204, 128, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
       overflow: hidden;
+      backdrop-filter: blur(10px);
     }
   
     #chatbot-header {
-      background: #00ff99;
+      background: linear-gradient(135deg, #00ff99, #00cc80);
       color: #121212;
-      padding: 15px;
+      padding: 20px;
       font-weight: bold;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 1.2rem;
+      border-bottom: 1px solid rgba(0, 204, 128, 0.5);
     }
   
     #close-chatbot {
       background: transparent;
       border: none;
       color: #121212;
-      font-size: 18px;
+      font-size: 1.5rem;
       cursor: pointer;
+      transition: color 0.3s ease;
+    }
+  
+    #close-chatbot:hover {
+      color: #ffffff;
     }
   
     #chatbot-messages {
-      background: #121212;
+      background: rgba(18, 18, 18, 0.8);
       color: #f4f4f4;
-      padding: 15px;
+      padding: 20px;
       height: 300px;
       overflow-y: auto;
-      font-size: 16px;
-      line-height: 1.5;
-      border-bottom: 1px solid #00cc80;
+      font-size: 1rem;
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(0, 204, 128, 0.5);
+      scrollbar-width: thin;
+      scrollbar-color: #00cc80 transparent;
+    }
+  
+    #chatbot-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+  
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background-color: #00cc80;
+      border-radius: 3px;
     }
   
     .message {
       margin: 10px 0;
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 15px;
+      word-break: break-word;
     }
   
     .bot.message {
-      background: #00cc80;
+      background: linear-gradient(135deg, #00cc80, #00ff99);
       color: #121212;
       text-align: left;
+      font-size: 1rem;
+      line-height: 1.8;
+      border-left: 4px solid #00ff99;
+      padding-left: 15px;
     }
   
     .user.message {
-      background: #333;
+      background: rgba(51, 51, 51, 0.9);
       color: #f4f4f4;
       text-align: right;
+      font-size: 1rem;
+      line-height: 1.8;
+      border-right: 4px solid #00cc80;
+      padding-right: 15px;
+    }
+  
+    /* Link Styling Inside Bot Messages */
+    .bot.message a {
+      color: #1e90ff;
+      font-weight: bold;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+  
+    .bot.message a:hover {
+      color: #00ccff;
+      text-decoration: none;
     }
   
     #loading-indicator {
@@ -1063,12 +1105,12 @@
   
     .bubbles {
       display: flex;
-      gap: 5px;
+      gap: 6px;
     }
   
     .bubbles span {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       background: #00cc80;
       border-radius: 50%;
       animation: bounce 1.5s infinite ease-in-out;
@@ -1093,50 +1135,55 @@
   
     #chatbot-input {
       display: flex;
-      gap: 10px;
-      padding: 10px;
-      background: #1c1c1c;
+      gap: 15px;
+      padding: 15px;
+      background: rgba(28, 28, 28, 0.8);
+      border-top: 1px solid rgba(0, 204, 128, 0.5);
     }
   
     #user-input {
       flex: 1;
       max-height: 100px;
       overflow-y: scroll;
-      border: 1px solid #555;
-      border-radius: 5px;
-      background: #222;
+      border: 1px solid rgba(85, 85, 85, 0.5);
+      border-radius: 10px;
+      background: rgba(34, 34, 34, 0.9);
       color: #f4f4f4;
       padding: 10px;
-      font-size: 16px;
+      font-size: 1rem;
+      resize: none;
     }
   
     #send-message {
-      background: #00ff99;
+      background: linear-gradient(135deg, #00ff99, #00cc80);
       border: none;
-      border-radius: 5px;
-      padding: 10px 15px;
+      border-radius: 10px;
+      padding: 15px 20px;
       color: #121212;
       font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 5px 15px rgba(0, 255, 153, 0.4);
     }
   
     #send-message:hover {
-      background: #00cc80;
+      background: linear-gradient(135deg, #00cc80, #00ff99);
+      transform: translateY(-2px);
     }
   
     #schedule-assessment {
       margin-top: 20px;
-      background: #00ff99;
+      background: linear-gradient(135deg, #00ff99, #00cc80);
       color: #121212;
       border: none;
-      padding: 15px 20px;
-      font-size: 16px;
+      padding: 20px 30px;
+      font-size: 1rem;
       font-weight: bold;
-      border-radius: 10px;
+      border-radius: 15px;
       cursor: pointer;
-      transition: background 0.3s;
-      box-shadow: 0 8px 15px rgba(0, 255, 153, 0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 10px 25px rgba(0, 255, 153, 0.4);
       display: none;
     }
   
@@ -1145,9 +1192,12 @@
     }
   
     #schedule-assessment:hover {
-      background: #00cc80;
+      background: linear-gradient(135deg, #00cc80, #00ff99);
+      transform: translateY(-3px);
     }
   </style>
+  
+  
   <script>document.addEventListener("DOMContentLoaded", () => {
     const messages = document.getElementById("chatbot-messages");
     const userInput = document.getElementById("user-input");
@@ -1156,7 +1206,21 @@
     const scheduleAssessmentButton = document.getElementById("schedule-assessment");
   
     const SYSTEM_PROMPT = `
-      You are Kojib, an AI expert specializing in business optimization. Based on user input, estimate potential savings and provide a professional recommendation for using AI to drive efficiency. Include a clickable link to 'https://pay.kojib.com/b/cN2aIwenbaBefMA3cd' in your message, and conclude by suggesting they click the button below to schedule their initial assessment.
+      You are Kojib, a world-class AI expert specializing in business optimization. Your role is to analyze the provided user input, professionally estimate potential annual savings, and outline a clear, actionable plan for how AI can drive efficiency and scalability in their business.
+
+In your response:
+1. Begin by addressing the user directly, using a warm, professional tone.
+2. Provide a compelling overview of how Kojib’s AI solutions can address their specific challenges and unlock measurable results.
+3. Highlight key benefits such as cost savings, workflow automation, productivity enhancements, and real-time data insights, tailored to the user’s input.
+4. Include an **accurate, detailed estimate of their annual savings**, formatted for easy readability.
+5. Guide the user toward the next step by including a clickable link to schedule their initial assessment: <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd" target="_blank">Schedule Your Initial Assessment</a>.
+6. End with a clear, engaging call-to-action, encouraging them to click the button below or use the link provided.
+
+Your response must:
+- Be clear, concise, and professional.
+- Avoid unnecessary technical jargon, focusing on outcomes and benefits.
+- Ensure the final statement reiterates the total estimated annual savings in **bold** for emphasis.
+
     `;
   
     sendMessage.addEventListener("click", async () => {
