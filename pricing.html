@@ -216,6 +216,60 @@ footer a:hover {
   }
 }
 
+/* Call to Action Section */
+.cta-section {
+      background: #111;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00FF99;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #d4d4d4;
+    }
+
+    .cta-section .cta-btn {
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 30px;
+      background: #00FF99;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-section .cta-btn:hover,
+    .cta-section .cta-btn:active {
+      background: #00cc7a;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+    }
+
+    .cta-section .cta-btn .fa-arrow-right {
+      margin-left: 10px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .cta-section .cta-btn:hover .fa-arrow-right,
+    .cta-section .cta-btn:active .fa-arrow-right {
+      margin-left: 15px;
+    }
+
+
   </style>
 </head>
 <body>
@@ -370,13 +424,17 @@ footer a:hover {
       </style>
 
      <!-- Call-to-Action Section -->
-<section class="cta-section">
-    <h2>Take Your Business to the Next Level</h2>
-    <p>
-      Ready to transform your vision into reality? Partner with Kojib to unlock innovative solutions that will elevate your business, drive growth, and set you apart in a competitive market. The future of your success begins here.
-    </p>
-    <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd" class="cta-button">Start Your Journey</a>
-  </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" id="cta">
+        <div class="container" data-aos="fade-up">
+          <h2>Ready to Elevate Your Business?</h2>
+          <p>Join the ranks of industry leaders who have transformed their operations with Kojib's expertise. Let's embark on a journey to unparalleled success together.</p>
+          <a href="https://pay.kojib.com/b/cN2aIwenbaBefMA3cd" class="cta-btn">
+            Get Started Today <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
   
   <style>
     .cta-section {
