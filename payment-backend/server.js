@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const Stripe = require('stripe');
@@ -12,11 +11,13 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: 'https://your-frontend-domain.com', // Replace with your actual frontend URL
-  methods: ['POST'],
-  allowedHeaders: ['Content-Type'],
-}));
+app.use(
+  cors({
+    origin: 'https://kojib.com', // Replace with your actual frontend URL
+    methods: ['POST'],
+    allowedHeaders: ['Content-Type'],
+  })
+);
 app.use(bodyParser.json());
 
 // Endpoint to process payment
@@ -45,18 +46,15 @@ app.post('/api/process-payment', async (req, res) => {
 
     // Handle next actions if any
     if (paymentIntent.status === 'requires_action' && paymentIntent.next_action.type === 'use_stripe_sdk') {
-      // Tell the client to handle the action
       return res.json({
         requiresAction: true,
         paymentIntentClientSecret: paymentIntent.client_secret,
       });
     } else if (paymentIntent.status === 'succeeded') {
-      // The payment didn’t need any additional actions and completed!
       // Handle post-payment fulfillment
       await handlePostPayment(appointmentData);
       return res.json({ success: true });
     } else {
-      // Invalid status
       return res.status(400).json({ error: 'Invalid PaymentIntent status.' });
     }
   } catch (error) {
@@ -67,61 +65,49 @@ app.post('/api/process-payment', async (req, res) => {
 
 // Function to handle post-payment actions
 async function handlePostPayment(appointmentData) {
-  // 1. Save appointment to database
-  await saveAppointmentToDatabase(appointmentData);
-
-  // 2. Create Google Calendar event
-  await createGoogleCalendarEvent(appointmentData);
-
-  // 3. Send confirmation email
-  await sendConfirmationEmail(appointmentData);
+  await saveAppointmentToDatabase(appointmentData); // Save to DB
+  await createGoogleCalendarEvent(appointmentData); // Create calendar event
+  await sendConfirmationEmail(appointmentData); // Send confirmation email
 }
 
 // Function to save appointment to database (replace with actual DB logic)
 async function saveAppointmentToDatabase(appointmentData) {
-  // Example: Insert into MongoDB
-  // const Appointment = require('./models/Appointment'); // Mongoose model
-  // const newAppointment = new Appointment(appointmentData);
-  // await newAppointment.save();
-  
-  // Placeholder for actual implementation
   console.log('Saving appointment to database:', appointmentData);
 }
 
 // Function to create Google Calendar event
 async function createGoogleCalendarEvent(appointmentData) {
-  // Configure Google API credentials
   const oauth2Client = new google.auth.OAuth2(
     process.env.GOOGLE_CLIENT_ID,
     process.env.GOOGLE_CLIENT_SECRET,
     process.env.GOOGLE_REDIRECT_URI
   );
 
-  oauth2Client.setCredentials({
-    refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
-  });
-
   const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
+
+  // Use client credentials for authentication
+  oauth2Client.setCredentials({
+    client_id: process.env.GOOGLE_CLIENT_ID,
+    client_secret: process.env.GOOGLE_CLIENT_SECRET,
+  });
 
   // Convert date and time to ISO format
   const startDateTime = new Date(`${appointmentData.date}T${convertTimeTo24Hour(appointmentData.time)}:00`);
-  const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1 hour duration
+  const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000); // 1-hour duration
 
   const event = {
     summary: `Initial Assessment with ${appointmentData.name}`,
-    description: `Appointment scheduled by ${appointmentData.name} (${appointmentData.email}).`,
+    description: `Scheduled by ${appointmentData.name} (${appointmentData.email}).`,
     start: {
       dateTime: startDateTime.toISOString(),
-      timeZone: 'America/New_York', // Adjust to your timezone
+      timeZone: 'America/New_York', // Replace with your timezone
     },
     end: {
       dateTime: endDateTime.toISOString(),
       timeZone: 'America/New_York',
     },
     attendees: [{ email: appointmentData.email }],
-    reminders: {
-      useDefault: true,
-    },
+    reminders: { useDefault: true },
   };
 
   try {
@@ -138,20 +124,19 @@ async function createGoogleCalendarEvent(appointmentData) {
 
 // Function to send confirmation email
 async function sendConfirmationEmail(appointmentData) {
-  let transporter = nodemailer.createTransport({
-    service: 'Gmail', // Replace with your email service
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
   });
 
-  let mailOptions = {
-    from: '"Kojib Scheduler" <no-reply@kojibscheduler.com>', // Replace with your sender address
+  const mailOptions = {
+    from: '"Kojib Scheduler" <no-reply@kojib.com>', // Replace with your sender address
     to: appointmentData.email, // Recipient's email
     subject: 'Your Assessment Appointment is Confirmed',
     text: `Hello ${appointmentData.name},\n\nYour assessment is scheduled on ${appointmentData.date} at ${appointmentData.time}.\n\nThank you!`,
-    // You can also add HTML content
   };
 
   try {
