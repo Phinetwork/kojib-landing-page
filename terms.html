@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kojib Scheduler - Terms and Conditions</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <style>
+    /* ============================================
+       CSS Variables for Consistent Theming
+    ============================================= */
+    :root {
+      --primary-color: #00cc80;
+      --secondary-color: #00ff99;
+      --dark-bg: #1e1e30;
+      --navbar-bg: rgba(30, 30, 47, 0.9);
+      --light-text: #f4f4f4;
+      --hover-color: #0099ff;
+      --cta-gradient: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+      --cta-hover-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      --footer-bg: linear-gradient(135deg, rgba(30, 30, 47, 0.75), rgba(46, 46, 80, 0.75));
+      --transition-speed: 0.3s;
+    }
+
+    /* ============================================
+       General Reset and Typography
+    ============================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background: var(--dark-bg);
+      color: var(--light-text);
+    }
+
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color var(--transition-speed) ease;
+    }
+
+    a:hover {
+      color: var(--hover-color);
+    }
+
+    /* ============================================
+       Navbar Styling
+    ============================================= */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navbar-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      transition: background var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+    }
+
+    .nav-container {
+      width: 90%;
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Logo */
+    .logo img {
+      height: 40px;
+      transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px var(--secondary-color));
+    }
+
+    /* Nav Links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: var(--light-text);
+      font-size: 1rem;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* GitHub Link */
+    .nav-links li.github-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--light-text);
+    }
+
+    .nav-links li.github-link a:hover {
+      color: var(--hover-color);
+    }
+
+    .nav-links li.github-link img {
+      width: 20px;
+      height: 20px;
+      transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
+    }
+
+    .nav-links li.github-link a:hover img {
+      transform: rotate(360deg);
+      filter: drop-shadow(0 0 10px var(--secondary-color));
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1100;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--light-text);
+      border-radius: 3px;
+      transition: all var(--transition-speed) ease;
+    }
+
+    /* Hamburger Open State */
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      background-color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      background-color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--secondary-color);
+    }
+
+    /* Mobile Menu Styles */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        height: 40%;
+        width: 200px;
+        background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(0, 255, 153, 0.9));
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.6);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        transition: right var(--transition-speed) ease-in-out;
+      }
+
+      .nav-links.active {
+        right: 0;
+        background: linear-gradient(135deg, #004d26, var(--secondary-color));
+        box-shadow: 0 0 20px rgba(0, 255, 153, 0.5), 0 0 30px rgba(0, 255, 153, 0.3);
+      }
+
+      .nav-links li {
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .nav-links li a:hover {
+        color: #000;
+        background: var(--secondary-color);
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      /* GitHub Link in Mobile Menu */
+      .nav-links li.github-link a img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* ============================================
+       Terms Section Styling
+    ============================================= */
+    .terms-section {
+      padding: 100px 20px 60px 20px; /* Top padding accounts for fixed navbar */
+      background: linear-gradient(135deg, rgba(30, 30, 47, 0.8), rgba(46, 46, 80, 0.8));
+      color: var(--light-text);
+      text-align: left;
+      overflow: hidden;
+      box-sizing: border-box;
+      position: relative;
+      border-radius: 15px;
+    }
+
+    .terms-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 255, 153, 0.1);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .terms-title {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--secondary-color);
+      text-shadow: 0 0 15px rgba(0, 255, 153, 0.6), 0 0 25px rgba(0, 255, 153, 0.4);
+      animation: subtlePulse 3s infinite alternate ease-in-out;
+    }
+
+    .terms-content {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
+    .terms-content h2 {
+      font-size: 1.8rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+    }
+
+    .terms-content h3 {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
+    }
+
+    .terms-content p {
+      margin-bottom: 15px;
+    }
+
+    .terms-content ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .terms-content ol {
+      list-style-type: decimal;
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* ================================
+               Footer Styling
+    ============================================= */
+    footer {
+      background: var(--footer-bg);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+      font-family: 'Inter', sans-serif;
+      border-radius: 0 0 15px 15px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    /* Footer Logo */
+    .footer-logo img {
+      max-width: 60px;
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .footer-logo img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer About */
+    .footer-about {
+      flex: 1 1 300px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Footer Links */
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .footer-links ul li a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: bold;
+      transition: color var(--transition-speed) ease;
+    }
+
+    .footer-links ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Social Media Links */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .social-links a img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      transition: transform var(--transition-speed) ease, filter var(--transition-speed) ease;
+    }
+
+    .social-links a:hover img {
+      transform: scale(1.2);
+      filter: drop-shadow(0 6px 15px var(--secondary-color));
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 10px;
+    }
+
+    .footer-bottom a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      transition: color var(--transition-speed) ease;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* ============================================
+       Animations
+    ============================================= */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes subtlePulse {
+      0% {
+        text-shadow: 0 0 15px rgba(0, 255, 153, 0.6), 0 0 25px rgba(0, 255, 153, 0.4);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(0, 255, 153, 0.8), 0 0 30px rgba(0, 255, 153, 0.6);
+      }
+    }
+
+    /* ============================================
+       Responsive Adjustments
+    ============================================= */
+    @media (max-width: 768px) {
+      .terms-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+      }
+
+      .terms-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .terms-content h3 {
+        font-size: 1.3rem;
+      }
+
+      .terms-content ul, .terms-content ol {
+        margin-left: 15px;
+        margin-bottom: 15px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-about,
+      .footer-links,
+      .social-links {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .social-links a img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .footer-bottom {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ============================================
+           Navbar
+  ============================================= -->
+  <nav id="navbar">
+      <div class="nav-container">
+        <!-- Logo links to the homepage -->
+        <div class="logo">
+          <a href="/index.html">
+            <img src="image/logo.png" alt="Kojib Logo">
+          </a>
+        </div>
+    
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/consulting.html">Start Your Journey</a></li>
+            </a>
+          </li>
+        </ul>
+    
+        <!-- Hamburger Menu -->
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+  <!-- ============================================
+           Terms and Conditions Section
+============================================= -->
+<section class="terms-section">
+    <div class="terms-container">
+      <h2 class="terms-title">Terms and Conditions</h2>
+      <div class="terms-content">
+        <h3>1. Introduction</h3>
+        <p>
+          Welcome to Kojib! These terms and conditions outline the rules and regulations for the use of our website, located at <a href="https://kojib.com">https://kojib.com</a>.
+        </p>
+        <p>
+          By accessing this website, you assume you accept these terms and conditions. Do not continue to use Kojib if you do not agree to take all of the terms and conditions stated on this page.
+        </p>
+  
+        <h3>2. Definitions</h3>
+        <p>
+          <strong>"Kojib"</strong> refers to the service provided by Kojib, accessible through the website <a href="https://kojib.com">https://kojib.com</a>.
+        </p>
+        <p>
+          <strong>"User"</strong> refers to any individual or entity accessing or using Kojib.
+        </p>
+        <p>
+          <strong>"Assessment Fee"</strong> refers to the payment of $1,000 required to schedule and confirm an assessment through Kojib.
+        </p>
+  
+        <h3>3. Payment Terms</h3>
+        <p>
+          <strong>Assessment Fee:</strong> Users are required to pay a non-refundable assessment fee of $1,000 to schedule and confirm their assessment. This fee covers the administrative costs associated with scheduling, consultation, and related services.
+        </p>
+        <p>
+          <strong>Payment Processing:</strong> All payments are processed securely through Stripe, a trusted third-party payment processor. By providing your payment information, you consent to Kojib and Stripe handling your payment data in accordance with Stripe's <a href="https://stripe.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://stripe.com/legal" target="_blank">Terms of Service</a>.
+        </p>
+        <p>
+          <strong>Currency:</strong> All payments are accepted in United States Dollars (USD).
+        </p>
+  
+        <h3>4. Stripe Payment Processing</h3>
+        <p>
+          Kojib utilizes Stripe to facilitate secure payment transactions. Stripe ensures that all payment data is encrypted and handled in compliance with the highest security standards, including the Payment Card Industry Data Security Standard (PCI DSS).
+        </p>
+        <p>
+          <strong>Data Collection:</strong> When you make a payment, Stripe collects your payment information, including credit card details, billing address, and contact information. This data is used solely for processing your payment and is not stored by Kojib.
+        </p>
+        <p>
+          <strong>Data Security:</strong> Stripe employs advanced security measures to protect your data, including encryption, secure data storage, and regular security audits. Kojib does not store or have access to your full payment details.
+        </p>
+        <p>
+          <strong>Refunds and Cancellations:</strong> Given the non-refundable nature of the Assessment Fee, Kojib does not offer refunds once a payment has been successfully processed. However, users may cancel their scheduled assessment up to 48 hours before the appointment time to reschedule without incurring additional fees.
+        </p>
+  
+        <h3>5. Refund Policy</h3>
+        <p>
+          The Assessment Fee of $1,000 is non-refundable. However, in exceptional circumstances, Kojib reserves the right to offer partial or full refunds at its sole discretion. Requests for refunds must be submitted in writing to <a href="mailto:support@kojib.com">support@kojib.com</a>.
+        </p>
+        <p>
+          <strong>Rescheduling:</strong> Users may reschedule their assessment by contacting Kojib at least 48 hours before the scheduled appointment. Rescheduling is subject to availability and may incur additional fees.
+        </p>
+  
+        <h3>6. Use of Services</h3>
+        <p>
+          Users agree to use Kojib solely for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the service.
+        </p>
+        <p>
+          Prohibited behavior includes harassing or causing distress or inconvenience to any person, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within Kojib.
+        </p>
+  
+        <h3>7. Intellectual Property Rights</h3>
+        <p>
+          Except for the content you own, under these Terms, Kojib and/or its licensors own all the intellectual property rights and materials contained in this Website.
+        </p>
+        <p>
+          You are granted a limited license only for purposes of viewing the material contained on this Website.
+        </p>
+  
+        <h3>8. No Warranties</h3>
+        <p>
+          This Website is provided "as is," with all faults, and Kojib expresses no representations or warranties of any kind related to this Website or the materials contained on this Website. Also, nothing contained on this Website shall be interpreted as advising you.
+        </p>
+  
+        <h3>9. Limitation of Liability</h3>
+        <p>
+          In no event shall Kojib, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract. Kojib, including its officers, directors, and employees, shall not be held liable for any indirect, consequential, or special liability arising out of or in any way related to your use of this Website.
+        </p>
+  
+        <h3>10. Indemnification</h3>
+        <p>
+          You hereby indemnify to the fullest extent Kojib from and against any and/or all liabilities, costs, demands, causes of action, damages, and expenses arising in any way related to your breach of any of the provisions of these Terms.
+        </p>
+  
+        <h3>11. Severability</h3>
+        <p>
+          If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.
+        </p>
+  
+        <h3>12. Variation of Terms</h3>
+        <p>
+          Kojib is permitted to revise these Terms at any time as it sees fit, and by using this Website, you are expected to review these Terms on a regular basis.
+        </p>
+  
+        <h3>13. Assignment</h3>
+        <p>
+          Kojib is allowed to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification. However, you are not allowed to assign, transfer, or subcontract any of your rights and/or obligations under these Terms.
+        </p>
+  
+        <h3>14. Entire Agreement</h3>
+        <p>
+          These Terms constitute the entire agreement between Kojib and you in relation to your use of this Website, and supersede all prior agreements and understandings.
+        </p>
+  
+        <h3>15. Governing Law & Jurisdiction</h3>
+        <p>
+          These Terms will be governed by and interpreted in accordance with the laws of the State of Delaware, and you submit to the non-exclusive jurisdiction of the state and federal courts located in Delaware for the resolution of any disputes.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- ============================================
+           Footer
+  ============================================= -->
+  <footer>
+      <div class="footer-content">
+          <div class="footer-logo">
+              <a href="/index.html">
+                  <img src="image/logo.png" alt="Kojib Logo">
+              </a>
+          </div>
+          <div class="footer-about">
+              <p>
+                Kojib is a transformative platform combining cutting-edge technology, creativity, and cosmic harmony to empower innovators and deliver AI-powered solutions for limitless possibilities and global impact.
+              </p>
+          </div>
+          <div class="footer-links">
+              <ul>
+                  <li><a href="/index.html">Home</a></li>
+                  <li><a href="/about.html">About</a></li>
+                  <li><a href="/contact.html">Contact</a></li>
+                  <li><a href="/consulting.html">Start Your Journey</a></li>
+              </ul>
+          </div>
+          <div class="social-links">
+              <a href="https://twitter.com/kojib_com" aria-label="Twitter">
+                  <img src="image/twitter-icon.svg" alt="Twitter">
+              </a>
+              <a href="https://github.com/kojibai/kojib" aria-label="GitHub">
+                  <img src="image/github-logo.svg" alt="GitHub">
+              </a>
+              <a href="https://linkedin.com/in/kojib" aria-label="LinkedIn">
+                  <img src="image/linkedin-icon.svg" alt="LinkedIn">
+              </a>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; <span id="current-year"></span> Kojib. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a></p>
+      </div>
+  </footer>
+
+  <!-- ============================================
+           JavaScript for Interactivity and Animations
+  ============================================= -->
+  <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-links li a');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('active');
+        }
+    });
+    
+    // Close mobile menu when clicking a nav link
+    navLinkItems.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('active');
+        });
+    });
+    
+    // Smooth Scroll for Internal Links (excluding Home)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // Prevent default behavior
+            e.preventDefault();
+    
+            // Check if href is not "/index.html"
+            if (this.getAttribute('href') !== '/index.html') {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70, // Adjust for fixed navbar
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // JavaScript to set the current year
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

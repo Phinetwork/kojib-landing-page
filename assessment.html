@@ -26,8 +26,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
+      padding: 20px;
     }
 
     .container {
@@ -36,10 +37,11 @@
       padding: 30px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
       max-width: 500px;
-      width: 90%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       animation: fadeIn 1s ease-in-out;
+      position: relative;
     }
 
     @keyframes fadeIn {
@@ -47,9 +49,51 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* ================================
+               Navigation
+    ================================= */
+    .nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    .nav .back-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #81c784, #66bb6a);
+      border: none;
+      border-radius: 50px;
+      padding: 10px 15px;
+      color: #1c313a;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+    }
+
+    .nav .back-button:hover {
+      background: #66bb6a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ================================
+               Header
+    ================================= */
     .header {
       text-align: center;
       margin-bottom: 20px;
+      padding-top: 40px; /* To avoid overlap with navigation */
     }
 
     .header img {
@@ -57,6 +101,7 @@
       height: 60px;
       border-radius: 50%;
       margin-bottom: 10px;
+      object-fit: cover;
     }
 
     .header h1 {
@@ -71,6 +116,9 @@
       color: #b0bec5; /* Lighter Gray Text */
     }
 
+    /* ================================
+               Progress Bar
+    ================================= */
     .progress-bar {
       display: flex;
       justify-content: space-between;
@@ -101,6 +149,9 @@
       transform: scale(1.2);
     }
 
+    /* ================================
+               Chat Container
+    ================================= */
     .chat-container {
       flex: 1;
       overflow-y: auto;
@@ -145,6 +196,9 @@
       box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.3);
     }
 
+    /* ================================
+               Input Box
+    ================================= */
     .input-box {
       display: flex;
       flex-direction: column;
@@ -167,6 +221,7 @@
       color: #eceff1; /* Light Text */
       font-size: 16px;
       transition: border-color 0.3s, background 0.3s, transform 0.2s;
+      width: 100%;
     }
 
     .input-box input::placeholder,
@@ -187,6 +242,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
+      border: none;
     }
 
     .input-box button:hover {
@@ -194,6 +250,9 @@
       transform: translateY(-2px);
     }
 
+    /* ================================
+               Success Message
+    ================================= */
     .success-message {
       text-align: center;
       color: #66bb6a; /* Green Success */
@@ -202,7 +261,9 @@
       animation: fadeIn 1s ease-in-out;
     }
 
-    /* Scrollbar Styling */
+    /* ================================
+               Scrollbar Styling
+    ================================= */
     .chat-container::-webkit-scrollbar {
       width: 8px;
     }
@@ -216,7 +277,52 @@
       border-radius: 4px;
     }
 
-    /* Responsive Design */
+    /* ================================
+               Navigation Styles
+    ================================= */
+    .nav a {
+      color: #81c784;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .nav a:hover {
+      color: #66bb6a;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ================================
+               Footer Styles
+    ================================= */
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #90a4ae;
+    }
+
+    .footer a {
+      color: #81c784;
+      text-decoration: none;
+      margin: 0 5px;
+      transition: color 0.3s;
+    }
+
+    .footer a:hover {
+      color: #66bb6a;
+    }
+
+    /* ================================
+               Responsive Design
+    ================================= */
     @media (max-width: 600px) {
       .container {
         padding: 20px;
@@ -236,11 +342,33 @@
       .chat-container {
         max-height: 250px; /* Adjusted for smaller screens */
       }
+
+      .nav {
+        top: 10px;
+        left: 10px;
+        gap: 10px;
+      }
+
+      .footer {
+        font-size: 0.7rem;
+      }
+
+      .nav a {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container" id="chat-container">
+    <!-- Navigation -->
+    <div class="nav">
+      <button class="back-button" onclick="history.back()" aria-label="Go Back">
+        &#8592; Back
+      </button>
+    </div>
+
     <div class="header">
       <!-- Kojib Logo/Avatar -->
       <img src="/image/logo.svg" alt="Kojib Logo"> <!-- Ensure the path is correct or replace with actual Kojib logo URL -->
@@ -254,11 +382,14 @@
       <div class="progress-step">Time</div>
       <div class="progress-step">Payment</div>
     </div>
-    <div class="chat-container" id="messages">
+    <div class="chat-container" id="messages" aria-live="polite">
       <!-- Chat Messages will appear here -->
     </div>
     <div class="input-box" id="input-box">
       <!-- Input fields will appear here -->
+    </div>
+    <div class="footer">
+      <a href="/terms.html">Terms</a> | <a href="/faq.html">FAQ</a>
     </div>
   </div>
 
@@ -294,6 +425,7 @@
         question: "📅 Please select a date for your assessment.",
         inputType: "date",
         key: "date",
+        placeholder: "Select a date"
       },
       {
         question: "🕒 Great! Now select a time slot.",
@@ -442,6 +574,7 @@
                 inputBoxContainer.innerHTML = ''; // Clear input after success
                 updateProgressBar(currentStep);
                 currentStep++;
+                finalizeProcess();
               } else {
                 // Payment failed
                 const errorMsg = result.error || "An error occurred during payment.";
@@ -468,14 +601,6 @@
           inputElement.required = true;
           inputElement.setAttribute('aria-label', step.placeholder || '');
           inputBoxContainer.appendChild(inputElement);
-
-          // Add event listener for Enter key
-          inputElement.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-              event.preventDefault();
-              submitInput();
-            }
-          });
         } else if (step.inputType === 'select') {
           inputElement = document.createElement('select');
           inputElement.required = true;
@@ -493,14 +618,6 @@
             inputElement.appendChild(opt);
           });
           inputBoxContainer.appendChild(inputElement);
-
-          // Add event listener for Enter key
-          inputElement.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-              event.preventDefault();
-              submitInput();
-            }
-          });
         }
 
         // Create Submit button
@@ -511,6 +628,16 @@
           submitInput();
         };
         inputBoxContainer.appendChild(submitButton);
+
+        // Add event listener for Enter key
+        if (inputElement) {
+          inputElement.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              submitInput();
+            }
+          });
+        }
 
         // Function to handle input submission
         function submitInput() {
@@ -533,6 +660,13 @@
 
     }
 
+    // Function to finalize the process after payment
+    function finalizeProcess() {
+      updateProgressBar(currentStep);
+      createMessage("🎉 All steps completed! Thank you for scheduling your assessment.", true);
+      // Optionally, you can add a final message or redirect the user
+    }
+
     // Asynchronous function to handle the step-by-step conversation
     async function nextStep() {
       if (currentStep < steps.length) {
@@ -543,9 +677,7 @@
         currentStep++;
       } else {
         // All steps completed
-        updateProgressBar(currentStep);
-        await createMessage("🎉 All steps completed! Thank you for scheduling your assessment.", true);
-        // Optionally, you can add a final message or redirect the user
+        // Handled in finalizeProcess()
       }
     }
 
