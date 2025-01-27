@@ -27,7 +27,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      overflow: hidden;
+      overflow: hidden; /* Prevent scrolling on larger screens */
       padding: 20px;
     }
 
@@ -324,6 +324,11 @@
                Responsive Design
     ================================= */
     @media (max-width: 600px) {
+      body {
+        overflow: auto; /* Allow scrolling on mobile */
+        align-items: flex-start; /* Align items to start to allow vertical expansion */
+      }
+
       .container {
         padding: 20px;
       }
