@@ -302,8 +302,8 @@
         options: ["9:00 AM", "11:00 AM", "1:00 PM", "3:00 PM"]
       },
       {
-        question: `💳 You're about to make a payment of ${PRICE_DISPLAY} to confirm your appointment. Click Submit to proceed.`,
-        inputType: "submit",
+        question: `💳 A payment of ${PRICE_DISPLAY} is required to confirm your assessment. Please provide your payment details to secure your appointment.`,
+        inputType: "payment",
       }
     ];
 
@@ -349,58 +349,161 @@
     function createInputField(step) {
       inputBoxContainer.innerHTML = ''; // Clear previous input
 
-      let inputElement;
-
-      if (step.inputType === 'text' || step.inputType === 'email' || step.inputType === 'date') {
-        inputElement = document.createElement('input');
-        inputElement.type = step.inputType;
-        inputElement.placeholder = step.placeholder || '';
-        inputElement.required = true;
-        inputElement.setAttribute('aria-label', step.placeholder || '');
-        inputBoxContainer.appendChild(inputElement);
-
-        // Add event listener for Enter key
-        inputElement.addEventListener('keypress', function(event) {
-          if (event.key === 'Enter') {
-            event.preventDefault();
-            submitInput();
-          }
-        });
-      } else if (step.inputType === 'select') {
-        inputElement = document.createElement('select');
-        inputElement.required = true;
-        inputElement.setAttribute('aria-label', 'Select an option');
-        const defaultOption = document.createElement('option');
-        defaultOption.value = "";
-        defaultOption.textContent = "Select an option";
-        defaultOption.disabled = true;
-        defaultOption.selected = true;
-        inputElement.appendChild(defaultOption);
-        step.options.forEach(option => {
-          const opt = document.createElement('option');
-          opt.value = option;
-          opt.textContent = option;
-          inputElement.appendChild(opt);
-        });
-        inputBoxContainer.appendChild(inputElement);
-
-        // Add event listener for Enter key
-        inputElement.addEventListener('keypress', function(event) {
-          if (event.key === 'Enter') {
-            event.preventDefault();
-            submitInput();
-          }
-        });
-      } else if (step.inputType === 'submit') {
-        // Display payment amount and Submit button
-        const paymentInfo = document.createElement('div');
-        paymentInfo.innerHTML = `
-          <p>💳 You are about to make a payment of ${PRICE_DISPLAY} to confirm your appointment.</p>
+      if (step.inputType === 'payment') {
+        // Create Stripe Elements form without additional message
+        const form = document.createElement('form');
+        form.id = 'payment-form';
+        form.innerHTML = `
+          <div id="card-element" style="padding: 10px; border: 1px solid #546e7a; border-radius: 5px;"></div>
+          <div id="card-errors" role="alert" style="color: #ef5350; margin-top: 10px;"></div>
+          <button type="submit" style="margin-top: 20px; padding: 12px 20px; border-radius: 30px; border: none; background: #81c784; color: #1c313a; font-weight: 600; cursor: pointer;">Book Assessment</button>
         `;
-        inputBoxContainer.appendChild(paymentInfo);
-      }
+        inputBoxContainer.appendChild(form);
 
-      if (step.inputType !== 'submit') {
+        // Initialize Stripe Elements
+        const elements = stripe.elements();
+        const style = {
+          base: {
+            color: '#eceff1',
+            fontFamily: '"Inter", sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+              color: '#78909c'
+            }
+          },
+          invalid: {
+            color: '#ef5350',
+            iconColor: '#ef5350'
+          }
+        };
+
+        const card = elements.create('card', { style: style });
+        card.mount('#card-element');
+
+        // Handle real-time validation errors from the card Element.
+        card.on('change', function(event) {
+          const displayError = document.getElementById('card-errors');
+          if (event.error) {
+            displayError.textContent = event.error.message;
+          } else {
+            displayError.textContent = '';
+          }
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', async function(event) {
+          event.preventDefault();
+          const submitButton = form.querySelector('button[type="submit"]');
+          submitButton.disabled = true;
+          submitButton.textContent = 'Processing...';
+
+          // Create PaymentMethod using Stripe.js
+          const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card: card,
+            billing_details: {
+              name: userInputs.name,
+              email: userInputs.email,
+            },
+          });
+
+          if (error) {
+            // Show error in payment form
+            const errorElement = document.getElementById('card-errors');
+            errorElement.textContent = error.message;
+            submitButton.disabled = false;
+            submitButton.textContent = `Pay ${PRICE_DISPLAY}`;
+          } else {
+            // Send paymentMethod.id and appointmentData to the backend
+            try {
+              const response = await fetch('https://payment-backend-2dl3.onrender.com/api/process-payment', { // Replace with your actual backend endpoint
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  paymentMethodId: paymentMethod.id,
+                  amount: PRICE_AMOUNT,
+                  appointmentData: {
+                    name: userInputs.name,
+                    email: userInputs.email,
+                    date: userInputs.date,
+                    time: userInputs.time,
+                  },
+                }),
+              });
+
+              const result = await response.json();
+
+              if (response.ok && result.success) {
+                // Payment successful
+                await createMessage("✅ Your payment was successful! Your appointment is confirmed.", true);
+                inputBoxContainer.innerHTML = ''; // Clear input after success
+                updateProgressBar(currentStep);
+                currentStep++;
+              } else {
+                // Payment failed
+                const errorMsg = result.error || "An error occurred during payment.";
+                await createMessage(`❌ ${errorMsg}`, true);
+                submitButton.disabled = false;
+                submitButton.textContent = `Pay ${PRICE_DISPLAY}`;
+              }
+            } catch (err) {
+              console.error(err);
+              await createMessage("❌ Failed to process your payment. Please try again.", true);
+              submitButton.disabled = false;
+              submitButton.textContent = `Pay ${PRICE_DISPLAY}`;
+            }
+          }
+        });
+
+      } else {
+        let inputElement;
+
+        if (step.inputType === 'text' || step.inputType === 'email' || step.inputType === 'date') {
+          inputElement = document.createElement('input');
+          inputElement.type = step.inputType;
+          inputElement.placeholder = step.placeholder || '';
+          inputElement.required = true;
+          inputElement.setAttribute('aria-label', step.placeholder || '');
+          inputBoxContainer.appendChild(inputElement);
+
+          // Add event listener for Enter key
+          inputElement.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              submitInput();
+            }
+          });
+        } else if (step.inputType === 'select') {
+          inputElement = document.createElement('select');
+          inputElement.required = true;
+          inputElement.setAttribute('aria-label', 'Select an option');
+          const defaultOption = document.createElement('option');
+          defaultOption.value = "";
+          defaultOption.textContent = "Select an option";
+          defaultOption.disabled = true;
+          defaultOption.selected = true;
+          inputElement.appendChild(defaultOption);
+          step.options.forEach(option => {
+            const opt = document.createElement('option');
+            opt.value = option;
+            opt.textContent = option;
+            inputElement.appendChild(opt);
+          });
+          inputBoxContainer.appendChild(inputElement);
+
+          // Add event listener for Enter key
+          inputElement.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              submitInput();
+            }
+          });
+        }
+
+        // Create Submit button
         const submitButton = document.createElement('button');
         submitButton.textContent = 'Submit';
         submitButton.type = 'button';
@@ -408,69 +511,26 @@
           submitInput();
         };
         inputBoxContainer.appendChild(submitButton);
-      } else {
-        const submitButton = document.createElement('button');
-        submitButton.textContent = 'Submit';
-        submitButton.type = 'button';
-        submitButton.onclick = () => {
-          submitPayment();
-        };
-        inputBoxContainer.appendChild(submitButton);
-      }
 
-      function submitInput() {
-        if (step.inputType === 'submit') {
-          // Handle payment submission via Stripe Checkout
-          handleCheckout();
-        } else {
-          if (inputElement && inputElement.value.trim()) {
-            userInputs[step.key] = inputElement.value;
-            createMessage(inputElement.value, false).then(() => {
-              inputBoxContainer.innerHTML = ''; // Clear input after submission
-              nextStep();
-            });
+        // Function to handle input submission
+        function submitInput() {
+          if (step.inputType === 'payment') {
+            // Should not reach here; payment is handled separately
+            return;
           } else {
-            alert('🔔 Please fill out the field before submitting.');
+            if (inputElement && inputElement.value.trim()) {
+              userInputs[step.key] = inputElement.value;
+              createMessage(inputElement.value, false).then(() => {
+                inputBoxContainer.innerHTML = ''; // Clear input after submission
+                nextStep();
+              });
+            } else {
+              alert('🔔 Please fill out the field before submitting.');
+            }
           }
         }
       }
-    }
 
-    // Function to handle Stripe Checkout
-    async function handleCheckout() {
-      // Prepare appointment data
-      const appointmentData = {
-        name: userInputs.name,
-        email: userInputs.email,
-        date: userInputs.date,
-        time: userInputs.time,
-      };
-
-      try {
-        // Send data to the server to create a Checkout Session
-        const response = await fetch('https://payment-backend-2dl3.onrender.com/api/create-checkout-session', { // Live backend URL
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ appointmentData }),
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          // Redirect to Stripe Checkout
-          window.location.href = result.url;
-        } else {
-          // Handle server-side errors
-          await createMessage("❌ An error occurred while creating the payment session. Please try again.", true);
-          inputBoxContainer.innerHTML = ''; // Clear input after failure
-        }
-      } catch (err) {
-        console.error(err);
-        await createMessage("❌ Failed to process your request. Please try again.", true);
-        inputBoxContainer.innerHTML = ''; // Clear input after failure
-      }
     }
 
     // Asynchronous function to handle the step-by-step conversation
