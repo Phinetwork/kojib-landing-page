@@ -963,41 +963,40 @@
       </p>
   
       <!-- AI Estimator Chatbot Section -->
-      <div id="chatbot-value-add" class="chatbot-container">
-        <div id="chatbot" class="chatbot">
-          <div id="chatbot-header">
-            <span>Kojib Assistant</span>
-            <button id="close-chatbot" title="Close Chatbot">&times;</button>
-          </div>
-          <div id="chatbot-messages">
-            <!-- Initial Bot Message -->
-            <div id="initial-bot-message" class="bot message">
-              <p>Hello! I’m Kojib. Share a few quick details about your business, and I’ll craft a tailored game plan with an estimate of your potential savings!</p>
-              <ul>
-                <li>Industry</li>
-                <li>Annual Revenue</li>
-                <li>Annual EBITDA</li>
-                <li>Number of Employees</li>
-                <li>Main Challenges</li>
-              </ul>
-            </div>
-          </div>
-          <div id="loading-indicator" class="hidden">
-            <div class="bubbles">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div id="chatbot-input">
-            <textarea id="user-input" placeholder="Example: HVAC, $50M Revenue, $10M Ebitda, 100 employees, high employee turnover"></textarea>
-            <button id="send-message">Calculate</button>
-          </div>
-        </div>
-        <button id="schedule-assessment" class="hidden" onclick="window.open('/assessment.html', '_blank')">
-          Schedule Your Initial Assessment
-        </button>
+<div id="chatbot-value-add" class="chatbot-container">
+  <div id="chatbot" class="chatbot">
+    <div id="chatbot-header">
+      <span class="chatbot-title">Kojib Assistant</span>
+    </div>
+    <div id="chatbot-messages">
+      <!-- Initial Bot Message -->
+      <div id="initial-bot-message" class="bot message">
+        <p>Hello! I’m Kojib. Share a few quick details about your business, and I’ll craft a tailored game plan with an estimate of your potential savings!</p>
+        <ul>
+          <li>Industry</li>
+          <li>Annual Revenue</li>
+          <li>Annual EBITDA</li>
+          <li>Number of Employees</li>
+          <li>Main Challenges</li>
+        </ul>
       </div>
+    </div>
+    <div id="loading-indicator" class="hidden">
+      <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="chatbot-input">
+      <textarea id="user-input" placeholder="Example: HVAC, $50M Revenue, $10M Ebitda, 100 employees, high employee turnover"></textarea>
+      <button id="send-message">Calculate</button>
+    </div>
+  </div>
+  <button id="schedule-assessment" class="hidden" onclick="window.open('/assessment.html', '_blank')">
+    Schedule Your Initial Assessment
+  </button>
+</div>
     </div>
   </section>
   <script>document.addEventListener("DOMContentLoaded", () => {
