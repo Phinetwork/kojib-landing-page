@@ -1,55 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500" fill="none">
-  <style>
-    .wave {
-      animation: waveMotion 8s infinite linear;
-    }
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" aria-labelledby="aboutHeroTitle" role="img">
+  <title id="aboutHeroTitle">Kojib About Page Hero Graphic</title>
 
-    .flow {
-      animation: flowPulse 6s infinite ease-in-out;
-    }
+  <!-- Background Gradients -->
+  <defs>
+    <linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00cc80">
+        <animate attributeName="stop-color" values="#00cc80;#007744;#00cc80" dur="13s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#00995e">
+        <animate attributeName="stop-color" values="#00995e;#00cc80;#00995e" dur="17s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
 
-    @keyframes waveMotion {
-      0% {
-        d: path('M0,250 C250,150 500,350 750,250 S1250,150 1500,250 V500 H0 Z');
-      }
-      50% {
-        d: path('M0,250 C250,350 500,150 750,250 S1250,350 1500,250 V500 H0 Z');
-      }
-      100% {
-        d: path('M0,250 C250,150 500,350 750,250 S1250,150 1500,250 V500 H0 Z');
-      }
-    }
+    <radialGradient id="heroRadial" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.95)">
+        <animate attributeName="stop-color" values="rgba(255, 255, 255, 0.95);rgba(255, 255, 255, 0.6);rgba(255, 255, 255, 0.95)" dur="21s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
+    </radialGradient>
+  </defs>
 
-    @keyframes flowPulse {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-      }
-    }
-  </style>
+  <!-- Background Rectangle -->
+  <rect x="0" y="0" width="1440" height="600" fill="url(#heroGradient)" />
 
-  <!-- Infinite wave pattern -->
-  <path class="wave" d="M0,250 C250,150 500,350 750,250 S1250,150 1500,250 V500 H0 Z" fill="#00FF99">
-    <animate attributeName="d" dur="8s" repeatCount="indefinite" 
-      values="M0,250 C250,150 500,350 750,250 S1250,150 1500,250 V500 H0 Z;
-              M0,250 C250,350 500,150 750,250 S1250,350 1500,250 V500 H0 Z;
-              M0,250 C250,150 500,350 750,250 S1250,150 1500,250 V500 H0 Z" />
+  <!-- Pulsating Circle -->
+  <circle cx="720" cy="300" r="280" fill="url(#heroRadial)" opacity="0.6">
+    <animate attributeName="r" values="280;320;260;280" dur="15s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;0.8;0.4;0.6" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Flowing Abstract Paths -->
+  <path d="M200 100 Q400 300 600 100 T1000 100" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="16s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 10;0 -10;0 0" dur="18s" repeatCount="indefinite" />
+  </path>
+  <path d="M150 500 Q300 300 450 500 T1050 500" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,500;500,0;0,500" dur="20s" repeatCount="indefinite" />
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 10;0 0" dur="22s" repeatCount="indefinite" />
   </path>
 
-  <!-- Organic glowing elements -->
-  <circle class="flow" cx="200" cy="250" r="50" fill="#00FF99" opacity="0.6">
-    <animate attributeName="cx" values="200;800;200" dur="6s" repeatCount="indefinite" />
-  </circle>
-  <circle class="flow" cx="800" cy="250" r="50" fill="#00FF99" opacity="0.6">
-    <animate attributeName="cx" values="800;200;800" dur="6s" repeatCount="indefinite" />
-  </circle>
+  <!-- Glowing Dots and Lines -->
+  <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8">
+    <path d="M900 150 v100 h100">
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 5;0 0" dur="14s" repeatCount="indefinite" />
+    </path>
+    <circle cx="1000" cy="250" r="6" fill="#ffffff">
+      <animate attributeName="r" values="6;9;6" dur="12s" repeatCount="indefinite" />
+    </circle>
+    <path d="M400 450 h-100 v-100">
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 5;0 0" dur="16s" repeatCount="indefinite" />
+    </path>
+    <circle cx="300" cy="350" r="6" fill="#ffffff">
+      <animate attributeName="r" values="6;10;6" dur="18s" repeatCount="indefinite" />
+    </circle>
+    <path d="M1200 400 v-150 h-100">
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 5;0 0" dur="24s" repeatCount="indefinite" />
+    </path>
+    <circle cx="1100" cy="250" r="6" fill="#ffffff">
+      <animate attributeName="r" values="6;9;6" dur="16s" repeatCount="indefinite" />
+    </circle>
+  </g>
 
-  <!-- Pulsing center glow -->
-  <circle class="flow" cx="500" cy="250" r="80" fill="#00FF99" opacity="0.4">
-    <animate attributeName="r" values="80;100;80" dur="3s" repeatCount="indefinite" />
-  </circle>
+  <!-- Crisp Title and Subtitle -->
+  <text x="50%" y="40%" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="60" fill="#ffffff" font-weight="bold">
+    Redefining Technology
+    <animateTransform attributeName="transform" type="scale" values="1 1;1.05 1.05;1 1" dur="15s" repeatCount="indefinite" />
+  </text>
+  <text x="50%" y="48%" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="24" fill="#ffffff" font-weight="400">
+    Empowering people. Inspiring progress.
+    <animate attributeName="opacity" values="1;0.8;1" dur="18s" repeatCount="indefinite" />
+  </text>
+
+  <!-- Bottom Wave -->
+  <path d="M0 500 Q360 600 720 500 T1440 500 L1440 600 L0 600 Z" fill="#ffffff" opacity="0.5">
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 10;0 0" dur="18s" repeatCount="indefinite" />
+  </path>
 </svg>
