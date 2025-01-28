@@ -428,6 +428,14 @@
       position: relative;
       overflow: hidden;
     }
+    /* Center the SVG icon and size it */
+.vision-card img {
+  display: block;
+  margin: 0 auto 15px; /* space below the icon */
+  width: 48px;        /* adjust to desired width */
+  height: 48px;       /* adjust to desired height */
+}
+
     .vision-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 10px 30px rgba(0, 255, 153, 0.2);
@@ -449,7 +457,27 @@
       font-size: 1rem;
       line-height: 1.6;
     }
-
+/* QUOTE SECTION */
+.quote-section {
+      background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+      padding: 60px 20px;
+      text-align: center;
+      color: #e0e0e0;
+      animation: fadeIn 1s ease-out;
+    }
+    .quote-section h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+    .quote-section p {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #d4d4d4;
+    }
     /* CTA SECTION (Use only AOS) */
     .cta-section {
       margin: 60px 20px;
@@ -939,10 +967,13 @@
       <div class="hero-content">
         <h1>Our Vision</h1>
         <p>
-          At Kojib, we behold a future where cosmic principles, relentless
-          creativity, and cutting-edge technology converge to empower every
-          creator, illuminate every challenge, and launch humanity into a realm
-          of infinite possibilities.
+            At Kojib, we behold a future where cosmic principles, relentless
+            creativity, and cutting-edge technology converge to empower every
+            creator, illuminate every challenge, and launch humanity into a realm
+            of infinite possibilities. We envision a world where innovation
+            transcends boundaries, technology harmonizes with creativity, and every
+            individual and organization is empowered to achieve their fullest
+            potential.
         </p>
       </div>
     </section>
@@ -952,63 +983,164 @@
       <h2>Guided by Cosmic Harmony</h2>
       <p>
         We believe that true progress flourishes when innovation, collaboration,
-        and higher principles unite seamlessly. Our vision merges the
-        brilliance of AI with the elegance of the Unified Field Theory, forming
-        a tapestry of ideas that flow from mind to reality. By harnessing
-        cosmic-level inspiration, we empower businesses and communities to pave
-        a future steeped in meaning and opportunity.
+      and spirituality merge seamlessly. Our mission is to harness the power
+      of advanced technologies—like AI and data science—to craft solutions that
+      not only tackle today’s pressing challenges but also anticipate
+      tomorrow’s boundless opportunities. By bridging visionary ideas with
+      tangible implementations, we ensure that innovation remains both
+      accessible and profoundly impactful.
       </p>
     </section>
 
-    <!-- Vision Cards -->
-    <section class="glassy-section" data-aos="fade-up">
-      <h2>Our Pillars</h2>
-      <div class="vision-grid">
-        <!-- Pillar 1 -->
-        <div class="vision-card" data-aos="zoom-in">
-          <i class="fas fa-globe"></i>
-          <h3>Global Harmony</h3>
-          <p>
-            We create solutions that resonate with planetary well-being, ensuring
-            our innovations not only address problems—they elevate entire
-            ecosystems for future generations.
-          </p>
-        </div>
-
-        <!-- Pillar 2 -->
-        <div class="vision-card" data-aos="zoom-in" data-aos-delay="100">
-          <i class="fas fa-users"></i>
-          <h3>Unified Empowerment</h3>
-          <p>
-            Everyone can co-create the future with us. By bridging cultural,
-            economic, and geographic divides, we unlock the collective genius
-            of humankind.
-          </p>
-        </div>
-
-        <!-- Pillar 3 -->
-        <div class="vision-card" data-aos="zoom-in" data-aos-delay="200">
-          <i class="fas fa-cogs"></i>
-          <h3>Seamless Technology</h3>
-          <p>
-            From AI-driven platforms to intuitive digital ecosystems, our tools
-            prioritize user experience, making advanced innovation accessible
-            to all—without barriers or complexity.
-          </p>
-        </div>
-
-        <!-- Pillar 4 -->
-        <div class="vision-card" data-aos="zoom-in" data-aos-delay="300">
-          <i class="fas fa-infinity"></i>
-          <h3>Infinite Imagination</h3>
-          <p>
-            We treat obstacles as fuel for creative breakthroughs. By fusing
-            cosmic insight with real-world pragmatism, we redefine what it means
-            to flourish in a universe of limitless possibility.
-          </p>
-        </div>
+   <!-- Vision Cards -->
+<section class="glassy-section" data-aos="fade-up">
+    <h2>Our Pillars</h2>
+    <div class="vision-grid">
+      <!-- Pillar 1 -->
+      <div class="vision-card" data-aos="zoom-in">
+        <img
+          src="image/timeless-innovation.svg"
+          alt="Timeless Innovation Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Timeless Innovation</h3>
+        <p>
+          We champion solutions that transcend trends—blending cosmic insight
+          with practical breakthroughs that remain relevant for generations
+          to come.
+        </p>
       </div>
-    </section>
+  
+      <!-- Pillar 2 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="100">
+        <img
+          src="image/global-harmony.svg"
+          alt="Global Harmony Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Global Harmony</h3>
+        <p>
+          We create solutions that resonate with planetary well-being, ensuring
+          our innovations not only address problems—they elevate entire
+          ecosystems for future generations.
+        </p>
+      </div>
+  
+      <!-- Pillar 3 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="200">
+        <img
+          src="image/unified-empowerment.svg"
+          alt="Unified Empowerment Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Unified Empowerment</h3>
+        <p>
+          Everyone can co-create the future with us. By bridging cultural,
+          economic, and geographic divides, we unlock the collective genius
+          of humankind.
+        </p>
+      </div>
+  
+      <!-- Pillar 4 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="300">
+        <img
+          src="image/seamless-technology.svg"
+          alt="Seamless Technology Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Seamless Technology</h3>
+        <p>
+          From AI-driven platforms to intuitive digital ecosystems, our tools
+          prioritize user experience, making advanced innovation accessible
+          to all—without barriers or complexity.
+        </p>
+      </div>
+  
+      <!-- Pillar 5 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="400">
+        <img
+          src="image/infinite-imagination.svg"
+          alt="Infinite Imagination Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Infinite Imagination</h3>
+        <p>
+          We treat obstacles as fuel for creative breakthroughs. By fusing
+          cosmic insight with real-world pragmatism, we redefine what it means
+          to flourish in a universe of limitless possibility.
+        </p>
+      </div>
+  
+      <!-- Pillar 6 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="500">
+        <img
+          src="image/cutting-edge-technology.svg"
+          alt="Cutting-Edge Technology Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Cutting-Edge Technology</h3>
+        <p>
+          We leverage the latest advancements—like AI and machine learning—to
+          build tools that enhance productivity, revolutionize industries, and
+          catalyze sustainable growth.
+        </p>
+      </div>
+  
+      <!-- Pillar 7 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="600">
+        <img
+          src="image/sustainable-solutions.svg"
+          alt="Sustainable Solutions Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Sustainable Solutions</h3>
+        <p>
+          Our commitment to stewardship ensures that innovation benefits not
+          only businesses, but also the environment—safeguarding our planet’s
+          wellbeing for all.
+        </p>
+      </div>
+  
+      <!-- Pillar 8 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="700">
+        <img
+          src="image/human-centric-approach.svg"
+          alt="Human-Centric Approach Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Human-Centric Approach</h3>
+        <p>
+          We place people at the heart of every solution, designing technology
+          that enriches lives, fosters creativity, and amplifies human potential.
+        </p>
+      </div>
+  
+      <!-- Pillar 9 -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="800">
+        <img
+          src="image/future-focused.svg"
+          alt="Future-Focused Icon"
+          style="width: 48px; height: 48px;"
+        />
+        <h3>Future-Focused</h3>
+        <p>
+          By continuously evolving our tools and strategies, we anticipate
+          tomorrow’s challenges—ensuring our breakthroughs stay a step ahead
+          in an ever-changing world.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  
+
+     <!-- INSPIRATIONAL QUOTE SECTION -->
+  <section class="quote-section" data-aos="fade-up" data-aos-delay="400">
+    <h2>Inspiring Change</h2>
+    <p>
+      "Innovation distinguishes between a leader and a follower." – Steve Jobs
+    </p>
+  </section>
 
     <!-- CTA SECTION -->
     <section class="cta-section" data-aos="fade-up">

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="100,30 150,100 100,170 50,100" fill="none" stroke="#00FF99" stroke-width="3">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="5s" repeatCount="indefinite"/>
+  </polygon>
+
+  <!-- Glow Core -->
+  <circle cx="100" cy="100" r="8" fill="#00FF99">
+    <animate attributeName="r" values="6; 12; 6" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -1,0 +1,10 @@
+<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Human Figure -->
+  <circle cx="100" cy="60" r="12" fill="#00FF99"/> <!-- Head -->
+  <path d="M100,75 L80,130 L100,170 L120,130 Z" fill="none" stroke="#00FF99" stroke-width="3"/>
+
+  <!-- Expanding Impact -->
+  <circle cx="100" cy="100" r="40" fill="none" stroke="#00FF99" stroke-width="2" opacity="0.4">
+    <animate attributeName="r" values="35; 45; 35" dur="3s" repeatCount="indefinite"/>
+  </circle>
+</svg>

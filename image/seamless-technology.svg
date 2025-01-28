@@ -1,0 +1,15 @@
+<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Glowing Core -->
+  <circle cx="100" cy="100" r="12" fill="#00FF99">
+    <animate attributeName="r" values="10; 14; 10" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Smooth, Flowing Paths -->
+  <path d="M50,100 Q100,50 150,100 Q100,150 50,100 Z" fill="none" stroke="#00FF99" stroke-width="2">
+    <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="3s" repeatCount="indefinite"/>
+  </path>
+
+  <path d="M75,75 Q100,30 125,75 Q100,120 75,75 Z" fill="none" stroke="#00FF99" stroke-width="2">
+    <animate attributeName="stroke-dasharray" values="0,150;150,0" dur="3s" repeatCount="indefinite"/>
+  </path>
+</svg>
