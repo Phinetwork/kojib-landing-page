@@ -2,615 +2,1111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover Kojib's mission, vision, and journey. Learn how we harness technology and creativity to empower innovation and shape a brighter future.">
   <title>About Us - Kojib</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Library for Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
   <style>
-    /* General Styles */
-    body {
-      font-family: 'Arial', sans-serif;
+    /* Reset & Base Styles */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
       background-color: #121212;
       color: #f4f4f4;
       line-height: 1.6;
-    }
-
-    h1, h2 {
-      font-family: 'Georgia', serif;
-      color: #00cc80;
-      text-align: center;
-    }
-
-    p {
-      max-width: 800px;
-      margin: 10px auto;
-      text-align: center;
-      font-size: 1.1rem;
-      color: #e0e0e0;
-    }
-
-    .header {
-      background-color: #1e1e1e;
-      padding: 10px 20px;
-      text-align: center;
-    }
-
-    .header .logo {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #00cc80;
-      text-decoration: none;
-    }
-
-    .navbar {
+      overflow-x: hidden;
       display: flex;
-      justify-content: center;
-      margin-top: 10px;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    .nav-links {
-      list-style: none;
-      padding: 0;
-    }
-
-    .nav-links li {
-      display: inline;
-      margin: 0 15px;
-    }
-
-    .nav-links a {
-      color: #f4f4f4;
+    a {
+      color: inherit;
       text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s;
     }
 
-    .nav-links a:hover {
-      color: #00cc80;
-    }
-
-    .about-container {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .about-image {
+    img {
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 20px auto;
-      border-radius: 10px;
     }
 
-    .about-sections {
-      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+    /* Header Styling */
+    header {
+      background-color: #1c1c1c;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header.scrolled {
+      background-color: #111;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00cc80;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+    }
+
+    .menu a {
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #00cc80;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    .menu a:hover,
+    .menu a:focus {
+      color: #00cc80;
+      transform: translateY(-2px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hamburger span {
+      background: #00cc80;
+      height: 3px;
+      width: 25px;
+      border-radius: 3px;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1c1c1c;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .mobile-menu a {
+      padding: 15px;
+      border-bottom: 1px solid #333;
+      color: #f4f4f4;
+      text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a:focus {
+      background-color: #00cc80;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* About Container */
+    .about-container {
+      text-align: center;
       padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1; /* Ensure main content takes available space */
+    }
+
+    .about-container h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      color: #00cc80;
+    }
+
+    .about-container p {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      line-height: 1.8;
+    }
+
+    .about-image {
+      max-width: 600px;
       margin: 20px auto;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .about-image:hover {
+      transform: scale(1.05);
+    }
+
+    /* About Sections */
+    .about-sections {
+      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+      padding: 60px 40px;
+      margin: 40px 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 1s ease-out;
     }
 
     .about-sections h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      position: relative;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .about-sections h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #00cc80;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .about-sections p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      line-height: 1.8;
       margin-bottom: 20px;
     }
 
     .about-sections ul {
       list-style: none;
       padding: 0;
+      margin: 20px 0;
     }
 
     .about-sections ul li {
-      padding: 10px;
-      margin: 10px auto;
+      padding: 10px 0;
       font-size: 1rem;
       color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .cta {
+    .about-sections ul li i {
+      color: #00cc80;
+      flex-shrink: 0;
+    }
+
+    /* Call-to-Action Section */
+    .cta-section {
+      background: linear-gradient(145deg, #1a1a1a, #2e2e2e);
+      color: #f4f4f4;
       text-align: center;
-      margin-top: 40px;
+      padding: 60px 30px;
+      margin: 50px 20px;
+      border-radius: 15px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease-out;
     }
 
-    .cta a {
-      background-color: #00cc80;
-      color: #121212;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
+    .cta-section:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .cta-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .cta-section p {
       font-size: 1.2rem;
-      transition: background-color 0.3s, transform 0.3s;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #d4d4d4;
     }
 
-    .cta a:hover {
-      background-color: #00995e;
+    .cta-section .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #00cc80;
+      color: #121212;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0px 5px 15px rgba(0, 204, 128, 0.4);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta-section .cta-button:hover {
+      background: #00b374;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 204, 128, 0.6);
+    }
+
+    .cta-section .cta-button i {
+      transition: margin-left 0.3s ease;
+    }
+
+    .cta-section .cta-button:hover i {
+      margin-left: 10px;
+    }
+
+    /* Footer Styling */
+    footer {
+      position: relative; /* Establish stacking context */
+      width: 100%; /* Full width of the viewport */
+      background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027); /* Updated background */
+      color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for text */
+      text-align: center; /* Center-align content */
+      padding: 40px 20px; /* Increased padding */
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+      z-index: 8; /* Ensure it stacks properly above background elements */
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Footer Content Styling */
+    footer .footer-content {
+      max-width: 1200px; /* Restrict content width */
+      margin: 0 auto; /* Center content horizontally */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 10px 20px; /* Internal spacing for content */
+      text-align: center; /* Center-align text */
+      position: relative; /* Proper stacking order */
+      z-index: 9; /* Ensure content is above background layers */
+    }
+
+    /* Footer Logo */
+    .footer-logo img {
+      max-width: 60px;
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Social Media Links */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .social-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-links a img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
+    }
+
+    /* Footer Links */
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .footer-links ul li a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links ul li a:hover {
+      color: #00ff99;
+    }
+
+    /* Footer Contact */
+    .footer-contact {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .footer-contact p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .footer-contact a {
+      color: #00ff99;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer-contact a:hover {
+      color: #00cc80;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      margin-top: 10px;
+    }
+
+    .footer-bottom p {
+      margin: 8px 0;
+      font-size: 0.9rem;
+      color: #d4d4d4;
+    }
+
+    .footer-bottom a {
+      color: #00cc80;
+      margin: 0 5px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: #00b374;
+      text-decoration: underline;
+    }
+
+    /* Chatbot Button */
+    #chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #00ff99;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+
+    #chatbot-button:hover {
+      transform: scale(1.1);
+      background: #00cc80;
+    }
+
+    #chatbot-button img {
+      width: 30px;
+      height: 30px;
+      pointer-events: none; /* Ensure clicks don't affect the image */
+    }
+
+    /* Chatbot Window */
+    #chatbot {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 350px;
+      max-width: 90%; /* Ensure responsiveness for smaller screens */
+      height: 500px;
+      max-height: 80%; /* Adjust height for smaller screens */
+      background: #1c1c1c;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    /* Chatbot Header */
+    #chatbot-header {
+      background: #00ff99;
+      color: black;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+    }
+
+    #chatbot-header button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: black;
+      transition: transform 0.2s ease;
+    }
+
+    #chatbot-header button:hover {
+      transform: scale(1.2);
+    }
+
+    /* Chatbot Messages */
+    #chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      scrollbar-width: thin; /* For modern browsers */
+      scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+    }
+
+    #chatbot-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #222;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #00ff99;
+      border-radius: 5px;
+    }
+
+    #chatbot-messages .message {
+      margin-bottom: 10px;
+      word-wrap: break-word; /* Ensure long messages don't overflow */
+    }
+
+    #chatbot-messages .user {
+      text-align: right;
+      color: #00ff99;
+    }
+
+    #chatbot-messages .bot {
+      text-align: left;
+      color: white;
+    }
+
+    /* Loading Bubbles */
+    #loading-indicator {
+      display: none; /* Hidden by default */
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .bubbles {
+      display: flex;
+      gap: 6px;
+    }
+
+    .bubbles span {
+      width: 10px;
+      height: 10px;
+      background: #00cc80;
+      border-radius: 50%;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+
+    .bubbles span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .bubbles span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Chatbot Input Section */
+    #chatbot-input {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      background: #333;
+      align-items: center;
+    }
+
+    #chatbot-input textarea {
+      flex: 1;
+      resize: none;
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #222;
+      color: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    #chatbot-input button {
+      background: #00ff99;
+      border: none;
+      padding: 10px 15px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #chatbot-input button:hover {
+      background: #00cc80;
       transform: scale(1.05);
     }
 
-    footer {
-      background-color: #1e1e1e;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .about-container {
+        padding: 30px 15px;
+      }
+
+      .about-container h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-container p {
+        font-size: 1rem;
+      }
+
+      .about-image {
+        max-width: 100%;
+      }
+
+      .about-sections {
+        padding: 40px 20px;
+      }
+
+      .about-sections h2 {
+        font-size: 2rem;
+      }
+
+      .about-sections p,
+      .about-sections ul li {
+        font-size: 0.95rem;
+      }
+
+      .cta-section {
+        padding: 40px 15px;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+
+      .cta-section p {
+        font-size: 1rem;
+      }
+
+      .cta-section .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+
+      /* Footer Adjustments for Mobile */
+      footer .footer-links ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      footer .footer-links ul li a {
+        margin: 0;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .social-links {
+        gap: 15px;
+      }
     }
 
-    footer a {
-      color: #00cc80;
-      text-decoration: none;
-      margin: 0 10px;
+    @media (max-width: 480px) {
+      .about-container h1 {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .cta-section p {
+        font-size: 0.95rem;
+      }
+
+      .cta-section .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      /* Further Footer Adjustments for Very Small Screens */
+      .social-links a img {
+        width: 30px;
+      }
+
+      footer .footer-links ul li a {
+        font-size: 0.9rem;
+      }
+
+      footer p {
+        font-size: 0.8rem;
+      }
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
+  
   <!-- Header -->
-  <header class="header">
-    <a href="index.html" class="logo">Kojib</a>
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="our-story.html">Our Story</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="developers.html">Developers</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  <header id="header">
+    <a href="index.html" class="logo">
+      <!-- Placeholder for Logo SVG -->
+      <img src="image/logo.svg" alt="Kojib Logo">
+      Kojib
+    </a>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+      <a href="developers.html">Developers</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
     </nav>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+      <a href="developers.html">Developers</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </header>
 
   <!-- About Section -->
-<main class="about-container">
-  <h1>About Kojib</h1>
-  <p>
-    Kojib is more than a company; it's a timeless movement—a gateway to innovation that transforms lives. We are a
-    collective of dreamers, creators, and pioneers united by a mission to harness technology, creativity, and cosmic
-    harmony to craft solutions that empower humanity and shape a brighter future.
-  </p>
-
-  <img src="image/about-hero.svg" alt="About Kojib" class="about-image">
-
-  <!-- Our Vision -->
-  <section class="about-sections">
-    <h2>Our Vision</h2>
+  <main class="about-container">
+    <h1>About Kojib</h1>
     <p>
-      Kojib envisions a world where imagination meets intelligence, and technology seamlessly integrates with creativity
-      to unlock boundless possibilities. Our vision is to empower innovators, solve global challenges, and bring forth
-      a new golden age of advancement, where solutions align with divine harmony and the principles of the Unified Field
-      Theory.
+      Kojib is more than a company; it's a timeless movement—a gateway to innovation that transforms lives. We are a
+      collective of dreamers, creators, and pioneers united by a mission to harness technology, creativity, and cosmic
+      harmony to craft solutions that empower humanity and shape a brighter future.
     </p>
-  </section>
 
-  <!-- Our Mission -->
-<section class="about-sections">
-  <h2>Our Mission</h2>
-  <p>
-    At Kojib, our mission is simple yet profound: to push the boundaries of technology and creativity to create
-    effortless, intuitive solutions that improve lives globally. From empowering innovators to developing tools that
-    merge cosmic inspiration with real-world application, Kojib is here to transform the way we live, connect, and
-    dream.
-  </p>
-  <div class="cta">
-    <a href="mission.html" class="cta-button">Learn More About Our Mission</a>
-  </div>
-</section>
+    <!-- Placeholder for About Hero SVG -->
+    <img src="image/about-hero.svg" alt="About Kojib" class="about-image">
 
-<style>
-  .mission-cta {
-    text-align: center;
-    margin-top: 20px;
-  }
+    <!-- Our Vision -->
+    <section class="about-sections">
+      <h2>Our Vision</h2>
+      <p>
+        Kojib envisions a world where imagination meets intelligence, and technology seamlessly integrates with creativity
+        to unlock boundless possibilities. Our vision is to empower innovators, solve global challenges, and bring forth
+        a new golden age of advancement, where solutions align with divine harmony and the principles of the Unified Field
+        Theory.
+      </p>
+      <div class="cta">
+        <a href="vision.html" class="cta-button">Read More About Our Vision <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
 
-  .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #00cc80;
-    color: #121212;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  }
+    <!-- Our Mission -->
+    <section class="about-sections">
+      <h2>Our Mission</h2>
+      <p>
+        At Kojib, our mission is simple yet profound: to push the boundaries of technology and creativity to create
+        effortless, intuitive solutions that improve lives globally. From empowering innovators to developing tools that
+        merge cosmic inspiration with real-world application, Kojib is here to transform the way we live, connect, and
+        dream.
+      </p>
+      <div class="cta">
+        <a href="mission.html" class="cta-button">Learn More About Our Mission <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
 
-  .cta-button:hover {
-    background: #00b374;
-    transform: scale(1.05);
-  }
+    <!-- Our Journey -->
+    <section class="about-sections">
+      <h2>Our Journey</h2>
+      <p>
+        Kojib began with a bold belief: that small sparks of creativity can ignite revolutions. From its inception as an
+        ambitious idea to becoming a global platform for innovation, Kojib’s journey has been a testament to the power of
+        collaboration, adaptability, and pushing boundaries. We are rooted in the principles of balance, innovation, and
+        resilience, always striving to turn vision into reality.
+      </p>
+      <div class="cta">
+        <a href="our-story.html" class="cta-button">Read More About Our Story <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
 
-  .cta-button:active {
-    background: #009e66;
-    transform: scale(1);
-  }
-</style>
+    <!-- What Sets Us Apart -->
+    <section class="about-sections">
+      <h2>What Sets Us Apart</h2>
+      <ul>
+        <li><i class="fas fa-lightbulb"></i><strong>Timeless Innovation:</strong> Kojib is driven by the pursuit of transformative solutions that are as
+          timeless as they are groundbreaking.</li>
+        <li><i class="fas fa-bolt"></i><strong>Empowerment:</strong> We create tools and platforms that inspire innovators and empower them to build
+          technologies that transform the world.</li>
+        <li><i class="fas fa-balance-scale"></i><strong>Cosmic Harmony:</strong> Kojib is rooted in principles of balance, creativity, and unity, ensuring our
+          solutions align with the greater good.</li>
+        <li><i class="fas fa-globe"></i><strong>Global Impact:</strong> Our work transcends industries and borders, solving challenges that affect
+          everyone and bringing forth solutions that elevate humanity.</li>
+      </ul>
+    </section>
 
+    <!-- Looking Forward -->
+    <section class="about-sections">
+      <h2>Looking Forward</h2>
+      <p>
+        Kojib isn’t just a platform; it’s a beacon for those who dare to imagine a future where innovation knows no
+        limits. We are here for innovators, creators, and dreamers who seek to transform the world and create solutions
+        that feel effortless and intuitive. Kojib is a timeless name—a symbol of infinite possibility, creative problem
+        solving, and cosmic alignment. The journey starts here. Welcome to Kojib.
+      </p>
+    </section>
 
-  <!-- Our Journey -->
-  <section class="about-sections">
-    <h2>Our Journey</h2>
+  <!-- Call-to-Action Section -->
+  <section class="cta-section">
+    <h2>Take Your Business to the Next Level</h2>
     <p>
-      Kojib began with a bold belief: that small sparks of creativity can ignite revolutions. From its inception as an
-      ambitious idea to becoming a global platform for innovation, Kojib’s journey has been a testament to the power of
-      collaboration, adaptability, and pushing boundaries. We are rooted in the principles of balance, innovation, and
-      resilience, always striving to turn vision into reality.
+      Ready to transform your vision into reality? Partner with Kojib to unlock innovative solutions that will elevate your business, drive growth, and set you apart in a competitive market. The future of your success begins here.
     </p>
+    <a href="consulting.html" class="cta-button">Start Your Journey <i class="fas fa-arrow-right"></i></a>
   </section>
 
-  <!-- What Sets Us Apart -->
-  <section class="about-sections">
-    <h2>What Sets Us Apart</h2>
-    <ul>
-      <li><strong>Timeless Innovation:</strong> Kojib is driven by the pursuit of transformative solutions that are as
-        timeless as they are groundbreaking.</li>
-      <li><strong>Empowerment:</strong> We create tools and platforms that inspire innovators and empower them to build
-        technologies that transform the world.</li>
-      <li><strong>Cosmic Harmony:</strong> Kojib is rooted in principles of balance, creativity, and unity, ensuring our
-        solutions align with the greater good.</li>
-      <li><strong>Global Impact:</strong> Our work transcends industries and borders, solving challenges that affect
-        everyone and bringing forth solutions that elevate humanity.</li>
-    </ul>
-  </section>
-
-  <!-- Looking Forward -->
-  <section class="about-sections">
-    <h2>Looking Forward</h2>
-    <p>
-      Kojib isn’t just a platform; it’s a beacon for those who dare to imagine a future where innovation knows no
-      limits. We are here for innovators, creators, and dreamers who seek to transform the world and create solutions
-      that feel effortless and intuitive. Kojib is a timeless name—a symbol of infinite possibility, creative problem
-      solving, and cosmic alignment. The journey starts here. Welcome to Kojib.
-    </p>
-  </section>
-
-  <!-- Short Our Story Section -->
-<section class="about-sections">
-  <h2>Our Story</h2>
-  <p>
-    Kojib began with a bold belief: that creativity and purposeful action can transform the world. From humble beginnings as an ambitious idea to becoming a global platform for innovation, Kojib’s journey is a testament to resilience, collaboration, and the relentless pursuit of excellence. 
-  </p>
-  <p>
-    Discover the full story of how Kojib continues to empower innovators, solve global challenges, and bring forth groundbreaking solutions.
-  </p>
-  <div class="cta">
-    <a href="our-story.html">Read More About Our Story</a>
-  </div>
-</section>
-
-<style>
-  .about-sections .cta a {
-    background-color: #00cc80;
-    color: #121212;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    margin-top: 20px;
-  }
-
-  .about-sections .cta a:hover {
-    background-color: #00995e;
-    transform: scale(1.05);
-  }
-</style>
-
-
-    <!-- Call-to-Action Section -->
-<section class="cta-section">
-  <h2>Take Your Business to the Next Level</h2>
-  <p>
-    Ready to transform your vision into reality? Partner with Kojib to unlock innovative solutions that will elevate your business, drive growth, and set you apart in a competitive market. The future of your success begins here.
-  </p>
-  <a href="consulting.html" class="cta-button">Start Your Journey</a>
-</section>
-
-<style>
-  .cta-section {
-    background: linear-gradient(145deg, #1a1a1a, #2e2e2e);
-    color: #f4f4f4;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-  }
-
-  .cta-section h2 {
-    font-size: 2.5rem;
-    color: #00cc80;
-    margin-bottom: 20px;
-  }
-
-  .cta-section p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #00cc80;
-    color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 30px;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  }
-
-  .cta-button:hover {
-    background: #00b374;
-    transform: scale(1.05);
-  }
-
-  .cta-button:active {
-    background: #009e66;
-    transform: scale(1);
-  }
-</style>
-
-  </main>
-  <style>
-    /* Chatbot Button */
-    #chatbot-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 60px;
-        height: 60px;
-        background: #00ff99;
-        border-radius: 50%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        z-index: 1000;
-        transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-    }
-    
-    #chatbot-button:hover {
-        transform: scale(1.1);
-        background: #00cc80;
-    }
-    
-    #chatbot-button img {
-        width: 30px;
-        height: 30px;
-        pointer-events: none; /* Ensure clicks don't affect the image */
-    }
-    
-    /* Chatbot Window */
-    #chatbot {
-        position: fixed;
-        bottom: 100px;
-        right: 20px;
-        width: 350px;
-        max-width: 90%; /* Ensure responsiveness for smaller screens */
-        height: 500px;
-        max-height: 70%; /* Adjust height for smaller screens */
-        background: #1c1c1c;
-        color: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        display: none;
-        flex-direction: column;
-        z-index: 1001;
-        overflow: hidden;
-    }
-    
-    /* Chatbot Header */
-    #chatbot-header {
-        background: #00ff99;
-        color: black;
-        padding: 10px;
-        text-align: center;
-        font-weight: bold;
-        position: relative;
-    }
-    
-    #chatbot-header button {
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        background: transparent;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: black;
-        transition: transform 0.2s ease;
-    }
-    
-    #chatbot-header button:hover {
-        transform: scale(1.2);
-    }
-    
-    /* Chatbot Messages */
-    #chatbot-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 10px;
-        font-size: 0.9rem;
-        line-height: 1.5;
-        scrollbar-width: thin; /* For modern browsers */
-        scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
-    }
-    
-    #chatbot-messages::-webkit-scrollbar {
-        width: 8px;
-    }
-    
-    #chatbot-messages::-webkit-scrollbar-track {
-        background: #222;
-    }
-    
-    #chatbot-messages::-webkit-scrollbar-thumb {
-        background: #00ff99;
-        border-radius: 5px;
-    }
-    
-    #chatbot-messages .message {
-        margin-bottom: 10px;
-        word-wrap: break-word; /* Ensure long messages don't overflow */
-    }
-    
-    #chatbot-messages .user {
-        text-align: right;
-        color: #00ff99;
-    }
-    
-    #chatbot-messages .bot {
-        text-align: left;
-        color: white;
-    }
-    
-    /* Loading Bubbles */
-    #loading-indicator {
-        display: none; /* Hidden by default */
-        text-align: center;
-        margin: 10px 0;
-    }
-    
-    #loading-indicator .dot {
-        width: 8px;
-        height: 8px;
-        margin: 0 5px;
-        background-color: #00ff99;
-        border-radius: 50%;
-        display: inline-block;
-        animation: bounce 1.2s infinite;
-    }
-    
-    #loading-indicator .dot:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-    
-    #loading-indicator .dot:nth-child(3) {
-        animation-delay: 0.4s;
-    }
-    
-    @keyframes bounce {
-        0%, 80%, 100% {
-            transform: scale(0);
-        }
-        40% {
-            transform: scale(1);
-        }
-    }
-    
-    /* Chatbot Input Section */
-    #chatbot-input {
-        padding: 10px;
-        display: flex;
-        gap: 10px;
-        background: #333;
-        align-items: center;
-    }
-    
-    #chatbot-input textarea {
-        flex: 1;
-        resize: none;
-        padding: 10px;
-        border: 1px solid #555;
-        border-radius: 5px;
-        background: #222;
-        color: white;
-        font-family: inherit;
-        font-size: 0.9rem;
-    }
-    
-    #chatbot-input button {
-        background: #00ff99;
-        border: none;
-        padding: 10px 15px;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
-    
-    #chatbot-input button:hover {
-        background: #00cc80;
-        transform: scale(1.05);
-    }
-    
-    /* Mobile Adjustments */
-    @media (max-width: 768px) {
-        #chatbot {
-            bottom: 80px;
-            right: 10px;
-            width: 90%; /* Use most of the screen width */
-            height: auto; /* Let height adjust dynamically */
-            max-height: 80%; /* Limit max height */
-        }
-    
-        #chatbot-header {
-            font-size: 1rem; /* Adjust header font size */
-        }
-    
-        #chatbot-input textarea {
-            font-size: 0.8rem;
-        }
-    
-        #chatbot-input button {
-            padding: 8px 12px; /* Smaller padding for smaller screens */
-            font-size: 0.9rem;
-        }
-    }
-    </style>
-
-<!-- AI Chatbot -->
-<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
+  <!-- Chatbot Integration -->
+  <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
     <div id="chatbot-header">
-        <span>Kojib</span>
-        <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+      <span>Kojib</span>
+      <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
     </div>
     <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
-        <!-- Chat messages will be dynamically injected here -->
+      <!-- Chat messages will be dynamically injected here -->
     </div>
     <div id="chatbot-input" role="form" aria-label="Chat Input">
-        <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
-        <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+      <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+      <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
     </div>
   </div>
   <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
+    <!-- Placeholder for Chatbot Icon SVG -->
     <img src="image/chat-icon.svg" alt="Chat Icon" />
   </div> 
 
   <!-- Footer -->
   <footer>
-    <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-
-<script>
-  // JavaScript to set the current year
-  document.getElementById("current-year").textContent = new Date().getFullYear();
-</script>
-    <nav>
-    <a href="index.html">Home</a> | 
-      <a href="privacy-policy.html">Privacy Policy</a> | 
-      <a href="terms-of-service.html">Terms of Service</a> 
-    </nav>
+    <!-- Footer Content Container -->
+    <div class="footer-content">
+      <!-- Footer Logo -->
+      <div class="footer-logo">
+        <img src="image/logo.svg" alt="Kojib Logo">
+      </div>
+      
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+          <img src="image/twitter-icon.svg" alt="Twitter">
+        </a>
+        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+          <img src="image/instagram-icon.svg" alt="Instagram">
+        </a>
+        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+          <img src="image/linkedin-icon.svg" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub">
+          <img src="image/github-logo.svg" alt="GitHub">
+        </a>
+      </div>
+    
+      <!-- Navigation Links -->
+      <div class="footer-links">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="developers.html">Developers</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://app.kojib.com/entry">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Divider Line Above Footer Bottom -->
+    <div class="footer-bottom-divider"></div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p>Designed with ♥ by Kojib</p>
+      <p>
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="cookie-policy.html">Cookie Policy</a> | 
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </p>
+    </div>
   </footer>
-   <!-- Scripts -->
-   <script src="lib/three.min.js"></script>
-   <script src="lib/gsap.min.js"></script>
-   <script src="lib/ScrollTrigger.min.js"></script>
-   <script src="js/particles.js"></script>
-   <script src="js/scroll.js"></script>
-   <script src="js/main.js"></script>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle Mobile Menu
+    function toggleMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      
+      if (mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        hamburger.setAttribute('aria-expanded', 'false');
+      } else {
+        mobileMenu.classList.add('open');
+        hamburger.classList.add('open');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Close Mobile Menu when clicking outside
+    window.addEventListener('click', function(e) {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Sticky Header Background Change on Scroll
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Set Current Year in Footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- External Scripts (if any) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   
-      <!-- Include other scripts or libraries -->
-      <script src="chatbot.js"></script>
+  <!-- Initialize External Libraries -->
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    // Particle.js Configuration for Hero Section (if applicable)
+    /* Uncomment and adjust if using particles.js in About Us page
+    particlesJS("heroCanvas", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#00FF99" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": { "enable": false }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00FF99",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 100, "duration": 0.4 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+    */
+  </script>
+  
+  <!-- Include Your External Chatbot Script -->
+  <script src="chatbot.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover Kojib's Vision - Pioneering the future of innovation, technology, and human empowerment.">
+  <title>Our Vision - Kojib</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts for Enhanced Typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Library for Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #f4f4f4;
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: #00cc80;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Header Styling */
+    header {
+      background-color: #1c1c1c;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    header.scrolled {
+      background-color: #111;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00cc80;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+    
+    .menu {
+      display: flex;
+      gap: 25px;
+    }
+    
+    .menu a {
+      font-size: 1rem;
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .menu a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #00cc80;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+    
+    .menu a:hover::after {
+      width: 100%;
+    }
+    
+    .menu a:hover,
+    .menu a:focus {
+      color: #00cc80;
+      transform: translateY(-2px);
+    }
+    
+    /* Hamburger Styling */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    
+    .hamburger:focus {
+      outline: none;
+    }
+    
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #00cc80;
+      border-radius: 3px;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #1c1c1c;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+      max-height: 0;
+      opacity: 0;
+    }
+    
+    .mobile-menu.open {
+      display: flex;
+      max-height: 500px;
+      opacity: 1;
+    }
+    
+    .mobile-menu a {
+      padding: 15px;
+      border-bottom: 1px solid #333;
+      color: #f4f4f4;
+      text-align: center;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+    
+    .mobile-menu a:hover,
+    .mobile-menu a:focus {
+      background-color: #00cc80;
+      color: #000;
+    }
+    
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+    
+      .hamburger {
+        display: flex;
+      }
+    }
+    
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 20px;
+      animation: fadeInUp 1s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    
+    .hero-content h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #00FF99;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.7);
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #d4d4d4;
+      margin-bottom: 30px;
+    }
+    
+    /* Vision Section */
+    .vision-section {
+      padding: 60px 20px;
+      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .vision-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: #00FF99;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+    
+    .vision-section p {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      line-height: 1.8;
+    }
+    
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .vision-card {
+      background: #1a1a1a;
+      padding: 30px 20px;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #444;
+      box-shadow: 0 4px 10px rgba(0, 255, 153, 0.2);
+    }
+    
+    .vision-card:hover,
+    .vision-card:focus {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 255, 153, 0.3);
+    }
+    
+    .vision-card i {
+      font-size: 2rem;
+      color: #00FF99;
+      margin-bottom: 15px;
+    }
+    
+    .vision-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      color: #00FF99;
+      margin-bottom: 15px;
+    }
+    
+    .vision-card p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    
+    /* Inspirational Quote Section */
+    .quote-section {
+      background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+      padding: 60px 20px;
+      text-align: center;
+      color: #e0e0e0;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .quote-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: #00cc80;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+    
+    .quote-section p {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #d4d4d4;
+    }
+    
+    /* Call-to-Action Section */
+    .cta-section {
+      background: linear-gradient(145deg, #1a1a1a, #2e2e2e);
+      color: #f4f4f4;
+      text-align: center;
+      padding: 60px 30px;
+      margin: 50px 20px;
+      border-radius: 15px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease-out;
+    }
+    
+    .cta-section:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.7);
+    }
+    
+    .cta-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      color: #00FF99;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #d4d4d4;
+    }
+    
+    .cta-section .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #00FF99;
+      color: #121212;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0px 5px 15px rgba(0, 255, 153, 0.4);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .cta-section .cta-button:hover {
+      background: #00cc80;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.6);
+    }
+    
+    .cta-section .cta-button i {
+      transition: margin-left 0.3s ease;
+    }
+    
+    .cta-section .cta-button:hover i {
+      margin-left: 10px;
+    }
+    
+    /* Footer Styling */
+    footer {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027);
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 8;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    /* Footer Content Styling */
+    footer .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 10px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 9;
+    }
+    
+    /* Footer Logo */
+    .footer-logo img {
+      max-width: 60px;
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      transition: transform 0.3s ease;
+    }
+    
+    .footer-logo img:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Social Media Links */
+    .social-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    
+    .social-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    .social-links a img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+    }
+    
+    .social-links a:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
+    }
+    
+    /* Footer Links */
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .footer-links ul li a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links ul li a:hover {
+      color: #00ff99;
+    }
+    
+    /* Footer Bottom */
+    .footer-bottom {
+      margin-top: 10px;
+    }
+    
+    .footer-bottom p {
+      margin: 8px 0;
+      font-size: 0.9rem;
+      color: #d4d4d4;
+    }
+    
+    .footer-bottom a {
+      color: #00cc80;
+      margin: 0 5px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom a:hover {
+      color: #00b374;
+      text-decoration: underline;
+    }
+    
+    /* Chatbot Button */
+    #chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #00ff99;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+    
+    #chatbot-button:hover {
+      transform: scale(1.1);
+      background: #00cc80;
+    }
+    
+    #chatbot-button img {
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+    }
+    
+    /* Chatbot Window */
+    #chatbot {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 350px;
+      max-width: 90%;
+      height: 500px;
+      max-height: 80%;
+      background: #1c1c1c;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    /* Chatbot Header */
+    #chatbot-header {
+      background: #00ff99;
+      color: black;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+    }
+    
+    #chatbot-header button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: black;
+      transition: transform 0.2s ease;
+    }
+    
+    #chatbot-header button:hover {
+      transform: scale(1.2);
+    }
+    
+    /* Chatbot Messages */
+    #chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      scrollbar-width: thin;
+      scrollbar-color: #00ff99 #222;
+    }
+    
+    #chatbot-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #222;
+    }
+    
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #00ff99;
+      border-radius: 5px;
+    }
+    
+    #chatbot-messages .message {
+      margin-bottom: 10px;
+      word-wrap: break-word;
+    }
+    
+    #chatbot-messages .user {
+      text-align: right;
+      color: #00ff99;
+    }
+    
+    #chatbot-messages .bot {
+      text-align: left;
+      color: white;
+    }
+    
+    /* Loading Bubbles */
+    #loading-indicator {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+    }
+    
+    .bubbles {
+      display: flex;
+      gap: 6px;
+    }
+    
+    .bubbles span {
+      width: 10px;
+      height: 10px;
+      background: #00cc80;
+      border-radius: 50%;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+    
+    .bubbles span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .bubbles span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    /* Chatbot Input Section */
+    #chatbot-input {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      background: #333;
+      align-items: center;
+    }
+    
+    #chatbot-input textarea {
+      flex: 1;
+      resize: none;
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #222;
+      color: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    
+    #chatbot-input button {
+      background: #00ff99;
+      border: none;
+      padding: 10px 15px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    #chatbot-input button:hover {
+      background: #00cc80;
+      transform: scale(1.05);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .vision-grid {
+        grid-template-columns: 1fr;
+      }
+    
+      .cta-section {
+        padding: 40px 15px;
+      }
+    
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+    
+      .cta-section p {
+        font-size: 1rem;
+      }
+    
+      .cta-section .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    
+      /* Footer Adjustments for Mobile */
+      footer .footer-links ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+    
+      footer .footer-links ul li a {
+        margin: 0;
+      }
+    
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    
+      .social-links {
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+    
+      .vision-section h2 {
+        font-size: 2rem;
+      }
+    
+      .vision-section p {
+        font-size: 1rem;
+      }
+    
+      .vision-card h3 {
+        font-size: 1.5rem;
+      }
+    
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+    
+      .cta-section p {
+        font-size: 0.95rem;
+      }
+    
+      .cta-section .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    
+      /* Further Footer Adjustments for Very Small Screens */
+      .social-links a img {
+        width: 30px;
+      }
+    
+      footer .footer-links ul li a {
+        font-size: 0.9rem;
+      }
+    
+      footer p {
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <header id="header">
+    <a href="index.html" class="logo">
+      <!-- Placeholder for Logo SVG -->
+      <img src="image/logo.svg" alt="Kojib Logo">
+      Kojib
+    </a>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+      <a href="developers.html">Developers</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+      <a href="developers.html">Developers</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Our Vision</h1>
+      <p>
+        At Kojib, we envision a world where innovation transcends boundaries, technology harmonizes with creativity, and every individual and organization is empowered to achieve their fullest potential. Our vision is to be the catalyst for transformative change, guiding humanity towards a future of sustainable growth, unparalleled efficiency, and boundless possibilities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Vision Details Section -->
+  <section class="vision-section">
+    <h2>Empowering Through Innovation</h2>
+    <p>
+      Our mission is to harness the power of advanced technologies, including artificial intelligence, to create solutions that not only solve today's challenges but also anticipate tomorrow's opportunities. We strive to bridge the gap between visionary ideas and practical implementation, ensuring that innovation is accessible, impactful, and aligned with the greater good.
+    </p>
+    <div class="vision-grid">
+      <!-- Innovation Card -->
+      <div class="vision-card" data-aos="zoom-in" tabindex="0">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Cutting-Edge Technology</h3>
+        <p>
+          We leverage the latest advancements in AI and machine learning to develop tools that revolutionize industries, enhance productivity, and drive sustainable growth.
+        </p>
+      </div>
+      <!-- Sustainability Card -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="100" tabindex="0">
+        <i class="fas fa-leaf"></i>
+        <h3>Sustainable Solutions</h3>
+        <p>
+          Our commitment to sustainability ensures that our innovations not only benefit businesses but also contribute positively to the environment and society.
+        </p>
+      </div>
+      <!-- Human-Centric Approach Card -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="200" tabindex="0">
+        <i class="fas fa-users-cog"></i>
+        <h3>Human-Centric Approach</h3>
+        <p>
+          We prioritize the human element in every solution, designing technologies that are intuitive, user-friendly, and enhance human capabilities.
+        </p>
+      </div>
+      <!-- Future-Focused Card -->
+      <div class="vision-card" data-aos="zoom-in" data-aos-delay="300" tabindex="0">
+        <i class="fas fa-rocket"></i>
+        <h3>Future-Focused</h3>
+        <p>
+          Anticipating the needs of tomorrow, we develop strategies and solutions that prepare businesses and individuals for future challenges and opportunities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inspirational Quote Section -->
+  <section class="quote-section" data-aos="fade-up" data-aos-delay="400">
+    <h2>Inspiring Change</h2>
+    <p>
+      "Innovation distinguishes between a leader and a follower." – Steve Jobs
+    </p>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="cta-section" data-aos="fade-up" data-aos-delay="500">
+    <h2>Join Us in Shaping the Future</h2>
+    <p>
+      Embark on a journey of transformation with Kojib. Let us partner with you to unlock new horizons, drive meaningful change, and achieve excellence through innovative solutions.
+    </p>
+    <a href="consulting.html" class="cta-button" tabindex="0">
+      Get Started Today <i class="fas fa-arrow-right"></i>
+    </a>
+  </section>
+
+  <!-- Chatbot Integration -->
+  <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog" aria-modal="true">
+    <div id="chatbot-header">
+      <span>Kojib Assistant</span>
+      <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+    </div>
+    <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
+      <!-- Chat messages will be dynamically injected here -->
+    </div>
+    <div id="chatbot-input" role="form" aria-label="Chat Input">
+      <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+      <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+    </div>
+  </div>
+  <button id="chatbot-button" aria-label="Open Chatbot" title="Open Chatbot">
+    <!-- Chatbot Icon SVG Placeholder -->
+    <img src="image/chat-icon.svg" alt="Chat Icon" />
+  </button> 
+
+  <!-- Footer -->
+  <footer>
+    <!-- Footer Content Container -->
+    <div class="footer-content">
+      <!-- Footer Logo -->
+      <div class="footer-logo">
+        <img src="image/logo.svg" alt="Kojib Logo">
+      </div>
+      
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+          <img src="image/twitter-icon.svg" alt="Twitter">
+        </a>
+        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+          <img src="image/instagram-icon.svg" alt="Instagram">
+        </a>
+        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+          <img src="image/linkedin-icon.svg" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub">
+          <img src="image/github-logo.svg" alt="GitHub">
+        </a>
+      </div>
+    
+      <!-- Navigation Links -->
+      <div class="footer-links">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="developers.html">Developers</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://app.kojib.com/entry">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Divider Line Above Footer Bottom -->
+    <div class="footer-bottom-divider"></div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p>Designed with ♥ by Kojib</p>
+      <p>
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="cookie-policy.html">Cookie Policy</a> | 
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <!-- External Chatbot Script -->
+  <script src="chatbot.js"></script>
+  
+  <!-- Initialize External Libraries and Menu Functionality -->
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    // Toggle Mobile Menu Functionality
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent click from bubbling to window
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      const expanded = hamburger.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', expanded);
+      mobileMenu.setAttribute('aria-hidden', !expanded);
+    });
+
+    // Close Mobile Menu when clicking outside
+    window.addEventListener('click', function(e) {
+      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        if (mobileMenu.classList.contains('open')) {
+          mobileMenu.classList.remove('open');
+          hamburger.classList.remove('open');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    // Prevent clicks inside mobile menu from closing it
+    mobileMenu.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    // Sticky Header Background Change on Scroll
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Set Current Year in Footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  
+</body>
+</html>

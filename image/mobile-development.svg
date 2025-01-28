@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title" fill="none">
+  <title>Mobile Development</title>
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+    <linearGradient id="phoneGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ADE80" />
+      <stop offset="100%" stop-color="#16A34A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGradient)" />
+
+  <!-- Smartphone Shape -->
+  <g>
+    <rect x="120" y="100" width="160" height="300" rx="20" ry="20" fill="url(#phoneGradient)" stroke="#065F46" stroke-width="5" />
+    <rect x="135" y="120" width="130" height="260" rx="10" ry="10" fill="#1E3A8A" />
+    <circle cx="200" cy="380" r="5" fill="#D1FAE5" /> <!-- Home Button -->
+  </g>
+
+  <!-- App Icons -->
+  <g>
+    <rect x="150" y="140" width="40" height="40" rx="8" fill="#60A5FA" />
+    <rect x="210" y="140" width="40" height="40" rx="8" fill="#F87171" />
+
+    <rect x="150" y="200" width="40" height="40" rx="8" fill="#FACC15" />
+    <rect x="210" y="200" width="40" height="40" rx="8" fill="#34D399" />
+
+    <rect x="150" y="260" width="40" height="40" rx="8" fill="#A78BFA" />
+    <rect x="210" y="260" width="40" height="40" rx="8" fill="#FB923C" />
+  </g>
+
+  <!-- Circuit Lines -->
+  <g stroke="#93C5FD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M200 50 V100" />
+    <circle cx="200" cy="50" r="5" fill="#93C5FD" />
+
+    <path d="M100 200 H120" />
+    <circle cx="100" cy="200" r="5" fill="#93C5FD" />
+
+    <path d="M300 200 H280" />
+    <circle cx="300" cy="200" r="5" fill="#93C5FD" />
+  </g>
+
+  <!-- Glow Effect -->
+  <g>
+    <circle cx="200" cy="250" r="180" fill="rgba(74, 222, 128, 0.1)" />
+    <circle cx="200" cy="250" r="200" fill="rgba(74, 222, 128, 0.05)" />
+  </g>
+
+  <!-- Subtle Motion -->
+  <animateTransform
+    attributeName="transform"
+    type="rotate"
+    from="0 200 200"
+    to="360 200 200"
+    dur="30s"
+    repeatCount="indefinite"
+  />
+
+  <!-- Footer Text -->
+  <text x="50%" y="370" text-anchor="middle" fill="#D1FAE5" font-size="18" font-family="Arial, sans-serif">
+    Mobile Development: Building the Future in Your Hands
+  </text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <style>
+    .node {
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    .line {
+      stroke-dasharray: 5;
+      animation: draw 2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes draw {
+      from {
+        stroke-dashoffset: 20;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+  <!-- Nodes -->
+  <circle class="node" cx="50" cy="50" r="10" fill="#00FF99">
+    <animate attributeName="cx" values="50;100;150;100;50" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="50;150;100;50;50" dur="6s" repeatCount="indefinite" />
+  </circle>
+  <circle class="node" cx="150" cy="50" r="8" fill="#00FF99">
+    <animate attributeName="cx" values="150;100;50;100;150" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="50;100;150;50;50" dur="6s" repeatCount="indefinite" />
+  </circle>
+  <circle class="node" cx="100" cy="150" r="12" fill="#00FF99">
+    <animate attributeName="cx" values="100;50;150;50;100" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="150;50;100;150;150" dur="6s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Connecting lines -->
+  <line class="line" x1="50" y1="50" x2="100" y2="150" stroke="#00FF99" stroke-width="2">
+    <animate attributeName="x1" values="50;100;150;100;50" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="y1" values="50;150;100;50;50" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="x2" values="100;50;150;50;100" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="y2" values="150;50;100;150;150" dur="6s" repeatCount="indefinite" />
+  </line>
+  <line class="line" x1="150" y1="50" x2="100" y2="150" stroke="#00FF99" stroke-width="2">
+    <animate attributeName="x1" values="150;100;50;100;150" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="y1" values="50;100;150;50;50" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="x2" values="100;50;150;50;100" dur="6s" repeatCount="indefinite" />
+    <animate attributeName="y2" values="150;50;100;150;150" dur="6s" repeatCount="indefinite" />
+  </line>
+</svg>

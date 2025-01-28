@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <style>
+    .shield {
+      stroke-dasharray: 300;
+      animation: drawShield 2s ease-out infinite alternate;
+    }
+
+    .lock {
+      animation: lockPulse 3s infinite ease-in-out;
+    }
+
+    .glow {
+      filter: url(#glowFilter);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes drawShield {
+      0% {
+        stroke-dashoffset: 300;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes lockPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <!-- Glow filter -->
+  <defs>
+    <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Shield outline with organic motion -->
+  <path class="shield" d="M100,30 C85,50 50,80 50,130 C50,160 75,170 100,185 C125,170 150,160 150,130 C150,80 115,50 100,30 Z" 
+    stroke="#00FF99" stroke-width="4" fill="none">
+    <animate attributeName="d" dur="4s" repeatCount="indefinite" 
+      values="M100,30 C85,50 50,80 50,130 C50,160 75,170 100,185 C125,170 150,160 150,130 C150,80 115,50 100,30 Z;
+              M100,30 C80,45 55,85 55,130 C55,160 80,175 100,185 C120,175 145,160 145,130 C145,85 120,45 100,30 Z;
+              M100,30 C85,50 50,80 50,130 C50,160 75,170 100,185 C125,170 150,160 150,130 C150,80 115,50 100,30 Z" />
+  </path>
+
+  <!-- Lock body with pulse -->
+  <rect class="lock" x="80" y="70" width="40" height="50" rx="8" fill="#00FF99">
+    <animate attributeName="width" values="40;45;40" dur="2.5s" repeatCount="indefinite" />
+    <animate attributeName="height" values="50;55;50" dur="2.5s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Lock shackle with glow -->
+  <path class="lock glow" d="M90,70 C90,55 110,55 110,70" stroke="#00FF99" stroke-width="4" fill="none">
+    <animate attributeName="d" dur="3s" repeatCount="indefinite" 
+      values="M90,70 C90,55 110,55 110,70;
+              M88,72 C88,58 112,58 112,72;
+              M90,70 C90,55 110,55 110,70" />
+  </path>
+</svg>

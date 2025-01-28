@@ -2,293 +2,637 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#000000"> <!-- Theme color for browsers -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Discover Kojib's transformative services including real-time data analytics, customized tools, and actionable insights designed to empower your business and drive growth.">
+  <meta name="keywords" content="Kojib, Innovation Platform, AI Solutions, Collaborative Tools, Data Analytics, Cybersecurity, Cloud Integration, Creative Tools, Business Growth, Technology Empowerment">
+  <meta name="author" content="Kojib">
+  
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:title" content="Our Services - Kojib">
+  <meta property="og:description" content="Empower your business with Kojib's cutting-edge services including real-time data analytics, AI-driven solutions, and strategic insights tailored for growth and innovation.">
+  <meta property="og:image" content="https://kojib.com/image/services-og-image.jpg">
+  <meta property="og:url" content="https://kojib.com/services.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Services - Kojib">
+  <meta name="twitter:description" content="Empower your business with Kojib's cutting-edge services including real-time data analytics, AI-driven solutions, and strategic insights tailored for growth and innovation.">
+  <meta name="twitter:image" content="https://kojib.com/image/services-twitter-image.jpg">
+  
+  <!-- Theme and PWA Meta Tags -->
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Kojib">
+  
+  <!-- Title -->
   <title>Our Services - Kojib</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS Library for Animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  
+  <!-- tsParticles Library for Enhanced Particle Effects -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+  
+  <!-- GSAP Library for Advanced Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  
+  <!-- CSS Styles -->
   <style>
-    body {
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      background: #0d0d0d;
+      color: #eaeaea;
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: 70px; /* Adjusted to match nav height */
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    body.dark-mode {
+      background: #1a1a1a;
       color: #eaeaea;
     }
 
-    .header {
-      background: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      position: sticky;
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      loading: lazy;
+    }
+
+    /* Smooth Scroll Behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation Menu */
+    nav {
+      background: rgba(0, 0, 0, 0.85);
+      position: fixed;
+      width: 100%;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.2);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      height: 70px;
     }
 
-    .header .logo {
-      color: #00ff99;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-decoration: none;
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 255, 153, 0.3);
     }
 
-    .header nav {
-      margin-top: 10px;
-    }
-
-    .header .nav-links {
-      list-style: none;
-      padding: 0;
+    .nav-container {
       display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 10px 40px;
     }
 
-    .header .nav-links a {
-      text-decoration: none;
-      color: #eaeaea;
+    .logo img {
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Navigation Links */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
       font-size: 1rem;
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
       transition: color 0.3s ease;
-      white-space: nowrap;
     }
 
-    .header .nav-links a:hover {
-      color: #00ff99;
+    nav ul li a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #00FF99;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
 
+    nav ul li a:hover::after,
+    nav ul li a:focus::after {
+      width: 100%;
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle {
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .dark-mode-toggle:hover {
+      color: #00FF99;
+    }
+
+    /* Hamburger Menu Icon */
+    .hamburger {
+      display: none; /* Hidden on desktop */
+      width: 35px;
+      height: 30px;
+      position: relative;
+      cursor: pointer;
+      z-index: 1100; /* Ensure it's on top of the mobile-nav */
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger .bar {
+      width: 100%;
+      height: 4px;
+      background-color: #00FF99;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open .bar1 {
+      transform: rotate(45deg) translate(5px, 5px);
+      background-color: #00cc7a;
+    }
+
+    .hamburger.open .bar2 {
+      opacity: 0;
+    }
+
+    .hamburger.open .bar3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+      background-color: #00cc7a;
+    }
+
+    /* Mobile Navigation Menu */
+    .mobile-nav {
+      position: fixed;
+      top: 70px; /* Below the navbar */
+      right: 20px;
+      width: 250px;
+      background: rgba(0, 0, 0, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 25px;
+      transform: scale(0);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 2000; /* Higher than nav's z-index */
+      backdrop-filter: blur(10px);
+    }
+
+    .mobile-nav.open {
+      transform: scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      width: 100%;
+    }
+
+    .mobile-nav ul li a {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #00FF99;
+      transition: color 0.3s ease, transform 0.3s ease;
+      position: relative;
+      width: 100%;
+      padding-bottom: 5px;
+    }
+
+    .mobile-nav ul li a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: #00FF99;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .mobile-nav ul li a:hover::after,
+    .mobile-nav ul li a:focus::after {
+      width: 50%;
+    }
+
+    .mobile-nav ul li a:hover,
+    .mobile-nav ul li a:focus {
+      color: #00cc7a;
+      transform: scale(1.05);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .nav-container {
+        padding: 10px 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Show hamburger menu on mobile */
+      .hamburger {
+        display: flex;
+      }
+
+      /* Hide navigation links on mobile */
+      nav ul {
+        display: none;
+      }
+
+      /* Adjust Hero Section for Mobile */
+      .hero {
+        min-height: calc(100vh - 70px); /* Adjust height */
+        margin-top: 70px;
+      }
+
+      .hero-content {
+        padding: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .cta-btn, .learn-more-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .cta-btn, .learn-more-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Hero Section */
     .hero {
+      position: relative;
+      min-height: calc(100vh - 70px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: #fff;
       text-align: center;
-      padding: 120px 20px;
-      background: linear-gradient(to bottom, #0d0d0d, #121212);
-      color: #f4f4f4;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
 
     .hero h1 {
-      font-size: 4rem;
-      color: #00ff99;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #00FF99;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px rgba(0, 255, 153, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        text-shadow: 0 0 15px rgba(0, 255, 153, 0.7);
+      }
+      50% {
+        text-shadow: 0 0 25px rgba(0, 255, 153, 1);
+      }
     }
 
     .hero p {
-      font-size: 1.5rem;
-      margin-top: 20px;
+      font-size: 1.3rem;
       line-height: 1.8;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      color: #d4d4d4;
+      margin-bottom: 40px;
+      max-width: 700px;
     }
 
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn, .learn-more-btn {
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.3);
+      /* Initial states to ensure visibility */
+      opacity: 1; /* Added to ensure buttons are visible */
+      transform: translateY(0); /* Added to ensure buttons are in position */
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #00FF99, #00995e);
+      color: #000;
+      border: none;
+      font-weight: 700;
+    }
+
+    .cta-btn:hover,
+    .cta-btn:active,
+    .cta-btn:focus {
+      background: linear-gradient(135deg, #00cc7a, #006f4a);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+    }
+
+    .cta-btn .fa-arrow-right {
+      margin-left: 10px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .cta-btn:hover .fa-arrow-right,
+    .cta-btn:active .fa-arrow-right,
+    .cta-btn:focus .fa-arrow-right {
+      margin-left: 15px;
+    }
+
+    .learn-more-btn {
+      background: transparent;
+      color: #00FF99;
+      border: 2px solid #00FF99;
+    }
+
+    .learn-more-btn:hover,
+    .learn-more-btn:active,
+    .learn-more-btn:focus {
+      background: linear-gradient(135deg, #00FF99, #00995e);
+      color: #fff;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
+    }
+
+    /* Services Section */
     .services-container {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 40px 60px;
+      background: rgba(26, 26, 26, 0.9);
+      clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+      position: relative;
+      z-index: 2;
+      border-radius: 15px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .services-container::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(45deg, #00ff99, #00995e);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      z-index: -1;
     }
 
     .services-container h2 {
       text-align: center;
       color: #00ff99;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
+      font-size: 2.8rem;
+      margin-bottom: 60px;
       letter-spacing: 1.5px;
+      position: relative;
+    }
+
+    .services-container h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #00ff99;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
     }
 
     .service-card {
-      background: #121212;
-      margin: 20px 0;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      background: rgba(18, 18, 18, 0.95);
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .service-card:nth-child(odd) {
+      background: rgba(18, 18, 18, 0.95);
+    }
+
+    .service-card:nth-child(even) {
+      background: rgba(0, 255, 153, 0.1);
     }
 
     .service-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
     }
 
-    .service-card img {
-      width: 80px;
-      height: 80px;
+    .service-card .icon-placeholder {
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 255, 153, 0.2);
       border-radius: 50%;
-      background: #00ff99;
-      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      transition: background 0.3s ease;
     }
 
-    .service-info {
-      flex: 1;
+    .service-card .icon-placeholder img {
+      width: 60px;
+      height: 60px;
+      background: transparent;
     }
 
-    .service-info h3 {
+    .service-card:hover .icon-placeholder {
+      background: rgba(0, 153, 90, 0.2);
+    }
+
+    .service-card h3 {
       color: #00ff99;
       font-size: 1.8rem;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      transition: color 0.3s ease;
     }
 
-    .service-info p {
+    .service-card:hover h3 {
+      color: #00cc7a;
+    }
+
+    .service-card p {
       font-size: 1rem;
-      line-height: 1.6;
       color: #d4d4d4;
+      transition: color 0.3s ease;
     }
 
-    .cta-section {
-      text-align: center;
-      margin: 40px auto;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #121212, #1a1a1a);
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    .service-card:hover p {
+      color: #c0c0c0;
     }
 
-    .cta-section h2 {
-      font-size: 2.5rem;
-      color: #00ff99;
-      margin-bottom: 20px;
-      letter-spacing: 1.5px;
-    }
-
-    .cta-section p {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      line-height: 1.8;
-    }
-
-    .cta-section a {
-      text-decoration: none;
-      background: #00ff99;
-      color: #121212;
-      padding: 15px 30px;
-      border-radius: 8px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .cta-section a:hover {
-      background: #00995e;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
-    }
-
-    .footer {
-      background: #121212;
-      text-align: center;
-      padding: 20px;
-      color: #eaeaea;
-    }
-
-    .footer a {
-      color: #00ff99;
-      text-decoration: none;
-      margin: 0 15px;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header class="header">
-    <a href="index.html" class="logo">Kojib</a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="consulting.html">Start Your Journey</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Our Services</h1>
-    <p>
-      Empowering businesses and individuals with transformative technology and innovative solutions that inspire and create lasting impact.
-    </p>
-  </section>
-
-  <!-- Services Section -->
-  <div class="services-container">
-    <h2>Transformative Solutions for a Timeless Future</h2>
-
-    <!-- Service 1 -->
-    <div class="service-card">
-      <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling">
-      <div class="service-info">
-        <h3>Predictive Modeling</h3>
-        <p>
-          Harness the power of data to uncover actionable insights. Our solutions help businesses anticipate challenges, seize opportunities, and navigate the future with precision and confidence.
-        </p>
-      </div>
-    </div>
-
-    <!-- Service 2 -->
-    <div class="service-card">
-      <img src="image/creative-ai-icon.svg" alt="Creative AI Solutions">
-      <div class="service-info">
-        <h3>Creative AI Solutions</h3>
-        <p>
-          Unlock groundbreaking ideas with AI-driven tools that merge imagination and intelligence, inspiring innovation that transforms industries and lives.
-        </p>
-      </div>
-    </div>
-
-    <!-- Service 3 -->
-    <div class="service-card">
-      <img src="image/human-centric-icon.svg" alt="Human-Centric Design">
-      <div class="service-info">
-        <h3>Human-Centric Design</h3>
-        <p>
-          Deliver solutions that are intuitive, impactful, and aligned with the real needs of people. We prioritize empathy and usability to create experiences that transcend trends and resonate deeply.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- About Us Button Section -->
-  <div class="about-us-section">
-    <p>Want to learn more about Kojib and our mission?</p>
-    <a href="about.html" class="about-button">Discover More About Kojib</a>
-  </div>
-
-  <style>
+    /* About Us Button Section */
     .about-us-section {
       text-align: center;
-      margin: 40px 0;
-      padding: 20px 10px;
-      background: linear-gradient(145deg, #1a1a1a, #2e2e2e);
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      margin: 60px 20px;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(46, 46, 46, 0.95));
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
     }
 
     .about-us-section p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #f4f4f4;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
     }
 
     .about-button {
       display: inline-block;
       background: #00cc80;
       color: #121212;
-      padding: 10px 25px;
+      padding: 15px 40px;
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: 700;
       text-transform: uppercase;
-      border-radius: 5px;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
       transition: background 0.3s ease, transform 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .about-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .about-button:hover::before {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
     }
 
     .about-button:hover {
@@ -300,30 +644,732 @@
       background: #009e66;
       transform: scale(1);
     }
+
+    /* Call-to-Action Section */
+    .cta-section {
+      text-align: center;
+      margin: 80px 20px;
+      padding: 80px 20px;
+      background: rgba(18, 18, 18, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .cta-section h2 {
+      font-size: 2.8rem;
+      color: #00ff99;
+      margin-bottom: 30px;
+      letter-spacing: 1.5px;
+      position: relative;
+    }
+
+    .cta-section h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #00ff99;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .cta-section p {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      color: #d4d4d4;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #00ff99;
+      color: #121212;
+      padding: 15px 45px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%) rotate(45deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+      z-index: 0;
+    }
+
+    .cta-button:hover::after {
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+    }
+
+    .cta-button:hover {
+      background: #00b374;
+      box-shadow: 0 6px 25px rgba(0, 255, 153, 0.7);
+    }
+
+    .cta-button .fa-arrow-right {
+      margin-left: 10px;
+      transition: margin-left 0.3s ease;
+      z-index: 1;
+    }
+
+    .cta-button:hover .fa-arrow-right {
+      margin-left: 15px;
+    }
+
+    /* Footer Section */
+    footer {
+      width: 100%;
+      background: linear-gradient(135deg, #1e1e1e, #121212);
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 50px 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+      z-index: 8;
+      font-family: 'Roboto', sans-serif;
+      position: relative;
+    }
+
+    footer::before {
+      content: ""; /* Empty content for the divider */
+      display: block; /* Block-level element */
+      width: 80%; /* Limit the width of the divider */
+      height: 1px; /* Divider height */
+      background: rgba(255, 255, 255, 0.2); /* Subtle white divider */
+      margin: 0 auto 30px; /* Center and space it from footer content */
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      max-width: 80px;
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.4));
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo img:hover {
+      transform: scale(1.1);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-links a img {
+      width: 28px;
+      margin: 0 8px;
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.4));
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-links a:hover img {
+      transform: scale(1.3);
+      filter: drop-shadow(0 6px 20px rgba(0, 255, 153, 0.6));
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .footer-links ul li a {
+      text-decoration: none;
+      color: #00cc80;
+      font-weight: bold;
+      transition: color 0.3s ease;
+      margin: 0 5px;
+      font-size: 1rem;
+    }
+
+    .footer-links ul li a:hover {
+      color: #00ff99;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+    }
+
+    .footer-bottom p {
+      margin: 10px 0;
+      font-size: 0.95rem;
+      color: #d4d4d4;
+    }
+
+    .footer-bottom a {
+      color: #00cc80;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: #00b374;
+      text-decoration: underline;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #00ff99;
+      color: #121212;
+      padding: 14px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+      display: none;
+      z-index: 1000;
+    }
+
+    .scroll-top.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .scroll-top:hover {
+      background: #00995e;
+      transform: translateY(-5px);
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode nav {
+      background: rgba(34, 34, 34, 0.95);
+    }
+
+    body.dark-mode .services-container {
+      background: rgba(34, 34, 34, 0.95);
+    }
+
+    body.dark-mode .service-card {
+      background: rgba(34, 34, 34, 0.95);
+    }
+
+    body.dark-mode .about-us-section {
+      background: linear-gradient(135deg, rgba(34, 34, 34, 0.95), rgba(46, 46, 46, 0.95));
+    }
+
+    body.dark-mode .cta-section {
+      background: rgba(34, 34, 34, 0.95);
+    }
+
+    body.dark-mode footer {
+      background: linear-gradient(135deg, #2e2e2e, #1e1e1e);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Prevent body from scrolling when mobile menu is open */
+    .no-scroll {
+      overflow: hidden;
+    }
   </style>
+</head>
+<body>
+  
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="/" class="logo" aria-label="Kojib Home">
+        <img src="image/logo.svg" alt="Kojib Logo" loading="lazy">
+      </a>
+      <!-- Navigation Links -->
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+        <li><a href="/consulting.html">Start Your Journey</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <!-- Dark Mode Toggle -->
+      <div class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode" tabindex="0">
+        <i class="fas fa-moon"></i>
+      </div>
+      <!-- Hamburger Menu Icon -->
+      <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <ul>
+      <li><a href="/" class="mobile-link">Home</a></li>
+      <li><a href="/about.html" class="mobile-link">About</a></li>
+      <li><a href="/faq.html" class="mobile-link">FAQ</a></li>
+      <li><a href="/consulting.html" class="mobile-link">Start Your Journey</a></li>
+      <li><a href="/contact.html" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div id="heroParticles"></div>
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Our Services</h1>
+        <p>
+          Empowering innovators, creators, and dreamers with cutting-edge technology and strategic insights to transform ideas into reality.
+        </p>
+        <div class="hero-buttons">
+          <a href="consulting.html" class="cta-btn">
+            Start Your Journey <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#services" class="learn-more-btn">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Section -->
+    <div class="services-container" id="services">
+      <h2>Our Core Services</h2>
+      <div class="services-grid">
+        <!-- Service 1: Predictive Modeling -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon-placeholder">
+            <img src="image/predictive-modeling-icon.svg" alt="Predictive Modeling Icon" loading="lazy">
+          </div>
+          <h3>Predictive Modeling</h3>
+          <p>
+            Harness the power of data to uncover actionable insights. Our solutions help businesses anticipate challenges, seize opportunities, and navigate the future with precision and confidence.
+          </p>
+        </div>
 
-  <!-- Call-to-Action Section -->
-  <section class="cta-section">
-    <h2>Take Your Business to the Next Level</h2>
-    <p>
-      Ready to transform your vision into reality? Partner with Kojib to unlock innovative solutions that will elevate your business, drive growth, and set you apart in a competitive market. The future of your success begins here.
-    </p>
-    <a href="consulting.html" class="cta-button">Start Your Journey</a>
-  </section>
+        <!-- Service 2: Creative AI Solutions -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon-placeholder">
+            <img src="image/creative-ai-icon.svg" alt="Creative AI Solutions Icon" loading="lazy">
+          </div>
+          <h3>Creative AI Solutions</h3>
+          <p>
+            Unlock groundbreaking ideas with AI-driven tools that merge imagination and intelligence, inspiring innovation that transforms industries and lives.
+          </p>
+        </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="terms-of-service.html">Terms of Service</a> |
-      <a href="privacy-policy.html">Privacy Policy</a>
-    </nav>
+        <!-- Service 3: Human-Centric Design -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="icon-placeholder">
+            <img src="image/human-centric-icon.svg" alt="Human-Centric Design Icon" loading="lazy">
+          </div>
+          <h3>Human-Centric Design</h3>
+          <p>
+            Deliver solutions that are intuitive, impactful, and aligned with the real needs of people. We prioritize empathy and usability to create experiences that transcend trends and resonate deeply.
+          </p>
+        </div>
+
+        <!-- Service 4: Data Analytics & Insights -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="800">
+          <div class="icon-placeholder">
+            <img src="image/data-analytics.svg" alt="Data Analytics & Insights Icon" loading="lazy">
+          </div>
+          <h3>Data Analytics & Insights</h3>
+          <p>
+            Transform raw data into actionable insights with our comprehensive analytics services. Make informed decisions, identify trends, and optimize your strategies to achieve your business goals.
+          </p>
+        </div>
+
+        <!-- Service 5: Collaborative Platforms -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="1000">
+          <div class="icon-placeholder">
+            <img src="image/collaborative-platform.svg" alt="Collaborative Platforms Icon" loading="lazy">
+          </div>
+          <h3>Collaborative Platforms</h3>
+          <p>
+            Enhance teamwork and project management with our intuitive collaborative platforms. Share documents, track progress, and communicate seamlessly with your team members from anywhere in the world.
+          </p>
+        </div>
+
+        <!-- Service 6: Cybersecurity Solutions -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="1200">
+          <div class="icon-placeholder">
+            <img src="image/cybersecurity.svg" alt="Cybersecurity Solutions Icon" loading="lazy">
+          </div>
+          <h3>Cybersecurity Solutions</h3>
+          <p>
+            Protect your digital assets with our robust cybersecurity services. We offer comprehensive protection against threats, ensuring your data remains secure and your operations uninterrupted.
+          </p>
+        </div>
+
+        <!-- Service 7: Cloud Integration -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="1400">
+          <div class="icon-placeholder">
+            <img src="image/cloud-integration.svg" alt="Cloud Integration Icon" loading="lazy">
+          </div>
+          <h3>Cloud Integration</h3>
+          <p>
+            Seamlessly integrate cloud technologies into your infrastructure. Our cloud solutions offer scalability, flexibility, and enhanced collaboration, empowering your business to adapt and grow efficiently.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- About Us Button Section -->
+    <div class="about-us-section" data-aos="fade-up" data-aos-delay="1600">
+      <p>Want to learn more about Kojib and our mission?</p>
+      <a href="about.html" class="about-button">Discover More About Kojib</a>
+    </div>
+    
+    <!-- Call-to-Action Section -->
+    <section class="cta-section" id="cta" data-aos="fade-up" data-aos-delay="1800">
+      <h2>Take Your Business to the Next Level</h2>
+      <p>
+        Ready to transform your vision into reality? Partner with Kojib to unlock innovative solutions that will elevate your business, drive growth, and set you apart in a competitive market. The future of your success begins here.
+      </p>
+      <a href="consulting.html" class="cta-button">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+    </section>
+  </main>
+  
+  <!-- Footer Section -->
+  <footer>
+    <!-- Footer Content -->
+    <div class="footer-content">
+      <!-- Footer Logo -->
+      <div class="footer-logo">
+        <img src="image/logo.svg" alt="Kojib Logo" loading="lazy">
+      </div>
+      
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
+          <img src="image/twitter-icon.svg" alt="Twitter">
+        </a>
+        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+          <img src="image/instagram-icon.svg" alt="Instagram">
+        </a>
+        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+          <img src="image/linkedin-icon.svg" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+          <img src="image/github-logo.svg" alt="GitHub">
+        </a>
+      </div>
+      
+      <!-- Navigation Links -->
+      <div class="footer-links">
+        <ul>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/developers.html">Developers</a></li>
+          <li><a href="/careers.html">Careers</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="https://app.kojib.com/entry">Login</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p>Designed with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by Kojib</p>
+      <p>
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="cookie-policy.html">Cookie Policy</a> | 
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </p>
+    </div>
+    
+    <!-- JavaScript to set the current year -->
+    <script>
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
   </footer>
 
+  <!-- Scroll to Top Button -->
+  <div class="scroll-top" id="scrollTop" aria-label="Scroll to top" tabindex="0" role="button">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <!-- Main JavaScript -->
   <script>
-    // JavaScript to set the current year
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    // tsParticles Configuration for Enhanced Particle Effects
+    tsParticles.load("heroParticles", {
+      "fpsLimit": 60,
+      "background": {
+        "color": {
+          "value": "transparent"
+        }
+      },
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#00FF99"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.6,
+          "random": true,
+          "anim": {
+            "enable": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false
+          }
+        },
+        "links": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00FF99",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 100,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // GSAP Animations for Hero Section
+    gsap.from(".hero-content h1", { 
+      duration: 1.5, 
+      y: -50, 
+      opacity: 0, 
+      ease: "bounce.out" 
+    });
+    gsap.from(".hero-content p", { 
+      duration: 1.5, 
+      y: 50, 
+      opacity: 0, 
+      delay: 0.5 
+    });
+    // **Fixed GSAP Animation for Hero Buttons**
+    gsap.to(".hero-buttons a", { 
+      duration: 1.5, 
+      y: 0, 
+      opacity: 1, 
+      stagger: 0.3, 
+      delay: 1 
+    });
+
+    // Sticky Navbar Background Change on Scroll and Scroll to Top Button Visibility
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      const scrollTopBtn = document.getElementById('scrollTop');
+
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event from bubbling up to window
+      hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+      document.body.classList.toggle('no-scroll');
+      // Toggle aria-expanded attribute for accessibility
+      const isExpanded = hamburger.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', isExpanded);
+      mobileNav.setAttribute('aria-hidden', !isExpanded);
+    });
+
+    // Enable keyboard accessibility for Hamburger Menu
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburger.click();
+      }
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+        hamburger.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      });
+    });
+
+    // Close mobile menu when clicking outside the menu
+    window.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+        hamburger.setAttribute('aria-expanded', false);
+        mobileNav.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // Scroll to Top Button Functionality
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Enable keyboard accessibility for Scroll to Top Button
+    scrollTopBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        scrollTopBtn.click();
+      }
+    });
+
+    // Dark Mode Toggle Functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      darkModeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+
+    // Enable keyboard accessibility for Dark Mode Toggle
+    darkModeToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        darkModeToggle.click();
+      }
+    });
+
+    // Set Current Year in Footer
     document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
+  
 </body>
 </html>

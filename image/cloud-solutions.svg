@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title" fill="none">
+  <title>Cloud Solutions</title>
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="cloudGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#E0F2FF" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgGradient)" />
+
+  <!-- Cloud Shapes -->
+  <g>
+    <!-- Main Cloud -->
+    <ellipse cx="200" cy="200" rx="100" ry="60" fill="url(#cloudGradient)" />
+    <ellipse cx="260" cy="200" rx="80" ry="50" fill="url(#cloudGradient)" />
+    <ellipse cx="150" cy="220" rx="90" ry="55" fill="url(#cloudGradient)" />
+
+    <!-- Smaller Cloud -->
+    <ellipse cx="90" cy="120" rx="60" ry="35" fill="url(#cloudGradient)" opacity="0.8" />
+    <ellipse cx="130" cy="120" rx="50" ry="30" fill="url(#cloudGradient)" opacity="0.8" />
+  </g>
+
+  <!-- Circuit Connections -->
+  <g stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M200 260 L200 310" /> <!-- Vertical connection -->
+    <circle cx="200" cy="310" r="5" fill="#94A3B8" />
+
+    <path d="M90 180 L50 150" /> <!-- Left diagonal connection -->
+    <circle cx="50" cy="150" r="5" fill="#94A3B8" />
+
+    <path d="M310 180 L350 150" /> <!-- Right diagonal connection -->
+    <circle cx="350" cy="150" r="5" fill="#94A3B8" />
+
+    <path d="M150 260 L150 300" /> <!-- Small vertical connection -->
+    <circle cx="150" cy="300" r="5" fill="#94A3B8" />
+  </g>
+
+  <!-- Glow Effect -->
+  <g>
+    <circle cx="200" cy="200" r="130" fill="rgba(59, 130, 246, 0.15)" />
+    <circle cx="200" cy="200" r="140" fill="rgba(59, 130, 246, 0.1)" />
+  </g>
+
+  <!-- Cloud Icon Overlay -->
+  <g transform="translate(125, 90)">
+    <path d="M60 30 C70 10, 110 10, 120 30 C150 40, 150 70, 120 80 H40 C10 80, 10 40, 40 30 Z" fill="#2563EB" />
+    <circle cx="60" cy="50" r="10" fill="#ffffff" />
+  </g>
+
+  <!-- Footer Text -->
+  <text x="50%" y="370" text-anchor="middle" fill="#E0F2FF" font-size="18" font-family="Arial, sans-serif">
+    Cloud Solutions: Scaling Your Digital Future
+  </text>
+</svg>
