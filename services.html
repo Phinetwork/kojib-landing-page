@@ -1096,55 +1096,53 @@
   </main>
   
   <!-- Footer Section -->
+ 
   <footer>
-    <!-- Footer Content -->
-    <div class="footer-content">
-      <!-- Footer Logo -->
-      <div class="footer-logo">
-        <img src="image/logo.svg" alt="Kojib Logo" loading="lazy">
-      </div>
-      
-      <!-- Social Media Links -->
-      <div class="social-links">
-        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
-          <img src="image/twitter-icon.svg" alt="Twitter">
-        </a>
-        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
-          <img src="image/instagram-icon.svg" alt="Instagram">
-        </a>
-        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
-          <img src="image/linkedin-icon.svg" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
-          <img src="image/github-logo.svg" alt="GitHub">
-        </a>
-      </div>
-      
-      <!-- Navigation Links -->
-      <div class="footer-links">
-        <ul>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/developers.html">Developers</a></li>
-          <li><a href="/careers.html">Careers</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="https://app.kojib.com/entry">Login</a></li>
-        </ul>
-      </div>
+    <!-- logo -->
+    <div class="footer-logo" style="margin-bottom: 20px;">
+      <img src="image/logo.svg" alt="Kojib Logo">
     </div>
-    
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-      <p>Designed with <i class="fas fa-heart" style="color: #ff4d4d;"></i> by Kojib</p>
-      <p>
-        <a href="terms-of-service.html">Terms of Service</a> | 
-        <a href="cookie-policy.html">Cookie Policy</a> | 
-        <a href="privacy-policy.html">Privacy Policy</a>
+    <!-- Social Media Links -->
+    <div class="social-links" style="margin-bottom: 10px;">
+      <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+        <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+        <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+        <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+        <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
+      </a>
+    </div>
+  
+    <!-- Navigation Links -->
+    <div class="footer-links" style="margin-bottom: 20px;">
+      <p style="margin: 8px 0;">
+        <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
+        <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
+        <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
+        <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
+        <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
+        <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
       </p>
     </div>
-    
-    <!-- JavaScript to set the current year -->
+  
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="margin-top: 10px;">
+      <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
+      <p style="margin: 8px 0;">
+        <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
+        <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
+        <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
+      </p>
+    </div>
+  
     <script>
+      // JavaScript to set the current year
       document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
   </footer>
