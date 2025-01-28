@@ -1,1072 +1,1241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover Kojib's Vision - Pioneering the future of innovation, technology, and human empowerment.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO Meta Tags -->
   <title>Our Vision - Kojib</title>
-  
+  <meta
+    name="description"
+    content="Explore Kojib's cosmic vision for a future where innovation, harmony, and human potential unite to shape a brighter world."
+  />
+  <meta
+    name="keywords"
+    content="Kojib Vision, Innovation, AI, Technology, Cosmic Harmony, Unified Field Theory"
+  />
+  <meta name="author" content="Kojib" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://kojib.com/vision.html" />
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Our Vision - Kojib" />
+  <meta
+    property="og:description"
+    content="Explore Kojib's cosmic vision for a future where innovation, harmony, and human potential unite to shape a brighter world."
+  />
+  <meta
+    property="og:image"
+    content="https://kojib.com/assets/og-image-vision.jpg"
+  />
+  <meta property="og:url" content="https://kojib.com/vision.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kojib" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Vision - Kojib" />
+  <meta
+    name="twitter:description"
+    content="Explore Kojib's cosmic vision for a future where innovation, harmony, and human potential unite to shape a brighter world."
+  />
+  <meta
+    name="twitter:image"
+    content="https://kojib.com/assets/twitter-card-vision.jpg"
+  />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kojib",
+    "url": "https://kojib.com",
+    "logo": "https://kojib.com/image/logo.png",
+    "description": "Blending technology with creativity to empower innovators and shape a brighter future.",
+    "sameAs": [
+      "https://twitter.com/kojib_com",
+      "https://www.linkedin.com/company/kojib",
+      "https://instagram.com/kojib_com",
+      "https://github.com/kojibai"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-800-123-4567",
+      "contactType": "Customer Support",
+      "areaServed": "US"
+    }
+  }
+  </script>
+
   <!-- Favicon -->
-  <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml">
-  
-  <!-- Google Fonts for Enhanced Typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- AOS Library for Animations -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
-  
+  <link
+    rel="icon"
+    href="https://kojib.com/favicon/favicon.svg"
+    type="image/svg+xml"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="https://kojib.com/favicon/favicon-32x32.png"
+  />
+  <link rel="apple-touch-icon" href="https://kojib.com/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Preconnect and DNS Prefetch for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Google Fonts & Font Awesome -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- AOS Library (Animate on Scroll) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    rel="stylesheet"
+  />
+
+  <!-- tsParticles Library (Dynamic Particles) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"
+    defer
+  ></script>
+
+  <!-- GSAP for Animations -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+    defer
+  ></script>
+
+  <!-- Main CSS -->
   <style>
-    /* Reset & Base Styles */
-    *, *::before, *::after {
+    /* RESET & BASE */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-    
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #121212;
-      color: #f4f4f4;
+      font-family: "Poppins", sans-serif;
+      background: #0d0d0d; /* Dark background */
+      color: #eaeaea;
       line-height: 1.6;
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      padding-top: 70px; /* space for navbar */
     }
-    
     a {
       color: inherit;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    
-    a:hover {
-      color: #00cc80;
-    }
-    
     img {
       max-width: 100%;
-      height: auto;
       display: block;
+      loading: lazy;
     }
-    
-    /* Header Styling */
-    header {
-      background-color: #1c1c1c;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    nav {
+      background: rgba(0, 0, 0, 0.85);
+      position: fixed;
       top: 0;
+      width: 100%;
+      height: 70px;
       z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 153, 0.2);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
-    
-    header.scrolled {
-      background-color: #111;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 255, 153, 0.3);
     }
-    
-    .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #00cc80;
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 10px 40px;
     }
-    
     .logo img {
-      width: 40px;
-      margin-right: 10px;
+      height: 50px;
+      transition: transform 0.3s ease;
     }
-    
-    .menu {
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+    nav ul {
+      list-style: none;
       display: flex;
       gap: 25px;
     }
-    
-    .menu a {
+    nav ul li a {
       font-size: 1rem;
       font-weight: 500;
       position: relative;
+      padding-bottom: 5px;
     }
-    
-    .menu a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
+    nav ul li a::after {
+      content: "";
+      display: block;
+      width: 0;
       height: 2px;
-      background: #00cc80;
+      background: #00ff99;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
       left: 0;
-      bottom: -5px;
-      transition: width 0.3s ease;
     }
-    
-    .menu a:hover::after {
+    nav ul li a:hover::after {
       width: 100%;
     }
-    
-    .menu a:hover,
-    .menu a:focus {
-      color: #00cc80;
-      transform: translateY(-2px);
-    }
-    
-    /* Hamburger Styling */
+
+    /* HAMBURGER (MOBILE) */
     .hamburger {
-      display: none;
+      display: none; /* hidden on desktop */
+      width: 35px;
+      height: 30px;
+      position: relative;
+      cursor: pointer;
+      z-index: 1100;
+      transition: transform 0.3s ease;
       flex-direction: column;
       justify-content: space-between;
-      width: 25px;
-      height: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
     }
-    
-    .hamburger:focus {
-      outline: none;
-    }
-    
-    .hamburger span {
-      display: block;
-      height: 3px;
+    .hamburger .bar {
       width: 100%;
-      background: #00cc80;
-      border-radius: 3px;
-      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      height: 4px;
+      background-color: #00ff99;
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
-    
-    .hamburger.open span:nth-child(1) {
+    .hamburger.open .bar1 {
       transform: rotate(45deg) translate(5px, 5px);
+      background-color: #00cc7a;
     }
-    
-    .hamburger.open span:nth-child(2) {
+    .hamburger.open .bar2 {
       opacity: 0;
     }
-    
-    .hamburger.open span:nth-child(3) {
+    .hamburger.open .bar3 {
       transform: rotate(-45deg) translate(5px, -5px);
+      background-color: #00cc7a;
     }
-    
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #1c1c1c;
-      position: absolute;
+
+    /* MOBILE NAV */
+    .mobile-nav {
+      position: fixed;
       top: 70px;
       right: 20px;
-      width: 220px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      z-index: 999;
-      overflow: hidden;
-      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
-      max-height: 0;
-      opacity: 0;
-    }
-    
-    .mobile-menu.open {
+      width: 250px;
+      background: rgba(0, 0, 0, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 255, 153, 0.1);
       display: flex;
-      max-height: 500px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 25px;
+      transform: scale(0);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 2000;
+      backdrop-filter: blur(10px);
+    }
+    .mobile-nav.open {
+      transform: scale(1);
       opacity: 1;
+      visibility: visible;
     }
-    
-    .mobile-menu a {
-      padding: 15px;
-      border-bottom: 1px solid #333;
-      color: #f4f4f4;
-      text-align: center;
-      transition: background-color 0.3s ease, color 0.3s ease;
+    .mobile-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      width: 100%;
     }
-    
-    .mobile-menu a:last-child {
-      border-bottom: none;
+    .mobile-nav ul li a {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #00ff99;
+      position: relative;
+      width: 100%;
+      padding-bottom: 5px;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
-    
-    .mobile-menu a:hover,
-    .mobile-menu a:focus {
-      background-color: #00cc80;
-      color: #000;
+    .mobile-nav ul li a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 3px;
+      background: #00ff99;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
-    
+    .mobile-nav ul li a:hover::after {
+      width: 50%;
+    }
+    .mobile-nav ul li a:hover {
+      color: #00cc7a;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
-      .menu {
-        display: none;
-      }
-    
       .hamburger {
         display: flex;
       }
+      nav ul {
+        display: none; /* hide main nav on mobile */
+      }
     }
-    
-    /* Hero Section */
-    .hero {
+
+    /* HERO / VISION HEADING */
+    .vision-hero {
       position: relative;
-      height: 90vh;
+      text-align: center;
+      padding: 60px 20px;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: transparent;
-      color: #fff;
-      text-align: center;
       overflow: hidden;
-      margin-top: 70px;
     }
-    
-    .hero::before {
-      content: '';
+    #heroParticles {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
+      z-index: 0;
     }
-    
     .hero-content {
       position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 20px;
-      animation: fadeInUp 1s ease-out;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    
     .hero-content h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: #00FF99;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px rgba(0, 255, 153, 0.7);
-    }
-    
-    .hero-content p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #d4d4d4;
-      margin-bottom: 30px;
-    }
-    
-    /* Vision Section */
-    .vision-section {
-      padding: 60px 20px;
-      background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
-      text-align: center;
-      animation: fadeIn 1s ease-out;
-    }
-    
-    .vision-section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      color: #00FF99;
-      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 3.4rem;
+      color: #00ff99;
+      margin-bottom: 25px;
       text-transform: uppercase;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      text-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
+      animation: neonPulse 2s infinite;
     }
-    
-    .vision-section p {
-      max-width: 800px;
-      margin: 0 auto 40px auto;
-      font-size: 1.1rem;
-      color: #e0e0e0;
+    @keyframes neonPulse {
+      0%,
+      100% {
+        text-shadow: 0 0 20px rgba(0, 255, 153, 0.4);
+      }
+      50% {
+        text-shadow: 0 0 30px rgba(0, 255, 153, 0.8);
+      }
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      color: #d4d4d4;
       line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 40px;
     }
-    
+
+    /* GLASSY SECTIONS (Use only AOS for animation; remove local fadeUp) */
+    .glassy-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      margin: 40px 20px;
+      padding: 50px 40px;
+      transition: box-shadow 0.3s ease;
+    }
+    .glassy-section:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.3);
+    }
+    .glassy-section h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.5rem;
+      color: #00ff99;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      position: relative;
+      text-align: center;
+    }
+    .glassy-section h2::after {
+      content: "";
+      width: 90px;
+      height: 4px;
+      background: #00ff99;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .glassy-section p {
+      font-size: 1.1rem;
+      color: #d4d4d4;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+
+    /* GRID CONTAINERS FOR VISION CARDS */
     .vision-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 30px;
-      margin-top: 30px;
+      margin-top: 40px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      align-items: start;
     }
-    
     .vision-card {
-      background: #1a1a1a;
-      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 255, 153, 0.15);
+      padding: 30px 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
-      border: 1px solid #444;
-      box-shadow: 0 4px 10px rgba(0, 255, 153, 0.2);
     }
-    
-    .vision-card:hover,
-    .vision-card:focus {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 25px rgba(0, 255, 153, 0.3);
+    .vision-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0, 255, 153, 0.2);
     }
-    
     .vision-card i {
       font-size: 2rem;
-      color: #00FF99;
+      color: #00ff99;
       margin-bottom: 15px;
     }
-    
     .vision-card h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      color: #00FF99;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.6rem;
+      color: #00ff99;
       margin-bottom: 15px;
+      text-transform: uppercase;
     }
-    
     .vision-card p {
+      color: #d4d4d4;
       font-size: 1rem;
-      color: #ccc;
       line-height: 1.6;
     }
-    
-    /* Inspirational Quote Section */
-    .quote-section {
-      background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
-      padding: 60px 20px;
-      text-align: center;
-      color: #e0e0e0;
-      animation: fadeIn 1s ease-out;
-    }
-    
-    .quote-section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      color: #00cc80;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-    }
-    
-    .quote-section p {
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #d4d4d4;
-    }
-    
-    /* Call-to-Action Section */
+
+    /* CTA SECTION (Use only AOS) */
     .cta-section {
-      background: linear-gradient(145deg, #1a1a1a, #2e2e2e);
-      color: #f4f4f4;
+      margin: 60px 20px;
+      padding: 70px 30px;
       text-align: center;
-      padding: 60px 30px;
-      margin: 50px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
       border-radius: 15px;
-      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.7);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeIn 1s ease-out;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
-    
     .cta-section:hover {
-      transform: scale(1.02);
-      box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.3);
+      transform: translateY(-3px);
     }
-    
     .cta-section h2 {
-      font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
-      color: #00FF99;
-      margin-bottom: 20px;
+      color: #00ff99;
       text-transform: uppercase;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      margin-bottom: 30px;
+      position: relative;
     }
-    
+    .cta-section h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #00ff99;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
     .cta-section p {
       font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 30px;
       color: #d4d4d4;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
     }
-    
-    .cta-section .cta-button {
+    .gorgeous-btn {
       display: inline-block;
-      padding: 15px 30px;
-      background: #00FF99;
-      color: #121212;
+      padding: 15px 40px;
       font-size: 1.2rem;
       font-weight: bold;
-      text-transform: uppercase;
+      background: linear-gradient(135deg, #00ff99, #00995e);
+      color: #000;
+      border: none;
       border-radius: 30px;
-      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0px 5px 15px rgba(0, 255, 153, 0.4);
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 255, 153, 0.3);
     }
-    
-    .cta-section .cta-button:hover {
-      background: #00cc80;
+    .gorgeous-btn:hover {
+      background: linear-gradient(135deg, #00cc7a, #006f4a);
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 255, 153, 0.6);
+      box-shadow: 0 8px 25px rgba(0, 255, 153, 0.4);
     }
-    
-    .cta-section .cta-button i {
+    .gorgeous-btn i {
+      margin-left: 8px;
       transition: margin-left 0.3s ease;
     }
-    
-    .cta-section .cta-button:hover i {
-      margin-left: 10px;
+    .gorgeous-btn:hover i {
+      margin-left: 14px;
     }
-    
-    /* Footer Styling */
+
+    /* FOOTER */
     footer {
-      position: relative;
       width: 100%;
-      background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027);
+      background: linear-gradient(135deg, #1e1e1e, #121212);
       color: rgba(255, 255, 255, 0.8);
       text-align: center;
-      padding: 40px 20px;
-      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+      padding: 50px 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
       z-index: 8;
-      font-family: 'Inter', sans-serif;
+      font-family: "Roboto", sans-serif;
+      margin-top: auto;
     }
-    
-    /* Footer Content Styling */
-    footer .footer-content {
-      max-width: 1200px;
+    footer::before {
+      content: "";
+      display: block;
+      width: 80%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 0 auto 30px;
+    }
+    .footer-content {
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-      padding: 10px 20px;
-      text-align: center;
-      position: relative;
-      z-index: 9;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px;
     }
-    
-    /* Footer Logo */
     .footer-logo img {
-      max-width: 60px;
+      max-width: 80px;
       height: auto;
       margin: 0 auto;
-      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.2));
       transition: transform 0.3s ease;
     }
-    
     .footer-logo img:hover {
       transform: scale(1.1);
     }
-    
-    /* Social Media Links */
     .social-links {
       display: flex;
-      gap: 20px;
+      gap: 25px;
+      align-items: center;
       justify-content: center;
     }
-    
-    .social-links a {
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    
     .social-links a img {
-      width: 40px;
-      height: 40px;
-      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      width: 28px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.2));
     }
-    
-    .social-links a:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
+    .social-links a:hover img {
+      transform: scale(1.3);
+      filter: drop-shadow(0 6px 20px rgba(0, 255, 153, 0.4));
     }
-    
-    /* Footer Links */
     .footer-links ul {
       list-style: none;
-      padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
       justify-content: center;
+      padding: 0;
     }
-    
     .footer-links ul li a {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.8);
+      color: #00cc80;
       font-weight: bold;
+      font-size: 1rem;
       transition: color 0.3s ease;
     }
-    
     .footer-links ul li a:hover {
       color: #00ff99;
     }
-    
-    /* Footer Bottom */
     .footer-bottom {
-      margin-top: 10px;
+      margin-top: 30px;
     }
-    
     .footer-bottom p {
-      margin: 8px 0;
-      font-size: 0.9rem;
+      margin: 10px 0;
+      font-size: 0.95rem;
       color: #d4d4d4;
     }
-    
     .footer-bottom a {
       color: #00cc80;
-      margin: 0 5px;
+      margin: 0 8px;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    
     .footer-bottom a:hover {
       color: #00b374;
       text-decoration: underline;
     }
-    
-    /* Chatbot Button */
-    #chatbot-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #00ff99;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      z-index: 1000;
-      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-    }
-    
-    #chatbot-button:hover {
-      transform: scale(1.1);
-      background: #00cc80;
-    }
-    
-    #chatbot-button img {
-      width: 30px;
-      height: 30px;
-      pointer-events: none;
-    }
-    
-    /* Chatbot Window */
-    #chatbot {
-      position: fixed;
-      bottom: 100px;
-      right: 20px;
-      width: 350px;
-      max-width: 90%;
-      height: 500px;
-      max-height: 80%;
-      background: #1c1c1c;
-      color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: none;
-      flex-direction: column;
-      z-index: 1001;
+
+    /* PREVENT SCROLLING WHEN MOBILE NAV IS OPEN */
+    .no-scroll {
       overflow: hidden;
-      animation: fadeIn 0.5s ease-out;
     }
-    
-    /* Chatbot Header */
-    #chatbot-header {
-      background: #00ff99;
-      color: black;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-      position: relative;
-    }
-    
-    #chatbot-header button {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      background: transparent;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: black;
-      transition: transform 0.2s ease;
-    }
-    
-    #chatbot-header button:hover {
-      transform: scale(1.2);
-    }
-    
-    /* Chatbot Messages */
-    #chatbot-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 10px;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      scrollbar-width: thin;
-      scrollbar-color: #00ff99 #222;
-    }
-    
-    #chatbot-messages::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    #chatbot-messages::-webkit-scrollbar-track {
-      background: #222;
-    }
-    
-    #chatbot-messages::-webkit-scrollbar-thumb {
-      background: #00ff99;
-      border-radius: 5px;
-    }
-    
-    #chatbot-messages .message {
-      margin-bottom: 10px;
-      word-wrap: break-word;
-    }
-    
-    #chatbot-messages .user {
-      text-align: right;
-      color: #00ff99;
-    }
-    
-    #chatbot-messages .bot {
-      text-align: left;
-      color: white;
-    }
-    
-    /* Loading Bubbles */
-    #loading-indicator {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-    }
-    
-    .bubbles {
-      display: flex;
-      gap: 6px;
-    }
-    
-    .bubbles span {
-      width: 10px;
-      height: 10px;
-      background: #00cc80;
-      border-radius: 50%;
-      animation: bounce 1.5s infinite ease-in-out;
-    }
-    
-    .bubbles span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-    
-    .bubbles span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-    
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-    
-    /* Chatbot Input Section */
-    #chatbot-input {
-      padding: 10px;
-      display: flex;
-      gap: 10px;
-      background: #333;
-      align-items: center;
-    }
-    
-    #chatbot-input textarea {
-      flex: 1;
-      resize: none;
-      padding: 10px;
-      border: 1px solid #555;
-      border-radius: 5px;
-      background: #222;
-      color: white;
-      font-family: inherit;
-      font-size: 0.9rem;
-    }
-    
-    #chatbot-input button {
-      background: #00ff99;
-      border: none;
-      padding: 10px 15px;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    
-    #chatbot-input button:hover {
-      background: #00cc80;
-      transform: scale(1.05);
-    }
-    
-    /* Responsive Adjustments */
+
+    /* RESPONSIVE TWEAKS */
     @media (max-width: 768px) {
-      .vision-grid {
-        grid-template-columns: 1fr;
-      }
-    
-      .cta-section {
-        padding: 40px 15px;
-      }
-    
-      .cta-section h2 {
-        font-size: 2rem;
-      }
-    
-      .cta-section p {
-        font-size: 1rem;
-      }
-    
-      .cta-section .cta-button {
-        padding: 12px 25px;
-        font-size: 1rem;
-      }
-    
-      /* Footer Adjustments for Mobile */
-      footer .footer-links ul {
-        flex-direction: column;
-        gap: 10px;
-      }
-    
-      footer .footer-links ul li a {
-        margin: 0;
-      }
-    
-      .footer-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-    
-      .social-links {
-        gap: 15px;
-      }
-    }
-    
-    @media (max-width: 480px) {
       .hero-content h1 {
         font-size: 2.5rem;
       }
-    
-      .vision-section h2 {
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      .glassy-section {
+        margin: 30px 15px;
+        padding: 40px 20px;
+      }
+      .glassy-section h2 {
         font-size: 2rem;
       }
-    
-      .vision-section p {
+      .glassy-section p {
         font-size: 1rem;
       }
-    
-      .vision-card h3 {
-        font-size: 1.5rem;
+      .vision-grid {
+        grid-template-columns: 1fr; /* or auto-fit minmax(220px,1fr) */
       }
-    
+      .cta-section {
+        margin: 40px 15px;
+        padding: 50px 20px;
+      }
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+      .cta-section p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 0.95rem;
+      }
+      .vision-card h3 {
+        font-size: 1.3rem;
+      }
       .cta-section h2 {
         font-size: 1.8rem;
       }
-    
       .cta-section p {
         font-size: 0.95rem;
       }
-    
-      .cta-section .cta-button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
-    
-      /* Further Footer Adjustments for Very Small Screens */
-      .social-links a img {
-        width: 30px;
-      }
-    
-      footer .footer-links ul li a {
-        font-size: 0.9rem;
-      }
-    
-      footer p {
-        font-size: 0.8rem;
+      .gorgeous-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
       }
     }
+
     
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+/* Chatbot Button */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #00ff99;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+#chatbot-button:hover {
+    transform: scale(1.1);
+    background: #00cc80;
+}
+
+#chatbot-button img {
+    width: 30px;
+    height: 30px;
+    pointer-events: none; /* Ensure clicks don't affect the image */
+}
+
+/* Chatbot Window */
+#chatbot {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 350px;
+    max-width: 90%; /* Ensure responsiveness for smaller screens */
+    height: 500px;
+    max-height: 70%; /* Adjust height for smaller screens */
+    background: #1c1c1c;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+/* Chatbot Header */
+#chatbot-header {
+    background: #00ff99;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+#chatbot-header button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    transition: transform 0.2s ease;
+}
+
+#chatbot-header button:hover {
+    transform: scale(1.2);
+}
+
+/* Chatbot Messages */
+#chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    scrollbar-width: thin; /* For modern browsers */
+    scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+}
+
+#chatbot-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chatbot-messages::-webkit-scrollbar-track {
+    background: #222;
+}
+
+#chatbot-messages::-webkit-scrollbar-thumb {
+    background: #00ff99;
+    border-radius: 5px;
+}
+
+#chatbot-messages .message {
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Ensure long messages don't overflow */
+}
+
+#chatbot-messages .user {
+    text-align: right;
+    color: #00ff99;
+}
+
+#chatbot-messages .bot {
+    text-align: left;
+    color: white;
+}
+
+/* Loading Bubbles */
+#loading-indicator {
+    display: none; /* Hidden by default */
+    text-align: center;
+    margin: 10px 0;
+}
+
+#loading-indicator .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    background-color: #00ff99;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.2s infinite;
+}
+
+#loading-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#loading-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
     }
-    
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      100% {
-        opacity: 1;
+    40% {
         transform: scale(1);
-      }
     }
-    
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
+}
+
+/* Chatbot Input Section */
+#chatbot-input {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    background: #333;
+    align-items: center;
+}
+
+#chatbot-input textarea {
+    flex: 1;
+    resize: none;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+#chatbot-input button {
+    background: #00ff99;
+    border: none;
+    padding: 10px 15px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#chatbot-input button:hover {
+    background: #00cc80;
+    transform: scale(1.05);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    #chatbot {
+        bottom: 80px;
+        right: 10px;
+        width: 90%; /* Use most of the screen width */
+        height: auto; /* Let height adjust dynamically */
+        max-height: 80%; /* Limit max height */
     }
+
+    #chatbot-header {
+        font-size: 1rem; /* Adjust header font size */
+    }
+
+    #chatbot-input textarea {
+        font-size: 0.8rem;
+    }
+
+    #chatbot-input button {
+        padding: 8px 12px; /* Smaller padding for smaller screens */
+        font-size: 0.9rem;
+    }
+}
   </style>
 </head>
+
 <body>
-  
-  <!-- Header -->
-  <header id="header">
-    <a href="index.html" class="logo">
-      <!-- Placeholder for Logo SVG -->
-      <img src="image/logo.svg" alt="Kojib Logo">
-      Kojib
-    </a>
-    <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="our-story.html">Our Story</a>
-      <a href="services.html">Services</a>
-      <a href="faq.html">FAQ</a>
-      <a href="developers.html">Developers</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
-      <a href="index.html">Home</a>
-      <a href="our-story.html">Our Story</a>
-      <a href="services.html">Services</a>
-      <a href="faq.html">FAQ</a>
-      <a href="developers.html">Developers</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo" aria-label="Kojib Home">
+        <img src="image/logo.svg" alt="Kojib Logo" />
+      </a>
+      <!-- Desktop Nav -->
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="developers.html">Developers</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content" data-aos="fade-up">
-      <h1>Our Vision</h1>
+      <!-- Hamburger (Mobile) -->
+      <div
+        class="hamburger"
+        id="hamburger"
+        aria-label="Toggle mobile navigation"
+        aria-expanded="false"
+        role="button"
+        tabindex="0"
+      >
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Menu -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="developers.html">Developers</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO / VISION HEADING (with swirl dynamic Particles) -->
+    <section class="vision-hero" id="vision-hero">
+      <!-- Dynamic Particles Canvas -->
+      <div id="heroParticles"></div>
+
+      <div class="hero-content">
+        <h1>Our Vision</h1>
+        <p>
+          At Kojib, we behold a future where cosmic principles, relentless
+          creativity, and cutting-edge technology converge to empower every
+          creator, illuminate every challenge, and launch humanity into a realm
+          of infinite possibilities.
+        </p>
+      </div>
+    </section>
+
+    <!-- Glassy Section: Core Vision Statement -->
+    <section class="glassy-section" data-aos="fade-up">
+      <h2>Guided by Cosmic Harmony</h2>
       <p>
-        At Kojib, we envision a world where innovation transcends boundaries, technology harmonizes with creativity, and every individual and organization is empowered to achieve their fullest potential. Our vision is to be the catalyst for transformative change, guiding humanity towards a future of sustainable growth, unparalleled efficiency, and boundless possibilities.
+        We believe that true progress flourishes when innovation, collaboration,
+        and higher principles unite seamlessly. Our vision merges the
+        brilliance of AI with the elegance of the Unified Field Theory, forming
+        a tapestry of ideas that flow from mind to reality. By harnessing
+        cosmic-level inspiration, we empower businesses and communities to pave
+        a future steeped in meaning and opportunity.
       </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Vision Details Section -->
-  <section class="vision-section">
-    <h2>Empowering Through Innovation</h2>
-    <p>
-      Our mission is to harness the power of advanced technologies, including artificial intelligence, to create solutions that not only solve today's challenges but also anticipate tomorrow's opportunities. We strive to bridge the gap between visionary ideas and practical implementation, ensuring that innovation is accessible, impactful, and aligned with the greater good.
-    </p>
-    <div class="vision-grid">
-      <!-- Innovation Card -->
-      <div class="vision-card" data-aos="zoom-in" tabindex="0">
-        <i class="fas fa-lightbulb"></i>
-        <h3>Cutting-Edge Technology</h3>
-        <p>
-          We leverage the latest advancements in AI and machine learning to develop tools that revolutionize industries, enhance productivity, and drive sustainable growth.
-        </p>
-      </div>
-      <!-- Sustainability Card -->
-      <div class="vision-card" data-aos="zoom-in" data-aos-delay="100" tabindex="0">
-        <i class="fas fa-leaf"></i>
-        <h3>Sustainable Solutions</h3>
-        <p>
-          Our commitment to sustainability ensures that our innovations not only benefit businesses but also contribute positively to the environment and society.
-        </p>
-      </div>
-      <!-- Human-Centric Approach Card -->
-      <div class="vision-card" data-aos="zoom-in" data-aos-delay="200" tabindex="0">
-        <i class="fas fa-users-cog"></i>
-        <h3>Human-Centric Approach</h3>
-        <p>
-          We prioritize the human element in every solution, designing technologies that are intuitive, user-friendly, and enhance human capabilities.
-        </p>
-      </div>
-      <!-- Future-Focused Card -->
-      <div class="vision-card" data-aos="zoom-in" data-aos-delay="300" tabindex="0">
-        <i class="fas fa-rocket"></i>
-        <h3>Future-Focused</h3>
-        <p>
-          Anticipating the needs of tomorrow, we develop strategies and solutions that prepare businesses and individuals for future challenges and opportunities.
-        </p>
-      </div>
-    </div>
-  </section>
+    <!-- Vision Cards -->
+    <section class="glassy-section" data-aos="fade-up">
+      <h2>Our Pillars</h2>
+      <div class="vision-grid">
+        <!-- Pillar 1 -->
+        <div class="vision-card" data-aos="zoom-in">
+          <i class="fas fa-globe"></i>
+          <h3>Global Harmony</h3>
+          <p>
+            We create solutions that resonate with planetary well-being, ensuring
+            our innovations not only address problems—they elevate entire
+            ecosystems for future generations.
+          </p>
+        </div>
 
-  <!-- Inspirational Quote Section -->
-  <section class="quote-section" data-aos="fade-up" data-aos-delay="400">
-    <h2>Inspiring Change</h2>
-    <p>
-      "Innovation distinguishes between a leader and a follower." – Steve Jobs
-    </p>
-  </section>
+        <!-- Pillar 2 -->
+        <div class="vision-card" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-users"></i>
+          <h3>Unified Empowerment</h3>
+          <p>
+            Everyone can co-create the future with us. By bridging cultural,
+            economic, and geographic divides, we unlock the collective genius
+            of humankind.
+          </p>
+        </div>
 
-  <!-- Call-to-Action Section -->
-  <section class="cta-section" data-aos="fade-up" data-aos-delay="500">
-    <h2>Join Us in Shaping the Future</h2>
-    <p>
-      Embark on a journey of transformation with Kojib. Let us partner with you to unlock new horizons, drive meaningful change, and achieve excellence through innovative solutions.
-    </p>
-    <a href="consulting.html" class="cta-button" tabindex="0">
-      Get Started Today <i class="fas fa-arrow-right"></i>
-    </a>
-  </section>
+        <!-- Pillar 3 -->
+        <div class="vision-card" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-cogs"></i>
+          <h3>Seamless Technology</h3>
+          <p>
+            From AI-driven platforms to intuitive digital ecosystems, our tools
+            prioritize user experience, making advanced innovation accessible
+            to all—without barriers or complexity.
+          </p>
+        </div>
 
-  <!-- Chatbot Integration -->
-  <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog" aria-modal="true">
+        <!-- Pillar 4 -->
+        <div class="vision-card" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-infinity"></i>
+          <h3>Infinite Imagination</h3>
+          <p>
+            We treat obstacles as fuel for creative breakthroughs. By fusing
+            cosmic insight with real-world pragmatism, we redefine what it means
+            to flourish in a universe of limitless possibility.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" data-aos="fade-up">
+      <h2>Stand With Us on This Journey</h2>
+      <p>
+        Every visionary deserves a stage; every spark of inspiration a chance
+        to light the path ahead. Our vision is a call to dream bigger,
+        collaborate deeper, and propel humanity toward new frontiers. If you’re
+        ready to embark on a future brimming with wonder—join us.
+      </p>
+      <!-- CTA Button -->
+      <a href="services.html" class="gorgeous-btn">
+        Explore More <i class="fas fa-arrow-right"></i>
+      </a>
+    </section>
+  </main>
+
+     <!-- AI Chatbot -->
+<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
     <div id="chatbot-header">
-      <span>Kojib Assistant</span>
-      <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
+        <span>Kojib</span>
+        <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
     </div>
     <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
-      <!-- Chat messages will be dynamically injected here -->
+        <!-- Chat messages will be dynamically injected here -->
     </div>
     <div id="chatbot-input" role="form" aria-label="Chat Input">
-      <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
-      <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+        <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
+        <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
     </div>
   </div>
-  <button id="chatbot-button" aria-label="Open Chatbot" title="Open Chatbot">
-    <!-- Chatbot Icon SVG Placeholder -->
+  <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
     <img src="image/chat-icon.svg" alt="Chat Icon" />
-  </button> 
-
-  <!-- Footer -->
+  </div>
+  <!-- FOOTER -->
   <footer>
-    <!-- logo -->
     <div class="footer-logo" style="margin-bottom: 20px;">
-      <img src="image/logo.svg" alt="Kojib Logo">
+      <img src="image/logo.svg" alt="Kojib Logo" />
     </div>
-    <!-- Social Media Links -->
     <div class="social-links" style="margin-bottom: 10px;">
-      <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
-        <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
+      <a
+        href="https://twitter.com/kojib_com"
+        target="_blank"
+        aria-label="Twitter"
+      >
+        <img
+          src="image/twitter-icon.svg"
+          alt="Twitter"
+          style="width: 24px; margin: 0 8px;"
+        />
       </a>
-      <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
-        <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
+      <a
+        href="https://instagram.com/kojib_com"
+        target="_blank"
+        aria-label="Instagram"
+      >
+        <img
+          src="image/instagram-icon.svg"
+          alt="Instagram"
+          style="width: 24px; margin: 0 8px;"
+        />
       </a>
-      <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
-        <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
+      <a
+        href="https://linkedin.com/company/kojib"
+        target="_blank"
+        aria-label="LinkedIn"
+      >
+        <img
+          src="image/linkedin-icon.svg"
+          alt="LinkedIn"
+          style="width: 24px; margin: 0 8px;"
+        />
       </a>
-      <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
-        <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
+      <a href="https://github.com/kojibai/noosphere" aria-label="GitHub" target="_blank">
+        <img
+          src="image/github-logo.svg"
+          alt="GitHub"
+          style="width: 24px; margin: 0 8px;"
+        />
       </a>
     </div>
-  
-    <!-- Navigation Links -->
     <div class="footer-links" style="margin-bottom: 20px;">
       <p style="margin: 8px 0;">
-        <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
-        <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
-        <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
-        <a href="/about.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">About</a> | 
+        <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> |
+        <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> |
+        <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> |
+        <a href="/our-story.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Our Story</a> |
         <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
       </p>
     </div>
-  
-    <!-- Footer Bottom -->
     <div class="footer-bottom" style="margin-top: 10px;">
-      <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p style="margin: 8px 0;">
+        &copy; <span id="current-year"></span> Kojib. All rights reserved.
+      </p>
       <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
       <p style="margin: 8px 0;">
-        <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
-        <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
-        <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
+        <a href="terms-of-service.html" style="color: #00cc80; margin: 0 5px;">Terms of Service</a> |
+        <a href="cookie-policy.html" style="color: #00cc80; margin: 0 5px;">Cookie Policy</a> |
+        <a href="privacy-policy.html" style="color: #00cc80; margin: 0 5px;">Privacy Policy</a>
       </p>
     </div>
-  
-    <script>
-      // JavaScript to set the current year
-      document.getElementById("current-year").textContent = new Date().getFullYear();
-    </script>
   </footer>
 
-  <!-- JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  
-  <!-- External Chatbot Script -->
-  <script src="chatbot.js"></script>
-  
-  <!-- Initialize External Libraries and Menu Functionality -->
+  <!-- AOS, Particles & Other Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Initialize AOS (Animate On Scroll)
+    // Current Year
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    // Sticky Navbar
+    window.addEventListener("scroll", () => {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Hamburger & Mobile Nav
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobile-nav");
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      hamburger.classList.toggle("open");
+      mobileNav.classList.toggle("open");
+      document.body.classList.toggle("no-scroll");
+      const isExpanded = hamburger.classList.contains("open");
+      hamburger.setAttribute("aria-expanded", isExpanded);
+      mobileNav.setAttribute("aria-hidden", !isExpanded);
+    });
+
+    // Close mobile nav on outside click
+    window.addEventListener("click", (e) => {
+      if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove("open");
+        mobileNav.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+        hamburger.setAttribute("aria-expanded", false);
+        mobileNav.setAttribute("aria-hidden", true);
+      }
+    });
+
+    // GSAP Animations for hero text
+    window.addEventListener("load", () => {
+      if (window.gsap) {
+        gsap.from(".hero-content h1", {
+          duration: 1.5,
+          y: -40,
+          opacity: 0,
+          ease: "bounce.out",
+        });
+        gsap.from(".hero-content p", {
+          duration: 1.5,
+          y: 40,
+          opacity: 0,
+          delay: 0.5,
+        });
+      }
+    });
+
+    // AOS (Animate On Scroll) - initialize
     AOS.init({
       duration: 1000,
       once: true,
     });
 
-    // Toggle Mobile Menu Functionality
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
+    // Chatbot Toggle
+    const chatbotBtn = document.getElementById("chatbot-button");
+    const chatbot = document.getElementById("chatbot");
+    const closeChatbotBtn = document.getElementById("close-chatbot");
 
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation(); // Prevent click from bubbling to window
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      const expanded = hamburger.classList.contains('open');
-      hamburger.setAttribute('aria-expanded', expanded);
-      mobileMenu.setAttribute('aria-hidden', !expanded);
-    });
+    if (chatbotBtn) {
+      chatbotBtn.addEventListener("click", () => {
+        chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+        chatbot.setAttribute("aria-hidden", chatbot.style.display === "none");
+      });
+    }
+    if (closeChatbotBtn) {
+      closeChatbotBtn.addEventListener("click", () => {
+        chatbot.style.display = "none";
+        chatbot.setAttribute("aria-hidden", "true");
+      });
+    }
 
-    // Close Mobile Menu when clicking outside
-    window.addEventListener('click', function(e) {
-      if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-        if (mobileMenu.classList.contains('open')) {
-          mobileMenu.classList.remove('open');
-          hamburger.classList.remove('open');
-          mobileMenu.setAttribute('aria-hidden', 'true');
-          hamburger.setAttribute('aria-expanded', 'false');
-        }
+    // Dynamic Swirl Particles
+    window.addEventListener("load", () => {
+      if (window.tsParticles) {
+        tsParticles.load("heroParticles", {
+          fpsLimit: 60,
+          background: { color: { value: "transparent" } },
+          particles: {
+            number: { value: 60, density: { enable: false } },
+            color: { value: "#00ff99" },
+            shape: { type: "circle" },
+            opacity: { value: 0.7, random: true },
+            size: { value: 4, random: true },
+            move: {
+              enable: true,
+              speed: 3,
+              path: {
+                enable: true,
+                options: { type: "perlin" }
+              },
+              outModes: { default: "out" }
+            },
+            rotate: {
+              value: { min: 0, max: 360 },
+              animation: { enable: true, speed: 30, sync: false }
+            }
+          },
+          interactivity: {
+            detectsOn: "canvas",
+            events: {
+              onHover: { enable: true, mode: "repulse" },
+              onClick: { enable: true, mode: "push" },
+              resize: true
+            },
+            modes: {
+              repulse: { distance: 80, duration: 0.4 },
+              push: { quantity: 4 }
+            }
+          },
+          detectRetina: true
+        });
       }
     });
-
-    // Prevent clicks inside mobile menu from closing it
-    mobileMenu.addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-
-    // Sticky Header Background Change on Scroll
-    window.addEventListener('scroll', function() {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-
-    // Set Current Year in Footer
-    document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
-  
+  <!-- Optional separate chatbot logic file -->
+  <script src="chatbot.js"></script>
 </body>
 </html>
