@@ -355,39 +355,45 @@
       margin-left: 10px;
     }
 
-    /* Footer Styling */
+    
+    /* Footer Section */
     footer {
-      position: relative; /* Establish stacking context */
-      width: 100%; /* Full width of the viewport */
-      background: linear-gradient(135deg, #1e1e2f4b, #2e2e5027); /* Updated background */
-      color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for text */
-      text-align: center; /* Center-align content */
-      padding: 40px 20px; /* Increased padding */
-      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-      z-index: 8; /* Ensure it stacks properly above background elements */
-      font-family: 'Inter', sans-serif;
+      width: 100%;
+      background: linear-gradient(135deg, #1e1e1e, #121212);
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 50px 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+      z-index: 8;
+      font-family: 'Roboto', sans-serif;
+      position: relative;
     }
 
-    /* Footer Content Styling */
-    footer .footer-content {
-      max-width: 1200px; /* Restrict content width */
-      margin: 0 auto; /* Center content horizontally */
+    footer::before {
+      content: ""; /* Empty content for the divider */
+      display: block; /* Block-level element */
+      width: 80%; /* Limit the width of the divider */
+      height: 1px; /* Divider height */
+      background: rgba(255, 255, 255, 0.2); /* Subtle white divider */
+      margin: 0 auto 30px; /* Center and space it from footer content */
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      gap: 30px;
-      padding: 10px 20px; /* Internal spacing for content */
-      text-align: center; /* Center-align text */
-      position: relative; /* Proper stacking order */
-      z-index: 9; /* Ensure content is above background layers */
+      gap: 40px;
+      padding: 20px;
+      text-align: center;
     }
 
-    /* Footer Logo */
     .footer-logo img {
-      max-width: 60px;
+      max-width: 80px;
       height: auto;
       margin: 0 auto;
-      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.4));
       transition: transform 0.3s ease;
     }
 
@@ -395,11 +401,11 @@
       transform: scale(1.1);
     }
 
-    /* Social Media Links */
     .social-links {
       display: flex;
-      gap: 20px;
+      gap: 25px;
       justify-content: center;
+      align-items: center;
     }
 
     .social-links a {
@@ -409,73 +415,52 @@
     }
 
     .social-links a img {
-      width: 40px;
-      height: 40px;
-      filter: drop-shadow(0 4px 10px rgba(0, 255, 153, 0.4));
+      width: 28px;
+      margin: 0 8px;
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.4));
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    .social-links a:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 6px 15px rgba(0, 255, 153, 0.6));
+    .social-links a:hover img {
+      transform: scale(1.3);
+      filter: drop-shadow(0 6px 20px rgba(0, 255, 153, 0.6));
     }
 
-    /* Footer Links */
     .footer-links ul {
       list-style: none;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
       justify-content: center;
     }
 
     .footer-links ul li a {
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.8);
+      color: #00cc80;
       font-weight: bold;
       transition: color 0.3s ease;
+      margin: 0 5px;
+      font-size: 1rem;
     }
 
     .footer-links ul li a:hover {
       color: #00ff99;
     }
 
-    /* Footer Contact */
-    .footer-contact {
-      flex: 1 1 300px;
-      text-align: center;
-    }
-
-    .footer-contact p {
-      margin: 5px 0;
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .footer-contact a {
-      color: #00ff99;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .footer-contact a:hover {
-      color: #00cc80;
-    }
-
-    /* Footer Bottom */
     .footer-bottom {
-      margin-top: 10px;
+      margin-top: 30px;
     }
 
     .footer-bottom p {
-      margin: 8px 0;
-      font-size: 0.9rem;
+      margin: 10px 0;
+      font-size: 0.95rem;
       color: #d4d4d4;
     }
 
     .footer-bottom a {
       color: #00cc80;
-      margin: 0 5px;
+      margin: 0 8px;
       text-decoration: none;
       transition: color 0.3s ease;
     }
@@ -484,7 +469,6 @@
       color: #00b374;
       text-decoration: underline;
     }
-
     /* Chatbot Button */
     #chatbot-button {
       position: fixed;
@@ -936,57 +920,54 @@
   </div> 
 
   <!-- Footer -->
+   
   <footer>
-    <!-- Footer Content Container -->
-    <div class="footer-content">
-      <!-- Footer Logo -->
-      <div class="footer-logo">
-        <img src="image/logo.svg" alt="Kojib Logo">
-      </div>
-      
-      <!-- Social Media Links -->
-      <div class="social-links">
-        <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
-          <img src="image/twitter-icon.svg" alt="Twitter">
-        </a>
-        <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
-          <img src="image/instagram-icon.svg" alt="Instagram">
-        </a>
-        <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
-          <img src="image/linkedin-icon.svg" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/kojibai/noosphere" target="_blank" aria-label="GitHub">
-          <img src="image/github-logo.svg" alt="GitHub">
-        </a>
-      </div>
-    
-      <!-- Navigation Links -->
-      <div class="footer-links">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="developers.html">Developers</a></li>
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="https://app.kojib.com/entry">Login</a></li>
-        </ul>
-      </div>
+    <!-- logo -->
+    <div class="footer-logo" style="margin-bottom: 20px;">
+      <img src="image/logo.svg" alt="Kojib Logo">
     </div>
-    
-    <!-- Divider Line Above Footer Bottom -->
-    <div class="footer-bottom-divider"></div>
-    
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-      <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
-      <p>Designed with ♥ by Kojib</p>
-      <p>
-        <a href="terms-of-service.html">Terms of Service</a> | 
-        <a href="cookie-policy.html">Cookie Policy</a> | 
-        <a href="privacy-policy.html">Privacy Policy</a>
+    <!-- Social Media Links -->
+    <div class="social-links" style="margin-bottom: 10px;">
+      <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+        <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+        <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+        <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
+      </a>
+      <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+        <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
+      </a>
+    </div>
+  
+    <!-- Navigation Links -->
+    <div class="footer-links" style="margin-bottom: 20px;">
+      <p style="margin: 8px 0;">
+        <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
+        <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
+        <a href="/developers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Developers</a> | 
+        <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
+        <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
       </p>
     </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer-bottom" style="margin-top: 10px;">
+      <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
+      <p style="margin: 8px 0;">
+        <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
+        <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
+        <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
+      </p>
+    </div>
+  
+    <script>
+      // JavaScript to set the current year
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
   </footer>
 
   <!-- JavaScript -->
