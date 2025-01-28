@@ -789,6 +789,560 @@
     }
 }
 
+ /* RESET & BASE */
+ *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0d0d0d; /* Dark background */
+      color: #eaeaea;
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: 70px; /* space for navbar */
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      loading: lazy;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* GLASSY SECTIONS */
+    .glassy-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      margin: 40px 20px;
+      padding: 50px 40px;
+      animation: fadeUp 0.7s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: box-shadow 0.3s ease;
+      text-align: center;
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .glassy-section:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.3);
+    }
+    .glassy-section h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.5rem;
+      color: #00ff99;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .glassy-section h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #00ff99;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .glassy-section p {
+      font-size: 1.1rem;
+      color: #d4d4d4;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto 20px;
+    }
+    .glassy-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto;
+      max-width: 800px;
+      text-align: left;
+    }
+    .glassy-section ul li {
+      margin-bottom: 15px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .glassy-section ul li i {
+      color: #00ff99;
+      flex-shrink: 0;
+    }
+
+    /* INLINE LINKS WITH ARROWS */
+    .inline-link {
+      color: #00ff99;
+      font-weight: 600;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: underline;
+    }
+    .inline-link:hover {
+      color: #00cc7a;
+    }
+    .inline-link .arrow-icon {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease;
+    }
+    .inline-link .arrow-icon:hover {
+      transform: translateX(4px);
+    }
+    .inline-link .arrow-icon svg {
+      fill: currentColor;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      margin: 60px 20px;
+      padding: 70px 30px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+      position: relative;
+      animation: fadeUp 0.7s ease forwards;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .cta-section:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 153, 0.3);
+    }
+    .cta-section h2 {
+      font-size: 2.5rem;
+      color: #00ff99;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .cta-section h2::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background: #00ff99;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .cta-section p {
+      font-size: 1.2rem;
+      color: #d4d4d4;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+    .gorgeous-btn {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #00ff99, #00995e);
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 255, 153, 0.3);
+    }
+    .gorgeous-btn:hover {
+      background: linear-gradient(135deg, #00cc7a, #006f4a);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 255, 153, 0.4);
+    }
+    .gorgeous-btn i {
+      margin-left: 8px;
+      transition: margin-left 0.3s ease;
+    }
+    .gorgeous-btn:hover i {
+      margin-left: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      width: 100%;
+      background: linear-gradient(135deg, #1e1e1e, #121212);
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 50px 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+      z-index: 8;
+      font-family: "Roboto", sans-serif;
+      position: relative;
+    }
+    footer::before {
+      content: "";
+      display: block;
+      width: 80%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 0 auto 30px;
+    }
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px;
+    }
+    .footer-logo img {
+      max-width: 80px;
+      height: auto;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.2));
+      transition: transform 0.3s ease;
+    }
+    .footer-logo img:hover {
+      transform: scale(1.1);
+    }
+    .social-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-links a img {
+      width: 28px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: drop-shadow(0 4px 15px rgba(0, 255, 153, 0.2));
+    }
+    .social-links a:hover img {
+      transform: scale(1.3);
+      filter: drop-shadow(0 6px 20px rgba(0, 255, 153, 0.4));
+    }
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 0;
+    }
+    .footer-links ul li a {
+      color: #00cc80;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .footer-links ul li a:hover {
+      color: #00ff99;
+    }
+    .footer-bottom {
+      margin-top: 30px;
+    }
+    .footer-bottom p {
+      margin: 10px 0;
+      font-size: 0.95rem;
+      color: #d4d4d4;
+    }
+    .footer-bottom a {
+      color: #00cc80;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-bottom a:hover {
+      color: #00b374;
+      text-decoration: underline;
+    }
+
+    /* Prevent scrolling when mobile nav is open */
+    .no-scroll {
+      overflow: hidden;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      nav ul {
+        display: none;
+      }
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+      .about-hero p {
+        font-size: 1.1rem;
+      }
+      .glassy-section {
+        margin: 30px 15px;
+        padding: 40px 20px;
+      }
+      .glassy-section h2 {
+        font-size: 2rem;
+      }
+      .glassy-section p {
+        font-size: 1rem;
+      }
+      .cta-section {
+        margin: 40px 15px;
+        padding: 50px 20px;
+      }
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+      .cta-section p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+      .about-hero p {
+        font-size: 0.95rem;
+      }
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+      .cta-section p {
+        font-size: 0.95rem;
+      }
+    }
+
+
+/* Chatbot Button */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #00ff99;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+#chatbot-button:hover {
+    transform: scale(1.1);
+    background: #00cc80;
+}
+
+#chatbot-button img {
+    width: 30px;
+    height: 30px;
+    pointer-events: none; /* Ensure clicks don't affect the image */
+}
+
+/* Chatbot Window */
+#chatbot {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 350px;
+    max-width: 90%; /* Ensure responsiveness for smaller screens */
+    height: 500px;
+    max-height: 70%; /* Adjust height for smaller screens */
+    background: #1c1c1c;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+/* Chatbot Header */
+#chatbot-header {
+    background: #00ff99;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+#chatbot-header button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    transition: transform 0.2s ease;
+}
+
+#chatbot-header button:hover {
+    transform: scale(1.2);
+}
+
+/* Chatbot Messages */
+#chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    scrollbar-width: thin; /* For modern browsers */
+    scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+}
+
+#chatbot-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chatbot-messages::-webkit-scrollbar-track {
+    background: #222;
+}
+
+#chatbot-messages::-webkit-scrollbar-thumb {
+    background: #00ff99;
+    border-radius: 5px;
+}
+
+#chatbot-messages .message {
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Ensure long messages don't overflow */
+}
+
+#chatbot-messages .user {
+    text-align: right;
+    color: #00ff99;
+}
+
+#chatbot-messages .bot {
+    text-align: left;
+    color: white;
+}
+
+/* Loading Bubbles */
+#loading-indicator {
+    display: none; /* Hidden by default */
+    text-align: center;
+    margin: 10px 0;
+}
+
+#loading-indicator .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    background-color: #00ff99;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.2s infinite;
+}
+
+#loading-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#loading-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* Chatbot Input Section */
+#chatbot-input {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    background: #333;
+    align-items: center;
+}
+
+#chatbot-input textarea {
+    flex: 1;
+    resize: none;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+#chatbot-input button {
+    background: #00ff99;
+    border: none;
+    padding: 10px 15px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#chatbot-input button:hover {
+    background: #00cc80;
+    transform: scale(1.05);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    #chatbot {
+        bottom: 80px;
+        right: 10px;
+        width: 90%; /* Use most of the screen width */
+        height: auto; /* Let height adjust dynamically */
+        max-height: 80%; /* Limit max height */
+    }
+
+    #chatbot-header {
+        font-size: 1rem; /* Adjust header font size */
+    }
+
+    #chatbot-input textarea {
+        font-size: 0.8rem;
+    }
+
+    #chatbot-input button {
+        padding: 8px 12px; /* Smaller padding for smaller screens */
+        font-size: 0.9rem;
+    }
+}
+
+
   </style>
 </head>
 <body>
@@ -960,15 +1514,51 @@
   <img src="image/chat-icon.svg" alt="Chat Icon" />
 </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>&copy; 2025 Kojib. All rights reserved.</p>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="privacy-policy.html">Privacy Policy</a> |
-      <a href="terms-of-service.html">Terms of Service</a>
-    </nav>
-  </footer>
+<!-- FOOTER -->
+<footer>
+  <!-- logo -->
+  <div class="footer-logo" style="margin-bottom: 20px;">
+    <img src="image/logo.svg" alt="Kojib Logo">
+  </div>
+  <!-- Social Media Links -->
+  <div class="social-links" style="margin-bottom: 10px;">
+    <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+      <img src="image/twitter-icon.svg" alt="Twitter" style="width: 24px; margin: 0 8px;">
+    </a>
+    <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+      <img src="image/instagram-icon.svg" alt="Instagram" style="width: 24px; margin: 0 8px;">
+    </a>
+    <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+      <img src="image/linkedin-icon.svg" alt="LinkedIn" style="width: 24px; margin: 0 8px;">
+    </a>
+    <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+      <img src="image/github-logo.svg" alt="GitHub" style="width: 24px; margin: 0 8px;">
+    </a>
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="footer-links" style="margin-bottom: 20px;">
+    <p style="margin: 8px 0;">
+      <a href="/faq.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">FAQ</a> | 
+      <a href="/services.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Services</a> | 
+      <a href="/careers.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Careers</a> | 
+      <a href="/our-story.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Our Story</a> | 
+      <a href="https://app.kojib.com/entry" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Login</a>
+    </p>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom" style="margin-top: 10px;">
+    <p style="margin: 8px 0;">&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+    <p style="margin: 8px 0;">Designed with ♥ by Kojib</p>
+    <p style="margin: 8px 0;">
+      <a href="terms-of-service.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Terms of Service</a> | 
+      <a href="cookie-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Cookie Policy</a> | 
+      <a href="privacy-policy.html" style="color: #00cc80; text-decoration: none; margin: 0 5px;">Privacy Policy</a>
+    </p>
+  </div>
+
+</footer>
 
   <!-- Inlined Scripts -->
   <script>
