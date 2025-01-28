@@ -454,145 +454,198 @@
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
     }
 
-   /* Services Section */
-.services-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 100px 40px 60px;
-  background: rgba(26, 26, 26, 0.9);
-  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
-  position: relative;
-  z-index: 2;
-  border-radius: 15px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
-}
+    /* Services Section */
+    .services-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 40px 60px;
+      background: rgba(26, 26, 26, 0.9);
+      clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+      position: relative;
+      z-index: 2;
+      border-radius: 15px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+    }
 
-.services-container::before {
-  content: '';
-  position: absolute;
-  top: -15px;
-  left: 0;
-  width: 100%;
-  height: 30px;
-  background: linear-gradient(45deg, #00ff99, #00995e);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  z-index: -1;
-}
+    .services-container::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(45deg, #00ff99, #00995e);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      z-index: -1;
+    }
 
-.services-container h2 {
-  text-align: center;
-  color: #00ff99;
-  font-size: 2.8rem;
-  margin-bottom: 60px;
-  letter-spacing: 1.5px;
-  position: relative;
-}
+    .services-container h2 {
+      text-align: center;
+      color: #00ff99;
+      font-size: 2.8rem;
+      margin-bottom: 60px;
+      letter-spacing: 1.5px;
+      position: relative;
+    }
 
-.services-container h2::after {
-  content: '';
-  width: 80px;
-  height: 4px;
-  background: #00ff99;
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+    .services-container h2::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #00ff99;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-}
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
 
-.service-card {
-  background: rgba(18, 18, 18, 0.95);
-  padding: 35px 25px;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: fadeInUp 0.6s ease forwards;
-}
+    .service-card {
+      background: rgba(18, 18, 18, 0.95);
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
 
-.service-card:nth-child(odd) {
-  background: rgba(18, 18, 18, 0.95);
-}
+    .service-card:nth-child(odd) {
+      background: rgba(18, 18, 18, 0.95);
+    }
 
-.service-card:nth-child(even) {
-  background: rgba(0, 255, 153, 0.1);
-}
+    .service-card:nth-child(even) {
+      background: rgba(0, 255, 153, 0.1);
+    }
 
-.service-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
-}
+    .service-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
+    }
 
-.service-card .icon-placeholder {
-  width: 100px;
-  height: 100px;
-  background: rgba(0, 255, 153, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 25px;
-  transition: background 0.3s ease;
-}
+    .service-card .icon-placeholder {
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 255, 153, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      transition: background 0.3s ease;
+    }
 
-.service-card .icon-placeholder img {
-  width: 60px;
-  height: 60px;
-  background: transparent;
-}
+    .service-card .icon-placeholder img {
+      width: 60px;
+      height: 60px;
+      background: transparent;
+    }
 
-.service-card:hover .icon-placeholder {
-  background: rgba(0, 153, 90, 0.2);
-}
+    .service-card:hover .icon-placeholder {
+      background: rgba(0, 153, 90, 0.2);
+    }
 
-.service-card h3 {
-  color: #00ff99;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
+    .service-card h3 {
+      color: #00ff99;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
 
-.service-card:hover h3 {
-  color: #00cc7a;
-}
+    .service-card:hover h3 {
+      color: #00cc7a;
+    }
 
-.service-card p {
-  font-size: 1rem;
-  color: #d4d4d4;
-  transition: color 0.3s ease;
-}
+    .service-card p {
+      font-size: 1rem;
+      color: #d4d4d4;
+      transition: color 0.3s ease;
+    }
 
-.service-card:hover p {
-  color: #c0c0c0;
-}
+    .service-card:hover p {
+      color: #c0c0c0;
+    }
 
-/* On smaller screens, remove the clip-path and adjust padding
-   so the section doesn't cut off the top or bottom text */
-@media (max-width: 768px) {
-  .services-container {
-    clip-path: none;
-    border-radius: 15px;
-    padding: 80px 20px;      /* Extra bottom padding to ensure no cutoff */
-    margin-top: 0;           /* Adjust if needed to avoid header overlap */
-    margin-bottom: 0;
-  }
-  .services-container::before {
-    display: none;           /* Hide the top gradient overlap */
-  }
-}
+    /*
+     * ADDED WOW-FACTOR STYLES FOR SERVICE CARDS
+     * These enhancements preserve the existing layout but
+     * add more impressive 3D-like interactions and glow.
+     */
+    .services-grid {
+      perspective: 1200px; /* So 3D transforms on children are visible */
+    }
 
+    .service-card {
+      position: relative;
+      transform-style: preserve-3d; /* Allow 3D child transforms */
+      overflow: hidden;
+    }
+
+    /* Add an animated neon glow behind the card */
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(0,255,153,0.3), rgba(0,255,153,0.05));
+      /* Slight blur for a neon glow effect */
+      filter: blur(20px);
+      opacity: 0.5;
+      z-index: -1; /* Sit behind card content */
+      transition: all 0.5s ease;
+    }
+
+    /* Slight 3D rotation on hover + more vivid glow */
+    .service-card:hover {
+      transform: rotateY(8deg) rotateX(2deg) translateY(-15px) scale(1.03);
+      box-shadow: 0 15px 40px rgba(0, 255, 153, 0.4), 0 12px 35px rgba(0, 0, 0, 0.9);
+    }
+    .service-card:hover::before {
+      background: radial-gradient(circle at center, rgba(0,255,153,0.45), rgba(0,255,153,0.05));
+      opacity: 0.7;
+      filter: blur(25px);
+    }
+
+    /* On smaller screens, remove the clip-path and adjust padding
+       so the section doesn't cut off the top or bottom text */
+    @media (max-width: 768px) {
+      .services-container {
+        clip-path: none;
+        border-radius: 15px;
+        padding: 80px 20px;      /* Extra bottom padding to ensure no cutoff */
+        margin-top: 0;           /* Adjust if needed to avoid header overlap */
+        margin-bottom: 0;
+      }
+      .services-container::before {
+        display: none;           /* Hide the top gradient overlap */
+      }
+
+      /* Remove intense 3D transforms on smaller screens for safety */
+      .services-grid {
+        perspective: none;
+      }
+      .service-card {
+        transform: none !important;
+      }
+      .service-card:hover {
+        transform: translateY(-8px) scale(1.02) !important;
+      }
+    }
 
     /* About Us Button Section */
     .about-us-section {
@@ -869,213 +922,214 @@
       text-decoration: underline;
     }
 
-/* Chatbot Button */
-#chatbot-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background: #00ff99;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-}
-
-#chatbot-button:hover {
-    transform: scale(1.1);
-    background: #00cc80;
-}
-
-#chatbot-button img {
-    width: 30px;
-    height: 30px;
-    pointer-events: none; /* Ensure clicks don't affect the image */
-}
-
-/* Chatbot Window */
-#chatbot {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 350px;
-    max-width: 90%; /* Ensure responsiveness for smaller screens */
-    height: 500px;
-    max-height: 70%; /* Adjust height for smaller screens */
-    background: #1c1c1c;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    display: none;
-    flex-direction: column;
-    z-index: 1001;
-    overflow: hidden;
-}
-
-/* Chatbot Header */
-#chatbot-header {
-    background: #00ff99;
-    color: black;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    position: relative;
-}
-
-#chatbot-header button {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: black;
-    transition: transform 0.2s ease;
-}
-
-#chatbot-header button:hover {
-    transform: scale(1.2);
-}
-
-/* Chatbot Messages */
-#chatbot-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    scrollbar-width: thin; /* For modern browsers */
-    scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
-}
-
-#chatbot-messages::-webkit-scrollbar {
-    width: 8px;
-}
-
-#chatbot-messages::-webkit-scrollbar-track {
-    background: #222;
-}
-
-#chatbot-messages::-webkit-scrollbar-thumb {
-    background: #00ff99;
-    border-radius: 5px;
-}
-
-#chatbot-messages .message {
-    margin-bottom: 10px;
-    word-wrap: break-word; /* Ensure long messages don't overflow */
-}
-
-#chatbot-messages .user {
-    text-align: right;
-    color: #00ff99;
-}
-
-#chatbot-messages .bot {
-    text-align: left;
-    color: white;
-}
-
-/* Loading Bubbles */
-#loading-indicator {
-    display: none; /* Hidden by default */
-    text-align: center;
-    margin: 10px 0;
-}
-
-#loading-indicator .dot {
-    width: 8px;
-    height: 8px;
-    margin: 0 5px;
-    background-color: #00ff99;
-    border-radius: 50%;
-    display: inline-block;
-    animation: bounce 1.2s infinite;
-}
-
-#loading-indicator .dot:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-#loading-indicator .dot:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes bounce {
-    0%, 80%, 100% {
-        transform: scale(0);
+    /* Chatbot Button */
+    #chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #00ff99;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
     }
-    40% {
-        transform: scale(1);
+
+    #chatbot-button:hover {
+      transform: scale(1.1);
+      background: #00cc80;
     }
-}
 
-/* Chatbot Input Section */
-#chatbot-input {
-    padding: 10px;
-    display: flex;
-    gap: 10px;
-    background: #333;
-    align-items: center;
-}
+    #chatbot-button img {
+      width: 30px;
+      height: 30px;
+      pointer-events: none; /* Ensure clicks don't affect the image */
+    }
 
-#chatbot-input textarea {
-    flex: 1;
-    resize: none;
-    padding: 10px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    background: #222;
-    color: white;
-    font-family: inherit;
-    font-size: 0.9rem;
-}
-
-#chatbot-input button {
-    background: #00ff99;
-    border: none;
-    padding: 10px 15px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-#chatbot-input button:hover {
-    background: #00cc80;
-    transform: scale(1.05);
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
+    /* Chatbot Window */
     #chatbot {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 350px;
+      max-width: 90%; /* Ensure responsiveness for smaller screens */
+      height: 500px;
+      max-height: 70%; /* Adjust height for smaller screens */
+      background: #1c1c1c;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+      overflow: hidden;
+    }
+
+    /* Chatbot Header */
+    #chatbot-header {
+      background: #00ff99;
+      color: black;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      position: relative;
+    }
+
+    #chatbot-header button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: black;
+      transition: transform 0.2s ease;
+    }
+
+    #chatbot-header button:hover {
+      transform: scale(1.2);
+    }
+
+    /* Chatbot Messages */
+    #chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      scrollbar-width: thin; /* For modern browsers */
+      scrollbar-color: #00ff99 #222; /* Custom scrollbar colors */
+    }
+
+    #chatbot-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-track {
+      background: #222;
+    }
+
+    #chatbot-messages::-webkit-scrollbar-thumb {
+      background: #00ff99;
+      border-radius: 5px;
+    }
+
+    #chatbot-messages .message {
+      margin-bottom: 10px;
+      word-wrap: break-word; /* Ensure long messages don't overflow */
+    }
+
+    #chatbot-messages .user {
+      text-align: right;
+      color: #00ff99;
+    }
+
+    #chatbot-messages .bot {
+      text-align: left;
+      color: white;
+    }
+
+    /* Loading Bubbles */
+    #loading-indicator {
+      display: none; /* Hidden by default */
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    #loading-indicator .dot {
+      width: 8px;
+      height: 8px;
+      margin: 0 5px;
+      background-color: #00ff99;
+      border-radius: 50%;
+      display: inline-block;
+      animation: bounce 1.2s infinite;
+    }
+
+    #loading-indicator .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    #loading-indicator .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      0%, 80%, 100% {
+        transform: scale(0);
+      }
+      40% {
+        transform: scale(1);
+      }
+    }
+
+    /* Chatbot Input Section */
+    #chatbot-input {
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      background: #333;
+      align-items: center;
+    }
+
+    #chatbot-input textarea {
+      flex: 1;
+      resize: none;
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #222;
+      color: white;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    #chatbot-input button {
+      background: #00ff99;
+      border: none;
+      padding: 10px 15px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #chatbot-input button:hover {
+      background: #00cc80;
+      transform: scale(1.05);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      #chatbot {
         bottom: 80px;
         right: 10px;
         width: 90%; /* Use most of the screen width */
         height: auto; /* Let height adjust dynamically */
         max-height: 80%; /* Limit max height */
-    }
+      }
 
-    #chatbot-header {
+      #chatbot-header {
         font-size: 1rem; /* Adjust header font size */
-    }
+      }
 
-    #chatbot-input textarea {
+      #chatbot-input textarea {
         font-size: 0.8rem;
-    }
+      }
 
-    #chatbot-input button {
+      #chatbot-input button {
         padding: 8px 12px; /* Smaller padding for smaller screens */
         font-size: 0.9rem;
+      }
     }
-}
+
     /* Scroll to Top Button */
     .scroll-top {
       position: fixed;
@@ -1219,304 +1273,298 @@
       </div>
     </section>
     <section>
-   <!-- Services Section -->
-<!-- Services Section -->
-<div class="services-container" id="services">
-  <h2>Our Core Services</h2>
-  <div class="services-grid">
-    <!-- Service 1: Predictive Modeling -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="200">
-  <div class="icon-placeholder">
-    <img
-      src="image/predictive-modeling-icon.svg"
-      alt="Predictive Modeling Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Predictive Modeling</h3>
-  <p>
-    At Kojib, we treat data as a cosmic compass, guiding you to foresee trends 
-    and preempt disruptions before they materialize. Our predictive modeling 
-    leverages deep learning and dynamic analytics pipelines, transforming raw 
-    figures into future-facing insights. Whether you’re optimizing supply chains 
-    or gauging market shifts, our algorithms unearth patterns that others miss—so 
-    you can act decisively, drive profitability, and chart a course with cosmic 
-    precision.
-  </p>
-</div>
+      <!-- Services Section -->
+      <div class="services-container" id="services">
+        <h2>Our Core Services</h2>
+        <div class="services-grid">
+          <!-- Service 1: Predictive Modeling -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-placeholder">
+              <img
+                src="image/predictive-modeling-icon.svg"
+                alt="Predictive Modeling Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Predictive Modeling</h3>
+            <p>
+              At Kojib, we treat data as a cosmic compass, guiding you to foresee trends 
+              and preempt disruptions before they materialize. Our predictive modeling 
+              leverages deep learning and dynamic analytics pipelines, transforming raw 
+              figures into future-facing insights. Whether you’re optimizing supply chains 
+              or gauging market shifts, our algorithms unearth patterns that others miss—so 
+              you can act decisively, drive profitability, and chart a course with cosmic 
+              precision.
+            </p>
+          </div>
 
-<!-- Service 2: Creative AI Solutions -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="400">
-  <div class="icon-placeholder">
-    <img
-      src="image/creative-ai-icon.svg"
-      alt="Creative AI Solutions Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Creative AI Solutions</h3>
-  <p>
-    Where artistry meets algorithm, Kojib’s Creative AI shines. We fuse limitless 
-    human imagination with advanced AI, empowering you to brainstorm product 
-    concepts, generate new branding ideas, and evolve fresh visual campaigns. 
-    Our solutions go beyond rote automation—guiding you through an exploration 
-    of potential that sparks curiosity and redefines what’s possible. Experience 
-    innovation as a cosmic partnership, where AI elevates your vision into 
-    inspiring, tangible outcomes.
-  </p>
-</div>
+          <!-- Service 2: Creative AI Solutions -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon-placeholder">
+              <img
+                src="image/creative-ai-icon.svg"
+                alt="Creative AI Solutions Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Creative AI Solutions</h3>
+            <p>
+              Where artistry meets algorithm, Kojib’s Creative AI shines. We fuse limitless 
+              human imagination with advanced AI, empowering you to brainstorm product 
+              concepts, generate new branding ideas, and evolve fresh visual campaigns. 
+              Our solutions go beyond rote automation—guiding you through an exploration 
+              of potential that sparks curiosity and redefines what’s possible. Experience 
+              innovation as a cosmic partnership, where AI elevates your vision into 
+              inspiring, tangible outcomes.
+            </p>
+          </div>
 
-<!-- Service 3: Human-Centric Design -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="600">
-  <div class="icon-placeholder">
-    <img
-      src="image/human-centric-icon.svg"
-      alt="Human-Centric Design Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Human-Centric Design</h3>
-  <p>
-    Technology without empathy remains a hollow tool. Kojib’s human-centric 
-    approach ensures that every digital interaction, from user flows to 
-    interface aesthetics, reflects genuine understanding. By weaving real 
-    human stories and feedback into our design process, we craft solutions 
-    that spark delight, solve meaningful problems, and feel second nature. 
-    The result? Seamless experiences that bring people closer, drive adoption, 
-    and champion the idea that innovation must always serve humanity first.
-  </p>
-</div>
+          <!-- Service 3: Human-Centric Design -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="icon-placeholder">
+              <img
+                src="image/human-centric-icon.svg"
+                alt="Human-Centric Design Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Human-Centric Design</h3>
+            <p>
+              Technology without empathy remains a hollow tool. Kojib’s human-centric 
+              approach ensures that every digital interaction, from user flows to 
+              interface aesthetics, reflects genuine understanding. By weaving real 
+              human stories and feedback into our design process, we craft solutions 
+              that spark delight, solve meaningful problems, and feel second nature. 
+              The result? Seamless experiences that bring people closer, drive adoption, 
+              and champion the idea that innovation must always serve humanity first.
+            </p>
+          </div>
 
-    <!-- Service 4: Data Analytics & Insights -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="800">
-  <div class="icon-placeholder">
-    <img
-      src="image/data-analytics.svg"
-      alt="Data Analytics & Insights Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Data Analytics & Insights</h3>
-  <p>
-    At Kojib, we believe your data deserves a cosmic level of clarity. 
-    Our forward-thinking analytics unearth hidden trends and unlock 
-    new growth vectors—going beyond mundane dashboards to deliver 
-    context-driven insights you can act on right now. Whether you’re 
-    optimizing internal processes or disrupting entire markets, we arm 
-    you with intelligence that feels intuitive and sparks your next 
-    breakthrough.
-  </p>
-</div>
+          <!-- Service 4: Data Analytics & Insights -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="800">
+            <div class="icon-placeholder">
+              <img
+                src="image/data-analytics.svg"
+                alt="Data Analytics & Insights Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Data Analytics & Insights</h3>
+            <p>
+              At Kojib, we believe your data deserves a cosmic level of clarity. 
+              Our forward-thinking analytics unearth hidden trends and unlock 
+              new growth vectors—going beyond mundane dashboards to deliver 
+              context-driven insights you can act on right now. Whether you’re 
+              optimizing internal processes or disrupting entire markets, we arm 
+              you with intelligence that feels intuitive and sparks your next 
+              breakthrough.
+            </p>
+          </div>
 
-<!-- Service 5: Collaborative Platforms -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="1000">
-  <div class="icon-placeholder">
-    <img
-      src="image/collaborative-platform.svg"
-      alt="Collaborative Platforms Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Collaborative Platforms</h3>
-  <p>
-    Collaboration is more than toolsets and chat windows—it's the lifeblood 
-    of innovation. Kojib’s platforms unite remote teams under a single 
-    ecosystem where project data, AI-driven insights, and real-time 
-    feedback converge seamlessly. By weaving creativity, structure, and 
-    cosmic harmony into one interface, we spark synergy that transcends 
-    distance and redefines productivity.
-  </p>
-</div>
+          <!-- Service 5: Collaborative Platforms -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="1000">
+            <div class="icon-placeholder">
+              <img
+                src="image/collaborative-platform.svg"
+                alt="Collaborative Platforms Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Collaborative Platforms</h3>
+            <p>
+              Collaboration is more than toolsets and chat windows—it's the lifeblood 
+              of innovation. Kojib’s platforms unite remote teams under a single 
+              ecosystem where project data, AI-driven insights, and real-time 
+              feedback converge seamlessly. By weaving creativity, structure, and 
+              cosmic harmony into one interface, we spark synergy that transcends 
+              distance and redefines productivity.
+            </p>
+          </div>
 
-<!-- Service 6: Cybersecurity Solutions -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="1200">
-  <div class="icon-placeholder">
-    <img
-      src="image/cybersecurity.svg"
-      alt="Cybersecurity Solutions Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Cybersecurity Solutions</h3>
-  <p>
-    In a world of rising threats and complex regulations, Kojib delivers 
-    cybersecurity rooted in advanced AI defenses and cosmic vigilance. 
-    We don’t just block intruders; we predict their moves, ensuring your 
-    digital ecosystem remains airtight. From safeguarding critical 
-    infrastructure to fostering trust with your customers, our solutions 
-    stand guard so you can innovate fearlessly.
-  </p>
-</div>
+          <!-- Service 6: Cybersecurity Solutions -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="1200">
+            <div class="icon-placeholder">
+              <img
+                src="image/cybersecurity.svg"
+                alt="Cybersecurity Solutions Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Cybersecurity Solutions</h3>
+            <p>
+              In a world of rising threats and complex regulations, Kojib delivers 
+              cybersecurity rooted in advanced AI defenses and cosmic vigilance. 
+              We don’t just block intruders; we predict their moves, ensuring your 
+              digital ecosystem remains airtight. From safeguarding critical 
+              infrastructure to fostering trust with your customers, our solutions 
+              stand guard so you can innovate fearlessly.
+            </p>
+          </div>
 
-<!-- Service 7: Cloud Integration -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="1400">
-  <div class="icon-placeholder">
-    <img
-      src="image/cloud-integration.svg"
-      alt="Cloud Integration Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Cloud Integration</h3>
-  <p>
-    Shifting to the cloud shouldn’t be a leap of faith—it should be an 
-    evolutionary step. Kojib’s cloud integration services bridge 
-    technology and cosmic harmony, blending seamless migrations with 
-    multi-cloud orchestration. Experience elasticity that scales as you 
-    expand, coupled with collaborative frameworks that keep your entire 
-    organization aligned and prepared for tomorrow’s frontiers.
-  </p>
-</div>
+          <!-- Service 7: Cloud Integration -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="1400">
+            <div class="icon-placeholder">
+              <img
+                src="image/cloud-integration.svg"
+                alt="Cloud Integration Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Cloud Integration</h3>
+            <p>
+              Shifting to the cloud shouldn’t be a leap of faith—it should be an 
+              evolutionary step. Kojib’s cloud integration services bridge 
+              technology and cosmic harmony, blending seamless migrations with 
+              multi-cloud orchestration. Experience elasticity that scales as you 
+              expand, coupled with collaborative frameworks that keep your entire 
+              organization aligned and prepared for tomorrow’s frontiers.
+            </p>
+          </div>
 
+          <!-- Service 8: Neural Network Design -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="1600">
+            <div class="icon-placeholder">
+              <img
+                src="image/neural-network-icon.svg"
+                alt="Neural Network Design Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Neural Network Design</h3>
+            <p>
+              At Kojib, neural networks aren’t just code—they’re living, learning systems 
+              bridging human intelligence and cosmic ingenuity. We architect specialized 
+              models to tackle complex challenges with startling speed and accuracy, 
+              whether recognizing subtle patterns in medical imaging or parsing natural 
+              language in real-time. Our designs evolve with each deployment, ensuring 
+              your AI steadily refines its performance. Embody future-facing intelligence 
+              that stays adaptive, scalable, and perpetually innovative.
+            </p>
+          </div>
 
-    <!-- Service 8: Neural Network Design -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="1600">
-  <div class="icon-placeholder">
-    <img
-      src="image/neural-network-icon.svg"
-      alt="Neural Network Design Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Neural Network Design</h3>
-  <p>
-    At Kojib, neural networks aren’t just code—they’re living, learning systems 
-    bridging human intelligence and cosmic ingenuity. We architect specialized 
-    models to tackle complex challenges with startling speed and accuracy, 
-    whether recognizing subtle patterns in medical imaging or parsing natural 
-    language in real-time. Our designs evolve with each deployment, ensuring 
-    your AI steadily refines its performance. Embody future-facing intelligence 
-    that stays adaptive, scalable, and perpetually innovative.
-  </p>
-</div>
+          <!-- Service 9: Data Visualization -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="1800">
+            <div class="icon-placeholder">
+              <img
+                src="image/data-visualization-icon.svg"
+                alt="Data Visualization Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Data Visualization</h3>
+            <p>
+              Data at Kojib isn’t bound to spreadsheets—it’s a canvas for cosmic insight 
+              and dynamic storytelling. We transform raw information into vibrant, 
+              interactive visuals that illuminate hidden opportunities and spark 
+              collaboration. From real-time dashboards that empower agile decisions to 
+              immersive experiences that fuel stakeholder alignment, every diagram and 
+              chart embodies clarity and impact. Experience data not as a burden, but 
+              as a guiding light toward decisive, confident action.
+            </p>
+          </div>
 
-<!-- Service 9: Data Visualization -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="1800">
-  <div class="icon-placeholder">
-    <img
-      src="image/data-visualization-icon.svg"
-      alt="Data Visualization Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Data Visualization</h3>
-  <p>
-    Data at Kojib isn’t bound to spreadsheets—it’s a canvas for cosmic insight 
-    and dynamic storytelling. We transform raw information into vibrant, 
-    interactive visuals that illuminate hidden opportunities and spark 
-    collaboration. From real-time dashboards that empower agile decisions to 
-    immersive experiences that fuel stakeholder alignment, every diagram and 
-    chart embodies clarity and impact. Experience data not as a burden, but 
-    as a guiding light toward decisive, confident action.
-  </p>
-</div>
+          <!-- Service 10: Scalable Automation -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="2000">
+            <div class="icon-placeholder">
+              <img
+                src="image/automation-icon.svg"
+                alt="Scalable Automation Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Scalable Automation</h3>
+            <p>
+              At Kojib, automation isn’t just about offloading repetitive tasks—it’s about 
+              unleashing the potential of your entire ecosystem to operate at a higher, 
+              more creative wavelength. Our intelligent workflows adapt in real-time 
+              to shifting priorities, seamlessly expanding across departments or new 
+              product lines. By eliminating inefficiencies at scale, you free up precious 
+              resources for innovation. Think of it as a cosmic catalyst that continually 
+              powers your growth—letting you do more, faster, with laser-focused precision.
+            </p>
+          </div>
 
+          <!-- Service 11: Explainable AI -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="2200">
+            <div class="icon-placeholder">
+              <img
+                src="image/explainable-ai-icon.svg"
+                alt="Explainable AI Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Explainable AI</h3>
+            <p>
+              Trust is the new currency of the AI-driven era. Kojib’s Explainable AI ensures 
+              your stakeholders aren’t in the dark when models make pivotal choices—by 
+              shedding light on the “why” behind each recommendation. From transparent 
+              dashboards to intuitive model breakdowns, we demystify machine logic while 
+              maintaining top-tier performance. Build confidence, reduce compliance risks, 
+              and elevate AI adoption throughout your organization by showing exactly 
+              how automation, intelligence, and cosmic harmony intertwine.
+            </p>
+          </div>
 
-    <!-- Service 10: Scalable Automation -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="2000">
-  <div class="icon-placeholder">
-    <img
-      src="image/automation-icon.svg"
-      alt="Scalable Automation Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Scalable Automation</h3>
-  <p>
-    At Kojib, automation isn’t just about offloading repetitive tasks—it’s about 
-    unleashing the potential of your entire ecosystem to operate at a higher, 
-    more creative wavelength. Our intelligent workflows adapt in real-time 
-    to shifting priorities, seamlessly expanding across departments or new 
-    product lines. By eliminating inefficiencies at scale, you free up precious 
-    resources for innovation. Think of it as a cosmic catalyst that continually 
-    powers your growth—letting you do more, faster, with laser-focused precision.
-  </p>
-</div>
-
-<!-- Service 11: Explainable AI -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="2200">
-  <div class="icon-placeholder">
-    <img
-      src="image/explainable-ai-icon.svg"
-      alt="Explainable AI Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Explainable AI</h3>
-  <p>
-    Trust is the new currency of the AI-driven era. Kojib’s Explainable AI ensures 
-    your stakeholders aren’t in the dark when models make pivotal choices—by 
-    shedding light on the “why” behind each recommendation. From transparent 
-    dashboards to intuitive model breakdowns, we demystify machine logic while 
-    maintaining top-tier performance. Build confidence, reduce compliance risks, 
-    and elevate AI adoption throughout your organization by showing exactly 
-    how automation, intelligence, and cosmic harmony intertwine.
-  </p>
-</div>
-
-<!-- Service 12: Edge & IoT AI -->
-<div class="service-card" data-aos="fade-up" data-aos-delay="2400">
-  <div class="icon-placeholder">
-    <img
-      src="image/edge-ai-icon.svg"
-      alt="Edge & IoT AI Icon"
-      loading="lazy"
-    />
-  </div>
-  <h3>Edge & IoT AI</h3>
-  <p>
-    The future lives at the edges—where data is generated, devices interact, and 
-    real-time decisions matter most. Our Edge & IoT AI infuses cosmic-level 
-    intelligence into sensors, machines, and remote systems, drastically reducing 
-    latency and bandwidth usage. Deploy predictive analytics on factory floors 
-    or coordinate connected vehicles in bustling metropolises without relying on 
-    centralized servers. Achieve a resilient, decentralized infrastructure that 
-    evolves with every new node—lighting up your network with swift, autonomous 
-    insights.
-  </p>
-</div>
-
-  </div>
-</div>
-
-
-  </section>
+          <!-- Service 12: Edge & IoT AI -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="2400">
+            <div class="icon-placeholder">
+              <img
+                src="image/edge-ai-icon.svg"
+                alt="Edge & IoT AI Icon"
+                loading="lazy"
+              />
+            </div>
+            <h3>Edge & IoT AI</h3>
+            <p>
+              The future lives at the edges—where data is generated, devices interact, and 
+              real-time decisions matter most. Our Edge & IoT AI infuses cosmic-level 
+              intelligence into sensors, machines, and remote systems, drastically reducing 
+              latency and bandwidth usage. Deploy predictive analytics on factory floors 
+              or coordinate connected vehicles in bustling metropolises without relying on 
+              centralized servers. Achieve a resilient, decentralized infrastructure that 
+              evolves with every new node—lighting up your network with swift, autonomous 
+              insights.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-    <!-- About Us Button Section -->
-    <div class="about-us-section" data-aos="fade-up" data-aos-delay="1600">
-      <p>Want to learn more about Kojib and our mission?</p>
-      <a href="about.html" class="about-button">Discover More About Kojib</a>
-    </div>
-    
-    <!-- Call-to-Action Section -->
-    <section class="cta-section" id="cta" data-aos="fade-up" data-aos-delay="1800">
-      <h2>Take Your Business to the Next Level</h2>
-      <p>
-        Ready to transform your vision into reality? Partner with Kojib to unlock innovative solutions that will elevate your business, drive growth, and set you apart in a competitive market. The future of your success begins here.
-      </p>
-      <a href="consulting.html" class="cta-button">Start Your Journey <i class="fas fa-arrow-right"></i></a>
-    </section>
+  <!-- About Us Button Section -->
+  <div class="about-us-section" data-aos="fade-up" data-aos-delay="1600">
+    <p>Want to learn more about Kojib and our mission?</p>
+    <a href="about.html" class="about-button">Discover More About Kojib</a>
+  </div>
   
-       <!-- AI Chatbot -->
-<div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
-  <div id="chatbot-header">
+  <!-- Call-to-Action Section -->
+  <section class="cta-section" id="cta" data-aos="fade-up" data-aos-delay="1800">
+    <h2>Take Your Business to the Next Level</h2>
+    <p>
+      Ready to transform your vision into reality? Partner with Kojib to unlock innovative solutions that will elevate your business, drive growth, and set you apart in a competitive market. The future of your success begins here.
+    </p>
+    <a href="consulting.html" class="cta-button">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+  </section>
+
+  <!-- AI Chatbot -->
+  <div id="chatbot" aria-label="AI Assistant Chat Window" aria-hidden="true" role="dialog">
+    <div id="chatbot-header">
       <span>Kojib</span>
       <button id="close-chatbot" aria-label="Close Chatbot" title="Close Chatbot">&times;</button>
-  </div>
-  <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
+    </div>
+    <div id="chatbot-messages" role="log" aria-live="polite" tabindex="0" aria-label="Chat Messages">
       <!-- Chat messages will be dynamically injected here -->
-  </div>
-  <div id="chatbot-input" role="form" aria-label="Chat Input">
+    </div>
+    <div id="chatbot-input" role="form" aria-label="Chat Input">
       <textarea id="user-input" placeholder="Dream it. Ask it. Build it. I’m Kojib—your AI for infinite possibilities." aria-label="Type your message" aria-required="true"></textarea>
       <button id="send-message" aria-label="Send Message" title="Send Message">Send</button>
+    </div>
   </div>
-</div>
-<div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
-  <img src="image/chat-icon.svg" alt="Chat Icon" />
-</div>
+  <div id="chatbot-button" role="button" aria-label="Open Chatbot" title="Open Chatbot">
+    <img src="image/chat-icon.svg" alt="Chat Icon" />
+  </div>
+
   <!-- Footer Section -->
- 
   <footer>
     <!-- logo -->
     <div class="footer-logo" style="margin-bottom: 20px;">
@@ -1787,7 +1835,7 @@
     // Set Current Year in Footer
     document.getElementById("current-year").textContent = new Date().getFullYear();
   </script>
-    <!-- Include other scripts or libraries -->
-    <script src="chatbot.js"></script>
+  <!-- Include other scripts or libraries -->
+  <script src="chatbot.js"></script>
 </body>
 </html>
