@@ -1230,7 +1230,63 @@
       <li><strong>Empowering Possibilities</strong>: Building tools and systems that inspire growth, creativity, and transformation.</li>
     </ul>
   </div>
-
+<!-- Call to Action Button -->
+<a href="/vision.html" class="cta-button">
+  Explore Our Vision
+  <!-- Arrow SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <defs>
+      <!-- Gradient Definitions -->
+      <radialGradient id="arrowGlowGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#00ff99" stop-opacity="1" />
+        <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00ff99" />
+        <stop offset="100%" stop-color="#0099ff" />
+      </linearGradient>
+    </defs>
+  
+    <!-- Background Glow -->
+    <circle cx="32" cy="32" r="30" fill="url(#arrowGlowGradient)" opacity="0.5">
+      <animate attributeName="r" from="30" to="36" dur="1.618s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.5" to="0.2" dur="1.618s" repeatCount="indefinite" />
+    </circle>
+  
+    <!-- Rotating Background Circle -->
+    <circle cx="32" cy="32" r="28" stroke="url(#arrowGradient)" stroke-width="2" fill="none">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        from="0 32 32"
+        to="360 32 32"
+        dur="2.618s"
+        repeatCount="indefinite"
+      />
+    </circle>
+  
+    <!-- Arrow Path -->
+    <path d="M26 20l10 12-10 12V20z" fill="url(#arrowGradient)">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        from="0 0"
+        to="0 -4"
+        dur="1.618s"
+        repeatCount="indefinite"
+        additive="sum"
+      />
+    </path>
+  
+    <!-- Inner Glow -->
+    <circle cx="32" cy="32" r="5" fill="url(#arrowGlowGradient)" opacity="0.8">
+      <animate attributeName="r" from="5" to="10" dur="1.618s" repeatCount="indefinite" />
+      <animate attributeName="opacity" from="0.8" to="0.4" dur="1.618s" repeatCount="indefinite" />
+    </circle>
+  </svg>
+  
+</a>
+</div>
 
 
   <script>
