@@ -454,129 +454,145 @@
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.5);
     }
 
-    /* Services Section */
-    .services-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 100px 40px 60px;
-      background: rgba(26, 26, 26, 0.9);
-      clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
-      position: relative;
-      z-index: 2;
-      border-radius: 15px;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
-    }
+   /* Services Section */
+.services-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 40px 60px;
+  background: rgba(26, 26, 26, 0.9);
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0 100%);
+  position: relative;
+  z-index: 2;
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
+}
 
-    .services-container::before {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: 0;
-      width: 100%;
-      height: 30px;
-      background: linear-gradient(45deg, #00ff99, #00995e);
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      z-index: -1;
-    }
+.services-container::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(45deg, #00ff99, #00995e);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  z-index: -1;
+}
 
-    .services-container h2 {
-      text-align: center;
-      color: #00ff99;
-      font-size: 2.8rem;
-      margin-bottom: 60px;
-      letter-spacing: 1.5px;
-      position: relative;
-    }
+.services-container h2 {
+  text-align: center;
+  color: #00ff99;
+  font-size: 2.8rem;
+  margin-bottom: 60px;
+  letter-spacing: 1.5px;
+  position: relative;
+}
 
-    .services-container h2::after {
-      content: '';
-      width: 80px;
-      height: 4px;
-      background: #00ff99;
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+.services-container h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background: #00ff99;
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-    }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
 
-    .service-card {
-      background: rgba(18, 18, 18, 0.95);
-      padding: 35px 25px;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 0.6s ease forwards;
-    }
+.service-card {
+  background: rgba(18, 18, 18, 0.95);
+  padding: 35px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.6s ease forwards;
+}
 
-    .service-card:nth-child(odd) {
-      background: rgba(18, 18, 18, 0.95);
-    }
+.service-card:nth-child(odd) {
+  background: rgba(18, 18, 18, 0.95);
+}
 
-    .service-card:nth-child(even) {
-      background: rgba(0, 255, 153, 0.1);
-    }
+.service-card:nth-child(even) {
+  background: rgba(0, 255, 153, 0.1);
+}
 
-    .service-card:hover {
-      transform: translateY(-15px) scale(1.02);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
-    }
+.service-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
+}
 
-    .service-card .icon-placeholder {
-      width: 100px;
-      height: 100px;
-      background: rgba(0, 255, 153, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 25px;
-      transition: background 0.3s ease;
-    }
+.service-card .icon-placeholder {
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 255, 153, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  transition: background 0.3s ease;
+}
 
-    .service-card .icon-placeholder img {
-      width: 60px;
-      height: 60px;
-      background: transparent;
-    }
+.service-card .icon-placeholder img {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+}
 
-    .service-card:hover .icon-placeholder {
-      background: rgba(0, 153, 90, 0.2);
-    }
+.service-card:hover .icon-placeholder {
+  background: rgba(0, 153, 90, 0.2);
+}
 
-    .service-card h3 {
-      color: #00ff99;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
-    }
+.service-card h3 {
+  color: #00ff99;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
 
-    .service-card:hover h3 {
-      color: #00cc7a;
-    }
+.service-card:hover h3 {
+  color: #00cc7a;
+}
 
-    .service-card p {
-      font-size: 1rem;
-      color: #d4d4d4;
-      transition: color 0.3s ease;
-    }
+.service-card p {
+  font-size: 1rem;
+  color: #d4d4d4;
+  transition: color 0.3s ease;
+}
 
-    .service-card:hover p {
-      color: #c0c0c0;
-    }
+.service-card:hover p {
+  color: #c0c0c0;
+}
+
+/* On smaller screens, remove the clip-path and adjust padding
+   so the section doesn't cut off the top or bottom text */
+@media (max-width: 768px) {
+  .services-container {
+    clip-path: none;
+    border-radius: 15px;
+    padding: 80px 20px;      /* Extra bottom padding to ensure no cutoff */
+    margin-top: 0;           /* Adjust if needed to avoid header overlap */
+    margin-bottom: 0;
+  }
+  .services-container::before {
+    display: none;           /* Hide the top gradient overlap */
+  }
+}
+
 
     /* About Us Button Section */
     .about-us-section {
@@ -995,7 +1011,7 @@
         </div>
       </div>
     </section>
-    
+    <section>
     <!-- Services Section -->
     <div class="services-container" id="services">
       <h2>Our Core Services</h2>
@@ -1078,7 +1094,9 @@
         </div>
       </div>
     </div>
-    
+  </section>
+  </main>
+
     <!-- About Us Button Section -->
     <div class="about-us-section" data-aos="fade-up" data-aos-delay="1600">
       <p>Want to learn more about Kojib and our mission?</p>
@@ -1093,7 +1111,7 @@
       </p>
       <a href="consulting.html" class="cta-button">Start Your Journey <i class="fas fa-arrow-right"></i></a>
     </section>
-  </main>
+  
   
   <!-- Footer Section -->
  
