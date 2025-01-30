@@ -8,7 +8,7 @@
   <!-- SEO Meta Tags -->
   <meta name="description" content="Phi Network is a fully decentralized AI-driven blockchain ecosystem, featuring Proof-of-Inference (PoI) and an AI-powered knowledge economy.">
 
-  <!-- Fonts & Icons (Optional) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -30,13 +30,13 @@
       text-decoration: none;
       color: inherit;
     }
+    ul {
+      list-style: none;
+    }
     img {
       max-width: 100%;
       height: auto;
       display: block;
-    }
-    ul {
-      list-style: none;
     }
 
     /* GLOBAL VARIABLES */
@@ -47,6 +47,15 @@
       --text-color: #FFFFFF;
       --text-subtle: #999999;
       --container-width: 1200px;
+    }
+
+    /* SCROLLBAR (Optional aesthetic tweak) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--phi-green);
+      border-radius: 4px;
     }
 
     /* CONTAINER */
@@ -65,8 +74,9 @@
       background: var(--dark-bg);
       z-index: 9999;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.3s ease;
     }
-    header .nav-container {
+    .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -75,21 +85,47 @@
       max-width: var(--container-width);
       margin: 0 auto;
     }
-    header .logo {
-      font-size: 1.5rem;
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-img {
+      width: 50px;
+      height: auto;
+    }
+    .logo-text {
+      font-size: 1.4rem;
       font-weight: 700;
       color: var(--phi-green);
       text-transform: uppercase;
       letter-spacing: 2px;
+      /* Optional neon glow effect */
+      text-shadow: 0 0 6px var(--phi-green);
     }
-    header nav a {
+
+    nav a {
       margin-left: 20px;
       font-weight: 400;
       color: var(--text-subtle);
+      position: relative;
       transition: color 0.2s ease;
     }
-    header nav a:hover {
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: var(--phi-green);
+      transition: width 0.3s;
+    }
+    nav a:hover {
       color: var(--phi-green);
+    }
+    nav a:hover::after {
+      width: 100%;
     }
 
     /* HERO SECTION */
@@ -100,11 +136,29 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
-      background: radial-gradient(circle at center, #0D0D0D 0%, #020202 100%);
-      /* Simple cosmic "flowing" effect with CSS animation */
       position: relative;
       overflow: hidden;
     }
+    /* Subtle starry background */
+    #hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(#fff 1px, transparent 1px),
+                  radial-gradient(#fff 1px, transparent 1px);
+      background-size: 3px 3px;
+      background-position: 0 0, 1.5px 1.5px;
+      opacity: 0.04;
+      animation: starDrift 100s linear infinite;
+    }
+    @keyframes starDrift {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(-50px, -50px); }
+    }
+    /* Existing swirling cosmic effect */
     #hero::before {
       content: "";
       position: absolute;
@@ -112,42 +166,82 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: conic-gradient(from 180deg at 50% 50%, rgba(0,255,153,0.1), transparent, rgba(0,255,153,0.1));
-      animation: cosmicFlow 12s linear infinite;
+      background: conic-gradient(from 180deg at 50% 50%, rgba(0,255,153,0.15), transparent, rgba(0,255,153,0.05));
+      animation: cosmicFlow 20s linear infinite;
     }
     @keyframes cosmicFlow {
       to {
         transform: rotate(360deg);
       }
     }
-    #hero .hero-content {
+
+    .hero-content {
       position: relative;
       z-index: 2;
       max-width: 800px;
       margin: 0 auto;
+      padding: 20px;
     }
+
+    /* Neon flicker effect for hero heading */
     #hero h1 {
       font-size: 3rem;
       margin-bottom: 20px;
       line-height: 1.2;
+      position: relative;
+      text-shadow:
+        0 0 5px var(--phi-green),
+        0 0 10px var(--phi-green),
+        0 0 20px var(--phi-green),
+        0 0 40px var(--phi-green);
+      animation: neonFlicker 3s infinite alternate ease-in-out;
     }
+    @keyframes neonFlicker {
+      0% {
+        text-shadow:
+          0 0 10px var(--phi-green),
+          0 0 20px var(--phi-green),
+          0 0 30px var(--phi-green),
+          0 0 40px var(--phi-green);
+        opacity: 1;
+      }
+      50% {
+        text-shadow:
+          0 0 5px var(--phi-green),
+          0 0 15px var(--phi-green),
+          0 0 25px var(--phi-green);
+        opacity: 0.8;
+      }
+      100% {
+        text-shadow:
+          0 0 10px var(--phi-green),
+          0 0 20px var(--phi-green),
+          0 0 30px var(--phi-green),
+          0 0 40px var(--phi-green);
+        opacity: 1;
+      }
+    }
+
     #hero p {
       font-size: 1.2rem;
       color: var(--text-subtle);
       max-width: 600px;
       margin: 0 auto 40px auto;
     }
-    #hero .cta-button {
+
+    .cta-button {
       display: inline-block;
       padding: 15px 30px;
       background: var(--phi-green);
       color: #000;
       font-weight: 700;
       border-radius: 4px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 var(--phi-green);
     }
-    #hero .cta-button:hover {
+    .cta-button:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 20px var(--phi-green);
     }
 
     /* SECTION TITLES */
@@ -157,6 +251,7 @@
       color: var(--phi-green);
       text-transform: uppercase;
       letter-spacing: 1px;
+      text-align: center;
     }
 
     /* WHAT IS PHI */
@@ -173,6 +268,7 @@
     }
     #what-is-phi .text-block {
       flex: 1 1 400px;
+      min-width: 280px;
     }
     #what-is-phi .text-block p {
       margin-bottom: 1rem;
@@ -181,13 +277,18 @@
     }
     #what-is-phi .infographic {
       flex: 1 1 300px;
-      min-width: 300px;
+      min-width: 280px;
       max-width: 500px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: #111111;
       padding: 20px;
       text-align: center;
       border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    #what-is-phi .infographic:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 15px rgba(0,255,153,0.4);
     }
     #what-is-phi .infographic img {
       width: 150px;
@@ -200,6 +301,12 @@
     /* HOW PHI WORKS */
     #how-phi-works {
       padding: 60px 0;
+    }
+    #how-phi-works p {
+      color: var(--text-subtle);
+      text-align: center;
+      max-width: 600px;
+      margin: 10px auto;
     }
     .how-steps {
       display: flex;
@@ -217,10 +324,11 @@
       background: #151515;
       text-align: center;
       padding: 20px;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .step:hover {
       transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0,255,153,0.4);
     }
     .step h3 {
       color: var(--phi-green);
@@ -246,20 +354,23 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
+      margin-top: 30px;
     }
     .phase {
       background: #151515;
       padding: 20px;
       border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .phase:hover {
       transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0,255,153,0.4);
     }
     .phase h3 {
       color: var(--phi-green);
       margin-bottom: 10px;
+      font-size: 1.2rem;
     }
     .phase p {
       color: var(--text-subtle);
@@ -292,10 +403,11 @@
       color: #000;
       font-weight: 700;
       border-radius: 4px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     .join-buttons a:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 15px var(--phi-green);
     }
 
     /* FOOTER */
@@ -305,18 +417,12 @@
       text-align: center;
       color: var(--text-subtle);
       font-size: 0.85rem;
-      margin-top: 60px;
       border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 60px;
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE BREAKPOINTS */
     @media screen and (max-width: 768px) {
-      #hero h1 {
-        font-size: 2.2rem;
-      }
-      #hero p {
-        font-size: 1rem;
-      }
       header .nav-container {
         flex-direction: column;
         justify-content: center;
@@ -329,6 +435,15 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+      #hero h1 {
+        font-size: 2rem;
+      }
+      #hero p {
+        font-size: 1rem;
+      }
+      .logo-text {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -338,7 +453,11 @@
   <!-- HEADER / NAVBAR -->
   <header>
     <div class="nav-container">
-      <div class="logo">PHI Network</div>
+      <div class="logo-wrapper">
+        <!-- Use your logo.png here. Make sure to have logo.png in the same folder -->
+        <img src="/image/logo.png" alt="Phi Network Logo" class="logo-img">
+        <div class="logo-text">PHI Network</div>
+      </div>
       <nav>
         <a href="#what-is-phi">What is Phi?</a>
         <a href="#how-phi-works">How It Works</a>
@@ -368,9 +487,10 @@
           <p>At the center of it all is <strong>Asterion</strong> – an AI whose knowledge is validated on-chain through a unique <strong>Proof-of-Inference (PoI)</strong> consensus mechanism.</p>
         </div>
         <div class="infographic">
-          <!-- Placeholder for an infographic or an AI neural net illustration -->
           <img src="https://via.placeholder.com/150?text=AI+Icon" alt="Asterion AI Icon">
-          <p>AI-Generated Knowledge<br> + <br>Human & Machine Validators<br> = <br>Verifiable Truth On-Chain</p>
+          <p>
+            AI-Generated Knowledge<br> + <br>Human & Machine Validators<br> = <br>Verifiable Truth On-Chain
+          </p>
         </div>
       </div>
     </div>
@@ -380,10 +500,9 @@
   <section id="how-phi-works">
     <div class="container">
       <h2>How Phi Network Works</h2>
-      <p style="color:var(--text-subtle); text-align:center; max-width:600px; margin:10px auto;">
+      <p>
         Phi Network is powered by Proof-of-Inference (PoI), where AI outputs are verified by a network of validators staking <strong>Phi Tokens</strong>.
       </p>
-
       <div class="how-steps">
         <div class="step">
           <div class="step-icon">1</div>
@@ -408,6 +527,9 @@
   <section id="roadmap">
     <div class="container">
       <h2>Roadmap</h2>
+      <p style="color:var(--text-subtle); text-align:center; max-width:600px; margin:0 auto 40px auto;">
+        Building a decentralized AI future, one phase at a time.
+      </p>
       <div class="roadmap-timeline">
         <div class="phase">
           <h3>Phase 1</h3>
@@ -450,9 +572,9 @@
     <p>© 2025 Phi Network. All Rights Reserved.</p>
   </footer>
 
-  <!-- OPTIONAL JAVASCRIPT -->
+  <!-- JAVASCRIPT -->
   <script>
-    // Sticky header logic (optional)
+    // Sticky header logic: changes header background on scroll
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
       if(window.scrollY > 20) {
@@ -464,7 +586,7 @@
 
     // Placeholder function for wallet connection
     function connectWallet() {
-      alert('This is a placeholder. Integrate a Web3 library (e.g., ethers.js) for wallet connection.');
+      alert('Wallet connect placeholder.\nIntegrate Web3 (ethers.js / web3.js) here.');
     }
   </script>
 </body>
