@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "node/phi-network/node",  # Include the actual node directory
+    "node/phi-network/node/smoldot"  # Include smoldot if it's a separate Rust package
+]
