@@ -10,10 +10,15 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" 
+    rel="stylesheet"
+  >
 
   <style>
-    /* RESET / BASE STYLES */
+    /************************************************************************
+      RESET / BASE STYLES
+    *************************************************************************/
     * {
       margin: 0;
       padding: 0;
@@ -25,6 +30,7 @@
       font-family: 'Roboto Mono', monospace;
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; /* Prevent horizontal scroll from large animations */
     }
     a {
       text-decoration: none;
@@ -39,7 +45,9 @@
       display: block;
     }
 
-    /* GLOBAL VARIABLES */
+    /************************************************************************
+      GLOBAL VARIABLES
+    *************************************************************************/
     :root {
       --phi-green: #00FF99;
       --dark-bg: #0A0A0A;
@@ -49,7 +57,9 @@
       --container-width: 1200px;
     }
 
-    /* SCROLLBAR (Optional aesthetic tweak) */
+    /************************************************************************
+      SCROLLBAR (Optional Aesthetic)
+    *************************************************************************/
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -58,7 +68,9 @@
       border-radius: 4px;
     }
 
-    /* CONTAINER */
+    /************************************************************************
+      CONTAINER
+    *************************************************************************/
     .container {
       width: 90%;
       max-width: var(--container-width);
@@ -66,7 +78,9 @@
       padding: 40px 0;
     }
 
-    /* HEADER */
+    /************************************************************************
+      HEADER
+    *************************************************************************/
     header {
       position: fixed;
       top: 0;
@@ -100,8 +114,7 @@
       color: var(--phi-green);
       text-transform: uppercase;
       letter-spacing: 2px;
-      /* Optional neon glow effect */
-      text-shadow: 0 0 6px var(--phi-green);
+      text-shadow: 0 0 6px var(--phi-green); /* Neon glow effect */
     }
 
     nav a {
@@ -128,7 +141,9 @@
       width: 100%;
     }
 
-    /* HERO SECTION */
+    /************************************************************************
+      HERO SECTION
+    *************************************************************************/
     #hero {
       display: flex;
       flex-direction: column;
@@ -139,6 +154,7 @@
       position: relative;
       overflow: hidden;
     }
+
     /* Subtle starry background */
     #hero::after {
       content: "";
@@ -147,8 +163,9 @@
       left: 0;
       width: 300%;
       height: 300%;
-      background: radial-gradient(#fff 1px, transparent 1px),
-                  radial-gradient(#fff 1px, transparent 1px);
+      background:
+        radial-gradient(#fff 1px, transparent 1px),
+        radial-gradient(#fff 1px, transparent 1px);
       background-size: 3px 3px;
       background-position: 0 0, 1.5px 1.5px;
       opacity: 0.04;
@@ -158,7 +175,8 @@
       0% { transform: translate(0,0); }
       100% { transform: translate(-50px, -50px); }
     }
-    /* Existing swirling cosmic effect */
+
+    /* Swirling cosmic effect */
     #hero::before {
       content: "";
       position: absolute;
@@ -166,7 +184,12 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: conic-gradient(from 180deg at 50% 50%, rgba(0,255,153,0.15), transparent, rgba(0,255,153,0.05));
+      background: conic-gradient(
+        from 180deg at 50% 50%,
+        rgba(0,255,153,0.15),
+        transparent,
+        rgba(0,255,153,0.05)
+      );
       animation: cosmicFlow 20s linear infinite;
     }
     @keyframes cosmicFlow {
@@ -222,11 +245,13 @@
       }
     }
 
-    #hero p {
+    /* Dynamic typed text for subheading */
+    #typed-subtext {
       font-size: 1.2rem;
       color: var(--text-subtle);
       max-width: 600px;
       margin: 0 auto 40px auto;
+      min-height: 40px; /* to keep layout stable while text updates */
     }
 
     .cta-button {
@@ -244,7 +269,9 @@
       box-shadow: 0 0 20px var(--phi-green);
     }
 
-    /* SECTION TITLES */
+    /************************************************************************
+      SECTION TITLES
+    *************************************************************************/
     section h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -254,7 +281,42 @@
       text-align: center;
     }
 
-    /* WHAT IS PHI */
+    /************************************************************************
+      WHITEPAPER SECTION
+    *************************************************************************/
+    #whitepaper {
+      background: #141414;
+      padding: 60px 0;
+      text-align: center;
+    }
+    #whitepaper .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    #whitepaper .desc {
+      max-width: 700px;
+      color: var(--text-subtle);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .whitepaper-btn {
+      background: var(--phi-green);
+      color: #000;
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 15px 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .whitepaper-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--phi-green);
+    }
+
+    /************************************************************************
+      WHAT IS PHI
+    *************************************************************************/
     #what-is-phi {
       background: var(--light-bg);
       padding: 60px 0;
@@ -296,9 +358,12 @@
     }
     #what-is-phi .infographic p {
       color: var(--text-subtle);
+      line-height: 1.5;
     }
 
-    /* HOW PHI WORKS */
+    /************************************************************************
+      HOW PHI WORKS
+    *************************************************************************/
     #how-phi-works {
       padding: 60px 0;
     }
@@ -330,6 +395,11 @@
       transform: translateY(-5px);
       box-shadow: 0 0 15px rgba(0,255,153,0.4);
     }
+    .step .step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--phi-green);
+    }
     .step h3 {
       color: var(--phi-green);
       margin-bottom: 10px;
@@ -339,16 +409,35 @@
       font-size: 0.95rem;
       line-height: 1.4;
     }
-    .step .step-icon {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: var(--phi-green);
-    }
 
-    /* ROADMAP */
+    /************************************************************************
+      ROADMAP
+    *************************************************************************/
     #roadmap {
       background: var(--light-bg);
       padding: 60px 0;
+      position: relative;
+    }
+    #roadmap > .container > p {
+      color: var(--text-subtle);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+    /* Countdown Container */
+    .countdown-box {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .countdown-title {
+      font-size: 1.2rem;
+      color: var(--phi-green);
+      margin-bottom: 10px;
+    }
+    .countdown-display {
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 500;
     }
     .roadmap-timeline {
       display: grid;
@@ -378,7 +467,9 @@
       font-size: 0.95rem;
     }
 
-    /* JOIN THE MOVEMENT */
+    /************************************************************************
+      JOIN THE MOVEMENT
+    *************************************************************************/
     #join {
       padding: 60px 0;
       text-align: center;
@@ -410,7 +501,9 @@
       box-shadow: 0 0 15px var(--phi-green);
     }
 
-    /* FOOTER */
+    /************************************************************************
+      FOOTER
+    *************************************************************************/
     footer {
       background: #0A0A0A;
       padding: 40px 0;
@@ -421,9 +514,11 @@
       margin-top: 60px;
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    /************************************************************************
+      RESPONSIVE BREAKPOINTS
+    *************************************************************************/
     @media screen and (max-width: 768px) {
-      header .nav-container {
+      .nav-container {
         flex-direction: column;
         justify-content: center;
         gap: 10px;
@@ -438,27 +533,30 @@
       #hero h1 {
         font-size: 2rem;
       }
-      #hero p {
+      #typed-subtext {
         font-size: 1rem;
       }
       .logo-text {
         font-size: 1.2rem;
       }
+      #whitepaper .container {
+        padding: 0 20px;
+      }
     }
   </style>
 </head>
-
 <body>
 
   <!-- HEADER / NAVBAR -->
   <header>
     <div class="nav-container">
       <div class="logo-wrapper">
-        <!-- Use your logo.png here. Make sure to have logo.png in the same folder -->
+        <!-- Main site logo at /image/logo.png -->
         <img src="/image/logo.png" alt="Phi Network Logo" class="logo-img">
         <div class="logo-text">PHI Network</div>
       </div>
       <nav>
+        <a href="#whitepaper">Whitepaper</a>
         <a href="#what-is-phi">What is Phi?</a>
         <a href="#how-phi-works">How It Works</a>
         <a href="#roadmap">Roadmap</a>
@@ -471,8 +569,25 @@
   <section id="hero">
     <div class="hero-content">
       <h1>Decentralized AI for the Future</h1>
-      <p>The Currency of Intelligence. AI Verified by Humanity.</p>
+      <p id="typed-subtext"></p>
       <a href="#join" class="cta-button">Join the Future – Become a Validator</a>
+    </div>
+  </section>
+
+  <!-- WHITEPAPER SECTION -->
+  <section id="whitepaper">
+    <div class="container">
+      <h2>Whitepaper</h2>
+      <p class="desc">
+        Discover the full vision, technical architecture, and economic model of Phi Network. 
+        Our <strong>Whitepaper</strong> provides in-depth insight into the 
+        <strong>Proof-of-Inference (PoI)</strong> mechanism, Asterion’s AI framework, 
+        and how we’re revolutionizing decentralized knowledge.
+      </p>
+      <!-- Update the href to your actual whitepaper PDF/URL -->
+      <a href="https://example.com/phi_whitepaper.pdf" target="_blank" class="whitepaper-btn">
+        View Whitepaper
+      </a>
     </div>
   </section>
 
@@ -482,14 +597,34 @@
       <h2>What is Phi Network?</h2>
       <div class="content">
         <div class="text-block">
-          <p><strong>Phi Network</strong> is a fully decentralized AI-driven blockchain ecosystem designed to create a trustless, verifiable, and transparent knowledge economy.</p>
-          <p>By combining artificial intelligence, blockchain, and economic incentives, Phi Network introduces a new paradigm of AI decentralization, transparency, and reward-driven validation.</p>
-          <p>At the center of it all is <strong>Asterion</strong> – an AI whose knowledge is validated on-chain through a unique <strong>Proof-of-Inference (PoI)</strong> consensus mechanism.</p>
+          <p>
+            <strong>Phi Network</strong> is a fully decentralized AI-driven blockchain ecosystem designed 
+            to create a trustless, verifiable, and transparent knowledge economy.
+          </p>
+          <p>
+            By combining artificial intelligence, blockchain, and economic incentives, Phi Network 
+            introduces a new paradigm of AI decentralization, transparency, and reward-driven validation.
+          </p>
+          <p>
+            At the center of it all is 
+            <strong>
+              <a href="https://asterion.kojib.com" target="_blank" style="color:var(--phi-green); text-decoration:underline;">
+                Asterion
+              </a>
+            </strong>
+            – an AI whose knowledge is validated on-chain through a unique 
+            <strong>Proof-of-Inference (PoI)</strong> consensus mechanism.
+          </p>
         </div>
         <div class="infographic">
-          <img src="https://via.placeholder.com/150?text=AI+Icon" alt="Asterion AI Icon">
+          <!-- The Asterion logo or AI icon at /image/asterion.png -->
+          <img src="/image/asterion.svg" alt="Asterion AI Icon">
           <p>
-            AI-Generated Knowledge<br> + <br>Human & Machine Validators<br> = <br>Verifiable Truth On-Chain
+            AI-Generated Knowledge<br> 
+            + <br>
+            Human &amp; Machine Validators<br> 
+            = <br>
+            Verifiable Truth On-Chain
           </p>
         </div>
       </div>
@@ -501,7 +636,8 @@
     <div class="container">
       <h2>How Phi Network Works</h2>
       <p>
-        Phi Network is powered by Proof-of-Inference (PoI), where AI outputs are verified by a network of validators staking <strong>Phi Tokens</strong>.
+        Phi Network is powered by Proof-of-Inference (PoI), where AI outputs are verified by 
+        a network of validators staking <strong>Phi Tokens</strong>.
       </p>
       <div class="how-steps">
         <div class="step">
@@ -511,7 +647,7 @@
         </div>
         <div class="step">
           <div class="step-icon">2</div>
-          <h3>Validators Stake & Verify</h3>
+          <h3>Validators Stake &amp; Verify</h3>
           <p>Users stake Phi Tokens and vote on correctness. Rewards are distributed for accurate validation.</p>
         </div>
         <div class="step">
@@ -527,25 +663,33 @@
   <section id="roadmap">
     <div class="container">
       <h2>Roadmap</h2>
-      <p style="color:var(--text-subtle); text-align:center; max-width:600px; margin:0 auto 40px auto;">
-        Building a decentralized AI future, one phase at a time.
+      <p>
+        Building a decentralized AI future, one phase at a time. Our timeline is designed to 
+        rapidly evolve Phi Network into a fully community-driven AI ecosystem.
       </p>
+
+      <!-- Countdown to next milestone (Example: "PoI Testnet Launch" on June 1, 2025) -->
+      <div class="countdown-box">
+        <div class="countdown-title">PoI Testnet Launch Countdown</div>
+        <div id="countdown" class="countdown-display">Loading...</div>
+      </div>
+
       <div class="roadmap-timeline">
         <div class="phase">
-          <h3>Phase 1</h3>
+          <h3>Phase 1 (Q1 2025)</h3>
           <p>Website, Whitepaper, and Community Launch</p>
         </div>
         <div class="phase">
-          <h3>Phase 2</h3>
+          <h3>Phase 2 (Q2 2025)</h3>
           <p>Testnet Deployment (Validators Onboarding)</p>
         </div>
         <div class="phase">
-          <h3>Phase 3</h3>
-          <p>Proof-of-Inference Smart Contracts & Phi Token Deployment</p>
+          <h3>Phase 3 (Q3 2025)</h3>
+          <p>Proof-of-Inference Smart Contracts &amp; Phi Token Launch</p>
         </div>
         <div class="phase">
-          <h3>Phase 4</h3>
-          <p>AI Marketplace & Full Decentralization</p>
+          <h3>Phase 4 (Q4 2025)</h3>
+          <p>AI Marketplace &amp; Full Decentralization</p>
         </div>
       </div>
     </div>
@@ -556,7 +700,8 @@
     <div class="container">
       <h2>Join the Movement</h2>
       <p>
-        Sign up for early validator access, connect your wallet, and stake your Phi Tokens to help shape the future of decentralized AI.
+        Sign up for early validator access, connect your wallet, and stake your Phi Tokens 
+        to help shape the future of decentralized AI.
       </p>
       <div class="join-buttons">
         <a href="#!" onclick="connectWallet()">Connect Wallet</a>
@@ -574,7 +719,9 @@
 
   <!-- JAVASCRIPT -->
   <script>
-    // Sticky header logic: changes header background on scroll
+    /************************************************************************
+      STICKY HEADER ON SCROLL
+    *************************************************************************/
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
       if(window.scrollY > 20) {
@@ -584,10 +731,98 @@
       }
     });
 
-    // Placeholder function for wallet connection
+    /************************************************************************
+      WALLET CONNECT PLACEHOLDER
+    *************************************************************************/
     function connectWallet() {
       alert('Wallet connect placeholder.\nIntegrate Web3 (ethers.js / web3.js) here.');
     }
+
+    /************************************************************************
+      TYPED SUBTEXT EFFECT IN HERO
+    *************************************************************************/
+    const typedSubtext = document.getElementById('typed-subtext');
+
+    // Messages you want to cycle through
+    const messages = [
+      "The Currency of Intelligence. AI Verified by Humanity.",
+      "Shape the Future of Decentralized AI.",
+      "Intelligence. Transparency. Empowerment."
+    ];
+    let messageIndex = 0;
+    let charIndex = 0;
+    let currentMessage = "";
+    let typingSpeed = 50;    // ms per character
+    let erasingSpeed = 40;   // ms per character
+    let delayBetween = 1500; // ms waiting before retyping
+
+    function type() {
+      // If we're not at the end, keep typing
+      if (charIndex < messages[messageIndex].length) {
+        currentMessage += messages[messageIndex].charAt(charIndex);
+        typedSubtext.textContent = currentMessage;
+        charIndex++;
+        setTimeout(type, typingSpeed);
+      } else {
+        // Pause at the end, then erase
+        setTimeout(erase, delayBetween);
+      }
+    }
+
+    function erase() {
+      // If there's still a character, erase it
+      if (charIndex > 0) {
+        currentMessage = currentMessage.slice(0, -1);
+        typedSubtext.textContent = currentMessage;
+        charIndex--;
+        setTimeout(erase, erasingSpeed);
+      } else {
+        // Move to next message
+        messageIndex++;
+        if (messageIndex >= messages.length) messageIndex = 0;
+        setTimeout(type, typingSpeed);
+      }
+    }
+
+    // Start typing on window load
+    window.addEventListener("load", () => {
+      if (messages.length) {
+        setTimeout(type, 500);
+      }
+    });
+
+    /************************************************************************
+      COUNTDOWN TIMER (Example: 1 June 2025)
+    *************************************************************************/
+    const countdownEl = document.getElementById("countdown");
+    // Adjust to your desired target date & time
+    const targetDate = new Date("June 1, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdownEl.textContent = "The PoI Testnet Launch is Live!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.textContent = 
+        `${days}d : ${hours}h : ${minutes}m : ${seconds}s remaining`;
+    }
+
+    // Update every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call
   </script>
 </body>
 </html>
