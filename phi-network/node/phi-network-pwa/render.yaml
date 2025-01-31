@@ -1,0 +1,14 @@
+services:
+  - name: phi-network-node
+    type: web
+    runtime: docker
+    plan: starter
+    envVars:
+      - key: WS_PORT
+        value: 9944
+      - key: RPC_PORT
+        value: 9933
+    dockerfilePath: ./Dockerfile
+    region: oregon
+    healthCheckPath: /
+    autoDeploy: true
