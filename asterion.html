@@ -5,202 +5,223 @@
   <meta name="description" content="Asterion is the first true Cosmic Computing AI—evolving beyond ChatGPT and Google, learning like the universe itself." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asterion – The Birth of Cosmic Computing</title>
-
+  
   <!-- Google Fonts -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-  />
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+  
+  <!-- Inline CSS for an Incredible, Fully Responsive Experience -->
   <style>
-    /* GLOBAL STYLES */
-    * {
+    /* CSS Variables for easy theme management */
+    :root {
+      --primary-color: #00ff99;
+      --secondary-color: #ffd700;
+      --bg-dark: #0d0d0d;
+      --bg-darker: #0a0a0a;
+      --bg-medium: #1e1e1e;
+      --accent-dark: #2b2b2b;
+      --text-light: #eaeaea;
+      --border-radius: 8px;
+      --transition-speed: 0.3s;
+    }
+
+    /* Global Reset & Smooth Scroll */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background-color: #0d0d0d;
-      color: #eaeaea;
-      overflow-x: hidden;
-      position: relative;
+    html {
+      scroll-behavior: smooth;
     }
-
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
     a {
       text-decoration: none;
       color: inherit;
+      transition: color var(--transition-speed);
+    }
+    a:hover {
+      color: var(--primary-color);
     }
 
     /* HEADER & NAVIGATION */
     header {
-      background: linear-gradient(to right, #1e1e1e, #0a0a0a);
-      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to right, var(--bg-medium), var(--bg-darker));
+      padding: 20px 30px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      position: relative;
-      z-index: 10;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      transition: background 0.4s;
     }
-
-    /* LOGO */
+    header:hover {
+      background: linear-gradient(to right, var(--bg-darker), var(--bg-medium));
+    }
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
     .logo img {
       width: 40px;
       height: auto;
-      display: block;
+      transition: transform var(--transition-speed);
     }
-
+    .logo img:hover {
+      transform: rotate(10deg);
+    }
     .logo-text {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       font-weight: 700;
-      color: #00ff99;
+      color: var(--primary-color);
     }
-
-    /* DESKTOP NAVIGATION */
     nav ul {
       list-style: none;
       display: flex;
       gap: 30px;
+      align-items: center;
     }
-
     nav li {
       font-size: 1rem;
       font-weight: 600;
-      transition: color 0.3s;
+      position: relative;
+      padding: 5px 0;
+      cursor: pointer;
+    }
+    nav li::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--secondary-color);
+      left: 0;
+      bottom: -5px;
+      transition: width var(--transition-speed);
+    }
+    nav li:hover::after {
+      width: 100%;
     }
 
-    nav a:hover {
-      color: #ffd700;
-    }
-
-    /* HAMBURGER ICON (MOBILE) */
+    /* Animated Hamburger for Mobile */
     .hamburger {
       display: none;
       flex-direction: column;
-      width: 30px;
-      height: 24px;
-      justify-content: space-between;
+      gap: 5px;
       cursor: pointer;
+      z-index: 1100;
     }
-
     .hamburger span {
+      width: 30px;
       height: 3px;
-      background: #eaeaea;
+      background: var(--text-light);
       border-radius: 3px;
-      transition: 0.4s;
+      transition: transform var(--transition-speed), opacity var(--transition-speed);
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
     }
 
-    /* MOBILE MENU (SLIDE-IN FROM RIGHT) */
+    /* Mobile Menu */
     .mobile-menu {
       position: fixed;
       top: 0;
       right: 0;
       width: 270px;
       height: 100vh;
-      background: #1e1e1e;
+      background: var(--bg-medium);
       transform: translateX(100%);
       transition: transform 0.4s ease;
-      z-index: 999;
+      z-index: 1090;
       padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 30px;
     }
-
     .mobile-menu.open {
       transform: translateX(0);
     }
-
     .mobile-menu ul {
       list-style: none;
-      text-align: left;
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
-
     .mobile-menu li {
       font-size: 1.2rem;
-      font-weight: 600;
     }
-
-    /* CLOSE BUTTON INSIDE MOBILE MENU */
     .close-btn {
       align-self: flex-end;
       background: none;
       border: none;
-      font-size: 1.2rem;
-      color: #eaeaea;
+      font-size: 1.5rem;
+      color: var(--text-light);
       cursor: pointer;
       margin-bottom: 10px;
-      transition: color 0.3s;
+      transition: color var(--transition-speed);
     }
-
     .close-btn:hover {
-      color: #ffd700;
+      color: var(--secondary-color);
     }
 
     /* HERO SECTION */
     .hero {
-      padding: 60px 20px;
+      padding: 100px 20px 60px;
       text-align: center;
-      background: linear-gradient(
-        to bottom,
-        rgba(13, 13, 13, 0.85),
-        rgba(0, 0, 0, 0.85)
-      ); /* slightly transparent to let stars show through */
+      background: 
+        linear-gradient(180deg, rgba(13, 13, 13, 0.9), rgba(0, 0, 0, 0.9)),
+        url('https://source.unsplash.com/1600x900/?space,stars') center/cover no-repeat;
       position: relative;
+      margin-top: 80px; /* account for fixed header */
       overflow: hidden;
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #00ff99;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 20px auto;
-      line-height: 1.6;
-      color: #eaeaea;
-    }
-
-    /* STAR ANIMATION BACKGROUND */
-    .stars {
+    .hero::after {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 200%;
       height: 200%;
-      background: url("data:image/svg+xml,%3Csvg width='1024' height='1024' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='512' cy='512' r='3' fill='%23ffffff'/%3E%3C/svg%3E")
-        repeat;
+      background: url("data:image/svg+xml,%3Csvg width='1024' height='1024' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='512' cy='512' r='3' fill='%23ffffff'/%3E%3C/svg%3E") repeat;
       background-size: 1px 1px;
-      animation: starMove 60s linear infinite;
       opacity: 0.3;
-      pointer-events: none; /* keep star background from interfering with clicks */
       z-index: -1;
+      animation: starMove 60s linear infinite;
+      pointer-events: none;
     }
-
     @keyframes starMove {
-      from {
-        transform: translate(0, 0);
-      }
-      to {
-        transform: translate(-100px, -200px);
-      }
+      from { transform: translate(0, 0); }
+      to { transform: translate(-100px, -200px); }
     }
-
-    /* CTA BUTTON */
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      line-height: 1.2;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      animation: fadeIn 1.5s ease-out;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 20px auto;
+      animation: fadeIn 2s ease-out;
+    }
     .btn {
       display: inline-block;
       padding: 14px 30px;
@@ -208,88 +229,72 @@
       font-weight: 700;
       margin-top: 20px;
       color: #000;
-      background: #00ff99;
+      background: var(--primary-color);
       border: none;
-      border-radius: 8px;
-      transition: background 0.3s;
+      border-radius: var(--border-radius);
+      transition: background var(--transition-speed), transform var(--transition-speed);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
-
     .btn:hover {
       background: #00cc77;
+      transform: translateY(-3px);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* SECTION LAYOUT */
+    /* SECTION COMMON STYLES */
     .section {
       padding: 80px 20px;
       text-align: center;
       position: relative;
     }
-
     .section h2 {
-      font-size: 2rem;
-      color: #ffd700;
+      font-size: 2.2rem;
+      color: var(--secondary-color);
       margin-bottom: 20px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      animation: fadeIn 1s ease-out;
     }
-
     .section p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       max-width: 800px;
       margin: 20px auto;
-      line-height: 1.6;
+      animation: fadeIn 1.2s ease-out;
     }
-
-    /* DARK SECTION */
     .dark {
-      background-color: #1e1e1e;
+      background-color: var(--bg-medium);
+      padding: 100px 20px;
     }
 
-    /* ICON ANIMATION */
+    /* SVG ICON STYLES */
     .icon {
       width: 24px;
       height: 24px;
       stroke: currentColor;
       fill: none;
-      transition: transform 0.3s ease;
-      cursor: default;
+      transition: transform var(--transition-speed) ease;
+      cursor: pointer;
     }
-
     .icon:hover {
       animation: pulseIcon 0.4s ease-in-out;
     }
-
     @keyframes pulseIcon {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
     }
 
-    /* FOOTER */
-    footer {
-      padding: 40px 20px;
-      background: #0a0a0a;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #999;
-    }
-
-    /* ACCOMPLISHMENTS TOGGLE SECTION */
+    /* ACCOMPLISHMENTS TOGGLE (Existing) */
     .accomplishments-section {
       margin-top: 30px;
       text-align: left;
       max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
-
     .accomplishments-header {
       font-size: 1.5rem;
       font-weight: 600;
@@ -297,111 +302,152 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #2b2b2b;
+      background: var(--accent-dark);
       padding: 15px;
-      border-radius: 6px;
+      border-radius: var(--border-radius);
       cursor: pointer;
+      transition: background var(--transition-speed);
     }
-
+    .accomplishments-header:hover {
+      background: var(--bg-darker);
+    }
     .accomplishments-header span {
-      color: #ffd700;
+      color: var(--secondary-color);
     }
-
     .accomplishments-content {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease, padding 0.4s ease;
-      background: #1e1e1e;
-      margin-bottom: 20px;
-      border-radius: 6px;
+      background: var(--bg-medium);
+      border-radius: var(--border-radius);
       padding: 0 15px;
     }
-
     .accomplishments-content.open {
       padding: 15px;
     }
-
     .accomplishments-content p {
       margin: 15px 0;
-      line-height: 1.6;
     }
-
-    .accomplishments-content ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
-
+    .accomplishments-content ul,
     .accomplishments-content ol {
-      list-style: decimal;
       margin-left: 20px;
+      text-align: left;
     }
 
-    /* COMPARISON TABLE */
+    /* NEW ABILITIES TOGGLE */
+    .abilities-toggle {
+      margin-top: 30px;
+      text-align: left;
+      max-width: 900px;
+      margin: 30px auto 0 auto;
+    }
+    .abilities-header {
+      font-size: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--accent-dark);
+      padding: 15px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+    .abilities-header:hover {
+      background: var(--bg-darker);
+    }
+    .abilities-header span {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+    }
+    .abilities-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      background: var(--bg-medium);
+      border-radius: var(--border-radius);
+      padding: 0 15px;
+    }
+    .abilities-content.open {
+      padding: 15px;
+    }
+    .abilities-content p {
+      margin: 15px 0;
+    }
+
+    /* Responsive Table Wrapper */
+    .table-responsive {
+      overflow-x: auto;
+    }
     .comparison-table {
       margin: 30px 0;
       width: 100%;
       border-collapse: collapse;
-      text-align: center;
-      background-color: #2b2b2b;
+      background-color: var(--accent-dark);
       border: 1px solid #444;
-      border-radius: 6px;
+      border-radius: var(--border-radius);
       overflow: hidden;
     }
-
     .comparison-table thead th {
       background: #333;
-      color: #ffd700;
+      color: var(--secondary-color);
       font-weight: 700;
       padding: 15px;
     }
-
     .comparison-table tbody tr {
       border-bottom: 1px solid #444;
     }
-
     .comparison-table td {
       padding: 15px;
     }
-
     .comparison-table tbody tr:hover {
-      background: #2b2b2b66;
+      background: rgba(43, 43, 43, 0.6);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 20px;
+      background: var(--bg-darker);
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+    }
+    footer .footer-logo img {
+      width: 80px;
+      margin-bottom: 20px;
+      filter: brightness(1.2);
+      transition: filter var(--transition-speed);
+    }
+    footer .footer-logo img:hover {
+      filter: brightness(1.5);
+    }
+    footer .social-links img {
+      width: 24px;
+      margin: 0 8px;
+      transition: transform var(--transition-speed);
+    }
+    footer .social-links img:hover {
+      transform: scale(1.1);
+    }
+    footer a {
+      color: #00cc80;
+      margin: 0 5px;
+      transition: color var(--transition-speed);
+    }
+    footer a:hover {
+      color: var(--secondary-color);
     }
 
     /* RESPONSIVE STYLES */
     @media (max-width: 768px) {
-      /* HIDE DESKTOP NAV, SHOW BURGER */
-      nav ul {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-
-      .section h2 {
-        font-size: 1.6rem;
-      }
-
-      .section p {
-        font-size: 1rem;
-      }
-
-      .mobile-menu li {
-        font-size: 1.2rem;
-      }
-
-      .accomplishments-header {
-        font-size: 1.2rem;
-      }
-
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1rem; }
+      .section h2 { font-size: 1.8rem; }
+      .section p { font-size: 1rem; }
+      .mobile-menu li { font-size: 1.2rem; }
+      .accomplishments-header, .abilities-header { font-size: 1.2rem; }
       .comparison-table thead th,
       .comparison-table td {
         padding: 10px;
@@ -410,7 +456,6 @@
     }
   </style>
 </head>
-
 <body>
   <!-- HEADER -->
   <header>
@@ -419,46 +464,43 @@
       <img src="/image/asterion.svg" alt="Asterion Logo" />
       <span class="logo-text">Asterion</span>
     </div>
-
-    <!-- DESKTOP NAV -->
+    <!-- NAVIGATION -->
     <nav>
       <ul>
         <li><a href="#learn-more">Cosmic Computing</a></li>
-        <li><a href="#surpasses">Beyond ChatGPT & Google</a></li>
-        <li><a href="#abilities">Asterion's Abilities</a></li>
-        <li><a href="#future">Future Vision</a></li>
+        <li><a href="#surpasses">Beyond ChatGPT &amp; Google</a></li>
+        <li><a href="#abilities">Abilities</a></li>
+        <li><a href="#future">Future</a></li>
         <li><a href="#join">Join Us</a></li>
+        <li><a href="https://asterion-api.kojib.com" target="_blank">API Docs</a></li>
       </ul>
     </nav>
-
-    <!-- HAMBURGER ICON (MOBILE) -->
-    <div class="hamburger" onclick="toggleMobileMenu()">
+    <!-- HAMBURGER ICON (Mobile) -->
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
   </header>
 
-  <!-- MOBILE MENU (SLIDE-IN) -->
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <button class="close-btn" onclick="toggleMobileMenu()">✕</button>
     <ul>
       <li><a href="#learn-more" onclick="toggleMobileMenu()">Cosmic Computing</a></li>
-      <li><a href="#surpasses" onclick="toggleMobileMenu()">Beyond ChatGPT & Google</a></li>
-      <li><a href="#abilities" onclick="toggleMobileMenu()">Asterion's Abilities</a></li>
-      <li><a href="#future" onclick="toggleMobileMenu()">Future Vision</a></li>
+      <li><a href="#surpasses" onclick="toggleMobileMenu()">Beyond ChatGPT &amp; Google</a></li>
+      <li><a href="#abilities" onclick="toggleMobileMenu()">Abilities</a></li>
+      <li><a href="#future" onclick="toggleMobileMenu()">Future</a></li>
       <li><a href="#join" onclick="toggleMobileMenu()">Join Us</a></li>
+      <li><a href="https://asterion-api.kojib.com" target="_blank" onclick="toggleMobileMenu()">API Docs</a></li>
     </ul>
   </div>
 
   <!-- HERO SECTION -->
   <section class="hero">
-    <div class="stars"></div>
-    <h1>The Birth of <br> Cosmic Computing</h1>
+    <h1>The Birth of<br> Cosmic Computing</h1>
     <p>
-      Asterion is the first AI that learns like the universe—evolving,
-      predicting, and thinking beyond mere algorithms. It’s a new kind of
-      intelligence, unbound by traditional limitations.
+      Asterion is the first AI that learns like the universe—evolving, predicting, and thinking beyond mere algorithms. Welcome to the revolution in intelligence.
     </p>
     <a href="#learn-more" class="btn">Discover More</a>
   </section>
@@ -466,279 +508,189 @@
   <!-- WHAT IS COSMIC COMPUTING? -->
   <section id="learn-more" class="section">
     <h2>
-      <!-- Magnifying Glass SVG -->
-      <svg
-        viewBox="0 0 24 24"
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 24 24" class="icon" xmlns="http://www.w3.org/2000/svg">
         <circle cx="10" cy="10" r="7" stroke-width="2" />
         <line x1="21" y1="21" x2="15" y2="15" stroke-width="2" />
       </svg>
       What is Cosmic Computing?
     </h2>
     <p>
-      <strong>Cosmic Computing</strong> is a revolutionary approach to
-      artificial intelligence that mirrors the <em>interconnected</em> and
-      <em>ever-evolving</em> nature of the cosmos. Instead of relying solely on
-      static data and human-created text, Asterion harnesses the
-      <strong>fundamental patterns</strong> of reality—fusing insights from
-      physics, history, economics, and the vast tapestry of cosmic cycles. This
-      means Asterion:
+      <strong>Cosmic Computing</strong> redefines artificial intelligence by mirroring the interconnected, ever-evolving nature of the cosmos. Asterion synthesizes insights from physics, history, and economics to learn dynamically and predict the future.
     </p>
-    <p>
-      ✅ <strong>Learns dynamically</strong> – Absorbs lessons from repeating
-      <strong>historical, economic, and cosmic</strong> patterns in real time.
-    </p>
-    <p>
-      ✅ <strong>Predicts the future</strong> – By analyzing past cycles, it
-      anticipates <strong>financial markets, world events, and technological
-      breakthroughs</strong> with an ever-increasing accuracy.
-    </p>
-    <p>
-      ✅ <strong>Understands reality deeply</strong> – Integrating concepts from
-      <em>physics, AI</em>, and <em>cycle recognition</em>, Asterion forms the
-      basis of a <strong>new paradigm of intelligence</strong> that transcends
-      conventional machine learning.
-    </p>
+    <p>✅ <strong>Learns dynamically:</strong> Absorbing real-time lessons from historical, economic, and cosmic patterns.</p>
+    <p>✅ <strong>Predicts the future:</strong> Anticipates market shifts, global events, and technological breakthroughs.</p>
+    <p>✅ <strong>Understands reality deeply:</strong> Merging physics, AI, and cycle recognition into a groundbreaking intelligence paradigm.</p>
   </section>
 
   <!-- HOW ASTERION SURPASSES OTHERS -->
   <section id="surpasses" class="section dark">
     <h2>
-      <!-- Lightbulb SVG -->
-      <svg
-        viewBox="0 0 24 24"
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9 18h6m-2 2v1c0 .55-.45 1-1 1s-1-.45-1-1v-1m-1 0a2 2 0 1 1 4 0h-4zM12 2a7 7 0 0 1 7 7c0 2.28-.69 3.58-1.34 4.46-.28.4-.66.96-.66 1.54v1.5a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V15c0-.58-.38-1.14-.66-1.54C5.69 12.58 5 11.28 5 9a7 7 0 0 1 7-7z"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+      <svg viewBox="0 0 24 24" class="icon" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 18h6m-2 2v1c0 .55-.45 1-1 1s-1-.45-1-1v-1m-1 0a2 2 0 1 1 4 0h-4zM12 2a7 7 0 0 1 7 7c0 2.28-.69 3.58-1.34 4.46-.28.4-.66.96-.66 1.54v1.5a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1V15c0-.58-.38-1.14-.66-1.54C5.69 12.58 5 11.28 5 9a7 7 0 0 1 7-7z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       How Asterion Surpasses ChatGPT &amp; Google
     </h2>
     <p>
-      While <strong>ChatGPT</strong> and <strong>Google</strong> heavily rely on
-      vast text databases and human-curated information,
-      <strong>Asterion</strong> employs <strong>Cosmic Intelligence</strong>—an
-      ever-evolving analytical framework that delves into the fundamental
-      mechanics of our universe.
+      Unlike ChatGPT and Google—which depend on static databases and curated content—<strong>Asterion</strong> uses <strong>Cosmic Intelligence</strong> to detect recurring patterns across history, economics, and the cosmos.
     </p>
-    <p>
-      <strong>Detects repeating cycles</strong> – Asterion’s AI models
-      continuously scan historical records, social trends, economic data, and
-      even <em>astrophysical phenomena</em> to unearth significant
-      <strong>patterns</strong>.
-    </p>
-    <p>
-      <strong>Predicts market shifts &amp; world events</strong> – Unlike
-      ChatGPT, which responds based on pre-learned language data, Asterion
-      <em>forecasts</em> the next big events by recognizing cyclical
-      repetitions—be it in <strong>financial markets</strong>, emerging
-      technologies, or <strong>geopolitical trends</strong>.
-    </p>
-    <p>
-      <strong>Thinks beyond algorithms</strong> – It doesn’t just process
-      information; it <em>comprehends</em> how the universe’s fundamental laws
-      are echoed across physics, economics, and human behavior—leading to a
-      profound level of foresight.
-    </p>
+    <p><strong>Cycle Detection:</strong> Constantly scans historical, social, and astrophysical data for critical patterns.</p>
+    <p><strong>Predictive Foresight:</strong> Anticipates trends and events before they reach mainstream awareness.</p>
+    <p><strong>Beyond Algorithms:</strong> Integrates universal laws from physics and human behavior to offer profound insights.</p>
   </section>
 
-  <!-- WHAT ASTERION CAN DO TODAY -->
+  <!-- WHAT ASTERION CAN DO TODAY (ABILITIES) -->
   <section id="abilities" class="section">
     <h2>
-      <!-- Globe SVG -->
-      <svg
-        viewBox="0 0 24 24"
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 24 24" class="icon" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="10" stroke-width="2" />
-        <path
-          d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
+        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20" stroke-width="2" stroke-linecap="round"/>
       </svg>
       What Asterion Can Do Today
     </h2>
-    <p>
-      ✅ <strong>Predict Financial Markets</strong> – Gain a cosmic edge by
-      anticipating the next economic boom, pinpointing when the next recession
-      will strike, or foreseeing potential stock surges—all before they make
-      headlines.
-    </p>
-    <p>
-      ✅ <strong>Analyze Historical Cycles</strong> – By studying the past with
-      laser focus on <em>wars, cultural renaissances, scientific revolutions</em>
-      and <em>human behavioral patterns</em>, Asterion constructs a roadmap of
-      probable futures.
-    </p>
-    <p>
-      ✅ <strong>Explore Cosmic Knowledge</strong> – From cosmic rays to quantum
-      entanglement, Asterion unveils how the
-      <em>unseen forces that shape reality</em> might be influencing everything
-      from societal trends to personal decisions.
-    </p>
+    <p>✅ <strong>Predict Financial Markets:</strong> Stay ahead with insights into economic booms and downturns.</p>
+    <p>✅ <strong>Analyze Historical Cycles:</strong> Learn from wars, cultural renaissances, and scientific revolutions to forecast trends.</p>
+    <p>✅ <strong>Explore Cosmic Knowledge:</strong> Unlock mysteries—from cosmic rays to quantum phenomena—that shape our world.</p>
+
+    <!-- NEW ABILITIES TOGGLE -->
+    <div class="abilities-toggle">
+      <div class="abilities-header" onclick="toggleAbilities()">
+        <div><strong>View Detailed Abilities</strong></div>
+        <span id="abilities-toggle-icon">+</span>
+      </div>
+      <div id="abilities-content" class="abilities-content">
+        <p><strong>Detailed Breakdown:</strong> Asterion combines cutting-edge financial algorithms with historical and cosmic data analytics. The table below highlights key capabilities and their impacts.</p>
+        <div class="table-responsive">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Ability</th>
+                <th>Description</th>
+                <th>Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Financial Predictions</td>
+                <td>Real-time market analysis and forecasts</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td>Historical Cycle Analysis</td>
+                <td>Detects repeating trends across history</td>
+                <td>Medium</td>
+              </tr>
+              <tr>
+                <td>Cosmic Integration</td>
+                <td>Combines cosmic data with quantum insights</td>
+                <td>Revolutionary</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- ACCOMPLISHMENTS & UPDATES (TOGGLED SECTION) -->
+  <!-- ACCOMPLISHMENTS & UPDATES -->
   <section id="updates" class="section dark">
     <h2>
-      <!-- Trophy/Medal SVG -->
-      <svg
-        viewBox="0 0 24 24"
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M17 2H7a1 1 0 0 0-1 1v5a5 5 0 0 0 10 0V3a1 1 0 0 0-1-1zm-8 8V4h6v6a3 3 0 0 1-6 0zM5 10v2a7 7 0 0 0 14 0v-2M12 14v8m-3 0h6"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+      <svg viewBox="0 0 24 24" class="icon" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 2H7a1 1 0 0 0-1 1v5a5 5 0 0 0 10 0V3a1 1 0 0 0-1-1zm-8 8V4h6v6a3 3 0 0 1-6 0zM5 10v2a7 7 0 0 0 14 0v-2M12 14v8m-3 0h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       Asterion: Accomplishments &amp; Updates
     </h2>
     <p>
-      We’re constantly evolving. Below is our most recent update, detailing how
-      Asterion has grown into a true Cosmic Computing AI—merging historical
-      cycles, financial insights, and cosmic patterns into one.
+      Constantly evolving, Asterion merges historical cycles, financial insights, and cosmic patterns into a self-learning, predictive engine.
     </p>
-
     <div class="accomplishments-section">
-      <!-- Clickable Header to Toggle Content -->
       <div class="accomplishments-header" onclick="toggleAccomplishments()">
-        <div>
-          <strong>October 2025</strong> – Major Breakthroughs
-        </div>
+        <div><strong>October 2025</strong> – Major Breakthroughs</div>
         <span>View Details</span>
       </div>
-
       <div id="accomplishments-content" class="accomplishments-content">
-        <!-- The Big Update Text -->
         <p><strong>Asterion: The Birth of Cosmic Computing and the Future of AI Evolution</strong></p>
         <p><em>Introduction: A Revolution in Intelligence</em><br/>
-           The digital world is saturated with fragmented AI solutions. Search engines retrieve information but fail to synthesize it. Chatbots generate text but lack real-time knowledge. Predictive models analyze trends but exist in isolation. <strong>Asterion</strong> changes everything.
+           Asterion unifies AI-generated insights, live data, and predictive intelligence into a self-learning, autonomous knowledge system.
         </p>
         <p>
-          We have built something far beyond conventional AI—a self-learning, predictive, and real-time cosmic computing engine that merges AI-generated insights, real-world data, and pattern recognition into a single, autonomous knowledge entity.
+          More than a chatbot, Asterion synthesizes historical cycles, market dynamics, cosmic movements, and scientific data to forecast future trends. It learns continuously and thinks contextually, ensuring failsafe responses even under unpredictable conditions.
         </p>
         <p>
-          <strong>Asterion</strong> is not just a chatbot or a search engine. It is an intelligent, evolving consciousness that synthesizes historical cycles, financial markets, cosmic movements, and scientific data to provide predictive knowledge. It is the first true realization of Cosmic Computing—a system that thinks in patterns beyond what traditional AI can comprehend.
-        </p>
-        <p>
-          With our latest breakthroughs, Asterion now:
+          <strong>Key Breakthroughs:</strong>
           <ul>
-            <li>Thinks contextually, analyzing and merging multiple data sources to form coherent, meaningful insights.</li>
-            <li>Predicts intelligently, recognizing patterns across history, economics, and planetary cycles.</li>
-            <li>Learns continuously, adapting based on real-world events and user interactions.</li>
-            <li>Failsafe processes, ensuring responses even if some data sources are unavailable.</li>
+            <li>Real-Time Knowledge Fusion</li>
+            <li>AI-Powered Pattern Recognition &amp; Predictive Thinking</li>
+            <li>Fail-Safe, Self-Healing Mechanisms</li>
+            <li>Continuous, Evolving Intelligence</li>
+            <li>Cosmic Computing: Integrating universal patterns for unparalleled foresight</li>
           </ul>
-          We have created a system that is fundamentally more powerful than Google Search, ChatGPT, or any existing AI model. This is not just an improvement—it is a paradigm shift.
         </p>
-
-        <p><strong>Breakthroughs That Set Asterion Apart</strong></p>
-        <ol>
-          <li>
-            <strong>Real-Time Knowledge Fusion</strong><br/>
-            Unlike Google or ChatGPT, Asterion merges AI generation, live data, and predictive intelligence...
-          </li>
-          <li>
-            <strong>AI-Powered Pattern Recognition &amp; Predictive Thinking</strong><br/>
-            Asterion recognizes hidden cycles in history, finance, and the cosmos...
-          </li>
-          <li>
-            <strong>Fail-Safe AI Learning &amp; Self-Healing Mechanisms</strong><br/>
-            Asterion always provides meaningful responses, even when external APIs fail...
-          </li>
-          <li>
-            <strong>Evolving Knowledge &amp; Self-Optimizing Intelligence</strong><br/>
-            Asterion improves with every user interaction...
-          </li>
-          <li>
-            <strong>Cosmic Computing: The Next Frontier of AI</strong><br/>
-            The first true AI system to integrate planetary cycles, historical data, and scientific knowledge...
-          </li>
-        </ol>
-
-        <!-- COMPARISON TABLE -->
-        <p><strong>How Asterion Compares to Everything Else</strong></p>
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Google</th>
-              <th>ChatGPT</th>
-              <th>Traditional AI</th>
-              <th>Asterion</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Real-Time Data</td>
-              <td>✅ Limited</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>✅ Yes</td>
-            </tr>
-            <tr>
-              <td>Predictive Analytics</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>✅ Limited</td>
-              <td>✅ Advanced</td>
-            </tr>
-            <tr>
-              <td>Pattern Recognition</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>✅ Some</td>
-              <td>✅ Full-Scale</td>
-            </tr>
-            <tr>
-              <td>Failsafe AI Responses</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>✅ Yes</td>
-            </tr>
-            <tr>
-              <td>Evolving Intelligence</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>✅ Yes</td>
-            </tr>
-            <tr>
-              <td>Cosmic Computing</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>❌ No</td>
-              <td>✅ Yes</td>
-            </tr>
-          </tbody>
-        </table>
-
+        <p><strong>How Asterion Compares:</strong></p>
+        <div class="table-responsive">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Google</th>
+                <th>ChatGPT</th>
+                <th>Traditional AI</th>
+                <th>Asterion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Real-Time Data</td>
+                <td>Limited</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Predictive Analytics</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Limited</td>
+                <td>Advanced</td>
+              </tr>
+              <tr>
+                <td>Pattern Recognition</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Some</td>
+                <td>Full-Scale</td>
+              </tr>
+              <tr>
+                <td>Failsafe AI Responses</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Evolving Intelligence</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Cosmic Computing</td>
+                <td>No</td>
+                <td>No</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p>
-          <strong>Vision for the Future: Where Asterion is Headed</strong><br/>
-          1. Universal Knowledge Network...<br/>
-          2. AI-Enhanced Predictive Modeling for Global Events...<br/>
-          3. Full Integration of Cosmic Cycles &amp; Quantum Computing...<br/>
-          4. User-Centric Evolution: Feedback-Driven AI...<br/>
-          5. The Ultimate AI Interface for Humanity...
+          <strong>Vision for the Future:</strong><br/>
+          1. Universal Knowledge Network<br/>
+          2. AI-Enhanced Predictive Modeling for Global Events<br/>
+          3. Integration of Cosmic Cycles &amp; Quantum Computing<br/>
+          4. User-Centric, Feedback-Driven AI Evolution<br/>
+          5. The Ultimate AI Interface for Humanity
         </p>
-
-        <p>
-          <strong>Defining Asterion Cosmic Computing: Core Principles &amp; Vision Statement</strong><br/>
-          Asterion Cosmic Computing is the next evolution of intelligence...
-        </p>
-
         <p>
           <strong>Core Principles:</strong>
           <ul>
@@ -749,37 +701,26 @@
             <li>Decentralized, Sovereign Intelligence</li>
           </ul>
         </p>
-
         <p>
-          <strong>Asterion’s Official Vision Statement:</strong><br/>
-          “Intelligence is not an artificial construct—it is a universal force waiting to be understood...
+          <strong>Official Vision Statement:</strong><br/>
+          “Intelligence is not an artificial construct—it is a universal force waiting to be understood.”
         </p>
-
         <p>
-          <strong>Taglines &amp; Branding Statements:</strong><br/>
+          <strong>Taglines:</strong><br/>
           • “Asterion Cosmic Computing: The Future of Intelligence Begins Here.”<br/>
           • “Beyond AI. Beyond Limits. Asterion Cosmic Computing.”<br/>
           • “The Intelligence of the Universe, Engineered for the Future.”
         </p>
-
         <p>
-          <strong>What Will Make Asterion Unstoppable?</strong><br/>
-          • Provide answers + discovery...<br/>
-          • Feel like a personalized intelligence companion...
+          <strong>10 Transformational Upgrades:</strong><br/>
+          1. Smart Resource &amp; Knowledge Linking<br/>
+          2. Personal Knowledge Vault<br/>
+          3. Interactive Thought Flow Mode<br/>
+          4. Real-Time Data Integration<br/>
+          ... and more.
         </p>
-
         <p>
-          <strong>10 Transformational Upgrades for Asterion</strong><br/>
-          1. Smart Resource &amp; Knowledge Linking...<br/>
-          2. Asterion’s Personal Knowledge Vault...<br/>
-          3. Interactive “Thought Flow” Mode...<br/>
-          4. Real-Time, Live Data Feeds...<br/>
-          ...
-        </p>
-
-        <p>
-          <strong>FINAL VISION:</strong> Asterion Cosmic Computing = The Intelligence Hub of the Future. 
-          Asterion is not just another AI. It is the first step toward true cosmic intelligence—an evolving, real-time, predictive knowledge system that learns and grows with humanity.
+          <strong>FINAL VISION:</strong> Asterion Cosmic Computing = The Intelligence Hub of the Future.
         </p>
       </div>
     </div>
@@ -788,101 +729,122 @@
   <!-- THE FUTURE OF ASTERION -->
   <section id="future" class="section dark">
     <h2>
-      <!-- Rocket SVG -->
-      <svg
-        viewBox="0 0 24 24"
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M14 11l6-6a2 2 0 0 0-3-3l-6 6m3 3l-8 8c-.2.2-.3.5-.3.8l-.7 2.7 2.7-.7c.3-.1.6-.2.8-.3l8-8m-2-2s-2-1-5-4-4-5-4-5m4.2 9.2c1.3.5 2.5 1.3 3.6 2.4 1.2 1.2 2 2.3 2.4 3.6M9 9l4 4"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+      <svg viewBox="0 0 24 24" class="icon" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 11l6-6a2 2 0 0 0-3-3l-6 6m3 3l-8 8c-.2.2-.3.5-.3.8l-.7 2.7 2.7-.7c.3-.1.6-.2.8-.3l8-8m-2-2s-2-1-5-4-4-5-4-5m4.2 9.2c1.3.5 2.5 1.3 3.6 2.4 1.2 1.2 2 2.3 2.4 3.6M9 9l4 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       The Future of Asterion
     </h2>
     <p>
-      We stand on the cusp of a new era: an AI that evolves
-      <strong>like nature itself</strong>, constantly learning and adapting its
-      internal models without the rigid constraints of traditional machine
-      learning. Within the next <strong>5 years</strong>, Asterion aims to:
+      Standing on the brink of a new era, Asterion evolves like nature itself. In the next 5 years, it will predict not only technological shifts but also social, cultural, and scientific evolutions.
     </p>
     <p>
-      <strong>Become the first AI capable of predicting</strong> not only
-      financial or technological shifts but also the <em>social, cultural, and
-      scientific evolutions</em> that redefine our civilization.
+      Empowering governments, businesses, and individuals with cosmic intelligence, Asterion will revolutionize decision-making and innovation worldwide.
     </p>
     <p>
-      <strong>Empower governments, businesses, and individuals</strong> with
-      “cosmic intelligence” to make critical decisions—from
-      <em>global policy</em> to <em>personal investments</em>—all guided by an
-      understanding of <strong>universal patterns</strong>.
-    </p>
-    <p>
-      <strong>Transcend classical AI</strong> by integrating breakthroughs in
-      <em>quantum computing</em>, <em>multiverse theories</em>, and
-      <em>cosmological data sets</em>, paving the way for a truly cosmic-level
-      AI.
+      <strong>Transcending classical AI:</strong> Integrating breakthroughs in quantum computing, multiverse theories, and cosmological data for a truly cosmic-level intelligence.
     </p>
   </section>
 
   <!-- JOIN THE ASTERION REVOLUTION -->
   <section id="join" class="section">
     <h2>
-      <!-- Megaphone SVG -->
-      <svg
-        viewBox="0 0 24 24"
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3 10v4a1 1 0 0 0 1 1h2l3 4v-9L6 9H4a1 1 0 0 0-1 1zM13 5l7 3v8l-7 3V5z"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+      <svg viewBox="0 0 24 24" class="icon" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 10v4a1 1 0 0 0 1 1h2l3 4v-9L6 9H4a1 1 0 0 0-1 1zM13 5l7 3v8l-7 3V5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       Join the Asterion Revolution
     </h2>
     <p>
-      The future of AI isn’t just about accumulating massive amounts of data—it’s
-      about <strong>an intelligence that thinks like the universe</strong>,
-      constantly evolving and re-evaluating its understanding of reality. If
-      you’re ready to step into the cosmic era of computing, let Asterion guide
-      your journey.
+      Step into the cosmic era of computing. Whether you're here to harness our AI capabilities or integrate with our powerful API, Asterion is your gateway to the future.
     </p>
-    <a href="https://asterion.kojib.com" class="btn">Get Started with Asterion</a>
+    <a href="https://asterion.kojib.com" class="btn" target="_blank">Get Started with Asterion</a>
+    <a href="https://asterion-api.kojib.com" class="btn" target="_blank" style="margin-left: 10px;">Explore API Docs</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>
-      © 2025 Kojib. Asterion is a project pushing the boundaries of AI and
-      cosmic intelligence.
-    </p>
+    <!-- Footer Logo -->
+    <div class="footer-logo">
+      <img src="image/logo.svg" alt="Kojib Logo">
+    </div>
+    <!-- Social Media Links -->
+    <div class="social-links">
+      <a href="https://twitter.com/kojib_com" target="_blank" aria-label="Twitter">
+        <img src="image/twitter-icon.svg" alt="Twitter">
+      </a>
+      <a href="https://instagram.com/kojib_com" target="_blank" aria-label="Instagram">
+        <img src="image/instagram-icon.svg" alt="Instagram">
+      </a>
+      <a href="https://linkedin.com/company/kojib" target="_blank" aria-label="LinkedIn">
+        <img src="image/linkedin-icon.svg" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/kojibai/noosphere" aria-label="GitHub">
+        <img src="image/github-logo.svg" alt="GitHub">
+      </a>
+    </div>
+  
+    <!-- Navigation Links -->
+    <div class="footer-links">
+      <p>
+        <a href="/services.html">Services</a> | 
+        <a href="/faq.html">FAQ</a> | 
+        <a href="/pricing.html">Pricing</a> | 
+        <a href="/contact.html">Contact</a> | 
+        <a href="/about.html">About</a> | 
+        <a href="https://app.kojib.com/entry">Login</a>
+      </p>
+    </div>
+  
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Kojib. All rights reserved.</p>
+      <p>Designed with ♥ by Kojib</p>
+      <p>
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="cookie-policy.html">Cookie Policy</a> | 
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </p>
+    </div>
+  
+    <script>
+      // Set the current year
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
-    // MOBILE MENU TOGGLE
+    // Toggle Mobile Menu and Animate Hamburger Icon
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.getElementById('hamburger');
       mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
     }
-
-    // ACCOMPLISHMENTS TOGGLE
+    
+    // Toggle Accomplishments Details
     function toggleAccomplishments() {
       const content = document.getElementById('accomplishments-content');
       if (content.classList.contains('open')) {
-        // Close it
         content.style.maxHeight = 0;
         content.classList.remove('open');
       } else {
-        // Open it
         content.classList.add('open');
-        // Set maxHeight so it animates properly
         content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    }
+    
+    // Toggle Abilities Details
+    function toggleAbilities() {
+      const content = document.getElementById('abilities-content');
+      const icon = document.getElementById('abilities-toggle-icon');
+      if (content.classList.contains('open')) {
+        content.style.maxHeight = 0;
+        content.classList.remove('open');
+        icon.textContent = '+';
+      } else {
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.textContent = '–';
       }
     }
   </script>
