@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* Outer rotation animation */
+    .rotate {
+      transform-origin: 100px 100px;
+      animation: rotation 6s infinite linear;
+    }
+    @keyframes rotation {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    /* Inner subtle pulse/move animation */
+    .pulse {
+      transform-origin: 100px 100px;
+      animation: pulse 3s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1) translate(0, 0); }
+      50% { transform: scale(1.03) translate(2px, -2px); }
+      100% { transform: scale(1) translate(0, 0); }
+    }
+  </style>
+  <g class="rotate">
+    <g class="pulse">
+      <!-- Outer Circle -->
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#FFD700" stroke-width="4"/>
+      
+      <!-- Radiant Lines (Divine Rays) -->
+      <line x1="100" y1="5" x2="100" y2="25" stroke="#FFD700" stroke-width="3"/>
+      <line x1="100" y1="175" x2="100" y2="195" stroke="#FFD700" stroke-width="3"/>
+      <line x1="5" y1="100" x2="25" y2="100" stroke="#FFD700" stroke-width="3"/>
+      <line x1="175" y1="100" x2="195" y2="100" stroke="#FFD700" stroke-width="3"/>
+      <line x1="30" y1="30" x2="45" y2="45" stroke="#FFD700" stroke-width="3"/>
+      <line x1="155" y1="155" x2="170" y2="170" stroke="#FFD700" stroke-width="3"/>
+      <line x1="30" y1="170" x2="45" y2="155" stroke="#FFD700" stroke-width="3"/>
+      <line x1="155" y1="45" x2="170" y2="30" stroke="#FFD700" stroke-width="3"/>
+      
+      <!-- Crown (Symbolizing Sovereignty) -->
+      <g transform="translate(50, 50)">
+        <!-- Base of the crown -->
+        <rect x="0" y="25" width="100" height="10" fill="#B8860B" rx="2" />
+        <!-- Three crown points -->
+        <polygon points="15,25 30,5 45,25" fill="#FFD700"/>
+        <polygon points="45,25 60,0 75,25" fill="#FFD700"/>
+        <polygon points="75,25 90,10 105,25" fill="#FFD700"/>
+        <!-- Decorative circles on the crown -->
+        <circle cx="30" cy="20" r="3" fill="#FFFFFF"/>
+        <circle cx="60" cy="10" r="3" fill="#FFFFFF"/>
+        <circle cx="90" cy="20" r="3" fill="#FFFFFF"/>
+      </g>
+      
+      <!-- Central Cross (Symbolizing Restoration) -->
+      <g transform="translate(90, 90)">
+        <rect x="0" y="5" width="20" height="30" fill="#FFFFFF" rx="2" />
+        <rect x="-5" y="20" width="30" height="10" fill="#FFFFFF" rx="2" />
+      </g>
+    </g>
+  </g>
+</svg>
