@@ -8,7 +8,7 @@ const chatbotMessages = document.getElementById("chatbot-messages");
 const loadingIndicator = document.createElement("div");
 
 // Backend API URL
-const CHATBOT_API_URL = "https://chatbot-backend-ntxt.onrender.com/api/chat";
+const CHATBOT_API_URL = "https://asterion-chatbackend.vercel.app/api/chat";
 
 // Conversation history to maintain context
 let conversationHistory = [];
