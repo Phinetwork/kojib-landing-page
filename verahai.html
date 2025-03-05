@@ -1078,32 +1078,35 @@
       const mobileNav = document.getElementById("mobile-nav");
 
       function toggleMobileMenu() {
+        // Toggle the "open" class for hamburger and mobile nav
         hamburger.classList.toggle("open");
         mobileNav.classList.toggle("open");
+
+        // Toggle body scrolling
         document.body.classList.toggle("no-scroll");
+
+        // Update ARIA attributes
         const isExpanded = hamburger.classList.contains("open");
         hamburger.setAttribute("aria-expanded", isExpanded);
         mobileNav.setAttribute("aria-hidden", !isExpanded);
       }
 
-      // Add both click and touchend events for mobile devices
+      // Use only click event to handle toggling (removing redundant touch events)
       hamburger.addEventListener("click", (e) => {
         e.stopPropagation();
         toggleMobileMenu();
       });
-      hamburger.addEventListener("touchend", (e) => {
-        e.stopPropagation();
-        toggleMobileMenu();
-      });
 
-      // Close mobile menu if clicking outside
+      // Close mobile menu if clicking outside of it
       window.addEventListener("click", (e) => {
-        if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+        if (mobileNav.classList.contains("open") && 
+            !mobileNav.contains(e.target) && 
+            !hamburger.contains(e.target)) {
           hamburger.classList.remove("open");
           mobileNav.classList.remove("open");
           document.body.classList.remove("no-scroll");
-          hamburger.setAttribute("aria-expanded", false);
-          mobileNav.setAttribute("aria-hidden", true);
+          hamburger.setAttribute("aria-expanded", "false");
+          mobileNav.setAttribute("aria-hidden", "true");
         }
       });
 
