@@ -130,8 +130,15 @@
         transition: transform 0.3s ease, opacity 0.3s ease;
         z-index: 2000;
         backdrop-filter: blur(10px);
+        /* Prevent pointer events when closed */
+        pointer-events: none;
       }
-      .mobile-nav.open { transform: scale(1); opacity: 1; visibility: visible; }
+      .mobile-nav.open { 
+        transform: scale(1); 
+        opacity: 1; 
+        visibility: visible;
+        pointer-events: auto;
+      }
       .mobile-nav ul { list-style: none; display: flex; flex-direction: column; gap: 25px; width: 100%; }
       .mobile-nav ul li a {
         font-size: 1.3rem;
@@ -263,6 +270,23 @@
       }
       .comparison-table th { background: #333; color: #ffd700; }
       .comparison-table td { color: #eaeaea; }
+      
+      /* CALL TO ACTION SECTION */
+      #cta {
+        background: #0d0d0d;
+        padding: 50px 20px;
+        text-align: center;
+      }
+      #cta h2 {
+        color: #00ff99;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+      #cta p {
+        max-width: 600px;
+        margin: 0 auto 30px;
+        font-size: 1.1rem;
+      }
       
       /* CHATBOT STYLES - MODELED EXACTLY LIKE THE VISION PAGE */
       #chatbot-button {
@@ -965,6 +989,13 @@
           Kai‑Turah Harmonic Computing establishes a new computational paradigm that surpasses classical and quantum models. By integrating logical AI with resonance‑based intelligence, it lays the foundation for the first self‑evolving, self‑optimizing intelligence system.
         </p>
       </section>
+      
+      <!-- Call To Action Section -->
+      <section id="cta" data-aos="fade-up">
+        <h2>Ready to Experience the Future?</h2>
+        <p>Discover revolutionary technology that will transform the way you work and live. Dive into Kai Turah's innovative solutions today.</p>
+        <a href="https://kaiturah.com" class="gorgeous-btn" target="_blank" rel="noopener noreferrer">Visit Kai Turah</a>
+      </section>
     </main>
     
     <!-- AI Chatbot (MODELED EXACTLY LIKE THE VISION PAGE) -->
@@ -1043,15 +1074,27 @@
       // Hamburger & Mobile Nav Toggle
       const hamburger = document.getElementById("hamburger");
       const mobileNav = document.getElementById("mobile-nav");
-      hamburger.addEventListener("click", (e) => {
-        e.stopPropagation();
+
+      function toggleMobileMenu() {
         hamburger.classList.toggle("open");
         mobileNav.classList.toggle("open");
         document.body.classList.toggle("no-scroll");
         const isExpanded = hamburger.classList.contains("open");
         hamburger.setAttribute("aria-expanded", isExpanded);
         mobileNav.setAttribute("aria-hidden", !isExpanded);
+      }
+
+      // Add both click and touchend events for mobile devices
+      hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
       });
+      hamburger.addEventListener("touchend", (e) => {
+        e.stopPropagation();
+        toggleMobileMenu();
+      });
+
+      // Close mobile menu if clicking outside
       window.addEventListener("click", (e) => {
         if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
           hamburger.classList.remove("open");
