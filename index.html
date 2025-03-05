@@ -135,7 +135,7 @@
           <li><a href="#showcase">Capabilities</a></li>
           <li><a href="#kai-turah">Kai-Turah</a></li>
           <li><a href="#asterion">Asterion</a></li>
-          <li><a href="#skyriz">Skyriz</a></li>
+          <li><a href="#verahai">Vérahai</a></li>
           <li><a href="#noosphere-intro">Noosphere</a></li>
           <li><a href="#kojib-consulting">Elevate Your Business</a></li>
   </div>
@@ -2167,28 +2167,26 @@
 
 
 <!-- ============================================
-     Skyriz Comprehensive Introductory Section
+     Vérahai Resonant Technology Introductory Section
 ============================================= -->
-<section id="skyriz">
-  <!-- Skyriz CSS -->
+<section id="verahai">
   <style>
     /* ============================================
        General Styling
     ============================================= */
-    #skyriz {
+    #verahai {
       position: relative;
       width: 100%;
       padding: 80px 20px;
       background: linear-gradient(135deg, rgba(2, 2, 2, 0.07), #1c1c1c08);
       color: white;
       text-align: center;
-      overflow: hidden; /* Ensure no content spills out */
+      overflow: hidden;
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
-
     /* Overlay for Depth */
-    #skyriz::before {
+    #verahai::before {
       content: '';
       position: absolute;
       top: 0;
@@ -2198,9 +2196,8 @@
       background: rgba(30, 30, 47, 0.114);
       z-index: 1;
     }
-
     /* Content Container */
-    #skyriz .skyriz-content {
+    #verahai .verahai-content {
       position: relative;
       z-index: 2;
       max-width: 1200px;
@@ -2208,42 +2205,37 @@
       padding: 20px;
       transition: transform 0.3s ease;
     }
-
     /* Title Styling */
-    #skyriz .skyriz-title {
+    #verahai .verahai-title {
       font-size: 3rem;
       margin-bottom: 1rem;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
                    0 0 20px rgba(255, 255, 255, 0.2);
       animation: fadeInGlow 2s ease-out;
     }
-
-    #skyriz .skyriz-title span {
+    #verahai .verahai-title span {
       color: #00ff99;
       text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
       animation: pulseHighlight 2s infinite alternate;
     }
-
     /* Subtitle Styling */
-    #skyriz .skyriz-text {
+    #verahai .verahai-text {
       font-size: 1.4rem;
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.85);
       margin-bottom: 40px;
       animation: fadeUp 1.8s ease-out;
     }
-
     /* Features Grid */
-    #skyriz .skyriz-features {
+    #verahai .verahai-features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
       margin-bottom: 40px;
     }
-
     /* Individual Feature Card */
-    #skyriz .feature-card {
+    #verahai .feature-card {
       background: rgba(30, 30, 47, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
@@ -2253,34 +2245,29 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    #skyriz .feature-card:hover {
+    #verahai .feature-card:hover {
       transform: scale(1.05);
       box-shadow: 0 8px 20px rgba(0, 255, 153, 0.4);
     }
-
     /* Feature Icon */
-    #skyriz .feature-card img {
+    #verahai .feature-card img {
       width: 80px;
       height: 80px;
       margin-bottom: 15px;
       animation: rotateHover 5s linear infinite;
     }
-
     /* Feature Title */
-    #skyriz .feature-card h3 {
+    #verahai .feature-card h3 {
       font-size: 1.6rem;
       margin-bottom: 10px;
       color: #00ff99;
     }
-
     /* Feature Description */
-    #skyriz .feature-card p {
+    #verahai .feature-card p {
       font-size: 1.2rem;
       line-height: 1.6;
       color: rgba(255, 255, 255, 0.75);
     }
-
     /* Keyframes for Animations */
     @keyframes fadeInGlow {
       from {
@@ -2292,7 +2279,6 @@
         transform: translateY(0);
       }
     }
-
     @keyframes pulseHighlight {
       from {
         text-shadow: 0 0 20px #00ff99, 0 0 40px rgba(0, 255, 153, 0.8);
@@ -2301,7 +2287,6 @@
         text-shadow: 0 0 25px #00ffff, 0 0 50px rgba(0, 255, 255, 1);
       }
     }
-
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -2312,18 +2297,12 @@
         transform: translateY(0);
       }
     }
-
     @keyframes rotateHover {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
-
-    /* Independent CTA Button Styling */
-    #skyriz .cta-button {
+    /* CTA Button Styling */
+    #verahai .cta-button {
       background: linear-gradient(135deg, #00cc80, #1e1e30);
       color: #ffffff;
       padding: 15px 30px;
@@ -2339,118 +2318,73 @@
       gap: 10px;
       text-decoration: none;
     }
-
-    #skyriz .cta-button:hover {
+    #verahai .cta-button:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 10px 25px rgba(0, 204, 255, 0.7);
       background: linear-gradient(135deg, #1e1e30, #00cc80);
     }
-
-    /* SVG Icon in Button */
-    #skyriz .cta-button svg {
+    /* CTA Button SVG Icon */
+    #verahai .cta-button svg {
       width: 20px;
       height: 20px;
       fill: #ffffff;
       transition: fill 0.3s ease, transform 0.3s ease;
     }
-
-    #skyriz .cta-button:hover svg {
+    #verahai .cta-button:hover svg {
       fill: #00ff99;
       transform: translateX(5px);
     }
-
     /* Focus Styles for Accessibility */
-    #skyriz .cta-button:focus {
+    #verahai .cta-button:focus {
       outline: 2px dashed #00cc80;
       outline-offset: 4px;
     }
-
     /* Responsive Design */
     @media (max-width: 768px) {
-      #skyriz {
-        padding: 60px 15px;
-      }
-      
-      #skyriz .skyriz-title {
-        font-size: 2.5rem;
-      }
-      
-      #skyriz .skyriz-text {
-        font-size: 1.2rem;
-      }
-      
-      #skyriz .feature-card {
-        width: 100%;
-        max-width: 90%;
-      }
-      
-      #skyriz .cta-button {
-        padding: 12px 25px;
-        font-size: 1rem;
-      }
-      
-      #skyriz .cta-button svg {
-        width: 18px;
-        height: 18px;
-      }
+      #verahai { padding: 60px 15px; }
+      #verahai .verahai-title { font-size: 2.5rem; }
+      #verahai .verahai-text { font-size: 1.2rem; }
+      #verahai .feature-card { width: 100%; max-width: 90%; }
+      #verahai .cta-button { padding: 12px 25px; font-size: 1rem; }
+      #verahai .cta-button svg { width: 18px; height: 18px; }
     }
-    
     @media (max-width: 480px) {
-      #skyriz {
-        padding: 40px 10px;
-      }
-      
-      #skyriz .skyriz-title {
-        font-size: 2rem;
-      }
-      
-      #skyriz .skyriz-text {
-        font-size: 1rem;
-      }
-      
-      #skyriz .cta-button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
-      
-      #skyriz .cta-button svg {
-        width: 16px;
-        height: 16px;
-      }
+      #verahai { padding: 40px 10px; }
+      #verahai .verahai-title { font-size: 2rem; }
+      #verahai .verahai-text { font-size: 1rem; }
+      #verahai .cta-button { padding: 10px 20px; font-size: 0.9rem; }
+      #verahai .cta-button svg { width: 16px; height: 16px; }
     }
   </style>
 
-  <!-- Skyriz Section Content -->
-  <div class="skyriz-content">
-    <h2 class="skyriz-title">Meet <span class="highlight">Skyriz</span></h2>
-    <p class="skyriz-text">
-      Unlock the power of personalized AI learning with Skyriz. Transforming education with innovative, intuitive, and intelligent solutions tailored for every learner.
+  <div class="verahai-content">
+    <h2 class="verahai-title">Welcome to <span>Vérahai</span></h2>
+    <p class="verahai-text">
+      Experience the next generation of resonant technology—where advanced AI harmonizes with natural frequencies to drive ultra‑efficient computing and energy systems.
     </p>
-    <div class="skyriz-features">
+    <div class="verahai-features">
       <div class="feature-card">
-        <img src="image/adaptive-learning-icon.svg" alt="Adaptive Learning Icon" class="feature-icon">
-        <h3>Adaptive Learning</h3>
-        <p>Skyriz personalizes the learning experience with real-time AI adjustments to your progress.</p>
+        <img src="/resonant-computation-icon.svg" alt="Resonant Computation Icon">
+        <h3>Resonant Computation</h3>
+        <p>Leverage computing methods that mimic natural resonance for unmatched performance.</p>
       </div>
       <div class="feature-card">
-        <img src="image/ai-powered-insights-icon.svg" alt="AI Insights Icon" class="feature-icon">
-        <h3>AI Insights</h3>
-        <p>Gain deep, actionable insights that empower students and educators alike.</p>
+        <img src="/harmonic-ai-icon.svg" alt="Harmonic AI Icon">
+        <h3>Harmonic AI</h3>
+        <p>Adaptive intelligence that learns and evolves through frequency-based processes.</p>
       </div>
       <div class="feature-card">
-        <img src="image/collaborative-tools-icon.svg" alt="Collaborative Tools Icon" class="feature-icon">
-        <h3>Collaborative Tools</h3>
-        <p>Seamlessly connect with peers and educators for collaborative growth.</p>
+        <img src="/energy-efficiency-icon.svg" alt="Energy Efficiency Icon">
+        <h3>Energy Efficiency</h3>
+        <p>Achieve near‑zero energy loss by optimizing power with resonant energy systems.</p>
       </div>
     </div>
 
-     <!-- Call to Action Button -->
-     <a href="https://skyriz.app" class="cta-button">
-      Explore Skyriz
-      <!-- Arrow SVG Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <!-- Call to Action Button -->
+    <a href="/verahai.html" class="cta-button">
+      Explore Vérahai
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
         <defs>
-          <!-- Gradient Definitions -->
           <radialGradient id="arrowGlowGradient" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#00ff99" stop-opacity="1" />
             <stop offset="100%" stop-color="#0099ff" stop-opacity="0" />
@@ -2460,64 +2394,37 @@
             <stop offset="100%" stop-color="#0099ff" />
           </linearGradient>
         </defs>
-      
-        <!-- Background Glow -->
         <circle cx="32" cy="32" r="30" fill="url(#arrowGlowGradient)" opacity="0.5">
           <animate attributeName="r" from="30" to="36" dur="1.618s" repeatCount="indefinite" />
           <animate attributeName="opacity" from="0.5" to="0.2" dur="1.618s" repeatCount="indefinite" />
         </circle>
-      
-        <!-- Rotating Background Circle -->
         <circle cx="32" cy="32" r="28" stroke="url(#arrowGradient)" stroke-width="2" fill="none">
-          <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 32 32"
-            to="360 32 32"
-            dur="2.618s"
-            repeatCount="indefinite"
-          />
+          <animateTransform attributeName="transform" type="rotate" from="0 32 32" to="360 32 32" dur="2.618s" repeatCount="indefinite" />
         </circle>
-      
-        <!-- Arrow Path -->
         <path d="M26 20l10 12-10 12V20z" fill="url(#arrowGradient)">
-          <animateTransform
-            attributeName="transform"
-            type="translate"
-            from="0 0"
-            to="0 -4"
-            dur="1.618s"
-            repeatCount="indefinite"
-            additive="sum"
-          />
+          <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -4" dur="1.618s" repeatCount="indefinite" additive="sum" />
         </path>
-      
-        <!-- Inner Glow -->
         <circle cx="32" cy="32" r="5" fill="url(#arrowGlowGradient)" opacity="0.8">
           <animate attributeName="r" from="5" to="10" dur="1.618s" repeatCount="indefinite" />
           <animate attributeName="opacity" from="0.8" to="0.4" dur="1.618s" repeatCount="indefinite" />
         </circle>
       </svg>
-      
-  </a>
-</div>
+    </a>
+  </div>
 
-
-  <!-- Embedded JavaScript for the Skyriz Section -->
   <script>
-    // Minimal JavaScript: Assign animation delays based on the golden ratio
+    // Example: assign animation delays to decorative shapes (if any exist)
     document.addEventListener('DOMContentLoaded', () => {
       const phi = 1.618;
-      const shapes = document.querySelectorAll('#skyriz .decorative-shape');
-
+      const shapes = document.querySelectorAll('#verahai .decorative-shape');
       shapes.forEach((shape, index) => {
-        // Assign animation delays based on phi ratio to create non-repetitive patterns
         const delay = (index + 1) * phi;
         shape.style.animationDelay = `${delay}s`;
       });
     });
   </script>
 </section>
+
 
 
 
@@ -3709,7 +3616,7 @@
       <a href="#showcase">Capabilities</a>
       <a href="#kai-turah">Kai-Turah</a>
       <a href="#asterion">Asterion</a>
-      <a href="#skyriz">Skyriz</a>
+      <a href="#verahai">Vérahai</a>
       <a href="#noosphere-intro">Noosphere</a>
       <a href="#kojib-consulting">Elevate Your Business</a>
       <a href="#contact">Discover Innovation</a>

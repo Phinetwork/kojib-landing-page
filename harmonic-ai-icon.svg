@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Radial gradient for the outer circle -->
+    <radialGradient id="harmonicGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8a2be2"/>
+      <stop offset="100%" stop-color="#00ced1"/>
+    </radialGradient>
+    <!-- Optional glow filter for added depth -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer pulsing circle with glow -->
+  <circle cx="32" cy="32" r="30" fill="url(#harmonicGradient)" opacity="0.85" filter="url(#glow)">
+    <!-- Animate radius to pulse -->
+    <animate attributeName="r" values="28;30;28" dur="3s" repeatCount="indefinite"/>
+    <!-- Animate opacity for a soft pulse -->
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Harmonic wave group -->
+  <g id="waveGroup">
+    <!-- First wave path -->
+    <path d="M4,32 Q16,22 28,32 T52,32" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round">
+      <!-- Wave undulation -->
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <!-- Second wave path (offset and opposite motion) -->
+    <path d="M4,36 Q16,26 28,36 T52,36" stroke="#00ff99" stroke-width="2" fill="none" stroke-linecap="round">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,3;0,0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </path>
+  </g>
+  
+  <!-- Node circles along the waves -->
+  <circle cx="16" cy="28" r="2" fill="#ffffff">
+    <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="40" cy="28" r="2" fill="#ffffff">
+    <animate attributeName="r" values="2;3;2" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+  </circle>
+</svg>
