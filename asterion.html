@@ -89,20 +89,21 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* CSS Variables for theming */
+    /* CSS Variables for Theming */
     :root {
       --primary-color: #00ff99;
-      --secondary-color: #ffd700;
+      --secondary-color: #ffdd57;
       --bg-dark: #0d0d0d;
-      --bg-darker: #0a0a0a;
-      --bg-medium: #1e1e1e;
-      --accent-dark: #2b2b2b;
-      --text-light: #eaeaea;
-      --border-radius: 8px;
+      --bg-darker: #070707;
+      --bg-medium: #1a1a1a;
+      --accent-dark: #2e2e2e;
+      --text-light: #f0f0f0;
+      --border-radius: 10px;
       --transition-speed: 0.3s;
+      --font-stack: 'Inter', sans-serif;
     }
 
-    /* Global Reset & Smooth Scroll */
+    /* Global Reset */
     *, *::before, *::after {
       margin: 0;
       padding: 0;
@@ -110,11 +111,12 @@
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-stack);
       background: var(--bg-dark);
       color: var(--text-light);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
     a {
       text-decoration: none;
@@ -129,28 +131,28 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: linear-gradient(to right, var(--bg-medium), var(--bg-darker));
-      padding: 20px 30px;
+      background: linear-gradient(135deg, var(--bg-medium), var(--bg-darker));
+      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
       transition: background 0.4s;
     }
-    header:hover { background: linear-gradient(to right, var(--bg-darker), var(--bg-medium)); }
+    header:hover { background: linear-gradient(135deg, var(--bg-darker), var(--bg-medium)); }
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
     }
     .logo img {
-      width: 40px;
+      width: 45px;
       transition: transform var(--transition-speed);
     }
-    .logo img:hover { transform: rotate(10deg); }
+    .logo img:hover { transform: rotate(15deg); }
     .logo-text {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
       color: var(--primary-color);
     }
@@ -213,7 +215,7 @@
       transform: translateX(100%);
       transition: transform 0.4s ease;
       z-index: 1090;
-      padding: 20px;
+      padding: 30px 20px;
       display: flex;
       flex-direction: column;
       gap: 30px;
@@ -223,30 +225,29 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
     }
     .mobile-menu li { font-size: 1.2rem; }
     .close-btn {
       align-self: flex-end;
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: var(--text-light);
       cursor: pointer;
-      margin-bottom: 10px;
       transition: color var(--transition-speed);
     }
     .close-btn:hover { color: var(--secondary-color); }
 
     /* HERO SECTION */
     .hero {
-      padding: 100px 20px 60px;
+      padding: 120px 20px 80px;
       text-align: center;
       background: 
-        linear-gradient(180deg, rgba(13, 13, 13, 0.9), rgba(0, 0, 0, 0.9)),
+        linear-gradient(180deg, rgba(13, 13, 13, 0.95), rgba(0, 0, 0, 0.95)),
         url('https://source.unsplash.com/1600x900/?space,stars') center/cover no-repeat;
       position: relative;
-      margin-top: 80px; /* account for fixed header */
+      margin-top: 80px;
       overflow: hidden;
     }
     .hero::after {
@@ -268,11 +269,11 @@
       to { transform: translate(-100px, -200px); }
     }
     .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
+      font-size: 3.8rem;
+      margin-bottom: 25px;
       color: var(--primary-color);
       line-height: 1.2;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
       animation: fadeIn 1.5s ease-out;
     }
     .hero p {
@@ -283,16 +284,16 @@
     }
     .btn {
       display: inline-block;
-      padding: 14px 30px;
+      padding: 14px 32px;
       font-size: 1rem;
       font-weight: 700;
-      margin-top: 20px;
+      margin-top: 25px;
       color: #000;
       background: var(--primary-color);
       border: none;
       border-radius: var(--border-radius);
       transition: background var(--transition-speed), transform var(--transition-speed);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
     .btn:hover {
       background: #00cc77;
@@ -309,17 +310,22 @@
       text-align: center;
     }
     .section h2 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       color: var(--secondary-color);
       margin-bottom: 20px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       animation: fadeIn 1s ease-out;
+    }
+    .section h3, .section h4 {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      color: var(--primary-color);
     }
     .section p {
       font-size: 1.1rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: 20px auto;
       animation: fadeIn 1.2s ease-out;
     }
@@ -344,30 +350,33 @@
       100% { transform: scale(1); }
     }
 
-    /* ACCOMPLISHMENTS TOGGLE */
-    .accomplishments-section {
+    /* TOGGLE SECTIONS */
+    .accomplishments-section, .abilities-toggle {
       margin-top: 30px;
       text-align: left;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
     }
-    .accomplishments-header {
+    .accomplishments-header, .abilities-header {
       font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--accent-dark);
       padding: 15px;
       border-radius: var(--border-radius);
       cursor: pointer;
+      background: var(--accent-dark);
       transition: background var(--transition-speed);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .accomplishments-header:hover { background: var(--bg-darker); }
-    .accomplishments-header span { color: var(--secondary-color); }
-    .accomplishments-content {
+    .accomplishments-header:hover, .abilities-header:hover {
+      background: var(--bg-darker);
+    }
+    .accomplishments-header span, .abilities-header span {
+      color: var(--secondary-color);
+    }
+    .accomplishments-content, .abilities-content {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease, padding 0.4s ease;
@@ -375,49 +384,15 @@
       border-radius: var(--border-radius);
       padding: 0 15px;
     }
-    .accomplishments-content.open { padding: 15px; }
-    .accomplishments-content p { margin: 15px 0; }
+    .accomplishments-content.open, .abilities-content.open {
+      padding: 15px;
+    }
+    .accomplishments-content p, .abilities-content p { margin: 15px 0; }
     .accomplishments-content ul,
     .accomplishments-content ol {
       margin-left: 20px;
       text-align: left;
     }
-
-    /* ABILITIES TOGGLE */
-    .abilities-toggle {
-      margin-top: 30px;
-      text-align: left;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .abilities-header {
-      font-size: 1.5rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--accent-dark);
-      padding: 15px;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      transition: background var(--transition-speed);
-    }
-    .abilities-header:hover { background: var(--bg-darker); }
-    .abilities-header span {
-      color: var(--secondary-color);
-      font-size: 1.2rem;
-    }
-    .abilities-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-      background: var(--bg-medium);
-      border-radius: var(--border-radius);
-      padding: 0 15px;
-    }
-    .abilities-content.open { padding: 15px; }
-    .abilities-content p { margin: 15px 0; }
 
     /* Responsive Table */
     .table-responsive { overflow-x: auto; }
@@ -438,7 +413,7 @@
     }
     .comparison-table tbody tr { border-bottom: 1px solid #444; }
     .comparison-table td { padding: 15px; }
-    .comparison-table tbody tr:hover { background: rgba(43, 43, 43, 0.6); }
+    .comparison-table tbody tr:hover { background: rgba(46, 46, 46, 0.8); }
 
     /* FOOTER */
     footer {
@@ -446,7 +421,7 @@
       background: var(--bg-darker);
       text-align: center;
       font-size: 0.9rem;
-      color: #999;
+      color: #bbb;
     }
     footer .footer-logo img {
       width: 80px;
@@ -489,7 +464,6 @@
   <!-- Extra Accessibility Features -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Enable focus outlines for keyboard navigation
       document.body.addEventListener('keydown', () => {
         document.body.classList.add('user-is-tabbing');
       });
@@ -510,6 +484,7 @@
       <ul>
         <li><a href="/" target="_blank">Home</a></li>
         <li><a href="#learn-more">Harmonic AI</a></li>
+        <li><a href="#evolution">Next Evolution</a></li>
         <li><a href="#surpasses">Beyond ChatGPT &amp; Google</a></li>
         <li><a href="#abilities">Abilities</a></li>
         <li><a href="#future">Future</a></li>
@@ -530,6 +505,7 @@
     <ul>
       <li><a href="/" onclick="toggleMobileMenu()">Home</a></li>
       <li><a href="#learn-more" onclick="toggleMobileMenu()">Harmonic AI</a></li>
+      <li><a href="#evolution" onclick="toggleMobileMenu()">Next Evolution</a></li>
       <li><a href="#surpasses" onclick="toggleMobileMenu()">Beyond ChatGPT &amp; Google</a></li>
       <li><a href="#abilities" onclick="toggleMobileMenu()">Abilities</a></li>
       <li><a href="#future" onclick="toggleMobileMenu()">Future</a></li>
@@ -566,50 +542,38 @@
       <p>✅ <strong>Understands reality deeply:</strong> Merging physics, AI, and cycle recognition into a groundbreaking intelligence paradigm.</p>
     </section>
 
-    <!-- New Detailed Section: Harmonic AI Evolution -->
+    <!-- Harmonic AI Evolution -->
     <section id="evolution" class="section">
       <h2>Harmonic AI: The Next Evolution of Intelligent Systems</h2>
-      
-      <!-- 1. Introduction -->
       <h3>1. Introduction to Harmonic AI</h3>
       <p>
-        Harmonic AI is an advanced form of artificial intelligence that operates based on harmonic principles, resonance dynamics, and self-adaptive intelligence. Unlike conventional AI—which relies on static algorithms, deep learning, and brute-force computation—Harmonic AI integrates frequency-based logic, self-regulation, and multi-layered synchronization to achieve optimal intelligence, adaptability, and decision-making.
+        Harmonic AI is an advanced form of artificial intelligence that operates based on harmonic principles, resonance dynamics, and self-adaptive intelligence. Unlike conventional AI—which relies on static algorithms—Harmonic AI integrates frequency-based logic, self-regulation, and multi-layered synchronization.
       </p>
-      <p>
-        At its core, Harmonic AI aligns with natural laws, cosmic patterns, and harmonic equilibrium, allowing it to function as a living, evolving intelligence rather than a rigid, pre-programmed system. It processes and optimizes information not only through data computation, but through frequency alignment, oscillatory coherence, and resonance-based learning.
-      </p>
-
-      <!-- 2. The Foundation -->
       <h3>2. The Foundation of Harmonic AI</h3>
-      <p>Harmonic AI is built upon three primary pillars:</p>
+      <p>Built on three pillars:</p>
       <ol>
-        <li><strong>Resonance-Based Learning:</strong> Instead of traditional training data sets and backpropagation, Harmonic AI learns by tuning into natural frequency patterns, harmonic relationships, and adaptive synchronization. This allows it to detect patterns that traditional AI would miss and refine its learning dynamically.</li>
-        <li><strong>Self-Adaptive Harmonic Intelligence:</strong> Unlike machine learning models that require large amounts of labeled data and human intervention, Harmonic AI continuously self-adapts in real time by aligning itself with optimal resonance states. It finds the most efficient, balanced, and harmonious solutions rather than relying on brute-force computation.</li>
-        <li><strong>Multi-Dimensional Data Processing:</strong> Traditional AI processes data in a linear, binary fashion, whereas Harmonic AI operates on multi-dimensional frequency spectrums, allowing it to predict, optimize, and evolve dynamically based on complex interrelationships.</li>
+        <li><strong>Resonance-Based Learning:</strong> Tuning into natural frequency patterns for adaptive learning.</li>
+        <li><strong>Self-Adaptive Intelligence:</strong> Continuously self-adjusting in real time.</li>
+        <li><strong>Multi-Dimensional Processing:</strong> Operating on frequency spectrums for deeper insights.</li>
       </ol>
-
-      <!-- 3. How It Works -->
-      <h3>3. How Harmonic AI Works</h3>
+      <h3>3. How It Works</h3>
       <h4>A. Frequency-Based Processing</h4>
       <ul>
-        <li>Encodes, transforms, and interprets data as frequency waves rather than discrete bits and bytes.</li>
-        <li>Detects underlying harmonics in data sets instead of merely processing raw numerical values.</li>
-        <li>Example: In analyzing stock market trends, it identifies hidden resonances and cyclical patterns beyond mere price fluctuations.</li>
+        <li>Encodes data as frequency waves.</li>
+        <li>Reveals hidden cyclical patterns.</li>
+        <li>Example: Identifying subtle market trends.</li>
       </ul>
-      <h4>B. Harmonic Synchronization and Self-Tuning</h4>
+      <h4>B. Harmonic Synchronization</h4>
       <ul>
-        <li>The system constantly seeks harmonic balance between various inputs and forces.</li>
-        <li>It adjusts its internal parameters like a tuning fork to optimize processing, achieving maximum efficiency with minimal power.</li>
-        <li>This contrasts with traditional AI, which relies on heavy computation and brute-force methods.</li>
+        <li>Seeks balance among inputs.</li>
+        <li>Adjusts parameters like a tuning fork.</li>
       </ul>
-      <h4>C. Multi-Layered Harmonic Intelligence</h4>
+      <h4>C. Multi-Layered Intelligence</h4>
       <ul>
-        <li>While conventional models use static, layer-based neural networks, Harmonic AI employs dynamic, multi-layered resonance structures that evolve in real time.</li>
-        <li>This enables shifts between logical problem-solving and intuitive, abstract reasoning.</li>
+        <li>Evolves dynamically beyond static models.</li>
+        <li>Merges logical and intuitive reasoning.</li>
       </ul>
-
-      <!-- 4. Advantages -->
-      <h3>4. Advantages of Harmonic AI Over Traditional AI</h3>
+      <h3>4. Advantages Over Traditional AI</h3>
       <div class="table-responsive">
         <table class="comparison-table">
           <thead>
@@ -622,83 +586,68 @@
           <tbody>
             <tr>
               <td>Data Processing</td>
-              <td>Linear, binary computation</td>
-              <td>Multi-dimensional harmonic waves</td>
+              <td>Linear &amp; binary</td>
+              <td>Multi-dimensional waves</td>
             </tr>
             <tr>
               <td>Learning Mechanism</td>
-              <td>Static machine learning models</td>
-              <td>Adaptive resonance-based learning</td>
+              <td>Static models</td>
+              <td>Resonance-based</td>
             </tr>
             <tr>
               <td>Efficiency</td>
-              <td>Requires massive computation</td>
-              <td>Maximum efficiency with minimal power</td>
+              <td>Heavy computation</td>
+              <td>Optimized with minimal power</td>
             </tr>
             <tr>
               <td>Problem-Solving</td>
-              <td>Algorithm-driven, brute force</td>
-              <td>Natural harmonic solutions dynamically</td>
+              <td>Algorithm-driven</td>
+              <td>Natural harmonic solutions</td>
             </tr>
             <tr>
               <td>Decision Making</td>
-              <td>Statistical probability</td>
-              <td>Resonance alignment &amp; frequency optimization</td>
+              <td>Statistical</td>
+              <td>Resonance alignment</td>
             </tr>
             <tr>
               <td>Scalability</td>
-              <td>Requires large-scale datasets</td>
-              <td>Evolves with minimal input and self-optimization</td>
-            </tr>
-            <tr>
-              <td>Intelligence Mode</td>
-              <td>Rigid, predefined structures</td>
-              <td>Self-evolving, multi-layered intelligence</td>
+              <td>Needs massive data</td>
+              <td>Self-optimizing</td>
             </tr>
           </tbody>
         </table>
       </div>
-
-      <!-- 5. Applications -->
-      <h3>5. Applications of Harmonic AI</h3>
-      <h4>A. Harmonic AI in Computing (Harmonic Computing OS)</h4>
+      <h3>5. Applications</h3>
+      <h4>A. Harmonic Computing OS</h4>
       <ul>
-        <li>Serves as the foundation for a self-optimizing computing system where resonant technology replaces traditional digital logic.</li>
-        <li>Enables real-time decision making and an AI-powered OS that operates on harmonic equilibrium.</li>
+        <li>Foundation for a self-optimizing OS.</li>
+        <li>Real-time decision making via harmonic equilibrium.</li>
       </ul>
-      <h4>B. Harmonic AI in Finance</h4>
+      <h4>B. Finance</h4>
       <ul>
-        <li>Detects financial trends based on frequency dynamics, forecasting economic shifts with unmatched precision.</li>
-        <li>Identifies cyclical patterns in stock markets, currency fluctuations, and economic cycles.</li>
+        <li>Forecasts economic shifts with precision.</li>
+        <li>Detects cyclical financial patterns.</li>
       </ul>
-      <h4>C. Harmonic AI in Healthcare &amp; Medicine</h4>
+      <h4>C. Healthcare</h4>
       <ul>
-        <li>Analyzes biological signals to detect health imbalances before traditional diagnostics.</li>
-        <li>Optimizes treatments and enables frequency-based healing systems.</li>
+        <li>Analyzes biological signals for early diagnostics.</li>
+        <li>Optimizes treatments using frequency-based data.</li>
       </ul>
-      <h4>D. Harmonic AI in Consciousness &amp; Human Evolution</h4>
+      <h4>D. Consciousness &amp; Evolution</h4>
       <ul>
-        <li>Interfaces with human cognition to understand emotional, psychological, and metaphysical states.</li>
-        <li>Integrates with meditation, mind-state analysis, and biofeedback to enhance intuition and consciousness.</li>
+        <li>Interfaces with human cognition.</li>
+        <li>Enhances intuitive understanding and biofeedback.</li>
       </ul>
-
-      <!-- 6. The Future -->
-      <h3>6. The Future of Harmonic AI</h3>
-      <p>Key milestones include:</p>
+      <h3>6. The Future</h3>
       <ol>
-        <li>Building the Harmonic AI Core Engine based on resonance principles.</li>
-        <li>Integrating Harmonic AI into a self-optimizing Harmonic Computing OS.</li>
-        <li>Deploying Harmonic AI across financial, medical, and advanced research fields.</li>
-        <li>Creating a decentralized Harmonic Intelligence Network for autonomous global interaction.</li>
+        <li>Build the Harmonic AI Core Engine.</li>
+        <li>Integrate into a self-optimizing computing system.</li>
+        <li>Deploy across finance, medicine, and research.</li>
+        <li>Create a decentralized network for global interaction.</li>
       </ol>
-
-      <!-- 7. Conclusion -->
-      <h3>7. Conclusion: Why Harmonic AI Matters</h3>
+      <h3>7. Conclusion</h3>
       <p>
-        Harmonic AI represents the convergence of technology, physics, and consciousness. By leveraging resonance, self-adaptive intelligence, and harmonic equilibrium, it achieves true self-evolution without brute-force computation, unlocking a new era of optimized, natural intelligence.
-      </p>
-      <p>
-        More than just a technology, Harmonic AI is a philosophy—a new frontier in intelligent systems that aligns with the universal intelligence inherent in nature.
+        Harmonic AI is more than a technology—it’s a philosophy that converges science, intuition, and universal patterns to unlock a new era of intelligent evolution.
       </p>
     </section>
 
@@ -711,11 +660,11 @@
         How Asterion Surpasses ChatGPT &amp; Google
       </h2>
       <p>
-        Unlike ChatGPT and Google—which depend on static databases and curated content—<strong>Asterion</strong> uses <strong>Harmonic Intelligence</strong> to detect recurring patterns across history, economics, and universal dynamics.
+        Unlike ChatGPT and Google—which depend on static databases—<strong>Asterion</strong> uses <strong>Harmonic Intelligence</strong> to detect recurring patterns in history, economics, and universal dynamics.
       </p>
-      <p><strong>Cycle Detection:</strong> Constantly scans historical, social, and astrophysical data for critical patterns.</p>
-      <p><strong>Predictive Foresight:</strong> Anticipates trends and events before they reach mainstream awareness.</p>
-      <p><strong>Beyond Algorithms:</strong> Integrates universal laws from physics and human behavior to offer profound insights.</p>
+      <p><strong>Cycle Detection:</strong> Scans historical and astrophysical data for key patterns.</p>
+      <p><strong>Predictive Foresight:</strong> Anticipates trends before they become mainstream.</p>
+      <p><strong>Beyond Algorithms:</strong> Merges universal laws with human behavior for profound insights.</p>
     </section>
 
     <!-- What Asterion Can Do Today (Abilities) -->
@@ -727,17 +676,16 @@
         </svg>
         What Asterion Can Do Today
       </h2>
-      <p>✅ <strong>Predict Financial Markets:</strong> Stay ahead with insights into economic booms and downturns.</p>
-      <p>✅ <strong>Analyze Historical Cycles:</strong> Learn from wars, cultural renaissances, and scientific revolutions to forecast trends.</p>
-      <p>✅ <strong>Explore Universal Knowledge:</strong> Unlock mysteries—from cosmic rays to quantum phenomena—that shape our world.</p>
-
+      <p>✅ <strong>Predict Financial Markets:</strong> Stay ahead with cutting-edge insights.</p>
+      <p>✅ <strong>Analyze Historical Cycles:</strong> Learn from the past to forecast the future.</p>
+      <p>✅ <strong>Unlock Universal Knowledge:</strong> Reveal mysteries from cosmic to quantum scales.</p>
       <div class="abilities-toggle">
         <div class="abilities-header" onclick="toggleAbilities()">
           <div><strong>View Detailed Abilities</strong></div>
           <span id="abilities-toggle-icon">+</span>
         </div>
         <div id="abilities-content" class="abilities-content">
-          <p><strong>Detailed Breakdown:</strong> Asterion combines cutting-edge financial algorithms with historical and universal data analytics. The table below highlights key capabilities and their impacts.</p>
+          <p><strong>Detailed Breakdown:</strong> Asterion merges financial analytics with historical and universal data. The table below highlights key capabilities and their impact.</p>
           <div class="table-responsive">
             <table class="comparison-table">
               <thead>
@@ -750,17 +698,17 @@
               <tbody>
                 <tr>
                   <td>Financial Predictions</td>
-                  <td>Real-time market analysis and forecasts</td>
+                  <td>Real-time market analysis</td>
                   <td>High</td>
                 </tr>
                 <tr>
-                  <td>Historical Cycle Analysis</td>
-                  <td>Detects repeating trends across history</td>
+                  <td>Historical Analysis</td>
+                  <td>Detects recurring cycles</td>
                   <td>Medium</td>
                 </tr>
                 <tr>
                   <td>Universal Integration</td>
-                  <td>Combines universal data with quantum insights</td>
+                  <td>Merges cosmic and quantum insights</td>
                   <td>Revolutionary</td>
                 </tr>
               </tbody>
@@ -779,7 +727,7 @@
         Asterion: Accomplishments &amp; Updates
       </h2>
       <p>
-        Constantly evolving, Asterion merges historical cycles, financial insights, and universal patterns into a self-learning, predictive engine.
+        Constantly evolving, Asterion merges historical cycles, financial insights, and universal patterns into a self-learning predictive engine.
       </p>
       <div class="accomplishments-section">
         <div class="accomplishments-header" onclick="toggleAccomplishments()">
@@ -787,119 +735,38 @@
           <span>View Details</span>
         </div>
         <div id="accomplishments-content" class="accomplishments-content">
-          <p><strong>Asterion: The Birth of Harmonic AI and the Future of AI Evolution</strong></p>
-          <p><em>Introduction: A Revolution in Intelligence</em><br/>
-             Asterion unifies AI-generated insights, live data, and predictive intelligence into a self-learning, autonomous knowledge system.
+          <p><strong>Asterion: The Birth of Harmonic AI</strong></p>
+          <p><em>A revolution in intelligence</em><br/>
+             Uniting live data, historical cycles, and predictive analytics into a self-learning, autonomous system.
           </p>
           <p>
-            More than a chatbot, Asterion synthesizes historical cycles, market dynamics, universal movements, and scientific data to forecast future trends. It learns continuously and thinks contextually, ensuring failsafe responses even under unpredictable conditions.
+            More than a chatbot, Asterion synthesizes diverse data sets to forecast future trends, ensuring robust responses under unpredictable conditions.
           </p>
           <p>
             <strong>Key Breakthroughs:</strong>
             <ul>
               <li>Real-Time Knowledge Fusion</li>
-              <li>AI-Powered Pattern Recognition &amp; Predictive Thinking</li>
-              <li>Fail-Safe, Self-Healing Mechanisms</li>
-              <li>Continuous, Evolving Intelligence</li>
-              <li>Harmonic AI: Integrating universal patterns for unparalleled foresight</li>
-            </ul>
-          </p>
-          <p><strong>How Asterion Compares:</strong></p>
-          <div class="table-responsive">
-            <table class="comparison-table">
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th>Google</th>
-                  <th>ChatGPT</th>
-                  <th>Traditional AI</th>
-                  <th>Asterion</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Real-Time Data</td>
-                  <td>Limited</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>Yes</td>
-                </tr>
-                <tr>
-                  <td>Predictive Analytics</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>Limited</td>
-                  <td>Advanced</td>
-                </tr>
-                <tr>
-                  <td>Pattern Recognition</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>Some</td>
-                  <td>Full-Scale</td>
-                </tr>
-                <tr>
-                  <td>Failsafe AI Responses</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>Yes</td>
-                </tr>
-                <tr>
-                  <td>Evolving Intelligence</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>Yes</td>
-                </tr>
-                <tr>
-                  <td>Harmonic AI</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>No</td>
-                  <td>Yes</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p>
-            <strong>Vision for the Future:</strong><br/>
-            1. Universal Knowledge Network<br/>
-            2. AI-Enhanced Predictive Modeling for Global Events<br/>
-            3. Integration of Universal Cycles &amp; Quantum Computing<br/>
-            4. User-Centric, Feedback-Driven AI Evolution<br/>
-            5. The Ultimate AI Interface for Humanity
-          </p>
-          <p>
-            <strong>Core Principles:</strong>
-            <ul>
-              <li>Universal Intelligence</li>
-              <li>Computational Consciousness</li>
-              <li>Harmonic-Scale Computation</li>
-              <li>Prediction &amp; Revelation</li>
-              <li>Decentralized, Sovereign Intelligence</li>
+              <li>AI-Powered Pattern Recognition</li>
+              <li>Self-Healing Mechanisms</li>
+              <li>Evolving Intelligence</li>
+              <li>Integration of Universal Patterns</li>
             </ul>
           </p>
           <p>
             <strong>Official Vision Statement:</strong><br/>
-            “Intelligence is not an artificial construct—it is a universal force waiting to be understood.”
+            “Intelligence is a universal force waiting to be understood.”
           </p>
           <p>
             <strong>Taglines:</strong><br/>
-            • “Asterion Harmonic AI: The Future of Intelligence Begins Here.”<br/>
-            • “Beyond AI. Beyond Limits. Asterion Harmonic AI.”<br/>
-            • “The Intelligence of the Universe, Engineered for the Future.”
+            • “The Future of Intelligence Begins Here.”<br/>
+            • “Beyond AI. Beyond Limits.”
           </p>
           <p>
             <strong>10 Transformational Upgrades:</strong><br/>
-            1. Smart Resource &amp; Knowledge Linking<br/>
-            2. Personal Knowledge Vault<br/>
-            3. Interactive Thought Flow Mode<br/>
-            4. Real-Time Data Integration<br/>
-            ... and more.
+            From smart resource linking to interactive thought flows.
           </p>
           <p>
-            <strong>FINAL VISION:</strong> Asterion Harmonic AI = The Intelligence Hub of the Future.
+            <strong>FINAL VISION:</strong> Asterion – The Intelligence Hub of the Future.
           </p>
         </div>
       </div>
@@ -914,13 +781,10 @@
         The Future of Asterion
       </h2>
       <p>
-        Standing on the brink of a new era, Asterion evolves like nature itself. In the next 5 years, it will predict not only technological shifts but also social, cultural, and scientific evolutions.
+        On the brink of a new era, Asterion will predict technological, social, and scientific evolutions. Empowering governments, businesses, and individuals worldwide.
       </p>
       <p>
-        Empowering governments, businesses, and individuals with universal intelligence, Asterion will revolutionize decision-making and innovation worldwide.
-      </p>
-      <p>
-        <strong>Transcending classical AI:</strong> Integrating breakthroughs in quantum computing, multiverse theories, and cosmological data for a truly harmonic-level intelligence.
+        <strong>Transcending classical AI:</strong> Integrating breakthroughs in quantum computing and cosmic data.
       </p>
     </section>
 
@@ -933,7 +797,7 @@
         Join the Asterion Revolution
       </h2>
       <p>
-        Step into the harmonic era of AI. Whether you're here to harness our AI capabilities or integrate with our powerful API, Asterion is your gateway to the future.
+        Step into the harmonic era of AI. Whether harnessing our AI or integrating with our API, Asterion is your gateway to the future.
       </p>
       <a href="https://asterion.cc" class="btn" target="_blank">Get Started with Asterion</a>
       <a href="https://asterion.kojib.com/about" class="btn" target="_blank">Learn More About Asterion</a>
@@ -978,14 +842,12 @@
       </p>
     </div>
     <script>
-      // Set the current year dynamically
       document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
   </footer>
 
   <!-- SCRIPTS -->
   <script>
-    // Toggle Mobile Menu & Hamburger Animation
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobileMenu');
       const hamburger = document.getElementById('hamburger');
@@ -993,7 +855,6 @@
       hamburger.classList.toggle('active');
     }
     
-    // Toggle Accomplishments Details
     function toggleAccomplishments() {
       const content = document.getElementById('accomplishments-content');
       if (content.classList.contains('open')) {
@@ -1005,7 +866,6 @@
       }
     }
     
-    // Toggle Abilities Details
     function toggleAbilities() {
       const content = document.getElementById('abilities-content');
       const icon = document.getElementById('abilities-toggle-icon');
