@@ -30,7 +30,7 @@ const roomInput = document.getElementById("room-input");
 const sendRoomMessage = document.getElementById("send-room-message");
 
 // Backend API URLs
-const CHATBOT_API_URL = "https://asterion-chatbackend.vercel/api/chat";
+const CHATBOT_API_URL = "https://chatbot-backend-ruby-three.vercel.app/api/chat";
 const SOCIAL_BACKEND_URL = "https://social-backend-tsg5.onrender.com";
 
 // Conversation history to maintain AI Assistant context
