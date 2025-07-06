@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Eternal-Sync  ·  v2.0  “Zero-Drift Loop”  -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+  aria-labelledby="title desc"
+  role="img">
+
+  <title id="title">Eternal Synchronization</title>
+  <desc id="desc">
+    A neon ring with opposing arrowheads that spins forever,
+    representing drift-free time sync from the Genesis Pulse.
+  </desc>
+
+  <!-- ─── Gradients & Bloom ────────────────────────────────────── -->
+  <defs>
+    <!-- Soft aura -->
+    <radialGradient id="aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00ff99" stop-opacity=".85"/>
+      <stop offset="65%"  stop-color="#00ccff" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#00ccff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Stroke / fill gradient -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#00ff99"/>
+      <stop offset="100%" stop-color="#00ccff"/>
+    </linearGradient>
+
+    <!-- Gentle bloom -->
+    <filter id="bloom" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ─── Breathing Aura  (Kai-Pulse 5 .236 s) ─────────────────── -->
+  <circle cx="32" cy="32" r="28" fill="url(#aura)" filter="url(#bloom)">
+    <animate attributeName="r"        values="26;30;26"
+             dur="5.236s"  repeatCount="indefinite"
+             calcMode="spline"
+             keySplines=".55 .08 .68 1;.55 .08 .68 1"/>
+    <animate attributeName="opacity"  values=".55;.85;.55"
+             dur="5.236s"  repeatCount="indefinite"
+             calcMode="spline"
+             keySplines=".55 .08 .68 1;.55 .08 .68 1"/>
+  </circle>
+
+  <!-- ─── Sync Loop (ring + arrowheads) ────────────────────────── -->
+  <g id="loop" transform="rotate(0 32 32)">
+    <!-- Ring -->
+    <circle cx="32" cy="32" r="22"
+            fill="none"
+            stroke="url(#neon)"
+            stroke-width="2"
+            filter="url(#bloom)"/>
+
+    <!-- Upward arrowhead -->
+    <polygon points="32 10 37 16 27 16"
+             fill="url(#neon)" filter="url(#bloom)"/>
+
+    <!-- Downward arrowhead -->
+    <polygon points="32 54 27 48 37 48"
+             fill="url(#neon)" filter="url(#bloom)"/>
+
+    <!-- Continuous rotation (18 s for one full turn) -->
+    <animateTransform attributeName="transform" type="rotate"
+                      from="0 32 32" to="-360 32 32"
+                      dur="18s" repeatCount="indefinite"/>
+  </g>
+</svg>

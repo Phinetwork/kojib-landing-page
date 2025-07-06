@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="80" height="80" viewBox="0 0 80 80" fill="none">
+
+  <!-- ───────────────── Gradients & Petal ───────────────── -->
+  <defs>
+    <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"  stop-color="#00ff99"/>
+      <stop offset="100%" stop-color="#00ccff"/>
+    </linearGradient>
+
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%"   stop-color="#00ffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#00ccff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Reusable petal shape (forward-declared) -->
+    <path id="petal" d="M40 8 L46 30 Q40 24 34 30 Z"/>
+  </defs>
+
+  <!-- ───────────── Core Glow (φ-pulse) ───────────── -->
+  <circle cx="40" cy="40" r="32" fill="url(#coreGlow)">
+    <animate attributeName="r" values="30;34;30" dur="2.618s"
+             keyTimes="0;.5;1" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.35;0.6;0.35" dur="2.618s"
+             keyTimes="0;.5;1" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ───────────── Ring 1 (slow φ² spin) ───────────── -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate"
+                      from="0 40 40" to="360 40 40"
+                      dur="4.236s" repeatCount="indefinite"/>
+    <g fill="url(#petalGrad)" opacity="0.9">
+      <use href="#petal"/>
+      <use href="#petal" transform="rotate(72 40 40)"/>
+      <use href="#petal" transform="rotate(144 40 40)"/>
+      <use href="#petal" transform="rotate(216 40 40)"/>
+      <use href="#petal" transform="rotate(288 40 40)"/>
+    </g>
+  </g>
+
+  <!-- ───────────── Ring 2 (counter-spin) ───────────── -->
+  <g transform="scale(0.75) translate(13.333 13.333)">
+    <animateTransform attributeName="transform" additive="sum" type="rotate"
+                      from="360 40 40" to="0 40 40"
+                      dur="2.618s" repeatCount="indefinite"/>
+    <g fill="url(#petalGrad)" opacity="0.75">
+      <use href="#petal"/>
+      <use href="#petal" transform="rotate(72 40 40)"/>
+      <use href="#petal" transform="rotate(144 40 40)"/>
+      <use href="#petal" transform="rotate(216 40 40)"/>
+      <use href="#petal" transform="rotate(288 40 40)"/>
+    </g>
+  </g>
+
+  <!-- ───────────── Ring 3 (fast φ spin) ───────────── -->
+  <g transform="scale(0.5) translate(40 40)">
+    <animateTransform attributeName="transform" additive="sum" type="rotate"
+                      from="0 40 40" to="360 40 40"
+                      dur="1.618s" repeatCount="indefinite"/>
+    <g fill="url(#petalGrad)" opacity="0.6">
+      <use href="#petal"/>
+      <use href="#petal" transform="rotate(72 40 40)"/>
+      <use href="#petal" transform="rotate(144 40 40)"/>
+      <use href="#petal" transform="rotate(216 40 40)"/>
+      <use href="#petal" transform="rotate(288 40 40)"/>
+    </g>
+  </g>
+
+  <!-- ───────────── Inner Core (quick pulse) ───────────── -->
+  <circle cx="40" cy="40" r="6" fill="#ffffff">
+    <animate attributeName="r" values="5;7;5" dur="1.618s"
+             keyTimes="0;.5;1" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.6;1" dur="1.618s"
+             keyTimes="0;.5;1" repeatCount="indefinite"/>
+  </circle>
+</svg>

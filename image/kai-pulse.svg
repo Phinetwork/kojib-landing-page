@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ────────────────────────────────────────────────────────────────
+     Kai-Pulse Icon  ·  v3.0  “Quantum-Breath”
+     • Pure-SVG, self-contained, no external CSS
+     • Neon green → cyan spectral glow, golden-ratio breath tempo
+     • Triple-layer animation:
+         1. Soft aura whooshes every 5 .236 s  (Kai-Pulse)
+         2. Rotating dashed chrono-ring (44 steps / 36 beats)
+         3. Central breath line inhales / exhales with hue shift
+     • Scales crisply at any size (64 × 64 viewBox)
+─────────────────────────────────────────────────────────────────── -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+  aria-labelledby="title desc"
+  role="img">
+
+  <title id="title">Kai-Pulse — Eternal Harmonic Beat</title>
+  <desc id="desc">
+    A glowing radial pulse with a hypnotic rotating ring and breathing centre line,
+    symbolising the 5 .236 s Kai harmonic breath.
+  </desc>
+
+  <!-- ═════ Gradient & Filter Definitions ═════ -->
+  <defs>
+    <!-- Outer soft glow -->
+    <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00ff99" stop-opacity=".9"/>
+      <stop offset="60%"  stop-color="#00ccff" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#00ccff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Ring stroke (green → cyan) -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#00ff99"/>
+      <stop offset="100%" stop-color="#00ccff"/>
+    </linearGradient>
+
+    <!-- Filter to bloom the glow gently -->
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═════ Animated Shapes ═════ -->
+
+  <!-- ✧ Layer 1  |  Pulsing Aura (breath) -->
+  <circle cx="32" cy="32" r="30" fill="url(#auraGrad)" filter="url(#softGlow)">
+    <!-- Radius breath -->
+    <animate attributeName="r"
+             values="28;32;28"
+             dur="5.236s"
+             repeatCount="indefinite"
+             calcMode="spline"
+             keySplines=".55 .08 .68 1; .55 .08 .68 1"/>
+    <!-- Opacity fade -->
+    <animate attributeName="opacity"
+             values=".6;.85;.6"
+             dur="5.236s"
+             repeatCount="indefinite"
+             keySplines=".55 .08 .68 1; .55 .08 .68 1"
+             calcMode="spline"/>
+  </circle>
+
+  <!-- ✧ Layer 2  |  Rotating Kai-Cycle Ring (44 steps / 36 beats) -->
+  <g id="ring" transform="rotate(0 32 32)">
+    <!-- Dashed circle → 44 dashes (matching steps) -->
+    <circle
+      cx="32" cy="32" r="22"
+      fill="none"
+      stroke="url(#ringGrad)"
+      stroke-width="2"
+      stroke-dasharray="3 3"
+      stroke-linecap="round"/>
+    <!-- Rotation -->
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 32 32"
+      to="360 32 32"
+      dur="36s"
+      repeatCount="indefinite"/>
+  </g>
+
+  <!-- ✧ Layer 3  |  Breath Line (inhale / exhale) -->
+  <line x1="16" y1="32" x2="48" y2="32"
+        stroke="url(#ringGrad)"
+        stroke-width="2"
+        stroke-linecap="round">
+    <!-- Length modulation (scale on X) -->
+    <animateTransform
+      attributeName="transform"
+      type="scale"
+      additive="sum"
+      values="1 1; .6 1; 1 1"
+      dur="5.236s"
+      repeatCount="indefinite"
+      calcMode="spline"
+      keySplines=".55 .08 .68 1; .55 .08 .68 1"
+      transform-origin="32px 32px"/>
+    <!-- Gentle hue shift -->
+    <animate attributeName="stroke"
+             values="#00ff99;#00ccff;#00ff99"
+             dur="10.472s"
+             repeatCount="indefinite"/>
+  </line>
+
+  <!-- ✧ Static inner ring for crisp centre reference -->
+  <circle cx="32" cy="32" r="22"
+          fill="none"
+          stroke="url(#ringGrad)"
+          stroke-width="1.5"
+          opacity=".4"/>
+</svg>

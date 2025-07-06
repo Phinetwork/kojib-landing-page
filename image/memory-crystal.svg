@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Memory-Crystal · v4.0  “Prismatic Sigil”  -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  width="64"
+  height="64"
+  aria-labelledby="title desc"
+  role="img">
+
+  <title id="title">Memory-Crystal</title>
+  <desc id="desc">
+    Hexagonal neon crystal that slow-spins with a breathing aura, symbolising
+    immutable sigil storage inside Kai-Klock.
+  </desc>
+
+  <!-- ═════ Gradients & Filter ═════ -->
+  <defs>
+    <!-- Soft outer glow -->
+    <radialGradient id="aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#00ff99" stop-opacity=".8"/>
+      <stop offset="65%" stop-color="#00ccff" stop-opacity=".4"/>
+      <stop offset="100%" stop-color="#00ccff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Prism fill -->
+    <linearGradient id="fill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#00ccff"/>
+      <stop offset="100%" stop-color="#00ff99"/>
+    </linearGradient>
+
+    <!-- Edge stroke -->
+    <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#00ff99"/>
+      <stop offset="100%" stop-color="#00ccff"/>
+    </linearGradient>
+
+    <!-- Gentle bloom filter -->
+    <filter id="bloom" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═════ Breathing Aura (5 .236 s) ═════ -->
+  <circle cx="32" cy="32" r="28" fill="url(#aura)" filter="url(#bloom)">
+    <animate attributeName="r" values="26;30;26"
+             dur="5.236s" repeatCount="indefinite"
+             calcMode="spline"
+             keySplines=".55 .08 .68 1;.55 .08 .68 1"/>
+    <animate attributeName="opacity" values=".55;.85;.55"
+             dur="5.236s" repeatCount="indefinite"
+             calcMode="spline"
+             keySplines=".55 .08 .68 1;.55 .08 .68 1"/>
+  </circle>
+
+  <!-- ═════ Crystal ═════ -->
+  <g id="crystal">
+    <!-- Main hexagonal prism -->
+    <polygon
+      points="32 6 52 18 52 46 32 58 12 46 12 18"
+      fill="url(#fill)"
+      stroke="url(#edge)"
+      stroke-width="2"
+      stroke-linejoin="round"
+      filter="url(#bloom)"/>
+    <!-- Inner facet lines -->
+    <polyline points="32 6 32 58"
+              fill="none" stroke="url(#edge)" stroke-width="1.2" opacity=".6"/>
+    <polyline points="12 18 32 32 52 18"
+              fill="none" stroke="url(#edge)" stroke-width="1.2" opacity=".45"/>
+    <polyline points="12 46 32 32 52 46"
+              fill="none" stroke="url(#edge)" stroke-width="1.2" opacity=".45"/>
+
+    <!-- Continuous axial spin -->
+    <animateTransform attributeName="transform" attributeType="XML"
+                      type="rotate" from="0 32 32" to="360 32 32"
+                      dur="12s" repeatCount="indefinite"/>
+  </g>
+</svg>
